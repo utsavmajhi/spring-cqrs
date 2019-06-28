@@ -1,0 +1,39 @@
+package com.javaverse.projectone.controller;
+
+import com.javaverse.projectone.config.filter.ProductFilter;
+import com.javaverse.projectone.handler.ProductHandler;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.log4j.Log4j2;
+import org.springframework.context.annotation.*;
+import org.springframework.http.codec.ServerSentEvent;
+import org.springframework.web.reactive.function.server.*;
+import reactor.core.publisher.Flux;
+
+import java.time.Duration;
+import java.util.UUID;
+
+import static org.springframework.http.MediaType.*;
+import static org.springframework.web.reactive.function.server.RequestPredicates.accept;
+import static org.springframework.web.reactive.function.server.RouterFunctions.route;
+import static org.springframework.web.reactive.function.server.ServerResponse.ok;
+
+@Log4j2
+@Configuration
+@RequiredArgsConstructor
+public class ProductController {
+
+    @Bean
+    public RouterFunction<ServerResponse> productRouterFunction(ProductHandler handler, ProductFilter filter) {
+        return route()
+                .path("/products", builder -> builder
+                        .GET("/events/sse", accept(APPLICATION_STREAM_JSON), handler::events)
+                        .GET("/{id}", accept(APPLICATION_JSON_UTF8), handler::get)
+                        .GET("", accept(APPLICATION_JSON_UTF8), handler::findAll)  // todo sse
+                        .POST("", accept(APPLICATION_JSON_UTF8), handler::save)
+                        .PUT("", accept(APPLICATION_JSON_UTF8), handler::update)
+                        .DELETE("", accept(APPLICATION_JSON_UTF8), handler::delete)
+                )
+                .before(req -> ServerRequest.from(req).header("X-Correlation-ID", UUID.randomUUID().toString().substring(0, 8)).build())
+                .filter(filter).build();
+    }
+}
