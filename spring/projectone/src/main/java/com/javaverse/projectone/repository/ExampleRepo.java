@@ -14,9 +14,9 @@ public class ExampleRepo {
 
     static {
         employeeData = new HashMap<>();
-        employeeData.put("1", new Product(1, "Employee 1", 1d));
-        employeeData.put("2", new Product(2, "Employee 2", 2d));
-        employeeData.put("3", new Product(3, "Employee 3", 3d));
+        employeeData.put("1", new Product("1", "Employee 1", 1d));
+        employeeData.put("2", new Product("2", "Employee 2", 2d));
+        employeeData.put("3", new Product("3", "Employee 3", 3d));
 
     }
 
