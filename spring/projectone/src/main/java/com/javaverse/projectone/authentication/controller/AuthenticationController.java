@@ -21,10 +21,10 @@ public class AuthenticationController {
 
     private final Validator validator;
     private final TokenProvider provider;
-    private final TokenReactiveAuthenticationManager manager;
+    private final TokenManager manager;
 
     @PostMapping
-    public Mono<Authentication.Out> authorize(@Valid @RequestBody Authentication.In req) {
+    public Mono<Authentication.Response> authorize(@Valid @RequestBody Authentication.Request req) {
         if (!validator.validate(req).isEmpty()) {
             return Mono.error(new RuntimeException("Bad request"));
         }
@@ -32,7 +32,7 @@ public class AuthenticationController {
         ReactiveSecurityContextHolder.withAuthentication(authenticationToken);
         return manager.authenticate(authenticationToken)
                 .doOnError(throwBadCredentialsException())
-                .map(auth -> new Authentication.Out(provider.createToken(auth)));
+                .map(auth -> new Authentication.Response(provider.createToken(auth)));
 
     }
 

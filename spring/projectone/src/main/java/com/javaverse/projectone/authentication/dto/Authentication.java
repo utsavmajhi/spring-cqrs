@@ -13,7 +13,7 @@ public class Authentication {
     @Data
     @NoArgsConstructor
     @AllArgsConstructor
-    public static class In {
+    public static class Request {
         @NotEmpty
         private String username;
 
@@ -24,7 +24,7 @@ public class Authentication {
     @Data
     @NoArgsConstructor
     @AllArgsConstructor
-    public static class Out {
+    public static class Response {
         @NotEmpty
         private String token;
     }

@@ -53,7 +53,7 @@ public class TokenProvider {
         return compact;
     }
 
-    public Authentication getAuthentication(String token) {
+    public Authentication perform(String token) {
         if (StringUtils.isEmpty(token) || !validateToken(token)) {
             throw new BadCredentialsException("Invalid token");
         }
@@ -61,6 +61,7 @@ public class TokenProvider {
                 .setSigningKey(secretKey)
                 .parseClaimsJws(token)
                 .getBody();
+
         Collection<? extends GrantedAuthority> authorities = Arrays
                 .stream(claims.get(AUTHORITIES_KEY).toString().split(","))
                 .map(SimpleGrantedAuthority::new)

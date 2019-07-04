@@ -2,20 +2,23 @@ package com.javaverse.projectone.authentication.config;
 
 import com.javaverse.projectone.authentication.component.*;
 import com.javaverse.projectone.authentication.token.*;
+import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.*;
-import org.springframework.http.HttpMethod;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.config.annotation.method.configuration.EnableReactiveMethodSecurity;
 import org.springframework.security.config.annotation.web.reactive.EnableWebFluxSecurity;
 import org.springframework.security.config.web.server.*;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.web.server.SecurityWebFilterChain;
+import org.springframework.security.web.server.*;
 import org.springframework.security.web.server.authentication.AuthenticationWebFilter;
 import org.springframework.security.web.server.context.*;
+import reactor.core.publisher.Mono;
 
 @Configuration
-@EnableReactiveMethodSecurity
 @EnableWebFluxSecurity
+@RequiredArgsConstructor
+@EnableReactiveMethodSecurity
 public class SecurityConfiguration {
     private static final String[] AUTH_WHITELIST = {
             "/resources/**",
@@ -23,17 +26,12 @@ public class SecurityConfiguration {
             "/authorize/**",
             "/favicon.ico",
     };
-    private final ReactiveUserDetailsServiceImpl reactiveUserDetailsService;
-    private final TokenProvider tokenProvider;
 
-    public SecurityConfiguration(ReactiveUserDetailsServiceImpl reactiveUserDetailsService,
-                                 TokenProvider tokenProvider) {
-        this.reactiveUserDetailsService = reactiveUserDetailsService;
-        this.tokenProvider = tokenProvider;
-    }
+    private final ReactiveUserDetailsServiceImpl service;
+    private final TokenProvider provider;
 
     @Bean
-    public SecurityWebFilterChain springSecurityFilterChain(ServerHttpSecurity http, UnauthorizedAuthenticationEntryPoint entryPoint) {
+    public SecurityWebFilterChain springSecurityFilterChain(ServerHttpSecurity http, ServerAuthenticationEntryPoint ep) {
 
         http.httpBasic().disable()
                 .formLogin().disable()
@@ -42,38 +40,39 @@ public class SecurityConfiguration {
 
         http
                 .exceptionHandling()
-                .authenticationEntryPoint(entryPoint)
-                .and()
+                .authenticationEntryPoint(ep).and()
                 .securityContextRepository(NoOpServerSecurityContextRepository.getInstance())// this line will stop server to return denied
-                .authorizeExchange().pathMatchers("/api/admin**").hasAuthority(AuthoritiesConstants.ADMIN).and()
-                .authorizeExchange()
-                .pathMatchers(HttpMethod.OPTIONS).permitAll().and()
-                .addFilterAt(webFilter(), SecurityWebFiltersOrder.AUTHORIZATION)
-                .authorizeExchange()
+                .authorizeExchange().pathMatchers("/api/admin**").hasAuthority(AuthoritiesConstants.ADMIN)
+//                .pathMatchers(HttpMethod.OPTIONS).permitAll()
                 .pathMatchers(AUTH_WHITELIST).permitAll()
-                .anyExchange().authenticated();
+                .anyExchange().authenticated().and()
+                .addFilterAt(filter(), SecurityWebFiltersOrder.AUTHORIZATION);
 
         return http.build();
     }
 
     @Bean
-    public AuthenticationWebFilter webFilter() {
-        AuthenticationWebFilter authenticationWebFilter = new AuthenticationWebFilter(repositoryReactiveAuthenticationManager());
-        authenticationWebFilter.setAuthenticationConverter(new TokenAuthenticationConverter(tokenProvider));
-        authenticationWebFilter.setRequiresAuthenticationMatcher(new TokenHeadersExchangeMatcher());
-        authenticationWebFilter.setSecurityContextRepository(new WebSessionServerSecurityContextRepository());
-        return authenticationWebFilter;
+    public AuthenticationWebFilter filter() {
+        AuthenticationWebFilter filter = new AuthenticationWebFilter(manager());
+        filter.setRequiresAuthenticationMatcher(new TokenHeadersExchangeMatcher());
+        filter.setSecurityContextRepository(new WebSessionServerSecurityContextRepository());
+        filter.setServerAuthenticationConverter(new TokenAuthenticationConverter(provider)::apply);
+        return filter;
     }
 
     @Bean
-    public TokenReactiveAuthenticationManager repositoryReactiveAuthenticationManager() {
-        TokenReactiveAuthenticationManager repositoryReactiveAuthenticationManager = new TokenReactiveAuthenticationManager(reactiveUserDetailsService, passwordEncoder());
-        return repositoryReactiveAuthenticationManager;
+    public TokenManager manager() {
+        return new TokenManager(service, encoder());
     }
 
     @Bean
-    public PasswordEncoder passwordEncoder() {
+    public PasswordEncoder encoder() {
         return new BCryptPasswordEncoder(11);
+    }
+
+    @Bean
+    public ServerAuthenticationEntryPoint entryPoint() {
+        return (exchange, e) -> Mono.fromRunnable(() -> exchange.getResponse().setStatusCode(HttpStatus.UNAUTHORIZED));
     }
 
 }

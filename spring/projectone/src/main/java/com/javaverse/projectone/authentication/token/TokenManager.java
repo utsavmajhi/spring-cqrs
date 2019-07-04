@@ -12,10 +12,10 @@ import reactor.core.scheduler.Schedulers;
 
 @Log4j2
 @RequiredArgsConstructor
-public class TokenReactiveAuthenticationManager implements ReactiveAuthenticationManager {
+public class TokenManager implements ReactiveAuthenticationManager {
 
-    private final ReactiveUserDetailsService reactiveUserDetailsService;
-    private final PasswordEncoder passwordEncoder;
+    private final ReactiveUserDetailsService service;
+    private final PasswordEncoder encoder;
 
     @Override
     public Mono<Authentication> authenticate(final Authentication authentication) {
@@ -28,7 +28,7 @@ public class TokenReactiveAuthenticationManager implements ReactiveAuthenticatio
                 .flatMap(this::authenticateToken)
                 .publishOn(Schedulers.parallel())
                 .onErrorResume(e -> raiseBadCredentials())
-                .filter(u -> passwordEncoder.matches((String) authentication.getCredentials(), u.getPassword()))
+                .filter(u -> encoder.matches((String) authentication.getCredentials(), u.getPassword()))
                 .switchIfEmpty(Mono.defer(this::raiseBadCredentials))
                 .map(u -> new UsernamePasswordAuthenticationToken(authentication.getPrincipal(), authentication.getCredentials(), u.getAuthorities()));
     }
@@ -39,10 +39,10 @@ public class TokenReactiveAuthenticationManager implements ReactiveAuthenticatio
 
     private Mono<UserDetails> authenticateToken(final UsernamePasswordAuthenticationToken authenticationToken) {
         String username = authenticationToken.getName();
-        log.debug("checking authentication for user " + username);
+        log.debug("checking perform for user " + username);
         if (username != null && SecurityContextHolder.getContext().getAuthentication() == null) {
             log.debug("authenticated user " + username + ", setting security context");
-            return reactiveUserDetailsService.findByUsername(username);
+            return service.findByUsername(username);
         }
         return null;
     }

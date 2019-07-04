@@ -1,6 +1,7 @@
 package com.javaverse.projectone.authentication.component;
 
 import com.javaverse.projectone.authentication.repository.UserRepository;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.core.userdetails.*;
@@ -9,19 +10,16 @@ import reactor.core.publisher.Mono;
 
 import java.util.*;
 
-@Component
 @Log4j2
+@Component
+@RequiredArgsConstructor
 public class ReactiveUserDetailsServiceImpl implements ReactiveUserDetailsService {
 
-    private final UserRepository userRepository;
-
-    public ReactiveUserDetailsServiceImpl(UserRepository userRepository) {
-        this.userRepository = userRepository;
-    }
+    private final UserRepository repository;
 
     @Override
     public Mono<UserDetails> findByUsername(String username) {
-        Optional<com.javaverse.projectone.authentication.entity.User> optional = userRepository.findByUsername(username);
+        Optional<com.javaverse.projectone.authentication.entity.User> optional = repository.findByUsername(username);
         return Mono.justOrEmpty(optional)
                 .filter(Objects::nonNull)
                 .switchIfEmpty(errorBadCredentialsException(username))
