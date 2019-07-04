@@ -1,11 +1,10 @@
 package com.javaverse.projectone.authentication.controller;
 
-import com.javaverse.projectone.authentication.dto.*;
+import com.javaverse.projectone.authentication.dto.Authentication;
 import com.javaverse.projectone.authentication.token.*;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.security.authentication.*;
-import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.ReactiveSecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Mono;
@@ -25,15 +24,15 @@ public class AuthenticationController {
     private final TokenReactiveAuthenticationManager manager;
 
     @PostMapping
-    public Mono<AuthenticationResponse> authorize(@Valid @RequestBody AuthenticationRequest request) {
-        if (!validator.validate(request).isEmpty()) {
+    public Mono<Authentication.Out> authorize(@Valid @RequestBody Authentication.In req) {
+        if (!validator.validate(req).isEmpty()) {
             return Mono.error(new RuntimeException("Bad request"));
         }
-        Authentication authenticationToken = new UsernamePasswordAuthenticationToken(request.getUsername(), request.getPassword());
+        org.springframework.security.core.Authentication authenticationToken = new UsernamePasswordAuthenticationToken(req.getUsername(), req.getPassword());
         ReactiveSecurityContextHolder.withAuthentication(authenticationToken);
         return manager.authenticate(authenticationToken)
                 .doOnError(throwBadCredentialsException())
-                .map(auth -> new AuthenticationResponse(provider.createToken(auth)));
+                .map(auth -> new Authentication.Out(provider.createToken(auth)));
 
     }
 

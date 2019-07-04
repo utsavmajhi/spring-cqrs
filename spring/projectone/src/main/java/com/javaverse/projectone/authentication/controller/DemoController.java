@@ -23,15 +23,16 @@ public class DemoController {
     @Bean
 //    @Admin
     public RouterFunction<ServerResponse> router() {
+
         return route()
                 .GET("/api/admin",
                         req -> ok()
-                                .body(Mono.just("admin : " + req.queryParam("name")),
+                                .body(Mono.just("admin : " + req.queryParam("name").orElse("")),
                                         String.class))
                 .GET("/api/basic",accept(MediaType.APPLICATION_JSON_UTF8),
                         req -> ok().contentType(MediaType.TEXT_PLAIN)
                                 .body(
-                                        Mono.just("basic : " + req.queryParam("name").get()).subscribeOn(Schedulers.elastic()),
+                                        Mono.just("basic : " + req.queryParam("name").orElse("")).subscribeOn(Schedulers.elastic()),
                                         String.class))
                 .build();
 
