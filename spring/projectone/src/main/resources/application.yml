@@ -1,0 +1,17 @@
+spring:
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: javaverse
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/javaverse?autoReconnect=true&cachePrepStmts=true&cacheCallableStmts=true&cacheServerConfiguration=true&useLocalSessionState=true&elideSetAutoCommits=true&alwaysSendSetIsolation=false&enableQueryTimeouts=false
+    username: root
+    password: javaverse
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    hibernate:
+      ddl-auto: create-drop
+
+#docker run -d --rm --name mysql -v mysql_data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=javaverse -p 3306:3306 mysql:latest

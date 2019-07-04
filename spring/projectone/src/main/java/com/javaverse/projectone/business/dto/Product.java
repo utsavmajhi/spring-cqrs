@@ -1,4 +1,4 @@
-package com.javaverse.projectone.dto;
+package com.javaverse.projectone.business.dto;
 
 import lombok.*;
 

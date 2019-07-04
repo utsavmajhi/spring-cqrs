@@ -1,7 +1,7 @@
-package com.javaverse.projectone.handler;
+package com.javaverse.projectone.business.handler;
 
-import com.javaverse.projectone.dto.Product;
-import com.javaverse.projectone.repository.ExampleRepo;
+import com.javaverse.projectone.business.dto.Product;
+import com.javaverse.projectone.business.repository.ExampleRepo;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.http.MediaType;
@@ -22,29 +22,24 @@ public class ProductHandler {
 
     private final ExampleRepo repo;
 
-
     public Mono<ServerResponse> events(ServerRequest req) {
         Flux<String> events = Flux.<String>generate(sink -> sink.next(ZonedDateTime.now().toString())).delayElements(Duration.ofSeconds(1));
         return ServerResponse.ok().contentType(MediaType.TEXT_EVENT_STREAM).body(events, String.class);
     }
 
-
     public Mono<ServerResponse> findAll(ServerRequest req) {
         return ok().contentType(APPLICATION_JSON_UTF8).body(repo.findAll(), Product.class);
     }
-
 
     public Mono<ServerResponse> save(ServerRequest req) {
         return ok().contentType(MediaType.APPLICATION_STREAM_JSON)
                 .body(Mono.defer(() -> req.bodyToMono(Product.class)).log().doOnNext(repo::save).subscribeOn(Schedulers.parallel()), Product.class);
     }
 
-
     public Mono<ServerResponse> update(ServerRequest req) {
         return ok().contentType(MediaType.APPLICATION_STREAM_JSON)
                 .body(Mono.defer(() -> req.bodyToMono(Product.class)).log().doOnNext(repo::update).subscribeOn(Schedulers.parallel()), Product.class);
     }
-
 
     public Mono<ServerResponse> get(ServerRequest req) {
         System.out.println("get : " + req.headers().asHttpHeaders().getFirst("X-Correlation-ID"));
@@ -53,7 +48,6 @@ public class ProductHandler {
                 .body(Mono.defer(() -> repo.get(req.pathVariable("id"))).log().subscribeOn(Schedulers.parallel()), Product.class)
                 .switchIfEmpty(ServerResponse.notFound().build());
     }
-
 
     public Mono<ServerResponse> delete(ServerRequest req) {
         System.out.println(req.pathVariable("id"));
@@ -68,7 +62,4 @@ public class ProductHandler {
 //                .switchIfEmpty(ServerResponse.notFound().build());
 //    }
 
-
 }
-
-

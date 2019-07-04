@@ -1,21 +1,17 @@
-package com.javaverse.projectone.controller;
+package com.javaverse.projectone.business.controller;
 
-import com.javaverse.projectone.config.filter.ProductFilter;
-import com.javaverse.projectone.handler.ProductHandler;
+import com.javaverse.projectone.business.config.filter.ProductFilter;
+import com.javaverse.projectone.business.handler.ProductHandler;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.context.annotation.*;
-import org.springframework.http.codec.ServerSentEvent;
 import org.springframework.web.reactive.function.server.*;
-import reactor.core.publisher.Flux;
 
-import java.time.Duration;
 import java.util.UUID;
 
 import static org.springframework.http.MediaType.*;
 import static org.springframework.web.reactive.function.server.RequestPredicates.accept;
 import static org.springframework.web.reactive.function.server.RouterFunctions.route;
-import static org.springframework.web.reactive.function.server.ServerResponse.ok;
 
 @Log4j2
 @Configuration

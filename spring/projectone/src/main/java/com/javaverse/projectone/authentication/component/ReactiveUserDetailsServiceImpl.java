@@ -2,14 +2,12 @@ package com.javaverse.projectone.authentication.component;
 
 import com.javaverse.projectone.authentication.repository.UserRepository;
 import lombok.extern.log4j.Log4j2;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.core.userdetails.*;
 import org.springframework.stereotype.Component;
 import reactor.core.publisher.Mono;
 
-import java.util.Objects;
-
+import java.util.*;
 
 @Component
 @Log4j2
@@ -23,7 +21,8 @@ public class ReactiveUserDetailsServiceImpl implements ReactiveUserDetailsServic
 
     @Override
     public Mono<UserDetails> findByUsername(String username) {
-        return userRepository.findByUsername(username)
+        Optional<com.javaverse.projectone.authentication.entity.User> optional = userRepository.findByUsername(username);
+        return Mono.justOrEmpty(optional)
                 .filter(Objects::nonNull)
                 .switchIfEmpty(errorBadCredentialsException(username))
                 .map(this::createSpringSecurityUser);
@@ -34,8 +33,10 @@ public class ReactiveUserDetailsServiceImpl implements ReactiveUserDetailsServic
     }
 
     private org.springframework.security.core.userdetails.User createSpringSecurityUser(com.javaverse.projectone.authentication.entity.User user) {
-        return new org.springframework.security.core.userdetails.User(user.getUsername(),
+
+        org.springframework.security.core.userdetails.User obj = new org.springframework.security.core.userdetails.User(user.getUsername(),
                 user.getPassword(), user.getGrantedAuthorities());
+        return obj;
     }
 
 }

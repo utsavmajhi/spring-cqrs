@@ -46,10 +46,8 @@ public class SecurityConfiguration {
                 .and()
                 .securityContextRepository(NoOpServerSecurityContextRepository.getInstance())// this line will stop server to return denied
                 .authorizeExchange().pathMatchers("/api/admin**").hasAuthority(AuthoritiesConstants.ADMIN).and()
-//                .authorizeExchange().pathMatchers("/api/basic**").hasAuthority(AuthoritiesConstants.USER).and()
                 .authorizeExchange()
                 .pathMatchers(HttpMethod.OPTIONS).permitAll().and()
-//                .authorizeExchange().anyExchange().hasAuthority(AuthoritiesConstants.USER).and()
                 .addFilterAt(webFilter(), SecurityWebFiltersOrder.AUTHORIZATION)
                 .authorizeExchange()
                 .pathMatchers(AUTH_WHITELIST).permitAll()
@@ -75,7 +73,7 @@ public class SecurityConfiguration {
 
     @Bean
     public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder(10);
+        return new BCryptPasswordEncoder(11);
     }
 
 }

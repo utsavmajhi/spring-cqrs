@@ -1,5 +1,6 @@
 package com.javaverse.projectone.authentication.token;
 
+import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.security.authentication.*;
 import org.springframework.security.core.Authentication;
@@ -9,18 +10,12 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import reactor.core.publisher.Mono;
 import reactor.core.scheduler.Schedulers;
 
-
 @Log4j2
+@RequiredArgsConstructor
 public class TokenReactiveAuthenticationManager implements ReactiveAuthenticationManager {
 
-    private final ReactiveUserDetailsService userDetailsService;
+    private final ReactiveUserDetailsService reactiveUserDetailsService;
     private final PasswordEncoder passwordEncoder;
-
-    public TokenReactiveAuthenticationManager(ReactiveUserDetailsService userDetailsService,
-                                              PasswordEncoder passwordEncoder) {
-        this.userDetailsService = userDetailsService;
-        this.passwordEncoder = passwordEncoder;
-    }
 
     @Override
     public Mono<Authentication> authenticate(final Authentication authentication) {
@@ -44,10 +39,10 @@ public class TokenReactiveAuthenticationManager implements ReactiveAuthenticatio
 
     private Mono<UserDetails> authenticateToken(final UsernamePasswordAuthenticationToken authenticationToken) {
         String username = authenticationToken.getName();
-        log.info("checking authentication for user " + username);
+        log.debug("checking authentication for user " + username);
         if (username != null && SecurityContextHolder.getContext().getAuthentication() == null) {
-            log.info("authenticated user " + username + ", setting security context");
-            return userDetailsService.findByUsername(username);
+            log.debug("authenticated user " + username + ", setting security context");
+            return reactiveUserDetailsService.findByUsername(username);
         }
         return null;
     }

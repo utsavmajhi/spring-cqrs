@@ -1,6 +1,6 @@
-package com.javaverse.projectone.repository;
+package com.javaverse.projectone.business.repository;
 
-import com.javaverse.projectone.dto.Product;
+import com.javaverse.projectone.business.dto.Product;
 import org.springframework.stereotype.Component;
 import reactor.core.publisher.*;
 
@@ -38,10 +38,8 @@ public class ExampleRepo {
         return Mono.justOrEmpty(existingEmployee);
     }
 
-
     public Mono<Product> save(Product employee) {
         employeeData.put(String.valueOf(employee.getId()), employee);
         return Mono.justOrEmpty(employeeData.get(String.valueOf(employee.getId())));
     }
-
 }

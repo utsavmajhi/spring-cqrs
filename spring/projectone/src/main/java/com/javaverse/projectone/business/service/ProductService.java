@@ -1,7 +1,6 @@
-package com.javaverse.projectone.service;
+package com.javaverse.projectone.business.service;
 
-
-import com.javaverse.projectone.repository.*;
+import com.javaverse.projectone.business.repository.ExampleRepo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

@@ -1,34 +1,35 @@
 package com.javaverse.projectone.authentication.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.index.Indexed;
-import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import java.io.Serializable;
+import javax.persistence.*;
 import java.util.*;
 import java.util.stream.Collectors;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Document(collection = "user")
-public class User implements UserDetails, Serializable {
+@Entity(name = "users")
+public class User implements UserDetails {
 
     @Id
-    private String id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-    @Indexed(unique = true)
     private String username;
 
     private String password;
 
-    @JsonIgnore
-    private Set<Authority> authorities = new HashSet<>();
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(
+            foreignKey = @ForeignKey(name = "none"),
+            name = "users_authorities",
+            joinColumns = @JoinColumn(name = "users_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "authorities_id", referencedColumnName = "id"))
+    private Collection<Authority> authorities = new HashSet<>();
 
     public List<GrantedAuthority> getGrantedAuthorities() {
         return getAuthorities().stream()
