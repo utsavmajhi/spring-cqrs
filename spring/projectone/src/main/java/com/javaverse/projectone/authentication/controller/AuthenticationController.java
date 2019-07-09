@@ -32,7 +32,7 @@ public class AuthenticationController {
         ReactiveSecurityContextHolder.withAuthentication(authenticationToken);
         return manager.authenticate(authenticationToken)
                 .doOnError(throwBadCredentialsException())
-                .map(auth -> new Authentication.Response(provider.createToken(auth)));
+                .map(auth -> new Authentication.Response(provider.token(auth), provider.refreshToken(auth)));
 
     }
 

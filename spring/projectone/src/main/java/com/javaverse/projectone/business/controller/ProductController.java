@@ -23,7 +23,7 @@ public class ProductController {
         return route()
                 .path("/products", builder -> builder
                         .GET("/events/sse", accept(APPLICATION_STREAM_JSON), handler::events)
-                        .GET("/{id}", accept(APPLICATION_JSON_UTF8), handler::get)
+                        .GET("/{id}", handler::get)
                         .GET("", accept(APPLICATION_JSON_UTF8), handler::findAll)  // todo sse
                         .POST("", accept(APPLICATION_JSON_UTF8), handler::save)
                         .PUT("", accept(APPLICATION_JSON_UTF8), handler::update)

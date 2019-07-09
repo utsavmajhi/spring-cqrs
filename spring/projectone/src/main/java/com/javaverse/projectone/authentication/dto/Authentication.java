@@ -27,6 +27,8 @@ public class Authentication {
     public static class Response {
         @NotEmpty
         private String token;
+        @NotEmpty
+        private String refreshToken;
     }
 
 }

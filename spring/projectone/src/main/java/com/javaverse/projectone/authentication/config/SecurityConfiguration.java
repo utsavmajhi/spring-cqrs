@@ -5,6 +5,7 @@ import com.javaverse.projectone.authentication.token.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.*;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.authorization.AuthorizationDecision;
 import org.springframework.security.config.annotation.method.configuration.EnableReactiveMethodSecurity;
 import org.springframework.security.config.annotation.web.reactive.EnableWebFluxSecurity;
 import org.springframework.security.config.web.server.*;
@@ -42,12 +43,14 @@ public class SecurityConfiguration {
                 .exceptionHandling()
                 .authenticationEntryPoint(ep).and()
                 .securityContextRepository(NoOpServerSecurityContextRepository.getInstance())// this line will stop server to return denied
-                .authorizeExchange().pathMatchers("/api/admin**").hasAuthority(AuthoritiesConstants.ADMIN)
-//                .pathMatchers(HttpMethod.OPTIONS).permitAll()
+                .authorizeExchange()
                 .pathMatchers(AUTH_WHITELIST).permitAll()
-                .anyExchange().authenticated().and()
+                .pathMatchers("/api/admin**").hasAuthority(AuthoritiesConstants.ADMIN)
+                .anyExchange().access((mono, obj) -> mono.map(auth -> auth.getAuthorities().stream()
+                .filter(e -> e.getAuthority().equalsIgnoreCase(AuthoritiesConstants.ADMIN) || e.getAuthority().equalsIgnoreCase(AuthoritiesConstants.USER)).count() > 0)
+                .map(AuthorizationDecision::new))
+                .and()
                 .addFilterAt(filter(), SecurityWebFiltersOrder.AUTHORIZATION);
-
         return http.build();
     }
 

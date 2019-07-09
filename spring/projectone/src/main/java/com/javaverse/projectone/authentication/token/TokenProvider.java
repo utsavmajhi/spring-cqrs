@@ -1,5 +1,6 @@
 package com.javaverse.projectone.authentication.token;
 
+import com.javaverse.projectone.authentication.component.AuthoritiesConstants;
 import io.jsonwebtoken.*;
 import lombok.extern.log4j.Log4j2;
 import org.apache.logging.log4j.util.Strings;
@@ -20,7 +21,7 @@ import java.util.stream.Collectors;
 public class TokenProvider {
 
     private static final String SALT_KEY = "SmF2YXZlcnNlIFRlY2hub2xvZ3kgQ28uLCBMdGQu";
-    private static final int TOKEN_VALIDITY = 60 * 60 * 24; // Value in second
+    private static final int TOKEN_VALIDITY = 60 * 60 * 24; // Value in second // 1 day
     private static final String AUTHORITIES_KEY = "auth";
     private static final Base64.Encoder encoder = Base64.getEncoder();
 
@@ -34,7 +35,7 @@ public class TokenProvider {
         tokenValidityInMilliseconds = 1000 * TOKEN_VALIDITY;
     }
 
-    public String createToken(Authentication authentication) {
+    public String token(Authentication authentication) {
         String authorities = authentication.getAuthorities().stream()
                 .map(GrantedAuthority::getAuthority)
                 .collect(Collectors.joining(","));
@@ -45,13 +46,29 @@ public class TokenProvider {
                 .setSubject(authentication.getName())
                 .setIssuedAt(issuedAt)
                 .claim(AUTHORITIES_KEY, authorities)
-                .signWith(SignatureAlgorithm.HS512, secretKey)
                 .setExpiration(expiration)
                 .compressWith(CompressionCodecs.DEFLATE)
+                .signWith(SignatureAlgorithm.HS512, secretKey)
                 .compact();
-        log.debug("compact " + compact);
+        log.debug("compact token" + compact);
         return compact;
     }
+
+    public String refreshToken(Authentication authentication) {
+        // no expire for this version
+        Date issuedAt = new Date();
+        String compact = Jwts.builder()
+                .setId(UUID.randomUUID().toString())
+                .setSubject(authentication.getName())
+                .setIssuedAt(issuedAt)
+                .claim(AUTHORITIES_KEY, AuthoritiesConstants.REFRESH_TOKEN)
+                .compressWith(CompressionCodecs.DEFLATE)
+                .signWith(SignatureAlgorithm.HS512, secretKey)
+                .compact();
+        log.debug("compact refresh token" + compact);
+        return compact;
+    }
+
 
     public Authentication perform(String token) {
         if (StringUtils.isEmpty(token) || !validateToken(token)) {

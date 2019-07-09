@@ -11,6 +11,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @RequiredArgsConstructor
 public class ProjectoneApplication implements CommandLineRunner {
 
+    // todo
+    // implement refresh token flow for remember me process
+
     public static void main(String[] args) {
         SpringApplication.run(ProjectoneApplication.class, args);
     }
