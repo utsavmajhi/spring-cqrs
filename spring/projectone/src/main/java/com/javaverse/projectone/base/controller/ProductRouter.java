@@ -1,7 +1,7 @@
-package com.javaverse.projectone.business.controller;
+package com.javaverse.projectone.base.controller;
 
-import com.javaverse.projectone.business.config.filter.ProductFilter;
-import com.javaverse.projectone.business.handler.ProductHandler;
+import com.javaverse.projectone.base.config.filter.ProductFilter;
+import com.javaverse.projectone.base.handler.ProductHandler;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.context.annotation.*;
@@ -16,7 +16,7 @@ import static org.springframework.web.reactive.function.server.RouterFunctions.r
 @Log4j2
 @Configuration
 @RequiredArgsConstructor
-public class ProductController {
+public class ProductRouter {
 
     @Bean
     public RouterFunction<ServerResponse> productRouterFunction(ProductHandler handler, ProductFilter filter) {

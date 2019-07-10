@@ -1,4 +1,4 @@
-package com.javaverse.projectone.business.config.filter;
+package com.javaverse.projectone.base.config.filter;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.reactive.function.server.*;

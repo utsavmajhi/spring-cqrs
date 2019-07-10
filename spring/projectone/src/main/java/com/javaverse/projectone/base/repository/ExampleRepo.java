@@ -1,6 +1,6 @@
-package com.javaverse.projectone.business.repository;
+package com.javaverse.projectone.base.repository;
 
-import com.javaverse.projectone.business.dto.Product;
+import com.javaverse.projectone.base.dto.Product;
 import org.springframework.stereotype.Component;
 import reactor.core.publisher.*;
 

@@ -1,7 +1,7 @@
-package com.javaverse.projectone.business.handler;
+package com.javaverse.projectone.base.handler;
 
-import com.javaverse.projectone.business.dto.Product;
-import com.javaverse.projectone.business.repository.ExampleRepo;
+import com.javaverse.projectone.base.dto.Product;
+import com.javaverse.projectone.base.repository.ExampleRepo;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.http.MediaType;

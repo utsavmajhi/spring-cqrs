@@ -1,4 +1,4 @@
-package com.javaverse.projectone.business.config;
+package com.javaverse.projectone.base.config;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;

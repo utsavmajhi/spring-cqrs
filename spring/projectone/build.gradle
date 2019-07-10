@@ -28,9 +28,11 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-security'
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     
-    developmentOnly 'org.springframework.boot:spring-boot-devtools'
+//    developmentOnly 'org.springframework.boot:spring-boot-devtools'
     compileOnly 'org.projectlombok:lombok'
-    
+
+    compile 'org.axonframework:axon-spring-boot-starter:4.1.1'
+
 //    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-data-mongodb-reactive', version: '2.1.6.RELEASE'
     implementation 'org.javassist:javassist:3.22.0-GA'
 //    implementation 'com.github.mongobee:mongobee:0.13'
