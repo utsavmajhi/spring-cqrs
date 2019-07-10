@@ -4,7 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.axonframework.modelling.command.TargetAggregateIdentifier;
 
 @RequiredArgsConstructor
-public abstract class BaseCmd<T> {
+public abstract class BaseCommand<T> {
 
     @TargetAggregateIdentifier
     public final T id;

@@ -3,16 +3,16 @@ package com.javaverse.projectone.api.command;
 import com.javaverse.projectone.api.event.ProductEvent;
 import lombok.*;
 
-public class ProductCmd {
+public class ProductCommand {
 
     @Value
     @EqualsAndHashCode(callSuper = false)
-    public static class CreateCmd extends BaseCmd<Long> {
+    public static class Create extends BaseCommand<Long> {
 
         private final String code;
         private final String name;
 
-        public CreateCmd(Long id, String code, String name) {
+        public Create(Long id, String code, String name) {
             super(id);
             this.code = code;
             this.name = name;
@@ -26,9 +26,9 @@ public class ProductCmd {
 
     @Value
     @EqualsAndHashCode(callSuper = false)
-    public static class DeleteCmd extends BaseCmd<Long> {
+    public static class Delete extends BaseCommand<Long> {
 
-        public DeleteCmd(Long id) {
+        public Delete(Long id) {
             super(id);
         }
 

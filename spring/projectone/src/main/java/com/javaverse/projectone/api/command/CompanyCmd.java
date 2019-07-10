@@ -6,12 +6,12 @@ public class CompanyCmd {
 
     @Value
     @EqualsAndHashCode(callSuper = false)
-    public static class CreateCmd extends BaseCmd<Long> {
+    public static class CreateCommand extends BaseCommand<Long> {
 
         private final String code;
         private final String name;
 
-        public CreateCmd(Long id, String code, String name) {
+        public CreateCommand(Long id, String code, String name) {
             super(id);
             this.code = code;
             this.name = name;
@@ -25,9 +25,9 @@ public class CompanyCmd {
 
     @Value
     @EqualsAndHashCode(callSuper = false)
-    public static class DeleteCmd extends BaseCmd<Long> {
+    public static class DeleteCommand extends BaseCommand<Long> {
 
-        public DeleteCmd(Long id) {
+        public DeleteCommand(Long id) {
             super(id);
         }
 

@@ -1,6 +1,6 @@
 package com.javaverse.projectone.api.controller;
 
-import com.javaverse.projectone.api.command.ProductCmd;
+import com.javaverse.projectone.api.command.ProductCommand;
 import com.javaverse.projectone.api.dto.ProductDTO;
 import com.javaverse.projectone.api.query.ProductQuery;
 import lombok.AllArgsConstructor;
@@ -26,7 +26,7 @@ public class ProductController {
     @DeleteMapping("/api/products/{id}")
     public String delete(@PathVariable Long id) {
         System.out.println("controller delete id :" + id);
-        commandGateway.send(new ProductCmd.DeleteCmd(id));
+        commandGateway.send(new ProductCommand.Delete(id));
         return "deleted";
     }
 

@@ -1,6 +1,6 @@
 package com.javaverse.projectone.api.aggregate;
 
-import com.javaverse.projectone.api.command.ProductCmd;
+import com.javaverse.projectone.api.command.ProductCommand;
 import com.javaverse.projectone.api.event.ProductEvent;
 import lombok.*;
 import lombok.extern.log4j.Log4j2;
@@ -22,19 +22,19 @@ public class ProductAggregator {
     @AggregateIdentifier
     private OffsetDateTime offsetDateTime;
 
-    /*CreateCmd*/
+    /*Create*/
     @CommandHandler
     // use constructor only for 1st create
-    public ProductAggregator(ProductCmd.CreateCmd cmd) {
-        log.info(() -> "CommandHandler : CreateCmd : " + cmd);
+    public ProductAggregator(ProductCommand.Create cmd) {
+        log.info(() -> "CommandHandler : Create : " + cmd);
         // validation logic
         apply(cmd.toEvent());
     }
 
-    /*DeleteCmd*/
+    /*Delete*/
     @CommandHandler
-    public ProductAggregator(ProductCmd.DeleteCmd cmd) {
-        log.info(() -> "CommandHandler : DeleteCmd : " + cmd);
+    public ProductAggregator(ProductCommand.Delete cmd) {
+        log.info(() -> "CommandHandler : Delete : " + cmd);
         // validation logic
         apply(cmd.toEvent());
     }
