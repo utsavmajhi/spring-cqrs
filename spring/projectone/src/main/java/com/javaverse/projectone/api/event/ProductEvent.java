@@ -1,26 +1,27 @@
 package com.javaverse.projectone.api.event;
 
-import com.javaverse.projectone.api.entity.ProductEntity;
 import lombok.*;
 
 public class ProductEvent {
 
     @Value
-    public static class Created extends ProductEntity {
+    public static class Created {
+        private final String code;
+        private final String name;
+
         public Created(String code, String name) {
-            setStatus(Status.ACTIVE);
-            setCode(code);
-            setName(name);
+            this.code = code;
+            this.name = name;
         }
 
     }
 
     @Value
-    public static class Deleted {
-        private final Long id;
+    @EqualsAndHashCode(callSuper = false)
+    public static class Deleted extends BaseEvent<Long> {
 
         public Deleted(Long id) {
-            this.id = id;
+            super(id);
         }
     }
 

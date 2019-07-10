@@ -1,10 +1,11 @@
 package com.javaverse.projectone.api.command;
 
-import lombok.Value;
+import lombok.*;
 
 public class BranchCmd {
 
     @Value
+    @EqualsAndHashCode(callSuper = false)
     public static class CreateCmd extends BaseCmd<Long> {
 
         private final String code;
@@ -23,6 +24,7 @@ public class BranchCmd {
     }
 
     @Value
+    @EqualsAndHashCode(callSuper = false)
     public static class DeleteCmd extends BaseCmd<Long> {
 
         public DeleteCmd(Long id) {

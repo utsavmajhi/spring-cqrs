@@ -26,7 +26,7 @@ public class ProductService {
         ProductEntity entity = new ProductEntity();
         entity.setCode(event.getCode());
         entity.setName(event.getName());
-        entity.setStatus(event.getStatus());
+        entity.setStatus(BaseEntity.Status.ACTIVE);
         repo.save(entity);
     }
 

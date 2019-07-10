@@ -1,11 +1,12 @@
 package com.javaverse.projectone.api.command;
 
 import com.javaverse.projectone.api.event.ProductEvent;
-import lombok.Value;
+import lombok.*;
 
 public class ProductCmd {
 
     @Value
+    @EqualsAndHashCode(callSuper = false)
     public static class CreateCmd extends BaseCmd<Long> {
 
         private final String code;
@@ -24,6 +25,7 @@ public class ProductCmd {
     }
 
     @Value
+    @EqualsAndHashCode(callSuper = false)
     public static class DeleteCmd extends BaseCmd<Long> {
 
         public DeleteCmd(Long id) {
