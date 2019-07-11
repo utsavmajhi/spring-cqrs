@@ -23,10 +23,10 @@ public class ProductService {
     @EventHandler
     public void on(ProductEvent.Created event) {
         System.out.println("EventHandler CreatedEvent");
-        ProductEntity entity = new ProductEntity();
+        Product entity = new Product();
         entity.setCode(event.getCode());
         entity.setName(event.getName());
-        entity.setStatus(BaseEntity.Status.ACTIVE);
+        entity.setStatus(Common.Status.ACTIVE);
         repo.save(entity);
     }
 
@@ -44,11 +44,11 @@ public class ProductService {
 
     @QueryHandler
     public List<ProductDTO> on(ProductQuery.AllActive query) {
-        return repo.findAllByStatus(BaseEntity.Status.ACTIVE)
+        return repo.findAllByStatus(Common.Status.ACTIVE)
                 .map(toDTO()).collect(Collectors.toList());
     }
 
-    private Function<ProductEntity, ProductDTO> toDTO() {
+    private Function<Product, ProductDTO> toDTO() {
         return e -> {
             ProductDTO dto = new ProductDTO();
             dto.setId(e.getId());

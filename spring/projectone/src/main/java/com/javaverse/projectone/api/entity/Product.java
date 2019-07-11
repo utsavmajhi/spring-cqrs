@@ -2,14 +2,16 @@ package com.javaverse.projectone.api.entity;
 
 import lombok.*;
 
-import javax.persistence.Entity;
+import javax.persistence.*;
 
 @Data
-@Entity(name = "companies")
+@Entity(name = "products")
 @EqualsAndHashCode(callSuper = false)
-public class CompanyEntity extends BaseEntity {
+public class Product extends Common {
 
+    @Column(length = 13)
     private String code;
+    @Column(length = 30)
     private String name;
 
 }

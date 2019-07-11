@@ -6,8 +6,8 @@ import org.springframework.stereotype.Repository;
 import java.util.stream.Stream;
 
 @Repository
-public interface ProductRepository extends CommonRepository<Product, Long> {
+public interface CompanyRepository extends CommonRepository<Company, Long> {
 
-    Stream<Product> findAllByStatus(Common.Status status);
+    Stream<Company> findAllByStatus(Common.Status status);
 
 }

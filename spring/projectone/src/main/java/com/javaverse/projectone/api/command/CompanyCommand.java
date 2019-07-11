@@ -1,9 +1,9 @@
 package com.javaverse.projectone.api.command;
 
-import com.javaverse.projectone.api.event.ProductEvent;
+import com.javaverse.projectone.api.event.CompanyEvent;
 import lombok.*;
 
-public class ProductCommand {
+public class CompanyCommand {
 
     @Value
     @RequiredArgsConstructor
@@ -12,8 +12,8 @@ public class ProductCommand {
         private final String code;
         private final String name;
 
-        public ProductEvent.Created toEvent() {
-            return new ProductEvent.Created(code, name);
+        public CompanyEvent.Created toEvent() {
+            return new CompanyEvent.Created(code, name);
         }
     }
 
@@ -29,8 +29,8 @@ public class ProductCommand {
             this.name = name;
         }
 
-        public ProductEvent.Updated toEvent() {
-            return new ProductEvent.Updated(id, code, name);
+        public CompanyEvent.Updated toEvent() {
+            return new CompanyEvent.Updated(id, code, name);
         }
     }
 
@@ -41,8 +41,8 @@ public class ProductCommand {
             super(id);
         }
 
-        public ProductEvent.Deleted toEvent() {
-            return new ProductEvent.Deleted(id);
+        public CompanyEvent.Deleted toEvent() {
+            return new CompanyEvent.Deleted(id);
         }
     }
 

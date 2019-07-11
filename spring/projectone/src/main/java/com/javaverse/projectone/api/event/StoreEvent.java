@@ -2,7 +2,7 @@ package com.javaverse.projectone.api.event;
 
 import lombok.*;
 
-public class ProductEvent {
+public class StoreEvent {
 
     @Value
     @RequiredArgsConstructor

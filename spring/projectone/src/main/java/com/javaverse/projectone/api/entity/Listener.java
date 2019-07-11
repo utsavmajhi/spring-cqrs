@@ -3,7 +3,7 @@ package com.javaverse.projectone.api.entity;
 import javax.persistence.*;
 import java.time.OffsetDateTime;
 
-class Listener<T extends BaseEntity> {
+class Listener<T extends Common> {
 
     @PrePersist
     private void prePersist(T e) {

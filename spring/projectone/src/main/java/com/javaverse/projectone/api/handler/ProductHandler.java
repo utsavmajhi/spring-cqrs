@@ -1,7 +1,6 @@
 package com.javaverse.projectone.api.handler;
 
-import com.javaverse.projectone.api.example.Example;
-import com.javaverse.projectone.api.example.ExampleRepo;
+import com.javaverse.projectone.api.example.*;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.http.MediaType;
@@ -12,7 +11,7 @@ import reactor.core.scheduler.Schedulers;
 
 import java.time.*;
 
-import static org.springframework.http.MediaType.APPLICATION_JSON_UTF8;
+import static org.springframework.http.MediaType.APPLICATION_JSON;
 import static org.springframework.web.reactive.function.server.ServerResponse.ok;
 
 @Log4j2
@@ -28,7 +27,7 @@ public class ProductHandler {
     }
 
     public Mono<ServerResponse> findAll(ServerRequest req) {
-        return ok().contentType(APPLICATION_JSON_UTF8).body(repo.findAll(), Example.class);
+        return ok().contentType(APPLICATION_JSON).body(repo.findAll(), Example.class);
     }
 
     public Mono<ServerResponse> save(ServerRequest req) {

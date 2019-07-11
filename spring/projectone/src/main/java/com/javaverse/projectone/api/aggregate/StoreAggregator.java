@@ -11,7 +11,7 @@ import java.time.OffsetDateTime;
 @Log4j2
 @Aggregate
 @NoArgsConstructor
-public class BranchAggregator {
+public class StoreAggregator {
 
     @AggregateIdentifier
     private OffsetDateTime offsetDateTime;

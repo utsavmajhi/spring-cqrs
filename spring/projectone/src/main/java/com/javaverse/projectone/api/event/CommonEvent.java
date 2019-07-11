@@ -4,7 +4,7 @@ import lombok.*;
 
 @Getter
 @RequiredArgsConstructor
-public abstract class BaseEvent<T> {
+public abstract class CommonEvent<T> {
 
     public final T id;
 

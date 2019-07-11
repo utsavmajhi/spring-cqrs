@@ -26,7 +26,7 @@ public class User implements UserDetails {
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
             foreignKey = @ForeignKey(name = "none"),
-            name = "users_authorities",
+            name = "user_authorities",
             joinColumns = @JoinColumn(name = "users_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "authorities_id", referencedColumnName = "id"))
     private Collection<Authority> authorities = new HashSet<>();
