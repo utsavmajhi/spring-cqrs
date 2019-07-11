@@ -20,7 +20,7 @@ public class ExampleRepo {
     }
 
     public Mono<Example> get(String id) {
-        System.out.println("get : " + id);
+        System.out.println("find : " + id);
         return Mono.justOrEmpty(Optional.ofNullable(employeeData.get(id)));
     }
 

@@ -31,6 +31,15 @@ public class ProductAggregator {
         apply(cmd.toEvent());
     }
 
+    /*Update*/
+    @CommandHandler
+    // use constructor only for 1st create
+    public ProductAggregator(ProductCommand.Update cmd) {
+        log.info(() -> "CommandHandler : Update : " + cmd);
+        // validation logic
+        apply(cmd.toEvent());
+    }
+
     /*Delete*/
     @CommandHandler
     public ProductAggregator(ProductCommand.Delete cmd) {
@@ -41,13 +50,19 @@ public class ProductAggregator {
 
     @EventSourcingHandler
     private void on(ProductEvent.Created event) {
-        log.info(() -> "EventSourcingHandler : CreatedEvent : " + event);
+        log.info(() -> "EventSourcingHandler : Created : " + event);
+        setOffsetDateTime(OffsetDateTime.now());
+    }
+
+    @EventSourcingHandler
+    private void on(ProductEvent.Updated event) {
+        log.info(() -> "EventSourcingHandler : Updated : " + event);
         setOffsetDateTime(OffsetDateTime.now());
     }
 
     @EventSourcingHandler
     private void on(ProductEvent.Deleted event) {
-        log.info(() -> "EventSourcingHandler : DeletedEvent : " + event);
+        log.info(() -> "EventSourcingHandler : Deleted : " + event);
         setOffsetDateTime(OffsetDateTime.now());
     }
 

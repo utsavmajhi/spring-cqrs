@@ -25,7 +25,7 @@ public class UserController {
 
         return route()
 //                .path("/users", builder -> builder
-//                        .GET("/{id}", handler::get)
+//                        .GET("/{id}", handler::find)
 //                        .GET("", accept(APPLICATION_JSON_UTF8), handler::findAll)  // todo sse
 //                        .POST("", accept(APPLICATION_JSON_UTF8), handler::save)
 //                        .PUT("", accept(APPLICATION_JSON_UTF8), handler::update)

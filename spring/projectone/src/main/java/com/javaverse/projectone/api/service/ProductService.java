@@ -3,6 +3,7 @@ package com.javaverse.projectone.api.service;
 import com.javaverse.projectone.api.dto.ProductDTO;
 import com.javaverse.projectone.api.entity.*;
 import com.javaverse.projectone.api.event.ProductEvent;
+import com.javaverse.projectone.api.mapper.ProductMapper;
 import com.javaverse.projectone.api.query.ProductQuery;
 import com.javaverse.projectone.api.repository.ProductRepository;
 import lombok.RequiredArgsConstructor;
@@ -11,53 +12,47 @@ import org.axonframework.queryhandling.QueryHandler;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.function.Function;
-import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
 public class ProductService {
 
     private final ProductRepository repo;
+    private final ProductMapper mapper;
 
     @EventHandler
     public void on(ProductEvent.Created event) {
-        System.out.println("EventHandler CreatedEvent");
-        Product entity = new Product();
-        entity.setCode(event.getCode());
-        entity.setName(event.getName());
-        entity.setStatus(Common.Status.ACTIVE);
-        repo.save(entity);
+        System.out.println("EventHandler ProductEvent.Created");
+        Product product = new Product();
+        product.setCode(event.getCode());
+        product.setName(event.getName());
+        product.setStatus(Common.Status.ACTIVE);
+        repo.save(product);
+    }
+
+    @EventHandler
+    public void on(ProductEvent.Updated event) {
+        System.out.println("EventHandler ProductEvent.Updated");
+        Product product = repo.findById(event.getId()).orElseThrow();
+        product.setCode(event.getCode());
+        product.setName(event.getName());
+        repo.save(product);
     }
 
     @EventHandler
     public void on(ProductEvent.Deleted event) {
-        System.out.println("EventHandler DeletedEvent : " + event.getId());
+        System.out.println("EventHandler ProductEvent.Deleted : " + event.getId());
         repo.deleteById(event.getId());
     }
 
     @QueryHandler
     public ProductDTO on(ProductQuery.Single query) {
-        return repo.findById(query.getId())
-                .map(toDTO()).orElseThrow();
+        return mapper.map(repo.findById(query.getId()).orElseThrow());
     }
 
     @QueryHandler
     public List<ProductDTO> on(ProductQuery.AllActive query) {
-        return repo.findAllByStatus(Common.Status.ACTIVE)
-                .map(toDTO()).collect(Collectors.toList());
+        return mapper.map(repo.findAllByStatus(Common.Status.ACTIVE));
     }
 
-    private Function<Product, ProductDTO> toDTO() {
-        return e -> {
-            ProductDTO dto = new ProductDTO();
-            dto.setId(e.getId());
-            dto.setCode(e.getCode());
-            dto.setName(e.getName());
-            dto.setStatus(e.getStatus());
-            dto.setCreatedDate(e.getCreatedDate());
-            dto.setUpdatedDate(e.getUpdatedDate());
-            return dto;
-        };
-    }
 }
