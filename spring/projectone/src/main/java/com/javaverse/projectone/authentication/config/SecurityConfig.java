@@ -20,7 +20,7 @@ import reactor.core.publisher.Mono;
 @EnableWebFluxSecurity
 @RequiredArgsConstructor
 @EnableReactiveMethodSecurity
-public class SecurityConfiguration {
+public class SecurityConfig {
     private static final String[] AUTH_WHITELIST = {
             "/resources/**",
             "/webjars/**",

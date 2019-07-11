@@ -55,6 +55,8 @@ public class ProductService {
             dto.setCode(e.getCode());
             dto.setName(e.getName());
             dto.setStatus(e.getStatus());
+            dto.setCreatedDate(e.getCreatedDate());
+            dto.setUpdatedDate(e.getUpdatedDate());
             return dto;
         };
     }

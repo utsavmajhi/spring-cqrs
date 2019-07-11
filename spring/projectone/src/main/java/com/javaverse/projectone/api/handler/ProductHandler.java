@@ -16,7 +16,6 @@ import reactor.core.publisher.*;
 import reactor.core.scheduler.Schedulers;
 
 import java.time.*;
-import java.util.concurrent.CompletableFuture;
 
 import static org.springframework.http.MediaType.APPLICATION_JSON;
 import static org.springframework.web.reactive.function.server.ServerResponse.*;
@@ -81,12 +80,24 @@ public class ProductHandler {
                 .body(Mono.defer(() -> req.bodyToMono(Example.class)).log().doOnNext(repo::update).subscribeOn(Schedulers.parallel()), Example.class);
     }
 
-    public Mono<ServerResponse> save(ServerRequest request) {
+    public Mono<ServerResponse> save(ServerRequest req) {
         return ServerResponse
                 .ok()
-                .body(Mono.defer(() -> request.bodyToMono(ProductDTO.class))
+                .contentType(MediaType.APPLICATION_JSON)
+                .lastModified(ZonedDateTime.now())
+                .body(Mono.defer(() -> req.bodyToMono(ProductDTO.class))
                         .doOnNext(dto -> commandGateway.send(dto.toCommand())), Void.class)
                 .switchIfEmpty(badRequest().build());
+    }
+
+    public Mono<ServerResponse> get(ServerRequest req) {
+        var mono = Mono.defer(() -> Mono.fromFuture(queryGateway.query(new ProductQuery.Single(Long.valueOf(req.pathVariable("id"))), ResponseTypes.instanceOf(ProductDTO.class))))
+                .subscribeOn(Schedulers.parallel());
+        return ok()
+                .contentType(MediaType.APPLICATION_JSON)
+                .lastModified(ZonedDateTime.now())
+                .body(mono, ProductDTO.class)
+                .switchIfEmpty(notFound().build());
     }
 
     public Mono<ServerResponse> delete(ServerRequest req) {
@@ -101,15 +112,5 @@ public class ProductHandler {
 //                        .build(this.userRepository.delete(user)))
 //                .switchIfEmpty(ServerResponse.notFound().build());
 //    }
-
-    public Mono<ServerResponse> get(ServerRequest req) {
-        System.out.println("get : " + req.headers().asHttpHeaders().getFirst("X-Correlation-ID"));
-        CompletableFuture<ProductDTO> completableFuture = queryGateway.query(new ProductQuery.Single(Long.valueOf(req.pathVariable("id"))), ResponseTypes.instanceOf(ProductDTO.class));
-        return ok().contentType(MediaType.APPLICATION_JSON)
-                .lastModified(ZonedDateTime.now())
-                .body(Mono.defer(() -> Mono.fromFuture(completableFuture))
-                        .subscribeOn(Schedulers.parallel()), ProductDTO.class)
-                .switchIfEmpty(ServerResponse.notFound().build());
-    }
 
 }

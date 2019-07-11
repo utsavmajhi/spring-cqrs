@@ -7,32 +7,31 @@ import java.time.OffsetDateTime;
 import java.util.stream.Stream;
 
 @Getter
+@Setter
 @MappedSuperclass
-@Setter(AccessLevel.PROTECTED)
 @EntityListeners(value = Listener.class)
 public abstract class Common {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Setter
     private Long id;
 
     private OffsetDateTime createdDate;
     private OffsetDateTime updatedDate;
 
     @Version
+    @Getter(AccessLevel.PRIVATE)
     private short version;
 
-    @Setter
     @Column(length = 1)
     private Status status;
 
+    @Getter
     @RequiredArgsConstructor
     public enum Status {
         ACTIVE("A"),
         INACTIVE("I");
 
-        @Getter
         private final String code;
 
         public static Product.Status toStatus(String code) {
