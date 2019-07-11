@@ -5,11 +5,14 @@ import com.javaverse.projectone.api.entity.Product;
 import lombok.*;
 
 @Data
+@ToString
 @EqualsAndHashCode
 public class ProductDTO extends Product {
 
     public ProductCommand.Create toCommand() {
-        return new ProductCommand.Create(getCode(), getName());
+        System.out.println("ProductCommand.Create toCommand");
+        System.out.println(this);
+        return new ProductCommand.Create(getId(), getCode(), getName());
     }
 
 }

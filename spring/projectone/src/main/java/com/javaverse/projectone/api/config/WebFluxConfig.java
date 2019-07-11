@@ -15,6 +15,11 @@ import reactor.core.publisher.Mono;
 @RequiredArgsConstructor
 public class WebFluxConfig implements WebFluxConfigurer, WebFilter {
 
+    @Override
+    public Mono<Void> filter(ServerWebExchange exchange, WebFilterChain chain) {
+        return chain.filter(exchange);
+    }
+
     private final ObjectMapper objectMapper;
 
     @Override
@@ -31,13 +36,6 @@ public class WebFluxConfig implements WebFluxConfigurer, WebFilter {
     public void configureHttpMessageCodecs(ServerCodecConfigurer configurer) {
         configurer.defaultCodecs().jackson2JsonEncoder(new Jackson2JsonEncoder(objectMapper));
         configurer.defaultCodecs().jackson2JsonDecoder(new Jackson2JsonDecoder(objectMapper));
-    }
-
-    @Override
-    public Mono<Void> filter(ServerWebExchange exchange, WebFilterChain chain) {
-        exchange.getResponse()
-                .getHeaders().add("X-Developer", "Javaverse Technology Co., Ltd.");
-        return chain.filter(exchange);
     }
 
 }

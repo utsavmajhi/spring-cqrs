@@ -6,11 +6,16 @@ import lombok.*;
 public class ProductCommand {
 
     @Value
-    @RequiredArgsConstructor
     @EqualsAndHashCode
-    public static class Create {
+    public static class Create extends CommonCommand<Long> {
         private final String code;
         private final String name;
+
+        public Create(Long id, String code, String name) {
+            super(id);
+            this.code = code;
+            this.name = name;
+        }
 
         public ProductEvent.Created toEvent() {
             return new ProductEvent.Created(code, name);

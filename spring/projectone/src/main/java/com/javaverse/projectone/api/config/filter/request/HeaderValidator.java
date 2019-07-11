@@ -1,18 +1,20 @@
-package com.javaverse.projectone.api.config.filter;
+package com.javaverse.projectone.api.config.filter.request;
 
-import org.springframework.context.annotation.Configuration;
+import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.server.*;
 import reactor.core.publisher.Mono;
 
-@Configuration
-public class ProductHandlerFilterFunction implements HandlerFilterFunction {
+@Component
+public class HeaderValidator implements HandlerFilterFunction {
+
     @Override
     public Mono filter(ServerRequest req, HandlerFunction function) {
-        mock(req);
+        validate(req);
         return function.handle(req);
     }
 
-    private void mock(ServerRequest req) {
+    // todo
+    private void validate(ServerRequest req) {
         switch (req.method()) {
             case GET:
                 System.out.println("GET"); break;
