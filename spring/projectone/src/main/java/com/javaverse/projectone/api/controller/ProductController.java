@@ -4,12 +4,14 @@ import com.javaverse.projectone.api.command.ProductCommand;
 import com.javaverse.projectone.api.dto.ProductDTO;
 import com.javaverse.projectone.api.query.ProductQuery;
 import lombok.AllArgsConstructor;
+import lombok.extern.log4j.Log4j2;
 import org.axonframework.commandhandling.gateway.CommandGateway;
 import org.axonframework.messaging.responsetypes.ResponseTypes;
 import org.axonframework.queryhandling.QueryGateway;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+@Log4j2
 @RestController
 @AllArgsConstructor
 public class ProductController {

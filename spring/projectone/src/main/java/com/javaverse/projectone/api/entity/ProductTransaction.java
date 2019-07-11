@@ -7,7 +7,7 @@ import java.time.OffsetDateTime;
 
 @Data
 @Entity(name = "product_transactions")
-@EqualsAndHashCode(callSuper = false)
+@EqualsAndHashCode
 public class ProductTransaction extends Common {
 
     private Long productId;

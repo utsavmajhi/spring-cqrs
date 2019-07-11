@@ -7,7 +7,7 @@ public class CompanyCommand {
 
     @Value
     @RequiredArgsConstructor
-    @EqualsAndHashCode(callSuper = false)
+    @EqualsAndHashCode
     public static class Create {
         private final String code;
         private final String name;
@@ -18,7 +18,7 @@ public class CompanyCommand {
     }
 
     @Value
-    @EqualsAndHashCode(callSuper = false)
+    @EqualsAndHashCode
     public static class Update extends CommonCommand<Long> {
         private final String code;
         private final String name;
@@ -35,7 +35,7 @@ public class CompanyCommand {
     }
 
     @Value
-    @EqualsAndHashCode(callSuper = false)
+    @EqualsAndHashCode
     public static class Delete extends CommonCommand<Long> {
         public Delete(Long id) {
             super(id);

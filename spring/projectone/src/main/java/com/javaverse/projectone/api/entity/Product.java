@@ -6,7 +6,7 @@ import javax.persistence.*;
 
 @Data
 @Entity(name = "products")
-@EqualsAndHashCode(callSuper = false)
+@EqualsAndHashCode
 public class Product extends Common {
 
     @Column(length = 13)

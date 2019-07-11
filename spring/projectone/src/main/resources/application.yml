@@ -12,7 +12,7 @@ spring:
   jpa:
     database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
     hibernate:
-      ddl-auto: update
+      ddl-auto: create-drop
 
 
 #spring.main.lazy-initialization: true   # coming  2.2.x+

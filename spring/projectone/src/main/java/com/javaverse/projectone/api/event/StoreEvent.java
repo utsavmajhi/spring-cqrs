@@ -12,6 +12,7 @@ public class StoreEvent {
     }
 
     @Value
+    @EqualsAndHashCode
     public static class Updated extends CommonEvent<Long> {
         private final String code;
         private final String name;
@@ -24,7 +25,7 @@ public class StoreEvent {
     }
 
     @Value
-    @EqualsAndHashCode(callSuper = false)
+    @EqualsAndHashCode
     public static class Deleted extends CommonEvent<Long> {
         public Deleted(Long id) {
             super(id);

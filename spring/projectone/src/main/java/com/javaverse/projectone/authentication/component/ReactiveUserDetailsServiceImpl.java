@@ -32,9 +32,8 @@ public class ReactiveUserDetailsServiceImpl implements ReactiveUserDetailsServic
 
     private org.springframework.security.core.userdetails.User createSpringSecurityUser(com.javaverse.projectone.authentication.entity.User user) {
 
-        org.springframework.security.core.userdetails.User obj = new org.springframework.security.core.userdetails.User(user.getUsername(),
+        return new org.springframework.security.core.userdetails.User(user.getUsername(),
                 user.getPassword(), user.getGrantedAuthorities());
-        return obj;
     }
 
 }

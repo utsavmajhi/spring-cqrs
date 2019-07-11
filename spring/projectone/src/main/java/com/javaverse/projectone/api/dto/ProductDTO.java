@@ -5,7 +5,7 @@ import com.javaverse.projectone.api.entity.Product;
 import lombok.*;
 
 @Data
-@EqualsAndHashCode(callSuper = false)
+@EqualsAndHashCode
 public class ProductDTO extends Product {
 
     public ProductCommand.Create toCommand() {

@@ -5,7 +5,7 @@ import org.springframework.web.reactive.function.server.*;
 import reactor.core.publisher.Mono;
 
 @Configuration
-public class ProductFilter implements HandlerFilterFunction {
+public class ProductHandlerFilterFunction implements HandlerFilterFunction {
     @Override
     public Mono filter(ServerRequest req, HandlerFunction function) {
         mock(req);
