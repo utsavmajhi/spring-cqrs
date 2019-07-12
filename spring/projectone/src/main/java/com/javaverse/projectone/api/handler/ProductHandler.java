@@ -58,11 +58,14 @@ public class ProductHandler {
                 .flatMap(obj -> ok().build());
     }
 
-    public Mono<ServerResponse> delete(ServerRequest req) {
-        return Mono.defer(() -> Mono.justOrEmpty(id(req)))
-                .doOnNext(id -> commandGateway.send(new ProductCommand.Delete(Long.valueOf(id))))
-                .subscribeOn(Schedulers.parallel())
-                .flatMap(obj -> ok().build());
+    public static void main(String[] args) throws Exception {
+        Flux.range(1, 10)
+                .parallel(5)
+                .runOn(Schedulers.parallel())
+                .subscribe(v -> log.debug(v + " - " + Thread.currentThread().getName()));
+
+        Thread.sleep(2000);
+
     }
 
     private Long id(ServerRequest req) {
@@ -73,14 +76,11 @@ public class ProductHandler {
         return req.bodyToMono(ProductDTO.class);
     }
 
-    public static void main(String[] args) throws Exception {
-        Flux.range(1, 10)
-                .parallel(5)
-                .runOn(Schedulers.parallel())
-                .subscribe(v -> System.out.println(v + " - " + Thread.currentThread().getName()));
-
-        Thread.sleep(5000);
-
+    public Mono<ServerResponse> delete(ServerRequest req) {
+        return Mono.defer(() -> Mono.justOrEmpty(id(req)))
+                .doOnNext(id -> commandGateway.send(new ProductCommand.Delete(id)))
+                .subscribeOn(Schedulers.parallel())
+                .flatMap(obj -> ok().build());
     }
 
 

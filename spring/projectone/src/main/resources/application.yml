@@ -15,7 +15,14 @@ spring:
       ddl-auto: update
   main:
     lazy-initialization: true
+
 #spring.main.lazy-initialization: true   # coming  2.2.x+
+
+server:
+  compression:
+    enabled: true
+  http2:
+    enabled: true
 
 
 #docker run -d --rm --name mysql -v mysql_data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=javaverse -p 3306:3306 mysql:latest

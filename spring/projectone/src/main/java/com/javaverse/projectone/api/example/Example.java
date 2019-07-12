@@ -37,11 +37,4 @@ public class Example {
         this.price = price;
     }
 
-//    public static void main(String[] args) throws JsonProcessingException {
-//        Example e = new Example();
-//        e.setId("id");
-//        e.setName("name");
-//        e.setPrice(123d);
-//        System.out.println(new ObjectMapper().writeValueAsString(e));
-//    }
 }

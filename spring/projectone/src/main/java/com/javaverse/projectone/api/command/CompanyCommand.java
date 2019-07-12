@@ -5,6 +5,8 @@ import lombok.*;
 
 public class CompanyCommand {
 
+    private CompanyCommand() { }
+
     @Value
     @RequiredArgsConstructor
     @EqualsAndHashCode

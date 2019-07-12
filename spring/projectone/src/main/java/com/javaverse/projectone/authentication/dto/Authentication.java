@@ -8,7 +8,9 @@ import javax.validation.constraints.NotEmpty;
  * View Model object for storing a user's credentials.
  */
 
-public class Authentication {
+public final class Authentication {
+
+    private Authentication() {}
 
     @Data
     @NoArgsConstructor

@@ -43,6 +43,7 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-security'
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation('org.springframework.boot:spring-boot-starter-log4j2')
+    implementation('com.fasterxml.jackson.dataformat:jackson-dataformat-yaml')
     implementation('com.lmax:disruptor:3.4.2')
 //    developmentOnly 'org.springframework.boot:spring-boot-devtools'
     compileOnly 'org.projectlombok:lombok'
@@ -79,6 +80,9 @@ dependencies {
 compileJava {
     options.compilerArgs = [
             '-Amapstruct.suppressGeneratorTimestamp=true',
-            '-Amapstruct.suppressGeneratorVersionInfoComment=true'
+            '-Amapstruct.suppressGeneratorVersionInfoComment=true',
+            '-Amapstruct.defaultComponentModel=spring',
+            '-Amapstruct.unmappedTargetPolicy=IGNORE'
     ]
 }
+bootRun.dependsOn(compileJava)

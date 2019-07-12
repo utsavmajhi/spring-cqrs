@@ -1,9 +1,13 @@
 package com.javaverse.projectone.api.config.filter.request;
 
+import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.server.*;
 import reactor.core.publisher.Mono;
 
+import java.util.Objects;
+
+@Log4j2
 @Component
 public class HeaderValidator implements HandlerFilterFunction {
 
@@ -15,19 +19,19 @@ public class HeaderValidator implements HandlerFilterFunction {
 
     // todo
     private void validate(ServerRequest req) {
-        switch (req.method()) {
+        switch (Objects.requireNonNull(req.method())) {
             case GET:
-                System.out.println("GET"); break;
+                log.debug("GET"); break;
             case POST:
-                System.out.println("POST"); break;
+                log.debug("POST"); break;
             case PUT:
-                System.out.println("PUT"); break;
+                log.debug("PUT"); break;
             case PATCH:
-                System.out.println("PATCH"); break;
+                log.debug("PATCH"); break;
             case DELETE:
-                System.out.println("DELETE"); break;
+                log.debug("DELETE"); break;
             default:
-                System.out.println("OTHER");
+                log.debug("OTHER");
         }
     }
 }

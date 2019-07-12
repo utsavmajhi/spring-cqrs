@@ -17,7 +17,7 @@ public class TokenAuthenticationConverter implements Function<ServerWebExchange,
 
     private static final String BEARER = "Bearer ";
     private static final Predicate<String> matchBearerLength = authValue -> authValue.length() > BEARER.length();
-    private static final Function<String, String> isolateBearerValue = authValue -> authValue.substring(BEARER.length());
+    private static final UnaryOperator<String> isolateBearerValue = authValue -> authValue.substring(BEARER.length());
     private final TokenProvider provider;
 
     @Override

@@ -4,6 +4,8 @@ import lombok.*;
 
 public class CompanyEvent {
 
+    private CompanyEvent() { }
+
     @Value
     @RequiredArgsConstructor
     public static class Created {

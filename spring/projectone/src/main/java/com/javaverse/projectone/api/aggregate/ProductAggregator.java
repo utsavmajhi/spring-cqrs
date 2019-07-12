@@ -26,7 +26,7 @@ public class ProductAggregator {
     @CommandHandler
     // use constructor only for 1st create
     public ProductAggregator(ProductCommand.Create cmd) {
-        log.info(() -> "CommandHandler : Create : " + cmd);
+        log.debug(() -> "CommandHandler : Create : " + cmd);
         // validation logic
         apply(cmd.toEvent());
     }
@@ -35,7 +35,7 @@ public class ProductAggregator {
     @CommandHandler
     // use constructor only for 1st create
     public ProductAggregator(ProductCommand.Update cmd) {
-        log.info(() -> "CommandHandler : Update : " + cmd);
+        log.debug(() -> "CommandHandler : Update : " + cmd);
         // validation logic
         apply(cmd.toEvent());
     }
@@ -43,26 +43,26 @@ public class ProductAggregator {
     /*Delete*/
     @CommandHandler
     public ProductAggregator(ProductCommand.Delete cmd) {
-        log.info(() -> "CommandHandler : Delete : " + cmd);
+        log.debug(() -> "CommandHandler : Delete : " + cmd);
         // validation logic
         apply(cmd.toEvent());
     }
 
     @EventSourcingHandler
     private void on(ProductEvent.Created event) {
-        log.info(() -> "EventSourcingHandler : Created : " + event);
+        log.debug(() -> "EventSourcingHandler : Created : " + event);
         setOffsetDateTime(OffsetDateTime.now());
     }
 
     @EventSourcingHandler
     private void on(ProductEvent.Updated event) {
-        log.info(() -> "EventSourcingHandler : Updated : " + event);
+        log.debug(() -> "EventSourcingHandler : Updated : " + event);
         setOffsetDateTime(OffsetDateTime.now());
     }
 
     @EventSourcingHandler
     private void on(ProductEvent.Deleted event) {
-        log.info(() -> "EventSourcingHandler : Deleted : " + event);
+        log.debug(() -> "EventSourcingHandler : Deleted : " + event);
         setOffsetDateTime(OffsetDateTime.now());
     }
 

@@ -5,6 +5,8 @@ import lombok.*;
 
 public class ProductCommand {
 
+    private ProductCommand() { }
+
     @Value
     @EqualsAndHashCode
     public static class Create extends CommonCommand<Long> {

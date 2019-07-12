@@ -21,7 +21,7 @@ import java.util.stream.Collectors;
 public class TokenProvider {
 
     private static final String SALT_KEY = "SmF2YXZlcnNlIFRlY2hub2xvZ3kgQ28uLCBMdGQu";
-    private static final int TOKEN_VALIDITY = 60 * 60 * 24; // Value in second // 1 day
+    private static final long TOKEN_VALIDITY = 60L * 60L * 24L; // Value in second // 1 day
     private static final String AUTHORITIES_KEY = "auth";
     private static final Base64.Encoder encoder = Base64.getEncoder();
 
@@ -32,7 +32,7 @@ public class TokenProvider {
     @PostConstruct
     public void init() {
         secretKey = encoder.encodeToString(SALT_KEY.getBytes(StandardCharsets.UTF_8));
-        tokenValidityInMilliseconds = 1000 * TOKEN_VALIDITY;
+        tokenValidityInMilliseconds = 1_000L * TOKEN_VALIDITY;
     }
 
     public String token(Authentication authentication) {

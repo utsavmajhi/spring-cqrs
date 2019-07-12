@@ -4,6 +4,8 @@ import lombok.*;
 
 public class ProductEvent {
 
+    private ProductEvent() { }
+
     @Value
     @RequiredArgsConstructor
     public static class Created {

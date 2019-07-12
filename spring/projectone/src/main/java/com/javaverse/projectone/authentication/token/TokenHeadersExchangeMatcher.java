@@ -14,8 +14,8 @@ public class TokenHeadersExchangeMatcher implements ServerWebExchangeMatcher {
         return Mono.just(exchange)
                 .map(ServerWebExchange::getRequest)
                 .map(ServerHttpRequest::getHeaders)
-                .filter(h -> h.containsKey(HttpHeaders.AUTHORIZATION))
-                .flatMap($ -> MatchResult.match())
+                .filter(headers -> headers.containsKey(HttpHeaders.AUTHORIZATION))
+                .flatMap(headers -> MatchResult.match())
                 .switchIfEmpty(MatchResult.notMatch());
     }
 }

@@ -5,6 +5,8 @@ import lombok.*;
 
 public class StoreCommand {
 
+    private StoreCommand() { }
+
     @Value
     @RequiredArgsConstructor
     @EqualsAndHashCode

@@ -1,0 +1,90 @@
+Configuration:
+  name: ConfigurationYml
+  Properties:
+    Property:
+      - name: dir
+        value: log
+      - name: file-name
+        value: application.log
+      - name: console-pattern
+        value: "%highlight{[%-5p]} %d %X{c-id} %c{1} > %m%n%ex{short}"
+      - name: file-pattern
+        value: "[%-5p] %d %X{c-id} %c{1} > %m%n%ex{short}"
+
+  Appenders:
+    Console:
+      name: Console_Appender
+      target: SYSTEM_OUT
+      PatternLayout:
+        pattern: ${console-pattern}
+
+    RollingRandomAccessFile:
+      name: RollingRandomAccessFile_Appender
+      fileName: '${dir}/${file-name}'
+      filePattern: "${dir}/${file-name}-%d{MM-dd-yy}.log.gz"
+      immediateFlush: false
+      PatternLayout:
+        pattern: ${file-pattern}
+
+      Policies:
+        TimeBasedTriggeringPolicy:
+          interval: 24
+        SizeBasedTriggeringPolicy:
+          size: 10 MB
+
+      DefaultRolloverStrategy:
+        Delete:
+          basePath: ${dir}
+          maxDepth: 2
+          IfFileName:
+            glob: "*/${file-name}*log.gz"
+          IfLastModified:
+            age: 30D
+
+  Loggers:
+    AsyncRoot:
+      includeLocation: false
+      level: info
+      AppenderRef:
+        - ref: Console_Appender
+        - ref: RollingRandomAccessFile_Appender
+
+    AsyncLogger:
+      - name: com.javaverse.projectone
+        additivity: false
+        level: info
+        AppenderRef:
+          - ref: Console_Appender
+          - ref: RollingRandomAccessFile_Appender
+
+      - name: org.hibernate.engine.internal
+        level: info
+        additivity: false
+        AppenderRef:
+          - ref: Console_Appender
+          - ref: RollingRandomAccessFile_Appender
+
+      - name: org.springframework.boot.web.servlet
+        level: info
+        additivity: false
+        AppenderRef:
+          - ref: Console_Appender
+          - ref: RollingRandomAccessFile_Appender
+
+      # show sql
+      - name: org.hibernate.SQL
+        level: off #off or #debug
+        additivity: false
+        AppenderRef:
+          - ref: Console_Appender
+          - ref: RollingRandomAccessFile_Appender
+
+      # show binding params
+      - name: org.hibernate.type
+        level: off #off or #trace
+        additivity: false
+        AppenderRef:
+          - ref: Console_Appender
+          - ref: RollingRandomAccessFile_Appender
+
+

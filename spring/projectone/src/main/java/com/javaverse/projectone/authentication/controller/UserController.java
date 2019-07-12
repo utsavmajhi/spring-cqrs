@@ -37,7 +37,7 @@ public class UserController {
                                 req -> ok()
                                         .body(Mono.just("admin : " + req.queryParam("name").orElse("")),
                                                 String.class))
-                        .GET("/basic", accept(APPLICATION_JSON_UTF8),
+                        .GET("/basic", accept(APPLICATION_JSON),
                                 req -> ok().contentType(TEXT_PLAIN)
                                         .body(
                                                 Mono.just("basic : " + req.queryParam("name").orElse("")).subscribeOn(Schedulers.elastic()),

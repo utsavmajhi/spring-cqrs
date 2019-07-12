@@ -15,25 +15,19 @@ public abstract class Common {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private OffsetDateTime createdDate;
     private OffsetDateTime updatedDate;
-
     @Version
     @Getter(AccessLevel.PRIVATE)
     private short version;
-
     @Column(length = 1)
     private Status status;
-
     @Getter
     @RequiredArgsConstructor
     public enum Status {
         ACTIVE("A"),
         INACTIVE("I");
-
         private final String code;
-
         public static Product.Status toStatus(String code) {
             return Stream.of(Product.Status.values()).parallel()
                     .filter(status -> status.getCode().equalsIgnoreCase(code))

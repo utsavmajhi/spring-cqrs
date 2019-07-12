@@ -3,6 +3,7 @@ package com.javaverse.projectone.api.event;
 import lombok.*;
 
 public class StoreEvent {
+    private StoreEvent() {}
 
     @Value
     @RequiredArgsConstructor
