@@ -22,7 +22,6 @@ public class ProductService {
 
     @EventHandler
     public void on(ProductEvent.Created event) {
-        System.out.println("EventHandler ProductEvent.Created");
         Product product = new Product();
         product.setCode(event.getCode());
         product.setName(event.getName());
@@ -32,7 +31,6 @@ public class ProductService {
 
     @EventHandler
     public void on(ProductEvent.Updated event) {
-        System.out.println("EventHandler ProductEvent.Updated");
         Product product = repo.findById(event.getId()).orElseThrow();
         product.setCode(event.getCode());
         product.setName(event.getName());
@@ -41,7 +39,6 @@ public class ProductService {
 
     @EventHandler
     public void on(ProductEvent.Deleted event) {
-        System.out.println("EventHandler ProductEvent.Deleted : " + event.getId());
         repo.deleteById(event.getId());
     }
 

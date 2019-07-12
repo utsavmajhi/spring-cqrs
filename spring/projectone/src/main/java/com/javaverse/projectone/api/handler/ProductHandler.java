@@ -73,6 +73,15 @@ public class ProductHandler {
         return req.bodyToMono(ProductDTO.class);
     }
 
+    public static void main(String[] args) throws Exception {
+        Flux.range(1, 10)
+                .parallel(5)
+                .runOn(Schedulers.parallel())
+                .subscribe(v -> System.out.println(v + " - " + Thread.currentThread().getName()));
+
+        Thread.sleep(5000);
+
+    }
 
 
 }

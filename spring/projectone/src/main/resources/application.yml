@@ -13,8 +13,8 @@ spring:
     database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
     hibernate:
       ddl-auto: update
-
-
+  main:
+    lazy-initialization: true
 #spring.main.lazy-initialization: true   # coming  2.2.x+
 
 
