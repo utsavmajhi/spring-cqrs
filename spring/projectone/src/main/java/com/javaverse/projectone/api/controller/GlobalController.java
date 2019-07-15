@@ -1,15 +1,11 @@
 package com.javaverse.projectone.api.controller;
 
-import com.javaverse.projectone.api.config.filter.request.HeaderValidator;
-import com.javaverse.projectone.api.handler.ProductHandler;
+import com.javaverse.projectone.api.config.filter.request.*;
+import com.javaverse.projectone.api.handler.*;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
-import org.apache.logging.log4j.util.Supplier;
 import org.springframework.context.annotation.*;
 import org.springframework.web.reactive.function.server.*;
-import reactor.core.publisher.Mono;
-
-import java.time.*;
 
 import static org.springframework.web.reactive.function.server.RouterFunctions.route;
 
@@ -18,48 +14,57 @@ import static org.springframework.web.reactive.function.server.RouterFunctions.r
 @RequiredArgsConstructor
 public class GlobalController {
 
-    private final ProductHandler product;
+    private final PerformLogging performLogging;
+    private final HeaderValidator validator;
 
     @Bean
-    public RouterFunction<ServerResponse> productRouterFunction(HeaderValidator validator) {
+    public RouterFunction<ServerResponse> productFunction(ProductHandler handler) {
         return route()
                 .path("/api/v1", builder -> builder
                         .path("/products", method -> method
-                                .GET("/{id}", product::find)
-                                .GET("", product::findAll)
-                                .POST("", product::save)
-                                .PUT("", product::update)
-                                .DELETE("/{id}", product::delete)
-                        )
-                        .path("/stores", method -> method
-                                .GET("/{id}", product::find)
-                                .GET("", product::findAll)
-                                .POST("", product::save)
-                                .PUT("", product::update)
-                                .DELETE("/{id}", product::delete)
-                        )
-                        .path("/companies", method -> method
-                                .GET("/{id}", product::find)
-                                .GET("", product::findAll)
-                                .POST("", product::save)
-                                .PUT("", product::update)
-                                .DELETE("/{id}", product::delete)
+                                .GET("/{id}", handler::find)
+                                .GET("", handler::findAll)
+                                .POST("", handler::save)
+                                .PUT("", handler::update)
+                                .DELETE("/{id}", handler::delete)
                         )
                 )
-                .filter(this::performanceLogging)
+                .filter(performLogging)
                 .filter(validator)
                 .build();
     }
 
-    private Mono<ServerResponse> performanceLogging(ServerRequest req, HandlerFunction<ServerResponse> next) {
-        var begin = LocalTime.now();
-        var res = next.handle(req);
-        log.debug(processingTime(req, Duration.between(begin, LocalTime.now())));
-        return res;
+    @Bean
+    public RouterFunction<ServerResponse> companyFunction(CompanyHandler handler) {
+        return route()
+                .path("/api/v1", builder -> builder
+                        .path("/companies", method -> method
+                                .GET("/{id}", handler::find)
+                                .GET("", handler::findAll)
+                                .POST("", handler::save)
+                                .PUT("", handler::update)
+                                .DELETE("/{id}", handler::delete)
+                        )
+                )
+                .filter(performLogging)
+                .filter(validator)
+                .build();
     }
 
-    private Supplier<String> processingTime(ServerRequest req, Duration duration) {
-        return () -> req + " Took " + duration.toMillis() + " ms. ";
+    @Bean
+    public RouterFunction<ServerResponse> storeFunction(StoreHandler handler) {
+        return route()
+                .path("/api/v1", builder -> builder
+                        .path("/stores", method -> method
+                                .GET("/{id}", handler::find)
+                                .GET("", handler::findAll)
+                                .POST("", handler::save)
+                                .PUT("", handler::update)
+                                .DELETE("/{id}", handler::delete)
+                        )
+                )
+                .filter(performLogging)
+                .filter(validator)
+                .build();
     }
-
 }

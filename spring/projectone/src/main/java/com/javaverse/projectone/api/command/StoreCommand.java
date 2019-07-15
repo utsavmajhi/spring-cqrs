@@ -8,11 +8,16 @@ public class StoreCommand {
     private StoreCommand() { }
 
     @Value
-    @RequiredArgsConstructor
     @EqualsAndHashCode
-    public static class Create {
+    public static class Create extends CommonCommand<Long> {
         private final String code;
         private final String name;
+
+        public Create(Long id, String code, String name) {
+            super(id);
+            this.code = code;
+            this.name = name;
+        }
 
         public StoreEvent.Created toEvent() {
             return new StoreEvent.Created(code, name);

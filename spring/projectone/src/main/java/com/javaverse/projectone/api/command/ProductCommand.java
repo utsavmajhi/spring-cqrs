@@ -47,7 +47,6 @@ public class ProductCommand {
         public Delete(Long id) {
             super(id);
         }
-
         public ProductEvent.Deleted toEvent() {
             return new ProductEvent.Deleted(id);
         }
