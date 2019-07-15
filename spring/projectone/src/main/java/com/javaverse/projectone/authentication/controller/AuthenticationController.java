@@ -10,8 +10,6 @@ import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Mono;
 
 import javax.validation.*;
-import java.util.function.Consumer;
-
 
 @Log4j2
 @RestController
@@ -26,20 +24,14 @@ public class AuthenticationController {
     @PostMapping
     public Mono<Authentication.Response> authorize(@Valid @RequestBody Authentication.Request req) {
         if (!validator.validate(req).isEmpty()) {
-            return Mono.error(new RuntimeException("Bad request"));
+            return Mono.error(new BadCredentialsException("Bad Credentials Exception"));
         }
         var authenticationToken = new UsernamePasswordAuthenticationToken(req.getUsername(), req.getPassword());
         ReactiveSecurityContextHolder.withAuthentication(authenticationToken);
         return manager.authenticate(authenticationToken)
-                .doOnError(throwBadCredentialsException())
-                .map(auth -> new Authentication.Response(provider.token(auth), provider.refreshToken(auth)));
+                .doOnError(e -> new BadCredentialsException("Bad Credentials Exception"))
+                .map(authenticate -> new Authentication.Response(provider.token(authenticate), provider.refreshToken(authenticate)));
 
-    }
-
-    private Consumer<Throwable> throwBadCredentialsException() {
-        return throwable -> {
-            throw new BadCredentialsException("Bad Credentials Exception");
-        };
     }
 
 }

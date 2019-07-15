@@ -69,11 +69,10 @@ public class TokenProvider {
         return compact;
     }
 
-
     public Authentication perform(String token) {
-        if (StringUtils.isEmpty(token) || !validateToken(token)) {
-            throw new BadCredentialsException("Invalid token");
-        }
+
+        validateToken(token);
+
         var claims = Jwts.parser()
                 .setSigningKey(secretKey)
                 .parseClaimsJws(token)
@@ -86,26 +85,27 @@ public class TokenProvider {
         return new UsernamePasswordAuthenticationToken(new User(claims.getSubject(), Strings.EMPTY, authorities), token, authorities);
     }
 
-    public boolean validateToken(String token) {
+    public void validateToken(String token) {
+        if (StringUtils.isEmpty(token)) {
+            throw new BadCredentialsException("Token cannot be Empty");
+        }
         try {
             Jwts.parser().setSigningKey(secretKey).parseClaimsJws(token);
-            return true;
         } catch (SignatureException e) {
-            log.info("Invalid Signature.");
-            log.trace("Invalid Signature trace: {}", e);
+            log.error("Invalid Signature.");
+            throw new BadCredentialsException("Invalid Signature.");
         } catch (MalformedJwtException e) {
-            log.info("Invalid Token.");
-            log.trace("Invalid Token trace: {}", e);
+            log.error("Invalid Token.");
+            throw new BadCredentialsException("Invalid Token.");
         } catch (ExpiredJwtException e) {
-            log.info("Expired Token.");
-            log.trace("Expired Token trace: {}", e);
+            log.error("Expired Token.");
+            throw new BadCredentialsException("Expired Token.");
         } catch (UnsupportedJwtException e) {
-            log.info("Unsupported Token.");
-            log.trace("Unsupported Token trace: {}", e);
+            log.error("Unsupported Token.");
+            throw new BadCredentialsException("Unsupported Token.");
         } catch (IllegalArgumentException e) {
-            log.info("Token compact of handler are invalid.");
-            log.trace("Token compact of handler are invalid trace: {}", e);
+            log.error("Token compact of handler are invalid.");
+            throw new BadCredentialsException("Token compact of handler are invalid.");
         }
-        return false;
     }
 }
