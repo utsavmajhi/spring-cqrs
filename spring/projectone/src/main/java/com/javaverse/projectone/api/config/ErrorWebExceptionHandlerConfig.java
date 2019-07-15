@@ -13,6 +13,7 @@ import org.springframework.web.reactive.function.server.*;
 import reactor.core.publisher.Mono;
 
 import java.time.OffsetDateTime;
+import java.util.Map;
 
 import static org.springframework.http.HttpStatus.BAD_REQUEST;
 import static org.springframework.http.MediaType.APPLICATION_JSON;
@@ -41,15 +42,15 @@ public class ErrorWebExceptionHandlerConfig extends AbstractErrorWebExceptionHan
         final var errorAttributes = super.getErrorAttributes(request, false);
 //        errorAttributes.put(ErrorAttribute.TRACE_ID.value, tracer.traceId());
         if (error instanceof Exception) {
-            log.debug("Caught an instance of: {}, err: {}", Exception.class, error);
+            log.error("Caught an instance of: {}, err: {}", Exception.class, error);
 //            final var errorStatus = ((DomainException) error).getStatus();
-//            errorAttributes.replace("status", "123");
-//            errorAttributes.replace("message", error.getMessage());
         }
-        errorAttributes.replace("timestamp", OffsetDateTime.now());
-        errorAttributes.remove("requestId");
-//todo
-        return status(BAD_REQUEST).contentType(APPLICATION_JSON).body(BodyInserters.fromObject(errorAttributes));
+        var map = Map.of(
+                "timestamp", OffsetDateTime.now()
+                , "exception", error.getClass().getName()
+                , "message", errorAttributes.get("message"));
+
+        return status(BAD_REQUEST).contentType(APPLICATION_JSON).body(BodyInserters.fromObject(map));
     }
 
 }
