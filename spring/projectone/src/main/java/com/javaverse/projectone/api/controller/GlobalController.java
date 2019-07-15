@@ -20,14 +20,12 @@ public class GlobalController {
     @Bean
     public RouterFunction<ServerResponse> productFunction(ProductHandler handler) {
         return route()
-                .path("/api/v1", builder -> builder
-                        .path("/products", method -> method
-                                .GET("/{id}", handler::find)
-                                .GET("", handler::findAll)
-                                .POST("", handler::save)
-                                .PUT("", handler::update)
-                                .DELETE("/{id}", handler::delete)
-                        )
+                .path("/api/v1/products", method -> method
+                        .GET("/{id}", handler::find)
+                        .GET("", handler::findAll)
+                        .POST("", handler::save)
+                        .PUT("", handler::update)
+                        .DELETE("/{id}", handler::delete)
                 )
                 .filter(performLogging)
                 .filter(validator)
@@ -37,14 +35,12 @@ public class GlobalController {
     @Bean
     public RouterFunction<ServerResponse> companyFunction(CompanyHandler handler) {
         return route()
-                .path("/api/v1", builder -> builder
-                        .path("/companies", method -> method
-                                .GET("/{id}", handler::find)
-                                .GET("", handler::findAll)
-                                .POST("", handler::save)
-                                .PUT("", handler::update)
-                                .DELETE("/{id}", handler::delete)
-                        )
+                .path("/api/v1/companies", method -> method
+                        .GET("/{id}", handler::find)
+                        .GET("", handler::findAll)
+                        .POST("", handler::save)
+                        .PUT("", handler::update)
+                        .DELETE("/{id}", handler::delete)
                 )
                 .filter(performLogging)
                 .filter(validator)
@@ -54,14 +50,12 @@ public class GlobalController {
     @Bean
     public RouterFunction<ServerResponse> storeFunction(StoreHandler handler) {
         return route()
-                .path("/api/v1", builder -> builder
-                        .path("/stores", method -> method
-                                .GET("/{id}", handler::find)
-                                .GET("", handler::findAll)
-                                .POST("", handler::save)
-                                .PUT("", handler::update)
-                                .DELETE("/{id}", handler::delete)
-                        )
+                .path("/api/v1/stores", method -> method
+                        .GET("/{id}", handler::find)
+                        .GET("", handler::findAll)
+                        .POST("", handler::save)
+                        .PUT("", handler::update)
+                        .DELETE("/{id}", handler::delete)
                 )
                 .filter(performLogging)
                 .filter(validator)
