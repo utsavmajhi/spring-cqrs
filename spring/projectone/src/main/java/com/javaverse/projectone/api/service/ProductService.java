@@ -21,19 +21,17 @@ public class ProductService {
     private final ProductMapper mapper;
 
     @EventHandler
-    public void on(ProductEvent.Created event) {
-        Product product = new Product();
-        product.setCode(event.getCode());
-        product.setName(event.getName());
+    public void on(ProductEvent.Created p) {
+        Product product = mapper.map(p);
         product.setStatus(Common.Status.ACTIVE);
         repo.save(product);
     }
 
     @EventHandler
-    public void on(ProductEvent.Updated event) {
-        Product product = repo.findById(event.getId()).orElseThrow();
-        product.setCode(event.getCode());
-        product.setName(event.getName());
+    public void on(ProductEvent.Updated p) {
+        Product product = repo.findById(p.getId()).orElseThrow();
+        product.setCode(p.getCode());
+        product.setName(p.getName());
         repo.save(product);
     }
 

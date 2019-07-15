@@ -1,14 +1,8 @@
 spring:
-  data:
-    mongodb:
-      host: localhost
-      port: 27017
-      database: javaverse
-
   datasource:
     url: jdbc:mysql://localhost:3306/javaverse?autoReconnect=true&cachePrepStmts=true&cacheCallableStmts=true&cacheServerConfiguration=true&useLocalSessionState=true&elideSetAutoCommits=true&alwaysSendSetIsolation=false&enableQueryTimeouts=false
     username: root
-    password: javaverse
+    password: ENC(ecVbG3YHA7hiL8oPS7KUc3gF+cmeGyJrJ+ZxQnk+QdZsq+LCFzAOiw==)   #this is encrypted by jasypt
   jpa:
     database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
     hibernate:
@@ -23,6 +17,14 @@ server:
     enabled: true
   http2:
     enabled: true
+
+
+
+
+jasypt:
+  encryptor:
+    bean: commonEncryptor
+
 
 
 #docker run -d --rm --name mysql -v mysql_data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=javaverse -p 3306:3306 mysql:latest

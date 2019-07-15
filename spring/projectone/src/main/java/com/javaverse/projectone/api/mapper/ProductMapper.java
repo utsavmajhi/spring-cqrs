@@ -8,8 +8,7 @@ import org.mapstruct.*;
 import java.util.List;
 import java.util.stream.Stream;
 
-@Mapper(injectionStrategy = InjectionStrategy.CONSTRUCTOR
-)
+@Mapper(injectionStrategy = InjectionStrategy.CONSTRUCTOR)
 public interface ProductMapper {
 
     @Mappings(value = {
