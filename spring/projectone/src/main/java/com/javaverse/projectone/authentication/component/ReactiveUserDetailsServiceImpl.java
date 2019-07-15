@@ -8,7 +8,7 @@ import org.springframework.security.core.userdetails.*;
 import org.springframework.stereotype.Component;
 import reactor.core.publisher.Mono;
 
-import java.util.*;
+import java.util.Objects;
 
 @Log4j2
 @Component
@@ -19,7 +19,7 @@ public class ReactiveUserDetailsServiceImpl implements ReactiveUserDetailsServic
 
     @Override
     public Mono<UserDetails> findByUsername(String username) {
-        Optional<com.javaverse.projectone.authentication.entity.User> optional = repository.findByUsername(username);
+        var optional = repository.findByUsername(username);
         return Mono.justOrEmpty(optional)
                 .filter(Objects::nonNull)
                 .switchIfEmpty(errorBadCredentialsException(username))

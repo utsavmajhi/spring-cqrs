@@ -38,7 +38,7 @@ public class TokenManager implements ReactiveAuthenticationManager {
     }
 
     private Mono<UserDetails> authenticateToken(final UsernamePasswordAuthenticationToken authenticationToken) {
-        String username = authenticationToken.getName();
+        var username = authenticationToken.getName();
         log.debug("checking perform for user " + username);
         if (username != null && SecurityContextHolder.getContext().getAuthentication() == null) {
             log.debug("authenticated user " + username + ", setting security context");

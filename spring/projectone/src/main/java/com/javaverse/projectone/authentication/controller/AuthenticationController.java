@@ -28,7 +28,7 @@ public class AuthenticationController {
         if (!validator.validate(req).isEmpty()) {
             return Mono.error(new RuntimeException("Bad request"));
         }
-        org.springframework.security.core.Authentication authenticationToken = new UsernamePasswordAuthenticationToken(req.getUsername(), req.getPassword());
+        var authenticationToken = new UsernamePasswordAuthenticationToken(req.getUsername(), req.getPassword());
         ReactiveSecurityContextHolder.withAuthentication(authenticationToken);
         return manager.authenticate(authenticationToken)
                 .doOnError(throwBadCredentialsException())

@@ -18,9 +18,9 @@ public class JacksonConfig {
 
     @Bean
     public Jackson2ObjectMapperBuilder jacksonBuilder() {
-        DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("d-M-yyyy");
-        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("d-M-yyyy HH:mm:ss");
-        JavaTimeModule module = new JavaTimeModule();
+        var dateFormatter = DateTimeFormatter.ofPattern("d-M-yyyy");
+        var dateTimeFormatter = DateTimeFormatter.ofPattern("d-M-yyyy HH:mm:ss");
+        var module = new JavaTimeModule();
         module.addSerializer(OffsetDateTime.class, new JsonSerializer<>() {
             @Override
             public void serialize(OffsetDateTime offsetDateTime, JsonGenerator jsonGenerator, SerializerProvider serializerProvider) throws IOException {

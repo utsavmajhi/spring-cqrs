@@ -56,7 +56,7 @@ public class SecurityConfig {
 
     @Bean
     public AuthenticationWebFilter filter() {
-        AuthenticationWebFilter filter = new AuthenticationWebFilter(manager());
+        var filter = new AuthenticationWebFilter(manager());
         filter.setRequiresAuthenticationMatcher(new TokenHeadersExchangeMatcher());
         filter.setSecurityContextRepository(new WebSessionServerSecurityContextRepository());
         filter.setServerAuthenticationConverter(new TokenAuthenticationConverter(provider)::apply);

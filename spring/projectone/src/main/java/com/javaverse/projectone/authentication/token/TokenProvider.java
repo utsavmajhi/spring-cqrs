@@ -36,13 +36,13 @@ public class TokenProvider {
     }
 
     public String token(Authentication authentication) {
-        String authorities = authentication.getAuthorities().stream()
+        var authorities = authentication.getAuthorities().stream()
                 .map(GrantedAuthority::getAuthority)
                 .collect(Collectors.joining(","));
 
-        Date issuedAt = new Date();
-        Date expiration = new Date(issuedAt.getTime() + this.tokenValidityInMilliseconds);
-        String compact = Jwts.builder()
+        var issuedAt = new Date();
+        var expiration = new Date(issuedAt.getTime() + this.tokenValidityInMilliseconds);
+        var compact = Jwts.builder()
                 .setSubject(authentication.getName())
                 .setIssuedAt(issuedAt)
                 .claim(AUTHORITIES_KEY, authorities)
@@ -56,8 +56,8 @@ public class TokenProvider {
 
     public String refreshToken(Authentication authentication) {
         // no expire for this version
-        Date issuedAt = new Date();
-        String compact = Jwts.builder()
+        var issuedAt = new Date();
+        var compact = Jwts.builder()
                 .setId(UUID.randomUUID().toString())
                 .setSubject(authentication.getName())
                 .setIssuedAt(issuedAt)
@@ -74,12 +74,12 @@ public class TokenProvider {
         if (StringUtils.isEmpty(token) || !validateToken(token)) {
             throw new BadCredentialsException("Invalid token");
         }
-        Claims claims = Jwts.parser()
+        var claims = Jwts.parser()
                 .setSigningKey(secretKey)
                 .parseClaimsJws(token)
                 .getBody();
 
-        Collection<? extends GrantedAuthority> authorities = Arrays
+        var authorities = Arrays
                 .stream(claims.get(AUTHORITIES_KEY).toString().split(","))
                 .map(SimpleGrantedAuthority::new)
                 .collect(Collectors.toList());

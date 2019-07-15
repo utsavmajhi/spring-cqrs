@@ -24,17 +24,17 @@ public class ProjectoneApplication implements CommandLineRunner {
     @Override
     public void run(String... args) {
         if (userRepository.findByUsername("admin").isEmpty()) {
-            Authority adminAuth = authorityRepository.save(new Authority(AuthoritiesConstants.ADMIN));
-            Authority userAuth = authorityRepository.save(new Authority(AuthoritiesConstants.USER));
+            var adminAuth = authorityRepository.save(new Authority(AuthoritiesConstants.ADMIN));
+            var userAuth = authorityRepository.save(new Authority(AuthoritiesConstants.USER));
 
-            User adminUser = new User();
+            var adminUser = new User();
             adminUser.setUsername("admin");
             adminUser.setPassword("$2a$10$MYkP3aeSQy7DI.qgk4noreZ5uchb0i61OOeWu2tVHAO1yNSsGqCVG"); // password: password
             adminUser.getAuthorities().add(adminAuth);
             adminUser.getAuthorities().add(userAuth);
             userRepository.save(adminUser);
 
-            User basic = new User();
+            var basic = new User();
             basic.setUsername("user");
             basic.setPassword("$2a$10$MYkP3aeSQy7DI.qgk4noreZ5uchb0i61OOeWu2tVHAO1yNSsGqCVG"); // password: password
             basic.getAuthorities().add(userAuth);

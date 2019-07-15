@@ -5,8 +5,6 @@ import org.springframework.web.reactive.function.server.*;
 import reactor.core.publisher.Mono;
 import reactor.core.scheduler.Schedulers;
 
-import java.util.UUID;
-
 import static org.springframework.http.MediaType.*;
 import static org.springframework.web.reactive.function.server.RequestPredicates.accept;
 import static org.springframework.web.reactive.function.server.RouterFunctions.route;
@@ -24,14 +22,6 @@ public class UserController {
     public RouterFunction<ServerResponse> router() {
 
         return route()
-//                .path("/users", builder -> builder
-//                        .GET("/{id}", handler::find)
-//                        .GET("", accept(APPLICATION_JSON_UTF8), handler::findAll)  // todo sse
-//                        .POST("", accept(APPLICATION_JSON_UTF8), handler::save)
-//                        .PUT("", accept(APPLICATION_JSON_UTF8), handler::update)
-//                        .PATCH("", accept(APPLICATION_JSON_UTF8), handler::update)
-//                        .DELETE("", accept(APPLICATION_JSON_UTF8), handler::delete)
-//                )
                 .path("/api", builder -> builder
                         .GET("/admin",
                                 req -> ok()
@@ -42,8 +32,8 @@ public class UserController {
                                         .body(
                                                 Mono.just("basic : " + req.queryParam("name").orElse("")).subscribeOn(Schedulers.elastic()),
                                                 String.class))
-                ).before(req -> ServerRequest.from(req).header("X-Correlation-ID", UUID.randomUUID().toString().substring(0, 8)).build())
-//                .filter(filter)
+                )
+//                .before(req -> ServerRequest.from(req).header("X-Correlation-ID", UUID.randomUUID().toString().substring(0, 8)).build())
                 .build();
 
     }
