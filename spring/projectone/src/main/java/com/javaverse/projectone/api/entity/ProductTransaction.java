@@ -2,12 +2,15 @@ package com.javaverse.projectone.api.entity;
 
 import lombok.*;
 
-import javax.persistence.Entity;
-import java.time.OffsetDateTime;
+import javax.persistence.*;
+import java.time.*;
 
 @Data
-@Entity(name = "product_transactions")
 @EqualsAndHashCode
+@Entity(name = "product_transactions")
+@Table(indexes = {
+        @Index(name = "product_transaction_idx_date", columnList = "date")
+})
 public class ProductTransaction extends Common {
 
     private Long productId;
@@ -16,6 +19,8 @@ public class ProductTransaction extends Common {
     private boolean hasSpecialArea;
     private boolean hasMedia;
     private boolean hasPremium;
-    private OffsetDateTime transactionDate;
+    private LocalDate date;
+
+
 
 }

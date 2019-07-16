@@ -15,12 +15,12 @@ import reactor.core.publisher.Mono;
 @RequiredArgsConstructor
 public class WebFluxConfig implements WebFluxConfigurer, WebFilter {
 
+    private final ObjectMapper objectMapper;
+
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, WebFilterChain chain) {
         return chain.filter(exchange);
     }
-
-    private final ObjectMapper objectMapper;
 
     @Override
     public void addCorsMappings(CorsRegistry corsRegistry) {

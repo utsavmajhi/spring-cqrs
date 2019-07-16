@@ -21,15 +21,20 @@ public class HeaderValidator implements HandlerFilterFunction {
     private void validate(ServerRequest req) {
         switch (Objects.requireNonNull(req.method())) {
             case GET:
-                log.debug("GET"); break;
+                log.debug("GET");
+                break;
             case POST:
-                log.debug("POST"); break;
+                log.debug("POST");
+                break;
             case PUT:
-                log.debug("PUT"); break;
+                log.debug("PUT");
+                break;
             case PATCH:
-                log.debug("PATCH"); break;
+                log.debug("PATCH");
+                break;
             case DELETE:
-                log.debug("DELETE"); break;
+                log.debug("DELETE");
+                break;
             default:
                 log.debug("OTHER");
         }
