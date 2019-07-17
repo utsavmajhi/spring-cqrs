@@ -1,4 +1,4 @@
-package com.javaverse.projectone.authentication.entity;
+package com.javaverse.projectone.api.entity;
 
 import lombok.*;
 import org.springframework.security.core.GrantedAuthority;

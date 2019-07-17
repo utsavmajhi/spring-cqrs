@@ -1,6 +1,6 @@
-package com.javaverse.projectone.authentication.component;
+package com.javaverse.projectone.api.token;
 
-import com.javaverse.projectone.authentication.token.TokenProvider;
+import com.javaverse.projectone.api.token.TokenProvider;
 import lombok.RequiredArgsConstructor;
 import org.apache.logging.log4j.util.Strings;
 import org.springframework.http.HttpHeaders;

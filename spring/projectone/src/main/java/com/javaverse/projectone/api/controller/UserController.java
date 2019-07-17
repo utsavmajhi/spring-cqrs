@@ -1,5 +1,6 @@
-package com.javaverse.projectone.authentication.controller;
+package com.javaverse.projectone.api.controller;
 
+import com.javaverse.projectone.api.entity.User;
 import org.springframework.context.annotation.*;
 import org.springframework.web.reactive.function.server.*;
 import reactor.core.publisher.Mono;
@@ -10,28 +11,24 @@ import static org.springframework.web.reactive.function.server.RequestPredicates
 import static org.springframework.web.reactive.function.server.RouterFunctions.route;
 import static org.springframework.web.reactive.function.server.ServerResponse.ok;
 
-/**
- * created by duc-d on 8/5/2018
- */
-
 @Configuration
 public class UserController {
 
     @Bean
-//    @Admin
     public RouterFunction<ServerResponse> router() {
 
         return route()
                 .path("/api", builder -> builder
-                        .GET("/admin",
-                                req -> ok()
-                                        .body(Mono.just("admin : " + req.queryParam("name").orElse("")),
-                                                String.class))
+                        .GET("/admin", req -> ok().body(Mono.just("admin : " + req.queryParam("name").orElse("")), String.class))
                         .GET("/basic", accept(APPLICATION_JSON),
                                 req -> ok().contentType(TEXT_PLAIN)
                                         .body(
                                                 Mono.just("basic : " + req.queryParam("name").orElse("")).subscribeOn(Schedulers.elastic()),
                                                 String.class))
+                        .POST("/users",req -> Mono.defer(() -> req.bodyToMono(User.class))
+                                .doOnNext(user -> System.out.println(user) )
+                                .subscribeOn(Schedulers.parallel())
+                                .flatMap(obj -> ok().build()))
                 )
 //                .before(req -> ServerRequest.from(req).header("X-Correlation-ID", UUID.randomUUID().toString().substring(0, 8)).build())
                 .build();

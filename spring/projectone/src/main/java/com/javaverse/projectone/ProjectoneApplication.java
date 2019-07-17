@@ -1,8 +1,8 @@
 package com.javaverse.projectone;
 
-import com.javaverse.projectone.authentication.component.AuthoritiesConstants;
-import com.javaverse.projectone.authentication.entity.*;
-import com.javaverse.projectone.authentication.repository.*;
+import com.javaverse.projectone.api.entity.*;
+import com.javaverse.projectone.api.repository.*;
+import com.javaverse.projectone.api.token.AuthoritiesConstants;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.*;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

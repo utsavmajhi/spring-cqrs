@@ -1,4 +1,4 @@
-package com.javaverse.projectone.authentication.dto;
+package com.javaverse.projectone.api.dto;
 
 import lombok.*;
 

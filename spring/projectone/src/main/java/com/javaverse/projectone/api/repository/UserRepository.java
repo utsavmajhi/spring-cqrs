@@ -1,6 +1,7 @@
-package com.javaverse.projectone.authentication.repository;
+package com.javaverse.projectone.api.repository;
 
-import com.javaverse.projectone.authentication.entity.User;
+import com.javaverse.projectone.api.entity.User;
+import com.javaverse.projectone.api.repository.CommonRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.Optional;

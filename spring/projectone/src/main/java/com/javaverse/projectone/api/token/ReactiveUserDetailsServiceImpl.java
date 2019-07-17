@@ -1,6 +1,6 @@
-package com.javaverse.projectone.authentication.component;
+package com.javaverse.projectone.api.token;
 
-import com.javaverse.projectone.authentication.repository.UserRepository;
+import com.javaverse.projectone.api.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -26,11 +26,11 @@ public class ReactiveUserDetailsServiceImpl implements ReactiveUserDetailsServic
                 .map(this::createSpringSecurityUser);
     }
 
-    private Mono<com.javaverse.projectone.authentication.entity.User> errorBadCredentialsException(String login) {
+    private Mono<com.javaverse.projectone.api.entity.User> errorBadCredentialsException(String login) {
         return Mono.error(new BadCredentialsException(String.format("User %s not found in database", login)));
     }
 
-    private org.springframework.security.core.userdetails.User createSpringSecurityUser(com.javaverse.projectone.authentication.entity.User user) {
+    private org.springframework.security.core.userdetails.User createSpringSecurityUser(com.javaverse.projectone.api.entity.User user) {
         return new org.springframework.security.core.userdetails.User(user.getUsername(),
                 user.getPassword(), user.getGrantedAuthorities());
     }

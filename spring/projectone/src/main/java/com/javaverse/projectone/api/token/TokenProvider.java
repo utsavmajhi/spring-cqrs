@@ -1,6 +1,5 @@
-package com.javaverse.projectone.authentication.token;
+package com.javaverse.projectone.api.token;
 
-import com.javaverse.projectone.authentication.component.AuthoritiesConstants;
 import io.jsonwebtoken.*;
 import lombok.extern.log4j.Log4j2;
 import org.apache.logging.log4j.util.Strings;

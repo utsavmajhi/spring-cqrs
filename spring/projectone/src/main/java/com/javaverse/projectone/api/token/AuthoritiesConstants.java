@@ -1,4 +1,4 @@
-package com.javaverse.projectone.authentication.component;
+package com.javaverse.projectone.api.token;
 
 /**
  * Constants for Spring Security authorities.

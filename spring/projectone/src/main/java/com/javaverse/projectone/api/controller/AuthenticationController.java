@@ -1,7 +1,7 @@
-package com.javaverse.projectone.authentication.controller;
+package com.javaverse.projectone.api.controller;
 
-import com.javaverse.projectone.authentication.dto.Authentication;
-import com.javaverse.projectone.authentication.token.*;
+import com.javaverse.projectone.api.dto.Authentication;
+import com.javaverse.projectone.api.token.*;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.security.authentication.*;
@@ -14,7 +14,7 @@ import javax.validation.*;
 @Log4j2
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/authorize")
+@RequestMapping("/authentication")
 public class AuthenticationController {
 
     private final Validator validator;

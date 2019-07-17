@@ -1,4 +1,4 @@
-package com.javaverse.projectone.authentication.token;
+package com.javaverse.projectone.api.token;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;

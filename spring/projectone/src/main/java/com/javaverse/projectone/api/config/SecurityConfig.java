@@ -1,7 +1,6 @@
-package com.javaverse.projectone.authentication.config;
+package com.javaverse.projectone.api.config;
 
-import com.javaverse.projectone.authentication.component.*;
-import com.javaverse.projectone.authentication.token.*;
+import com.javaverse.projectone.api.token.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.*;
 import org.springframework.http.HttpStatus;
@@ -24,7 +23,7 @@ public class SecurityConfig {
     private static final String[] AUTH_WHITELIST = {
             "/resources/**",
             "/webjars/**",
-            "/authorize/**",
+            "/authentication/**",
             "/favicon.ico",
     };
 
