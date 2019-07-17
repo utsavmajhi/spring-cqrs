@@ -13,7 +13,7 @@ import java.util.stream.Collectors;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity(name = "users")
-public class User implements UserDetails {
+public class User extends Common implements UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -56,5 +56,16 @@ public class User implements UserDetails {
     public boolean isEnabled() {
         return true;
     }
+
+
+
+
+
+    @Column(length = 13,unique = true)
+    private String code;
+    @Column(length = 30)
+    private String name;
+
+
 
 }

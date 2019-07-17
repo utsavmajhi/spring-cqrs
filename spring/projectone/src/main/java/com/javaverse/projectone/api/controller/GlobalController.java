@@ -61,4 +61,22 @@ public class GlobalController {
                 .filter(validator)
                 .build();
     }
+
+
+    @Bean
+    public RouterFunction<ServerResponse> userFunction(UserHandler handler) {
+        return route()
+                .path("/api/v1/users", method -> method
+                        .GET("/{id}", handler::find)
+                        .GET("", handler::findAll)
+                        .POST("", handler::save)
+                        .PUT("", handler::update)
+                        .DELETE("/{id}", handler::delete)
+                )
+                .filter(performLogging)
+                .filter(validator)
+                .build();
+    }
+
+
 }
