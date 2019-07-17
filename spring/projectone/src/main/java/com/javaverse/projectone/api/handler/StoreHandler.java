@@ -19,28 +19,29 @@ import static org.springframework.web.reactive.function.server.ServerResponse.*;
 @Log4j2
 @Component
 @RequiredArgsConstructor
-public class StoreHandler {
+public class StoreHandler extends CommonHandler<StoreDTO> {
 
     private final QueryGateway queryGateway;
     private final CommandGateway commandGateway;
+    private Class<StoreDTO> aClass = StoreDTO.class;
 
     public Mono<ServerResponse> find(ServerRequest req) {
         var mono = Mono.defer(() -> Mono.fromFuture(
-                queryGateway.query(new StoreQuery.Single(id(req)), ResponseTypes.instanceOf(StoreDTO.class)))
+                queryGateway.query(new StoreQuery.Single(id(req)), ResponseTypes.instanceOf(aClass)))
         ).subscribeOn(Schedulers.parallel());
         return ok()
                 .contentType(MediaType.APPLICATION_JSON)
-                .body(mono, StoreDTO.class)
+                .body(mono, aClass)
                 .switchIfEmpty(notFound().build());
     }
 
     public Mono<ServerResponse> findAll(ServerRequest req) {
         var flux = Flux.defer(() -> Flux.fromIterable(
-                queryGateway.query(new StoreQuery.AllActive(), ResponseTypes.multipleInstancesOf(StoreDTO.class)).join()
+                queryGateway.query(new StoreQuery.AllActive(), ResponseTypes.multipleInstancesOf(aClass)).join()
         )).subscribeOn(Schedulers.parallel());
         return ok()
                 .contentType(MediaType.APPLICATION_JSON)
-                .body(flux, StoreDTO.class)
+                .body(flux, aClass)
                 .switchIfEmpty(notFound().build());
     }
 
@@ -56,14 +57,6 @@ public class StoreHandler {
                 .doOnNext(obj -> commandGateway.send(obj.toCommandUpdate()))
                 .subscribeOn(Schedulers.parallel())
                 .flatMap(obj -> ok().build());
-    }
-
-    private Long id(ServerRequest req) {
-        return Long.valueOf(req.pathVariable("id"));
-    }
-
-    private Mono<StoreDTO> body(ServerRequest req) {
-        return req.bodyToMono(StoreDTO.class);
     }
 
     public Mono<ServerResponse> delete(ServerRequest req) {

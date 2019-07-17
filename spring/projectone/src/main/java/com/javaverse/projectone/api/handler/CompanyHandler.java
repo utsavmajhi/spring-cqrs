@@ -19,28 +19,29 @@ import static org.springframework.web.reactive.function.server.ServerResponse.*;
 @Log4j2
 @Component
 @RequiredArgsConstructor
-public class CompanyHandler {
+public class CompanyHandler extends CommonHandler<CompanyDTO> {
 
     private final QueryGateway queryGateway;
     private final CommandGateway commandGateway;
+    private Class<CompanyDTO> aClass = CompanyDTO.class;
 
     public Mono<ServerResponse> find(ServerRequest req) {
         var mono = Mono.defer(() -> Mono.fromFuture(
-                queryGateway.query(new CompanyQuery.Single(id(req)), ResponseTypes.instanceOf(CompanyDTO.class)))
+                queryGateway.query(new CompanyQuery.Single(id(req)), ResponseTypes.instanceOf(aClass)))
         ).subscribeOn(Schedulers.parallel());
         return ok()
                 .contentType(MediaType.APPLICATION_JSON)
-                .body(mono, CompanyDTO.class)
+                .body(mono, aClass)
                 .switchIfEmpty(notFound().build());
     }
 
     public Mono<ServerResponse> findAll(ServerRequest req) {
         var flux = Flux.defer(() -> Flux.fromIterable(
-                queryGateway.query(new CompanyQuery.AllActive(), ResponseTypes.multipleInstancesOf(CompanyDTO.class)).join()
+                queryGateway.query(new CompanyQuery.AllActive(), ResponseTypes.multipleInstancesOf(aClass)).join()
         )).subscribeOn(Schedulers.parallel());
         return ok()
                 .contentType(MediaType.APPLICATION_JSON)
-                .body(flux, CompanyDTO.class)
+                .body(flux, aClass)
                 .switchIfEmpty(notFound().build());
     }
 
@@ -56,14 +57,6 @@ public class CompanyHandler {
                 .doOnNext(obj -> commandGateway.send(obj.toCommandUpdate()))
                 .subscribeOn(Schedulers.parallel())
                 .flatMap(obj -> ok().build());
-    }
-
-    private Long id(ServerRequest req) {
-        return Long.valueOf(req.pathVariable("id"));
-    }
-
-    private Mono<CompanyDTO> body(ServerRequest req) {
-        return req.bodyToMono(CompanyDTO.class);
     }
 
     public Mono<ServerResponse> delete(ServerRequest req) {
