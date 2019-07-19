@@ -71,8 +71,10 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
 			appBar: AppBar(
 				title: const Text('BottomNavigationBar Sample'),
 			),
-			body: Center(
-				child: _widgetOptions.elementAt(_selectedIndex),
+			body: SafeArea(
+				child: Center(
+					child: _widgetOptions.elementAt(_selectedIndex),
+				),
 			),
 			bottomNavigationBar: BottomNavigationBar(
 				items: const <BottomNavigationBarItem>[
