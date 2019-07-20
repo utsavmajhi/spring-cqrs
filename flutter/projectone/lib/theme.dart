@@ -1,30 +1,23 @@
 import 'package:flutter/material.dart';
 
 final appBarTheme = AppBarTheme(
-	elevation: 0,
-	color: Colors.lightBlueAccent,
+	elevation: 1,
+	color: Colors.blue,
 );
 
 final themeData = ThemeData(
+	primarySwatch: Colors.blue,
 	brightness: Brightness.light,
-	primaryColor: const Color(0xFFFFD300),
-	accentColor: const Color(0xFFFFB900),
+	primaryColor: Colors.blue,
+	accentColor: Colors.blueAccent,
 	appBarTheme: appBarTheme,
-	
-	// Define the default Font Family
-	fontFamily: 'Montserrat',
-	
-	// Define the default TextTheme. Use this to specify the default
-	// text styling for headlines, titles, bodies of text, and more.
+	fontFamily: 'RobotoMono',
 	textTheme: TextTheme(
 		display1: TextStyle(
-			fontSize: 36,
-			fontWeight: FontWeight.bold,
+			fontSize: 22,
+			fontWeight: FontWeight.w200,
 		),
-		
-		//headline: TextStyle(fontSize: 72.0, fontWeight: FontWeight.bold),
-		//title: TextStyle(fontSize: 36.0, fontStyle: FontStyle.italic),
-		//body1: TextStyle(fontSize: 14.0, fontFamily: 'Hind'),
+	
 	),
 );
 

@@ -1,7 +1,16 @@
-
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
-void main() => runApp(MyApp());
+import 'screen/login.dart';
+import 'theme.dart';
+
+Future main() async {
+	await SystemChrome.setPreferredOrientations([
+		DeviceOrientation.landscapeLeft,
+		DeviceOrientation.landscapeRight
+	]);
+	runApp(MyApp());
+}
 
 /// This Widget is the main application widget.
 class MyApp extends StatelessWidget {
@@ -12,39 +21,51 @@ class MyApp extends StatelessWidget {
 		return MaterialApp(
 			debugShowCheckedModeBanner: false,
 			title: _title,
-			theme: ThemeData(
-				primarySwatch: Colors.lightBlue
-			),
-			home: MyStatefulWidget(),
+			theme: themeData,
+			initialRoute: '/',
+			routes: {
+				'/': (context) => LoginScreen(),
+				'/second': (context) => MainScreen(),
+			},
+//			home: MainScreen(),
 		);
 	}
 }
 
-final optionStyle =  const TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
+final optionStyle = const TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
 
 class EmployeeHome extends StatelessWidget {
 	@override
-	Widget build(BuildContext context) => Text('Employee Home',style: optionStyle,);
+	Widget build(BuildContext context) =>
+		Text('Employee Home', style: const TextStyle(fontSize: 30,
+			fontWeight: FontWeight.bold,
+			backgroundColor: Colors.red),);
 }
 
 class ProductHome extends StatelessWidget {
 	@override
-	Widget build(BuildContext context) => Text('Product Home',style: optionStyle,);
+	Widget build(BuildContext context) =>
+		Text('Product Home', style: const TextStyle(fontSize: 30,
+			fontWeight: FontWeight.bold,
+			backgroundColor: Colors.blue),);
 }
 
 class SettingHome extends StatelessWidget {
 	@override
-	Widget build(BuildContext context) => Text('Setting Home',style: optionStyle,);
+	Widget build(BuildContext context) =>
+		Text('Setting Home', style: const TextStyle(fontSize: 30,
+			fontWeight: FontWeight.bold,
+			backgroundColor: Colors.green),);
 }
 
-class MyStatefulWidget extends StatefulWidget {
-	MyStatefulWidget({Key key}) : super(key: key);
+class MainScreen extends StatefulWidget {
+	MainScreen({Key key}) : super(key: key);
 	
 	@override
-	_MyStatefulWidgetState createState() => _MyStatefulWidgetState();
+	_MainScreenState createState() => _MainScreenState();
 }
 
-class _MyStatefulWidgetState extends State<MyStatefulWidget> {
+class _MainScreenState extends State<MainScreen> {
 	int _selectedIndex = 0;
 	
 	List<Widget> _widgetOptions = <Widget>[
@@ -92,3 +113,4 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
 		);
 	}
 }
+
