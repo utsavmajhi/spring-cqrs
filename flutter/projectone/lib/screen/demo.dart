@@ -195,7 +195,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
 														child: Text('Login', style: const TextStyle(fontSize: 18),),
 														padding: EdgeInsets.symmetric(vertical: 20, horizontal: 5),
 														onPressed: () {
-															resetSharedPreferences();
+//															resetSharedPreferences();
 															Navigator.pushReplacementNamed(context, '/second');
 														},
 													),
@@ -213,6 +213,11 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
 			),
 		);
 	}
+	
+	login(BuildContext context) {
+	
+	}
+	
 	
 	saveSharedPreferences() async {
 		var prefs = await SharedPreferences.getInstance();
