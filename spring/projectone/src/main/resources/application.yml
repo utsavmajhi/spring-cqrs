@@ -9,6 +9,10 @@ spring:
       ddl-auto: create-drop
   main:
     lazy-initialization: true
+  jackson:
+    mapper:
+      accept_case_insensitive_properties: true
+      accept_case_insensitive_enums: true
 
 #spring.main.lazy-initialization: true   # coming  2.2.x+
 
@@ -24,7 +28,6 @@ server:
 jasypt:
   encryptor:
     bean: commonEncryptor
-
 
 
 #docker run -d --rm --name mysql -v mysql_data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=javaverse -p 3306:3306 mysql:latest

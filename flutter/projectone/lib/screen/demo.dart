@@ -38,7 +38,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
 				onTap: () => FocusScope.of(context).requestFocus(node),
 				child: SafeArea(
 					child: SingleChildScrollView(
-						child: new Container(
+						child: Container(
 							height: MediaQuery
 								.of(context)
 								.size
@@ -95,7 +95,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
 										const EdgeInsets.symmetric(vertical: 10.0, horizontal: 100.0),
 										child: Row(
 											children: <Widget>[
-												new Padding(
+												Padding(
 													padding:
 													EdgeInsets.symmetric(vertical: 10.0, horizontal: 15.0),
 													child: Icon(
@@ -109,7 +109,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
 													color: Colors.grey.withOpacity(0.5),
 													margin: const EdgeInsets.only(left: 00.0, right: 10.0),
 												),
-												new Expanded(
+												Expanded(
 													child: TextField(
 //														maxLength: 20,
 														autocorrect: false,
@@ -215,19 +215,19 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
 	}
 	
 	saveSharedPreferences() async {
-		SharedPreferences prefs = await SharedPreferences.getInstance();
+		var prefs = await SharedPreferences.getInstance();
 		prefs.setString("username", usernameTextfield.text);
 		prefs.setString("password", passwordTextfield.text);
 	}
 	
 	getSharedPreferences() async {
-		SharedPreferences prefs = await SharedPreferences.getInstance();
+		var prefs = await SharedPreferences.getInstance();
 		usernameTextfield.text = prefs.getString("username") ?? "";
 		passwordTextfield.text = prefs.getString("password") ?? "";
 	}
 	
 	resetSharedPreferences() async {
-		SharedPreferences prefs = await SharedPreferences.getInstance();
+		var prefs = await SharedPreferences.getInstance();
 		prefs.clear();
 	}
 }

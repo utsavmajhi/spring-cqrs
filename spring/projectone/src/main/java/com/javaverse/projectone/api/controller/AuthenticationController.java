@@ -14,7 +14,7 @@ import javax.validation.*;
 @Log4j2
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/authentication")
+@RequestMapping("/authenticate")
 public class AuthenticationController {
 
     private final Validator validator;

@@ -12,7 +12,6 @@ class Login {
 	
 	// response
 	String token;
-	
 	@JsonKey(name: 'refresh-token')
 	String refreshToken;
 	

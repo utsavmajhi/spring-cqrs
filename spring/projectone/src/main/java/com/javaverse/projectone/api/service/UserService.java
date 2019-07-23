@@ -5,7 +5,7 @@ import com.javaverse.projectone.api.entity.*;
 import com.javaverse.projectone.api.event.UserEvent;
 import com.javaverse.projectone.api.mapper.UserMapper;
 import com.javaverse.projectone.api.query.UserQuery;
-import com.javaverse.projectone.api.repository.UserRepository;
+import com.javaverse.projectone.api.repository.*;
 import lombok.RequiredArgsConstructor;
 import org.axonframework.eventhandling.EventHandler;
 import org.axonframework.queryhandling.QueryHandler;
@@ -18,38 +18,41 @@ import java.util.List;
 @RequiredArgsConstructor
 public class UserService {
 
-    private final UserRepository repo;
+    private final UserRepository userRepo;
+    private final AuthorityRepository authorityRepo;
     private final UserMapper mapper;
     private final PasswordEncoder encoder;
+
     @EventHandler
     public void on(UserEvent.Created event) {
         User entity = mapper.map(event);
         entity.setStatus(Common.Status.ACTIVE);
         entity.setPassword(encoder.encode(event.getPassword()));
-        repo.save(entity);
+        entity.getAuthorities().add(authorityRepo.getOne(2L));
+        userRepo.save(entity);
     }
 
     @EventHandler
     public void on(UserEvent.Updated event) {
-        User entity = repo.findById(event.getId()).orElseThrow();
+        User entity = userRepo.findById(event.getId()).orElseThrow();
         entity.setCode(event.getCode());
         entity.setName(event.getName());
-        repo.save(entity);
+        userRepo.save(entity);
     }
 
     @EventHandler
     public void on(UserEvent.Deleted event) {
-        repo.deleteById(event.getId());
+        userRepo.deleteById(event.getId());
     }
 
     @QueryHandler
     public UserDTO on(UserQuery.Single query) {
-        return mapper.map(repo.findById(query.getId()).orElseThrow());
+        return mapper.map(userRepo.findById(query.getId()).orElseThrow());
     }
 
     @QueryHandler
     public List<UserDTO> on(UserQuery.AllActive query) {
-        return mapper.map(repo.findAllByStatus(Common.Status.ACTIVE));
+        return mapper.map(userRepo.findAllByStatus(Common.Status.ACTIVE));
     }
 
 }
