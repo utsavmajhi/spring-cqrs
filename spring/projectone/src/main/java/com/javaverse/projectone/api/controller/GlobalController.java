@@ -1,5 +1,6 @@
 package com.javaverse.projectone.api.controller;
 
+import com.javaverse.projectone.api.config.CaseInsensitiveRequestPredicate;
 import com.javaverse.projectone.api.config.filter.request.*;
 import com.javaverse.projectone.api.handler.*;
 import lombok.RequiredArgsConstructor;
@@ -16,6 +17,9 @@ public class GlobalController {
 
     private final PerformLogging performLogging;
     private final HeaderValidator validator;
+
+
+    // todo implement caseInsensitive uri
 
     @Bean
     public RouterFunction<ServerResponse> productFunction(ProductHandler handler) {
@@ -76,6 +80,10 @@ public class GlobalController {
                 .filter(performLogging)
                 .filter(validator)
                 .build();
+    }
+
+    private static RequestPredicate caseInsensitive(RequestPredicate predicate) {
+        return new CaseInsensitiveRequestPredicate(predicate);
     }
 
 
