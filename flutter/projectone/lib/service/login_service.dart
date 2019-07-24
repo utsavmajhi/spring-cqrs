@@ -9,6 +9,7 @@ Future login(final username, final password) async {
 	final headers = {
 		HttpHeaders.contentTypeHeader: 'application/json',
 		HttpHeaders.acceptHeader: 'application/json',
+		HttpHeaders.authorizationHeader: "Bearer xxx-xx-x"
 	};
 	final request = jsonEncode({'username': username, 'password': password});
 	final response = await http.post(url, headers: headers, body: request);
@@ -26,7 +27,11 @@ Future find(String id) async {
 }
 
 main() async {
-	Login response = await login('admin', 'password');
-	print(response?.token);
-	print(response?.refreshToken);
+//	Login response = await login('admin', 'password');
+//	print(response?.token);
+//	print(response?.refreshToken);
+	
+	login('admin', 'password').then((res) => print(res?.token)).catchError((e) {
+		print(e.error);
+	});
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:projectone/demo/timer/debouncer.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class WelcomeScreen extends StatefulWidget {
@@ -20,6 +21,8 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
 			DeviceOrientation.landscapeLeft,
 		]);
 		getSharedPreferences();
+		
+		usernameTextfield.addListener(_onChange);
 	}
 	
 	@override
@@ -218,7 +221,6 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
 	
 	}
 	
-	
 	saveSharedPreferences() async {
 		var prefs = await SharedPreferences.getInstance();
 		prefs.setString("username", usernameTextfield.text);
@@ -235,4 +237,12 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
 		var prefs = await SharedPreferences.getInstance();
 		prefs.clear();
 	}
+	
+	final _debouncer = Debouncer(milliseconds: 1000);
+	
+	_onChange() {
+		_debouncer.run(() => print(DateTime.now().toString() + ' : ' + usernameTextfield.text));
+	}
+	
+	
 }
