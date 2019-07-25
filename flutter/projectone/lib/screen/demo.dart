@@ -55,23 +55,38 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
 								children: <Widget>[
 									Container(
 										alignment: Alignment.center,
-										padding: EdgeInsets.only(top: 150.0, bottom: 100.0),
+										margin: EdgeInsets.only(top: 100),
 										child: Column(
 											children: <Widget>[
-												Text(
-													"Dutchmill",
-													style: TextStyle(
-														fontSize: 50.0,
-														fontWeight: FontWeight.bold,
+												FittedBox(
+													child: Image.asset('images/dutchmill-logo.png',
+														width: 250,
+//														height: 300,
 													),
+//												fit: BoxFit.cover,
 												),
-												Text(
-													"Login Screen",
-													style: TextStyle(
-														fontSize: 20.0,
-														fontWeight: FontWeight.bold,
-													),
-												),
+//												DecoratedBox(
+//													decoration: BoxDecoration(
+//														image: DecorationImage(
+//															image: AssetImage('images/dutchmill-logo.png'),
+//															fit: BoxFit.cover
+//														),
+//													),
+//												),
+//												Text(
+//													"Dutchmill",
+//													style: TextStyle(
+//														fontSize: 50.0,
+//														fontWeight: FontWeight.bold,
+//													),
+//												),
+//												Text(
+//													"Login Screen",
+//													style: TextStyle(
+//														fontSize: 20.0,
+//														fontWeight: FontWeight.bold,
+//													),
+//												),
 											],
 										),
 									),
@@ -79,14 +94,15 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
 										.of(context)
 										.size
 										.height / 6,),
-									Padding(
-										padding: const EdgeInsets.only(left: 100.0),
-										child: Text(
-											"Username",
-											style: TextStyle(color: Colors.grey, fontSize: 16.0),
-										),
-									),
+//									Padding(
+//										padding: const EdgeInsets.only(left: 100.0),
+//										child: Text(
+//											"Username",
+//											style: TextStyle(color: Colors.grey, fontSize: 20.0),
+//										),
+//									),
 									Container(
+										height: 70,
 										decoration: BoxDecoration(
 											border: Border.all(
 												color: Colors.grey.withOpacity(0.5),
@@ -94,48 +110,49 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
 											),
 											borderRadius: BorderRadius.circular(20.0),
 										),
-										margin:
-										const EdgeInsets.symmetric(vertical: 10.0, horizontal: 100.0),
+										margin: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 100.0),
 										child: Row(
 											children: <Widget>[
 												Padding(
-													padding:
-													EdgeInsets.symmetric(vertical: 10.0, horizontal: 15.0),
+													padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 15.0),
 													child: Icon(
 														Icons.person_outline,
 														color: Colors.grey,
+														size: 30,
 													),
 												),
 												Container(
-													height: 30.0,
+													height: 50.0,
 													width: 1.0,
 													color: Colors.grey.withOpacity(0.5),
 													margin: const EdgeInsets.only(left: 00.0, right: 10.0),
 												),
 												Expanded(
 													child: TextField(
+														style: TextStyle(color: Colors.black, fontSize: 20.0),
 //														maxLength: 20,
 														autocorrect: false,
 														controller: usernameTextfield,
 														decoration: InputDecoration(
 															border: InputBorder.none,
-															hintText: 'Enter your username',
+															hintText: 'Username',
 //															labelText: 'Enter your username',
-															hintStyle: TextStyle(color: Colors.grey),
+															hintStyle: TextStyle(color: Colors.grey, fontSize: 20.0),
 														),
 													),
 												)
 											],
 										),
 									),
-									Padding(
-										padding: const EdgeInsets.only(left: 100.0),
-										child: Text(
-											"Password",
-											style: TextStyle(color: Colors.grey, fontSize: 16.0),
-										),
-									),
+//									Padding(
+//										padding: const EdgeInsets.only(left: 100.0),
+//										child: Text(
+//											"Password",
+//											style: TextStyle(color: Colors.grey, fontSize: 16.0),
+//										),
+//									),
 									Container(
+										height: 70,
 										decoration: BoxDecoration(
 											border: Border.all(
 												color: Colors.grey.withOpacity(0.5),
@@ -143,32 +160,32 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
 											),
 											borderRadius: BorderRadius.circular(20.0),
 										),
-										margin:
-										const EdgeInsets.symmetric(vertical: 10.0, horizontal: 100.0),
+										margin: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 100.0),
 										child: Row(
 											children: <Widget>[
-												new Padding(
-													padding:
-													EdgeInsets.symmetric(vertical: 10.0, horizontal: 15.0),
+												Padding(
+													padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 15.0),
 													child: Icon(
 														Icons.lock_open,
 														color: Colors.grey,
+														size: 30,
 													),
 												),
 												Container(
-													height: 30.0,
+													height: 50.0,
 													width: 1.0,
 													color: Colors.grey.withOpacity(0.5),
 													margin: const EdgeInsets.only(left: 00.0, right: 10.0),
 												),
-												new Expanded(
+												Expanded(
 													child: TextField(
+														style: TextStyle(color: Colors.black, fontSize: 20.0),
 														autocorrect: false,
 														controller: passwordTextfield,
 														decoration: InputDecoration(
 															border: InputBorder.none,
-															hintText: 'Enter your password',
-															hintStyle: TextStyle(color: Colors.grey),
+															hintText: 'Password',
+															hintStyle: TextStyle(color: Colors.grey, fontSize: 20.0),
 														),
 														obscureText: true,
 													),
@@ -179,31 +196,50 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
 									Container(
 										margin: const EdgeInsets.symmetric(horizontal: 80, vertical: 10),
 										padding: const EdgeInsets.only(left: 20.0, right: 20.0),
-										child: new Row(
+										child: Column(
 											children: <Widget>[
-												new Expanded(
-													child: FlatButton(
-														child: Text("Remember me", style: TextStyle(fontSize: 18),),
-														padding: EdgeInsets.symmetric(vertical: 20, horizontal: 5),
-														color: Colors.blue,
-														onPressed:
-															() => saveSharedPreferences(),
-													),
-												),
-												Container(width: 1,),
-												Expanded(
-													child: FlatButton(
+												Row(
+													children: <Widget>[
+														Expanded(
+															child: FlatButton(
+																child: Text("Remember password", style: const TextStyle(fontSize: 21, color: Colors.white),),
+																padding: EdgeInsets.symmetric(vertical: 20, horizontal: 5),
+																color: Colors.blue,
+																onPressed: () => saveSharedPreferences(),
+															),
+														),
+														Container(width: 10,),
+														Expanded(
+															child: FlatButton(
 //													shape: StadiumBorder(side: BorderSide(color: Colors.red)),
-														color: Colors.blue,
-														child: Text('Login', style: const TextStyle(fontSize: 18),),
-														padding: EdgeInsets.symmetric(vertical: 20, horizontal: 5),
-														onPressed: () {
-//															resetSharedPreferences();
-															Navigator.pushReplacementNamed(context, '/second');
-														},
-													),
+																color: Colors.blue,
+																child: Text('Forget password', style: const TextStyle(fontSize: 21, color: Colors.white),),
+																padding: EdgeInsets.symmetric(vertical: 20, horizontal: 5),
+																onPressed: () => resetSharedPreferences(),
+															),
+														),
+													],
 												),
+												SizedBox(height: 10,),
+												Row(
+													children: <Widget>[
+														Expanded(
+															child: FlatButton(
+//													shape: StadiumBorder(side: BorderSide(color: Colors.red)),
+																color: Colors.blue,
+																child: Text('Log In', style: const TextStyle(fontSize: 21, color: Colors.white),),
+																padding: EdgeInsets.symmetric(vertical: 20, horizontal: 5),
+																onPressed: () {
+//															resetSharedPreferences();
+																	Navigator.pushReplacementNamed(context, '/second');
+																},
+															),
+														),
+													],
+												),
+											
 											],
+										
 										),
 									),
 								],
@@ -212,8 +248,8 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
 						,
 					)
 					,
-				),
-			),
+				),)
+			,
 		);
 	}
 	
@@ -243,6 +279,5 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
 	_onChange() {
 		_debouncer.run(() => print(DateTime.now().toString() + ' : ' + usernameTextfield.text));
 	}
-	
 	
 }

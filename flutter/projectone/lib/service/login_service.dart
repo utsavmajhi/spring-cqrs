@@ -20,18 +20,15 @@ Future login(final username, final password) async {
 	}
 }
 
-Future find(String id) async {
-	final response = await http.get('https://jsonplaceholder.typicode.com/posts/1');
-	return (response.statusCode == 200)
-		? Login.fromJson(jsonDecode(response.body)) : throw Exception("Failed to find");
-}
 
 main() async {
 //	Login response = await login('admin', 'password');
 //	print(response?.token);
 //	print(response?.refreshToken);
 	
-	login('admin', 'password').then((res) => print(res?.token)).catchError((e) {
+	login('admin', 'password')
+		.then((res) => print(res?.token))
+		.catchError((e) {
 		print(e.error);
 	});
 }
