@@ -22,7 +22,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
 		]);
 		getSharedPreferences();
 		
-		usernameTextfield.addListener(_onChange);
+		usernameTextfield.addListener(_onTextFieldChange);
 	}
 	
 	@override
@@ -90,10 +90,10 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
 											],
 										),
 									),
-									SizedBox(height: MediaQuery
-										.of(context)
-										.size
-										.height / 6,),
+//									SizedBox(height: MediaQuery
+//										.of(context)
+//										.size
+//										.height / 6,),
 //									Padding(
 //										padding: const EdgeInsets.only(left: 100.0),
 //										child: Text(
@@ -198,34 +198,13 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
 										padding: const EdgeInsets.only(left: 20.0, right: 20.0),
 										child: Column(
 											children: <Widget>[
+
+//												SizedBox(height: 10,),
 												Row(
 													children: <Widget>[
 														Expanded(
-															child: FlatButton(
-																child: Text("Remember password", style: const TextStyle(fontSize: 21, color: Colors.white),),
-																padding: EdgeInsets.symmetric(vertical: 20, horizontal: 5),
-																color: Colors.blue,
-																onPressed: () => saveSharedPreferences(),
-															),
-														),
-														Container(width: 10,),
-														Expanded(
-															child: FlatButton(
-//													shape: StadiumBorder(side: BorderSide(color: Colors.red)),
-																color: Colors.blue,
-																child: Text('Forget password', style: const TextStyle(fontSize: 21, color: Colors.white),),
-																padding: EdgeInsets.symmetric(vertical: 20, horizontal: 5),
-																onPressed: () => resetSharedPreferences(),
-															),
-														),
-													],
-												),
-												SizedBox(height: 10,),
-												Row(
-													children: <Widget>[
-														Expanded(
-															child: FlatButton(
-//													shape: StadiumBorder(side: BorderSide(color: Colors.red)),
+															child: RaisedButton(
+																shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.0)),
 																color: Colors.blue,
 																child: Text('Log In', style: const TextStyle(fontSize: 21, color: Colors.white),),
 																padding: EdgeInsets.symmetric(vertical: 20, horizontal: 5),
@@ -248,7 +227,9 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
 						,
 					)
 					,
-				),)
+				)
+				,
+			)
 			,
 		);
 	}
@@ -276,8 +257,75 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
 	
 	final _debouncer = Debouncer(milliseconds: 1000);
 	
-	_onChange() {
+	_onTextFieldChange() {
 		_debouncer.run(() => print(DateTime.now().toString() + ' : ' + usernameTextfield.text));
+	}
+	
+	int _radioValue = -1;
+	
+	void _onRadioChange(int value) {
+		setState(() {
+			_radioValue = value;
+			Scaffold.of(context).showSnackBar(SnackBar(content: Text("value : $_radioValue"),));
+		});
+	}
+	
+	Widget buildRadioRow(BuildContext context) {
+		return
+			Row(
+				mainAxisAlignment: MainAxisAlignment.spaceBetween,
+				children: <Widget>[
+					Column(children: <Widget>[
+						Row(
+							children: <Widget>[
+								Radio(
+									value: 1,
+									groupValue: _radioValue,
+									onChanged: _onRadioChange,
+								),
+								Text("Remember password", style: const TextStyle(fontSize: 21, color: Colors.black),),
+							],
+						),
+					
+					],),
+					Column(children: <Widget>[
+						Row(
+							children: <Widget>[
+								Radio(
+									value: 2,
+									groupValue: _radioValue,
+									onChanged: _onRadioChange,
+								),
+								Text("Forget password", style: const TextStyle(fontSize: 21, color: Colors.black),),
+							],
+						),
+					
+					],),
+					Divider(
+						height: 5.0,
+						color: Colors.grey,
+					),
+
+//														Expanded(
+//															child: RaisedButton(
+//																child: Text("Remember password", style: const TextStyle(fontSize: 21, color: Colors.white),),
+//																padding: EdgeInsets.symmetric(vertical: 20, horizontal: 5),
+//																color: Colors.blue,
+//																onPressed: () => saveSharedPreferences(),
+//															),
+//														),
+//														Container(width: 10,),
+//														Expanded(
+//															child: RaisedButton(
+////													shape: StadiumBorder(side: BorderSide(color: Colors.red)),
+//																color: Colors.blue,
+//																child: Text('Forget password', style: const TextStyle(fontSize: 21, color: Colors.white),),
+//																padding: EdgeInsets.symmetric(vertical: 20, horizontal: 5),
+//																onPressed: () => resetSharedPreferences(),
+//															),
+//														),
+				],
+			);
 	}
 	
 }
