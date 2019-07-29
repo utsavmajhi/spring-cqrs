@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:projectone/screen/zero.dart';
+import 'package:projectone/screen/zero_screen.dart';
 
 class LoginScreen extends StatelessWidget {
 	
@@ -9,7 +9,8 @@ class LoginScreen extends StatelessWidget {
 	
 	@override
 	Widget build(BuildContext context) {
-		return Zero();
+//		return ListDisplay();
+		return ZeroScreen();
 	}
 	
 }

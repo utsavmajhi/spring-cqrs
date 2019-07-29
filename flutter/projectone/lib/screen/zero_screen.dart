@@ -1,13 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:projectone/demo/timer/debouncer.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-class Zero extends StatefulWidget {
+class ZeroScreen extends StatefulWidget {
 	@override
-	_ZeroState createState() => _ZeroState();
+	_ZeroScreenState createState() => _ZeroScreenState();
 }
 
-class _ZeroState extends State<Zero> {
+class _ZeroScreenState extends State<ZeroScreen> {
 	
 	var usernameController;
 	var passwordController;
@@ -17,7 +18,8 @@ class _ZeroState extends State<Zero> {
 		super.initState();
 		usernameController = TextEditingController();
 		passwordController = TextEditingController();
-		getSharedPreferences();
+		_getSharedPreferences();
+		usernameController.addListener(_onUsernameChange);
 	} //
 	@override
 	void dispose() {
@@ -48,7 +50,7 @@ class _ZeroState extends State<Zero> {
 							child: Column(
 								children: <Widget>[
 									Container(
-										margin: EdgeInsets.only(top: 80),
+										margin: EdgeInsets.only(top: 50),
 										child: Image.asset('images/dutchmill-logo.png', width: 250,),
 									),
 									Text("Dutch mill",
@@ -166,7 +168,7 @@ class _ZeroState extends State<Zero> {
 										),
 									),
 									Container(
-										margin: EdgeInsets.symmetric(vertical: 5, horizontal: 50),
+										margin: EdgeInsets.symmetric(vertical: 10, horizontal: 50),
 										child: Row(
 											children: <Widget>[
 												Expanded(
@@ -200,30 +202,38 @@ class _ZeroState extends State<Zero> {
 			_radioValue = value;
 			switch (_radioValue) {
 				case 0:
-					saveSharedPreferences();
+					_saveSharedPreferences();
 					break;
 				case 1:
-					resetSharedPreferences();
+					_clearSharedPreferences();
 					break;
 			}
 		});
 	}
 	
-	saveSharedPreferences() async {
+	_saveSharedPreferences() async {
 		var prefs = await SharedPreferences.getInstance();
+		prefs.setInt("remember", _radioValue);
 		prefs.setString("username", usernameController.text);
 		prefs.setString("password", passwordController.text);
 	}
 	
-	getSharedPreferences() async {
+	_getSharedPreferences() async {
 		var prefs = await SharedPreferences.getInstance();
+		_radioValue = prefs.getInt("remember") ?? -1;
 		usernameController.text = prefs.getString("username") ?? "";
 		passwordController.text = prefs.getString("password") ?? "";
 	}
 	
-	resetSharedPreferences() async {
+	_clearSharedPreferences() async {
 		var prefs = await SharedPreferences.getInstance();
 		prefs.clear();
+	}
+	
+	final _debouncer = Debouncer(milliseconds: 1000);
+	
+	_onUsernameChange() {
+		_debouncer.run(() => print(DateTime.now().toString() + ' : ' + usernameController.text));
 	}
 	
 }

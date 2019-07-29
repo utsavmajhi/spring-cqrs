@@ -1,16 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+import 'package:projectone/screen/profile_screen.dart';
+import 'package:projectone/screen/zero_screen.dart';
 
-import 'screen/login_screen.dart';
 import 'theme.dart';
 
-Future main() async {
-	await SystemChrome.setPreferredOrientations([
-		DeviceOrientation.landscapeLeft,
-		DeviceOrientation.landscapeRight
-	]);
-	runApp(MyApp());
-}
+main() => runApp(MyApp());
 
 /// This Widget is the main application widget.
 class MyApp extends StatelessWidget {
@@ -22,9 +16,10 @@ class MyApp extends StatelessWidget {
 			debugShowCheckedModeBanner: false,
 			title: _title,
 			theme: themeData,
-			initialRoute: '/',
+			initialRoute: '/profileScreen',
 			routes: {
-				'/': (context) => LoginScreen(),
+				'/': (context) => ZeroScreen(),
+				'/profileScreen': (context) => ProfileScreen(),
 				'/second': (context) => MainScreen(),
 			},
 //			home: MainScreen(),

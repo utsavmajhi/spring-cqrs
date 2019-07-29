@@ -12,13 +12,6 @@ final themeData = ThemeData(
 	accentColor: Colors.blueAccent,
 	appBarTheme: appBarTheme,
 	fontFamily: 'RobotoMono',
-	textTheme: TextTheme(
-		display1: TextStyle(
-			fontSize: 22,
-			fontWeight: FontWeight.w200,
-		),
-	
-	),
 );
 
 
