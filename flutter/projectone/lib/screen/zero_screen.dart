@@ -98,6 +98,8 @@ class _ZeroScreenState extends State<ZeroScreen> {
 															border: InputBorder.none,
 															hintText: 'Username',
 															hintStyle: TextStyle(color: Colors.grey, fontSize: 20.0),
+//															errorText: false ? 'Username Invalid' : '',
+//															errorStyle: TextStyle(color: Colors.red, fontSize: 15.0),
 														),
 													),
 												)
@@ -143,7 +145,8 @@ class _ZeroScreenState extends State<ZeroScreen> {
 															hintStyle: TextStyle(color: Colors.grey, fontSize: 20.0),
 														),
 													),
-												)
+												),
+												
 											],
 										),
 									),

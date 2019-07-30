@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
 			debugShowCheckedModeBanner: false,
 			title: _title,
 			theme: themeData,
-			initialRoute: '/profileScreen',
+			initialRoute: '/',
 			routes: {
 				'/': (context) => ZeroScreen(),
 				'/profileScreen': (context) => ProfileScreen(),
