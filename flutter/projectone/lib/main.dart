@@ -1,24 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:projectone/screen/login_screen.dart';
 import 'package:projectone/screen/profile_screen.dart';
-import 'package:projectone/screen/zero_screen.dart';
 
-import 'theme.dart';
+import 'constant.dart';
 
 main() => runApp(MyApp());
 
 /// This Widget is the main application widget.
 class MyApp extends StatelessWidget {
 	static const String _title = 'Dutchmill Stock Checker';
-	
 	@override
 	Widget build(BuildContext context) {
 		return MaterialApp(
 			debugShowCheckedModeBanner: false,
 			title: _title,
-			theme: themeData,
+			theme: lightTheme,
 			initialRoute: '/',
 			routes: {
-				'/': (context) => ZeroScreen(),
+				'/': (context) => LoginScreen(),
 				'/profileScreen': (context) => ProfileScreen(),
 				'/second': (context) => MainScreen(),
 			},

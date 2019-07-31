@@ -5,7 +5,7 @@ import 'package:intl/intl.dart';
 main() => runApp(App());
 
 final appStyle = const TextStyle(
-	fontFamily: 'RobotoMono',
+	fontFamily: 'K2D',
 	fontSize: 18,
 	fontWeight: FontWeight.w400,
 	color: CupertinoColors.black
@@ -329,7 +329,6 @@ class LeaveScreen extends StatefulWidget {
 
 class _LeaveScreenState extends State<LeaveScreen> {
 	final _leaveScreenFormKey = GlobalKey<FormState>();
-	final navigatorKey = GlobalKey<NavigatorState>();
 	
 	@override
 	Widget build(BuildContext context) {
