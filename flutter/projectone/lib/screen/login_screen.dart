@@ -10,10 +10,10 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
 	
 	var controllers;
-
-//	final _scaffoldState = GlobalKey<ScaffoldState>();
+	
 	final _node = FocusNode();
 	final _formKey = GlobalKey<FormState>();
+	final _scaffoldState = GlobalKey<ScaffoldState>();
 	
 	@override
 	void initState() {
@@ -35,15 +35,15 @@ class _LoginScreenState extends State<LoginScreen> {
 	Widget build(BuildContext context) {
 		return Scaffold(
 			backgroundColor: Colors.white,
-//			key: _scaffoldState,
-			appBar: AppBar(title: Text("Log In", style: Theme
+			key: _scaffoldState,
+			appBar: AppBar(title: Text("Log In Screen", style: Theme
 				.of(context)
 				.textTheme
 				.title,),),
 			body: GestureDetector(
 				onTap: () => FocusScope.of(context).requestFocus(_node), // for hide keyboard
 				child: SafeArea(
-					minimum: EdgeInsets.all(20),
+					minimum: EdgeInsets.all(25),
 					child: Column(
 						crossAxisAlignment: CrossAxisAlignment.center,
 						children: <Widget>[
@@ -108,7 +108,7 @@ class _LoginScreenState extends State<LoginScreen> {
 													flex: 3,
 													child: Container(
 														child: RadioListTile(
-															title: Text('remember password', style: Theme
+															title: Text('Remember Password', style: Theme
 																.of(context)
 																.textTheme
 																.body2,),
@@ -119,12 +119,13 @@ class _LoginScreenState extends State<LoginScreen> {
 														),
 													),
 												),
+												Flexible(child: Container(), flex: 1,),
 												Flexible(
 													flex: 3,
 													child: Container(
 														child: Center(
 															child: RadioListTile(
-																title: Text('forget password', style: Theme
+																title: Text('Forgot Password', style: Theme
 																	.of(context)
 																	.textTheme
 																	.body2,),

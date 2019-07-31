@@ -31,8 +31,8 @@ final lightTheme = ThemeData(
 	textTheme: TextTheme(
 		title: TextStyle(fontSize: 25.0, color: Colors.white, fontWeight: FontWeight.bold),
 		headline: TextStyle(fontSize: 22.0, fontWeight: FontWeight.bold),
-		body1: TextStyle(fontSize: 20.0, fontWeight: FontWeight.w600),
-		body2: TextStyle(fontSize: 22.0, fontWeight: FontWeight.w600),
+		body1: TextStyle(fontSize: 20.0, fontWeight: FontWeight.w500),
+		body2: TextStyle(fontSize: 22.0, fontWeight: FontWeight.w500, color: Colors.black87),
 		button: TextStyle(fontSize: 22.0, color: Colors.white, fontWeight: FontWeight.bold),
 	)
 );

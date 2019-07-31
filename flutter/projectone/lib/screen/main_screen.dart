@@ -1,59 +1,67 @@
 import 'package:flutter/material.dart';
 import 'package:projectone/main.dart';
+import 'package:projectone/screen/profile_screen.dart';
 
 class MainScreen extends StatefulWidget {
+	final _screens = <Widget>[
+		EmployeeHome(),
+		ProductHome(),
+		CartHome(),
+		ProfileScreen(),
+	];
+	
 	@override
 	_MainScreenState createState() => _MainScreenState();
 }
 
 class _MainScreenState extends State<MainScreen> {
 	final _scaffoldState = GlobalKey<ScaffoldState>();
-	var _currentTabIndex = 0;
-	final _tabOptions = <Widget>[
-		EmployeeHome(),
-		ProductHome(),
-		CartHome(),
-		SettingHome(),
-	];
+	var _currentIndex = 3;
 	
-	_onTapped(int index) => setState(() => _currentTabIndex = index);
+	_onTapped(int index) => setState(() => _currentIndex = index);
 	
 	@override
-	Widget build(BuildContext context) =>
-		Scaffold(
+	Widget build(BuildContext context) {
+		print('build main screen');
+		return Scaffold(
 			key: _scaffoldState,
-			appBar: AppBar(
-				title: Text('Main Screen'),
+			appBar: AppBar(title: Text("Main Screen", style: Theme
+				.of(context)
+				.textTheme
+				.title,),),
+			body: IndexedStack(
+				index: _currentIndex,
+				children: widget._screens,
 			),
-			body: _tabOptions[_currentTabIndex],
 			bottomNavigationBar: _buildBottomNavigationBar(),
 		);
+	}
 	
 	Widget _buildBottomNavigationBar() =>
 		BottomNavigationBar(
 			iconSize: 50,
-//			showSelectedLabels: false,
-//			showUnselectedLabels: false,
+			showSelectedLabels: false,
+			showUnselectedLabels: false,
 			type: BottomNavigationBarType.fixed,
 			items: const <BottomNavigationBarItem>[
 				BottomNavigationBarItem(
 					icon: Icon(Icons.home),
-					title: Text('Home'),
+					title: Text(''),
 				),
 				BottomNavigationBarItem(
-					icon: Icon(Icons.shopping_cart),
-					title: Text('Cart'),
+					icon: Icon(Icons.add_shopping_cart),
+					title: Text(''),
 				),
 				BottomNavigationBarItem(
 					icon: Icon(Icons.add),
-					title: Text('Add'),
+					title: Text(''),
 				),
 				BottomNavigationBarItem(
 					icon: Icon(Icons.person),
-					title: Text('Account'),
+					title: Text(''),
 				),
 			],
-			currentIndex: _currentTabIndex,
+			currentIndex: _currentIndex,
 //			selectedItemColor: Colors.blueAccent,
 			onTap: _onTapped,
 		);
