@@ -44,10 +44,10 @@ class ProductHome extends StatelessWidget {
 
 class CartHome extends StatelessWidget {
 	@override
-	Widget build(BuildContext context) =>
-		Text('Cart Home', style: const TextStyle(fontSize: 30,
-			fontWeight: FontWeight.bold,
-			backgroundColor: Colors.blue),);
+	Widget build(BuildContext context) => TextField();
+//		Text('Cart Home', style: const TextStyle(fontSize: 30,
+//			fontWeight: FontWeight.bold,
+//			backgroundColor: Colors.blue),);
 }
 
 class SettingHome extends StatelessWidget {

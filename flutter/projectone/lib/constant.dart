@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:projectone/demo/cupertino/tab.dart';
 import 'package:projectone/screen/login_screen.dart';
 import 'package:projectone/screen/main_screen.dart';
 import 'package:projectone/screen/profile_screen.dart';
@@ -11,7 +12,9 @@ final routes = <String, WidgetBuilder>{
 	'/': (context) => LoginScreen(),
 	'/profileScreen': (context) => ProfileScreen(),
 	'/mainScreen': (context) => MainScreen(),
+	'/leaveStatusScreen': (context) => LeaveStatusScreen(),
 };
+
 
 final lightTheme = ThemeData(
 	primarySwatch: Colors.blue,
@@ -26,7 +29,7 @@ final lightTheme = ThemeData(
 	buttonColor: Colors.blue,
 	buttonTheme: ButtonThemeData(
 		buttonColor: Colors.blue,
-		padding: EdgeInsets.symmetric(vertical: 20,),
+		padding: EdgeInsets.symmetric(vertical: 30,),
 	),
 	textTheme: TextTheme(
 		title: TextStyle(fontSize: 25.0, color: Colors.white, fontWeight: FontWeight.bold),

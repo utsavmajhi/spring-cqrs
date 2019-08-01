@@ -10,30 +10,54 @@ class MainScreen extends StatefulWidget {
 		ProfileScreen(),
 	];
 	
+	final _titles = <String>[
+		'Home Screen',
+		'Cart Screen',
+		'Add Screen',
+		'Profile Screen',
+	];
+	
 	@override
 	_MainScreenState createState() => _MainScreenState();
 }
 
 class _MainScreenState extends State<MainScreen> {
 	final _scaffoldState = GlobalKey<ScaffoldState>();
+	final _node = FocusNode();
 	var _currentIndex = 3;
+	var _title = '';
 	
-	_onTapped(int index) => setState(() => _currentIndex = index);
+	@override
+	void initState() {
+		super.initState();
+		_title = widget._titles[_currentIndex];
+	}
+	
+	_onTapped(int index) {
+		setState(() {
+			_currentIndex = index;
+			_title = widget._titles[_currentIndex];
+		});
+	}
 	
 	@override
 	Widget build(BuildContext context) {
-		print('build main screen');
-		return Scaffold(
-			key: _scaffoldState,
-			appBar: AppBar(title: Text("Main Screen", style: Theme
-				.of(context)
-				.textTheme
-				.title,),),
-			body: IndexedStack(
-				index: _currentIndex,
-				children: widget._screens,
+		print('build MainScreen');
+		return GestureDetector(
+			onTap: () => FocusScope.of(context).requestFocus(_node), // for hide keyboard
+			child: Scaffold(
+				backgroundColor: Colors.white,
+				key: _scaffoldState,
+				appBar: AppBar(title: Text(_title, style: Theme
+					.of(context)
+					.textTheme
+					.title,),),
+				body: IndexedStack(
+					index: _currentIndex,
+					children: widget._screens,
+				),
+				bottomNavigationBar: _buildBottomNavigationBar(),
 			),
-			bottomNavigationBar: _buildBottomNavigationBar(),
 		);
 	}
 	

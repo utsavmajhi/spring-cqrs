@@ -292,7 +292,7 @@ class LeaveStatusScreen extends StatelessWidget {
 						itemCount: items.length,
 						itemBuilder: (context, index) {
 							return Card(
-								elevation: 5.0,
+								elevation: 1.0,
 								margin: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
 								color: Color.fromRGBO(242, 242, 242, 1),
 								child: Container(

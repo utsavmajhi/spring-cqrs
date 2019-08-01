@@ -32,17 +32,17 @@ class _LoginScreenState extends State<LoginScreen> {
 	}
 	
 	@override
-	Widget build(BuildContext context) {
-		return Scaffold(
-			backgroundColor: Colors.white,
-			key: _scaffoldState,
-			appBar: AppBar(title: Text("Log In Screen", style: Theme
-				.of(context)
-				.textTheme
-				.title,),),
-			body: GestureDetector(
-				onTap: () => FocusScope.of(context).requestFocus(_node), // for hide keyboard
-				child: SafeArea(
+	Widget build(BuildContext context) =>
+		GestureDetector(
+			onTap: () => FocusScope.of(context).requestFocus(_node), // for hide keyboard
+			child: Scaffold(
+				backgroundColor: Colors.white,
+				key: _scaffoldState,
+				appBar: AppBar(title: Text("Log In Screen", style: Theme
+					.of(context)
+					.textTheme
+					.title,),),
+				body: SafeArea(
 					minimum: EdgeInsets.all(25),
 					child: Column(
 						crossAxisAlignment: CrossAxisAlignment.center,
@@ -171,7 +171,6 @@ class _LoginScreenState extends State<LoginScreen> {
 				),
 			),
 		);
-	}
 	
 	int _radioValue = -1;
 	
