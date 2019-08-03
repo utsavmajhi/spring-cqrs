@@ -2,27 +2,38 @@ package com.javaverse.projectone.api.controller;
 
 import com.javaverse.projectone.api.config.CaseInsensitiveRequestPredicate;
 import com.javaverse.projectone.api.entity.User;
+import com.javaverse.projectone.api.handler.UserHandler;
+import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.*;
+import org.springframework.http.MediaType;
 import org.springframework.web.reactive.function.server.*;
 import reactor.core.publisher.Mono;
 import reactor.core.scheduler.Schedulers;
 
+import static org.springframework.http.MediaType.MULTIPART_FORM_DATA;
 import static org.springframework.web.reactive.function.server.RequestPredicates.*;
 import static org.springframework.web.reactive.function.server.ServerResponse.ok;
 
 @Configuration
+@RequiredArgsConstructor
 public class UserController {
+
+    private final UserHandler handler;
 
     @Bean
     public RouterFunction<ServerResponse> router() {
 
         return RouterFunctions
-                .route(caseInsensitive(GET("/api/users")), request -> ok().build())
+                .route(caseInsensitive(GET("/api/users")), req -> ok().build())
+                .andRoute(caseInsensitive(POST("/api/users/photo").and(accept(MULTIPART_FORM_DATA))),handler::upload )
                 .andRoute(caseInsensitive(POST("/api/users")), req -> Mono.defer(() -> req.bodyToMono(User.class))
                         .doOnNext(user -> System.out.println(user))
                         .subscribeOn(Schedulers.parallel())
                         .flatMap(obj -> ok().build())
                 );
+
+
+
 
 //        return route()
 //                .path("/api", builder -> builder

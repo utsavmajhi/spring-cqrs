@@ -1,8 +1,8 @@
 package com.javaverse.projectone.api.handler;
 
-import com.javaverse.projectone.api.command.*;
-import com.javaverse.projectone.api.dto.*;
-import com.javaverse.projectone.api.query.*;
+import com.javaverse.projectone.api.command.UserCommand;
+import com.javaverse.projectone.api.dto.UserDTO;
+import com.javaverse.projectone.api.query.UserQuery;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.axonframework.commandhandling.gateway.CommandGateway;
@@ -10,6 +10,7 @@ import org.axonframework.messaging.responsetypes.ResponseTypes;
 import org.axonframework.queryhandling.QueryGateway;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Component;
+import org.springframework.web.reactive.function.BodyExtractors;
 import org.springframework.web.reactive.function.server.*;
 import reactor.core.publisher.*;
 import reactor.core.scheduler.Schedulers;
@@ -65,5 +66,24 @@ public class UserHandler extends CommonHandler<UserDTO> {
                 .subscribeOn(Schedulers.parallel())
                 .flatMap(obj -> ok().build());
     }
+
+    public Mono<ServerResponse> upload(ServerRequest req) {
+        return req.body(BodyExtractors.toMultipartData()).flatMap(md -> {
+            return null;
+        });
+    }
+
+//        return request.body(BodyExtractors.toMultipartData()).flatMap { parts ->
+//                val map: Map<String, Part> = parts.toSingleValueMap()
+//            val filePart : FilePart = map["file"]!! as FilePart
+//            // Note cast to "FilePart" above
+//
+//            // Save file to disk - in this example, in the "tmp" folder of a *nix system
+//            val fileName = filePart.filename()
+//            filePart.transferTo( File("/tmp/$fileName"))
+//
+//            ServerResponse.ok().body(BodyInserters.fromObject("OK"))
+//        }
+//    }
 
 }

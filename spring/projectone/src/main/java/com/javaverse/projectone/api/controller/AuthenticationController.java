@@ -31,7 +31,6 @@ public class AuthenticationController {
         return manager.authenticate(authenticationToken)
                 .doOnError(e -> new BadCredentialsException("Bad Credentials Exception"))
                 .map(authenticate -> new Authentication.Response(provider.token(authenticate), provider.refreshToken(authenticate)));
-
     }
 
 }
