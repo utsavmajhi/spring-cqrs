@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:projectone/main.dart';
 import 'package:projectone/screen/profile_screen.dart';
 
 class MainScreen extends StatefulWidget {
 	final _screens = <Widget>[
-		EmployeeHome(),
-		ProductHome(),
-		CartHome(),
+		ProfileScreen(),
+		ProfileScreen(),
+		ProfileScreen(),
 		ProfileScreen(),
 	];
 	
