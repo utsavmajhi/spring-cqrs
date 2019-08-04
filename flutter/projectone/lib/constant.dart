@@ -32,11 +32,11 @@ final lightTheme = ThemeData(
 		padding: EdgeInsets.symmetric(vertical: 30,),
 	),
 	textTheme: TextTheme(
-		title: TextStyle(fontSize: 25.0, color: Colors.white, fontWeight: FontWeight.bold),
-		headline: TextStyle(fontSize: 22.0, fontWeight: FontWeight.bold),
-		body1: TextStyle(fontSize: 20.0, fontWeight: FontWeight.w500),
-		body2: TextStyle(fontSize: 22.0, fontWeight: FontWeight.w500, color: Colors.black87),
-		button: TextStyle(fontSize: 22.0, color: Colors.white, fontWeight: FontWeight.bold),
+		title: TextStyle(fontSize: 16.0, color: Colors.white, fontWeight: FontWeight.bold),
+		headline: TextStyle(fontSize: 15.0, fontWeight: FontWeight.bold),
+		body1: TextStyle(fontSize: 15.0, fontWeight: FontWeight.w500),
+		body2: TextStyle(fontSize: 15.0, fontWeight: FontWeight.w500, color: Colors.black87),
+		button: TextStyle(fontSize: 15.0, color: Colors.white, fontWeight: FontWeight.bold),
 	)
 );
 

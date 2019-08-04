@@ -52,6 +52,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:path/path.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 main() =>
 	runApp(MaterialApp(
@@ -109,11 +110,7 @@ class _ImagePickerExampleState extends State<ImagePickerExample> {
 	}
 	
 	_upload() async {
-		if (this._imageFile == null) return;
-
-//		FormData formdata = new FormData(); // just like JS
-//		formdata.add("photos", new UploadFileInfo(_image, basename(_image.path)));
-		
+		final token = await _getToken();
 		final formData = new FormData.from({
 			"name": "file-name.jpg",
 			"image": new UploadFileInfo(_imageFile, basename(_imageFile.path))
@@ -123,26 +120,16 @@ class _ImagePickerExampleState extends State<ImagePickerExample> {
 			data: formData,
 			options: Options(
 				headers: {
-					// call this from sharedpreference
 					HttpHeaders
-						.authorizationHeader: 'Bearer eyJhbGciOiJIUzUxMiIsInppcCI6IkRFRiJ9.eNqqViouTVKyUkpMyc3MU9JRykwsUbIyNDUzMTc2MDIy1lFKLC3JAMoH-fu4xju6-Hr66YCZocGuQUDlqRUFEOUWhmZmRsa1AAAAAP__.jXzgZOqf0g2pl1zkZzqMFJ_FCH5DOdrnBJElolcw6AlGrAFk3mlNyg_oi8priWwTCYJrIGkrXoZ9LEZIiBygbg',
+						.authorizationHeader: 'Bearer $token',
 				},
 			),
 		);
-
-//		String base64Image = await base64Encode(this._imageFile.readAsBytesSync());
-//		String fileName = this._imageFile.path
-//			.split("/")
-//			.last;
-//
-//		http.post('dfdf', body: {
-//			"image": base64Image,
-//			"name": fileName,
-//		}).then((res) {
-//			print(res.statusCode);
-//		}).catchError((err) {
-//			print(err);
-//		});
+	}
+	
+	Future<String> _getToken() async {
+		var prefs = await SharedPreferences.getInstance();
+		return prefs.getString("token") ?? "";
 	}
 	
 }

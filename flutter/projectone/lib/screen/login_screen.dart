@@ -43,14 +43,14 @@ class _LoginScreenState extends State<LoginScreen> {
 					.textTheme
 					.title,),),
 				body: SafeArea(
-					minimum: EdgeInsets.all(25),
+					minimum: EdgeInsets.all(20),
 					child: Column(
 						crossAxisAlignment: CrossAxisAlignment.center,
 						children: <Widget>[
 							Expanded(
 								child: Container(color: Colors.white,
 									child: Center(
-										child: Image.asset('images/dutchmill-logo.png', width: 300,),
+										child: Image.asset('images/dutchmill-logo.png', width: 250,),
 									),
 								),
 								flex: 3,),
@@ -71,7 +71,9 @@ class _LoginScreenState extends State<LoginScreen> {
 														keyboardType: TextInputType.text,
 														textInputAction: TextInputAction.done,
 														decoration: InputDecoration(
-															border: OutlineInputBorder(borderRadius: BorderRadius.circular(50)),
+															border: OutlineInputBorder(
+//																borderRadius: BorderRadius.circular(50)
+															),
 															icon: Icon(Icons.person_outline, color: Colors.blueAccent, size: 35,),
 //														fillColor: Colors.white,
 														),))
@@ -93,7 +95,7 @@ class _LoginScreenState extends State<LoginScreen> {
 														obscureText: true,
 														decoration: InputDecoration(
 															border: OutlineInputBorder(
-																borderRadius: BorderRadius.circular(50)
+//																borderRadius: BorderRadius.circular(50)
 															),
 //															enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.blueAccent)),
 															icon: Icon(Icons.lock_open, color: Colors.blueAccent, size: 35,),
@@ -103,12 +105,12 @@ class _LoginScreenState extends State<LoginScreen> {
 										Row(
 											mainAxisAlignment: MainAxisAlignment.center,
 											children: <Widget>[
-												Flexible(child: Container(), flex: 1,),
+												Flexible(child: Container(), flex: 2,),
 												Flexible(
 													flex: 3,
 													child: Container(
 														child: RadioListTile(
-															title: Text('Remember Password', style: Theme
+															title: Text('Remember', style: Theme
 																.of(context)
 																.textTheme
 																.body2,),
@@ -125,7 +127,7 @@ class _LoginScreenState extends State<LoginScreen> {
 													child: Container(
 														child: Center(
 															child: RadioListTile(
-																title: Text('Forgot Password', style: Theme
+																title: Text('Forgot', style: Theme
 																	.of(context)
 																	.textTheme
 																	.body2,),
@@ -141,7 +143,6 @@ class _LoginScreenState extends State<LoginScreen> {
 												Flexible(child: Container(), flex: 1,),
 											],
 										),
-									
 									],
 								),
 							),
@@ -152,7 +153,9 @@ class _LoginScreenState extends State<LoginScreen> {
 										SizedBox(width: 40,),
 										Expanded(
 											child: RaisedButton(
-												shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50.0)),
+												padding: EdgeInsets.symmetric(vertical: 20,),
+//												shape: StadiumBorder(),
+//												shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50.0)),
 												onPressed: () {
 													_onLoginButtonClick(context);
 												},

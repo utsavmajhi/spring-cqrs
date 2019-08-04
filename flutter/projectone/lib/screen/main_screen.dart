@@ -62,7 +62,7 @@ class _MainScreenState extends State<MainScreen> {
 	
 	Widget _buildBottomNavigationBar() =>
 		BottomNavigationBar(
-			iconSize: 50,
+			iconSize: 40,
 			showSelectedLabels: false,
 			showUnselectedLabels: false,
 			type: BottomNavigationBarType.fixed,
