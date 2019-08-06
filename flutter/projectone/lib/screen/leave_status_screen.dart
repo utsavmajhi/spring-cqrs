@@ -27,7 +27,7 @@ class LeaveStatusScreen extends StatelessWidget {
                 itemBuilder: (context, index) => Card(
                       elevation: 1,
                       margin: const EdgeInsets.symmetric(vertical: 5),
-                      color: Colors.white70,
+                  color: Colors.white.withOpacity(0.88),
                       child: Container(
                         child: ListTile(
                           onTap: () => Navigator.push(

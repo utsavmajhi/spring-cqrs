@@ -22,11 +22,12 @@ class _LeaveApplicationScreenState extends State<LeaveApplicationScreen> {
   @override
   void initState() {
     super.initState();
-    _leaveValue = -1;
+    _leaveValue = 0;
   }
 
   @override
-  Widget build(BuildContext context) => GestureDetector(
+  Widget build(BuildContext context) =>
+      GestureDetector(
         onTap: () => FocusScope.of(context).requestFocus(_node),
         child: Scaffold(
           key: _scaffoldState,
@@ -34,7 +35,10 @@ class _LeaveApplicationScreenState extends State<LeaveApplicationScreen> {
           appBar: AppBar(
             title: Text(
               "Leave Application Screen",
-              style: Theme.of(context).textTheme.title,
+              style: Theme
+                  .of(context)
+                  .textTheme
+                  .title,
             ),
           ),
           body: SafeArea(
@@ -49,11 +53,11 @@ class _LeaveApplicationScreenState extends State<LeaveApplicationScreen> {
                       child: Row(
                         children: <Widget>[
                           Expanded(
-                            flex: 2,
+                            flex: 3,
                             child: Container(),
                           ),
                           Expanded(
-                            flex: 3,
+                            flex: 2,
                             child: Visibility(
                               visible: widget.isView,
                               child: Container(
@@ -61,14 +65,17 @@ class _LeaveApplicationScreenState extends State<LeaveApplicationScreen> {
                                 color: Colors.green,
                                 child: Center(
                                     child: Text(
-                                  'Approved',
-                                  style: Theme.of(context).textTheme.button,
-                                )),
+                                      'Approved',
+                                      style: Theme
+                                          .of(context)
+                                          .textTheme
+                                          .button,
+                                    )),
                               ),
                             ),
                           ),
                           Expanded(
-                            flex: 2,
+                            flex: 3,
                             child: Container(),
                           ),
                         ],
@@ -79,7 +86,10 @@ class _LeaveApplicationScreenState extends State<LeaveApplicationScreen> {
                         padding: const EdgeInsets.symmetric(vertical: 10),
                         child: Text(
                           'Leave Type',
-                          style: Theme.of(context).textTheme.body1,
+                          style: Theme
+                              .of(context)
+                              .textTheme
+                              .body1,
                         ),
                       ),
                     ),
@@ -93,9 +103,12 @@ class _LeaveApplicationScreenState extends State<LeaveApplicationScreen> {
                               groupValue: _leaveValue,
                               title: Text(
                                 'Sick Leave',
-                                style: Theme.of(context).textTheme.body1,
+                                style: Theme
+                                    .of(context)
+                                    .textTheme
+                                    .body1,
                               ),
-                              onChanged: _leaveChanged,
+                              onChanged: widget.isView ? null : _leaveChanged,
                               selected: false,
                             ),
                           ),
@@ -105,9 +118,12 @@ class _LeaveApplicationScreenState extends State<LeaveApplicationScreen> {
                               groupValue: _leaveValue,
                               title: Text(
                                 'Vacation Leave',
-                                style: Theme.of(context).textTheme.body1,
+                                style: Theme
+                                    .of(context)
+                                    .textTheme
+                                    .body1,
                               ),
-                              onChanged: _leaveChanged,
+                              onChanged: widget.isView ? null : _leaveChanged,
                               selected: false,
                             ),
                           ),
@@ -117,9 +133,12 @@ class _LeaveApplicationScreenState extends State<LeaveApplicationScreen> {
                               groupValue: _leaveValue,
                               title: Text(
                                 'Business Leave',
-                                style: Theme.of(context).textTheme.body1,
+                                style: Theme
+                                    .of(context)
+                                    .textTheme
+                                    .body1,
                               ),
-                              onChanged: _leaveChanged,
+                              onChanged: widget.isView ? null : _leaveChanged,
                               selected: false,
                             ),
                           ),
@@ -129,9 +148,12 @@ class _LeaveApplicationScreenState extends State<LeaveApplicationScreen> {
                               groupValue: _leaveValue,
                               title: Text(
                                 'Other Leave',
-                                style: Theme.of(context).textTheme.body1,
+                                style: Theme
+                                    .of(context)
+                                    .textTheme
+                                    .body1,
                               ),
-                              onChanged: _leaveChanged,
+                              onChanged: widget.isView ? null : _leaveChanged,
                               selected: false,
                             ),
                           ),
@@ -143,12 +165,16 @@ class _LeaveApplicationScreenState extends State<LeaveApplicationScreen> {
                         padding: const EdgeInsets.symmetric(vertical: 10),
                         child: Text(
                           'Begin Date',
-                          style: Theme.of(context).textTheme.body1,
+                          style: Theme
+                              .of(context)
+                              .textTheme
+                              .body1,
                         ),
                       ),
                     ),
                     Flexible(
                       child: DateTimeField(
+                          readOnly: widget.isView,
                           decoration: InputDecoration(
                             border: OutlineInputBorder(),
                             icon: Icon(
@@ -158,25 +184,34 @@ class _LeaveApplicationScreenState extends State<LeaveApplicationScreen> {
                             ),
                           ),
                           format: _format,
-                          style: Theme.of(context).textTheme.body1,
+                          style: Theme
+                              .of(context)
+                              .textTheme
+                              .body1,
                           onShowPicker: (context, currentValue) =>
-                              showDatePicker(
-                                  context: context,
-                                  firstDate: DateTime(2000),
-                                  initialDate: currentValue ?? DateTime.now(),
-                                  lastDate: DateTime(2200))),
+                          widget.isView
+                              ? null
+                              : showDatePicker(
+                              context: context,
+                              firstDate: DateTime(2000),
+                              initialDate: currentValue ?? DateTime.now(),
+                              lastDate: DateTime(2200))),
                     ),
                     Flexible(
                       child: Padding(
                         padding: const EdgeInsets.symmetric(vertical: 10),
                         child: Text(
                           'End Date',
-                          style: Theme.of(context).textTheme.body1,
+                          style: Theme
+                              .of(context)
+                              .textTheme
+                              .body1,
                         ),
                       ),
                     ),
                     Flexible(
                       child: DateTimeField(
+                          readOnly: widget.isView,
                           decoration: InputDecoration(
                             border: OutlineInputBorder(),
                             icon: Icon(
@@ -186,30 +221,39 @@ class _LeaveApplicationScreenState extends State<LeaveApplicationScreen> {
                             ),
                           ),
                           format: _format,
-                          style: Theme.of(context).textTheme.body1,
+                          style: Theme
+                              .of(context)
+                              .textTheme
+                              .body1,
                           onShowPicker: (context, currentValue) =>
-                              showDatePicker(
-                                  context: context,
-                                  firstDate: DateTime(2000),
-                                  initialDate: currentValue ?? DateTime.now(),
-                                  lastDate: DateTime(2200))),
+                          widget.isView
+                              ? null
+                              : showDatePicker(
+                              context: context,
+                              firstDate: DateTime(2000),
+                              initialDate: currentValue ?? DateTime.now(),
+                              lastDate: DateTime(2200))),
                     ),
                     Flexible(
                       child: Padding(
                         padding: const EdgeInsets.symmetric(vertical: 10),
                         child: Text(
                           'Remark',
-                          style: Theme.of(context).textTheme.body1,
+                          style: Theme
+                              .of(context)
+                              .textTheme
+                              .body1,
                         ),
                       ),
                     ),
                     Flexible(
                       child: TextField(
+                        readOnly: widget.isView,
                         maxLines: 5,
                         decoration: InputDecoration(
                           border: OutlineInputBorder(
 //															borderRadius:  BorderRadius.circular(20),
-                              ),
+                          ),
                           icon: Icon(
                             Icons.bookmark,
                             color: Colors.blueAccent,
@@ -217,10 +261,31 @@ class _LeaveApplicationScreenState extends State<LeaveApplicationScreen> {
                           ),
                         ),
                       ),
-                    )
+                    ),
+                    Flexible(
+                      child: Container(),
+                    ),
                   ],
                 ),
-              )),
+              )
+          ),
+            bottomNavigationBar: Row(children: <Widget>[
+              Expanded(
+                child: RaisedButton(
+                  padding: const EdgeInsets.symmetric(
+                    vertical: 30,
+                  ),
+                  child: Text(
+                    'Save',
+                    style: Theme
+                        .of(context)
+                        .textTheme
+                        .button,
+                  ),
+                  onPressed: widget.isView ? null : () {},
+                ),
+              )
+            ],)
         ),
       );
 

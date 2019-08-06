@@ -39,7 +39,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 children: <Widget>[
                   Expanded(
                     child: Card(
-                      color: Colors.white70,
+                      color: Colors.white.withOpacity(0.88),
                       elevation: 1,
                       clipBehavior: Clip.antiAlias,
                       child: Container(
