@@ -113,7 +113,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             ],
                           ),
                         ),
-                        Expanded(
+                        Flexible(
                           child: Container(
                             child: ListView.builder(
                                 scrollDirection: Axis.horizontal,
@@ -125,6 +125,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                       elevation: 1,
                                       color: Colors.white.withOpacity(0.88),
                                       child: Container(
+                                        padding: const EdgeInsets.all(5),
                                         width: 180,
                                         child: ListTile(
                                             onTap: () {
@@ -135,38 +136,51 @@ class _HomeScreenState extends State<HomeScreen> {
                                                               ' Clicked')));
                                             },
                                             title: Column(
-                                              mainAxisAlignment: MainAxisAlignment
-                                                  .spaceEvenly,
+                                              mainAxisAlignment:
+                                              MainAxisAlignment.center,
                                               children: <Widget>[
-                                                Flexible(child: Icon(
-                                                  Icons.store,
-                                                  color: Colors.red,
-                                                  size: 100,)),
                                                 Flexible(
-                                                  child: Column(
-                                                    children: <Widget>[
-                                                      Text('Tesco Lotus',
-                                                        style: Theme
-                                                            .of(context)
-                                                            .textTheme
-                                                            .body1,),
-                                                      Text(
-                                                        'No 000${items[index]}',
-                                                        style: Theme
-                                                            .of(context)
-                                                            .textTheme
-                                                            .body1,),
-                                                      Text(
-                                                        'Location ${items[index]}',
-                                                        style: Theme
-                                                            .of(context)
-                                                            .textTheme
-                                                            .body1,),
-                                                    ],
-                                                  ),)
+                                                    flex: 3,
+                                                    child: Container(
+                                                        child: Image.asset(
+                                                          'images/tesco.png',
+//                                                          width: 150,height: 150,
+                                                        ))
+                                                ),
+                                                Flexible(
+                                                  flex: 2,
+                                                  child: Container(
+                                                    child: Column(
+                                                      mainAxisAlignment: MainAxisAlignment
+                                                          .center,
+                                                      children: <Widget>[
+                                                        Text(
+                                                          'Tesco Lotus',
+                                                          style: Theme
+                                                              .of(context)
+                                                              .textTheme
+                                                              .body1,
+                                                        ),
+                                                        Text(
+                                                          'No 000${items[index]}',
+                                                          style: Theme
+                                                              .of(context)
+                                                              .textTheme
+                                                              .body1,
+                                                        ),
+                                                        Text(
+                                                          'Location ${items[index]}',
+                                                          style: Theme
+                                                              .of(context)
+                                                              .textTheme
+                                                              .body1,
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                )
                                               ],
-                                            )
-                                        ),
+                                            )),
                                       ),
                                     )),
                           ),
@@ -225,7 +239,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             ],
                           ),
                         ),
-                        Expanded(
+                        Flexible(
                           child: Container(
                             child: ListView.builder(
                                 scrollDirection: Axis.horizontal,
@@ -237,6 +251,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                       elevation: 1,
                                       color: Colors.white.withOpacity(0.88),
                                       child: Container(
+                                        padding: const EdgeInsets.all(5),
                                         width: 180,
                                         child: ListTile(
                                             onTap: () {
@@ -247,36 +262,51 @@ class _HomeScreenState extends State<HomeScreen> {
                                                               ' Clicked')));
                                             },
                                             title: Column(
-                                              mainAxisAlignment: MainAxisAlignment
-                                                  .spaceEvenly,
+                                              mainAxisAlignment:
+                                              MainAxisAlignment.center,
                                               children: <Widget>[
-                                                Flexible(child: Icon(
-                                                  Icons.store, color: Colors
-                                                    .green, size: 100,)),
                                                 Flexible(
-                                                  child: Column(
-                                                    children: <Widget>[
-                                                      Text('Big C', style: Theme
-                                                          .of(context)
+                                                    flex: 3,
+                                                    child: Container(
+                                                        child: Image.asset(
+                                                          'images/bigc.png',
+//                                                          width: 150,height: 150,
+                                                        ))
+                                                ),
+                                                Flexible(
+                                                  flex: 2,
+                                                  child: Container(
+                                                    child: Column(
+                                                      mainAxisAlignment: MainAxisAlignment
+                                                          .center,
+                                                      children: <Widget>[
+                                                        Text(
+                                                          'Big C',
+                                                          style: Theme
+                                                              .of(context)
                                                           .textTheme
-                                                          .body1,),
-                                                      Text(
-                                                        'No 000${items[index]}',
-                                                        style: Theme
-                                                            .of(context)
-                                                            .textTheme
-                                                            .body1,),
-                                                      Text(
-                                                        'Location ${items[index]}',
-                                                        style: Theme
-                                                            .of(context)
-                                                            .textTheme
-                                                            .body1,),
-                                                    ],
-                                                  ),)
+                                                              .body1,
+                                                        ),
+                                                        Text(
+                                                          'No 000${items[index]}',
+                                                          style: Theme
+                                                              .of(context)
+                                                              .textTheme
+                                                              .body1,
+                                                        ),
+                                                        Text(
+                                                          'Location ${items[index]}',
+                                                          style: Theme
+                                                              .of(context)
+                                                              .textTheme
+                                                              .body1,
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                )
                                               ],
-                                            )
-                                        ),
+                                            )),
                                       ),
                                     )),
                           ),
@@ -335,7 +365,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             ],
                           ),
                         ),
-                        Expanded(
+                        Flexible(
                           child: Container(
                             child: ListView.builder(
                                 scrollDirection: Axis.horizontal,
@@ -347,6 +377,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                       elevation: 1,
                                       color: Colors.white.withOpacity(0.88),
                                       child: Container(
+                                        padding: const EdgeInsets.all(5),
                                         width: 180,
                                         child: ListTile(
                                             onTap: () {
@@ -357,36 +388,51 @@ class _HomeScreenState extends State<HomeScreen> {
                                                               ' Clicked')));
                                             },
                                             title: Column(
-                                              mainAxisAlignment: MainAxisAlignment
-                                                  .spaceEvenly,
+                                              mainAxisAlignment:
+                                              MainAxisAlignment.center,
                                               children: <Widget>[
-                                                Flexible(child: Icon(
-                                                  Icons.store, color: Colors
-                                                    .yellow, size: 100,)),
                                                 Flexible(
-                                                  child: Column(
-                                                    children: <Widget>[
-                                                      Text('Tops', style: Theme
-                                                          .of(context)
+                                                    flex: 3,
+                                                    child: Container(
+                                                        child: Image.asset(
+                                                          'images/tops-logo.jpg',
+//                                                          width: 150,height: 150,
+                                                        ))
+                                                ),
+                                                Flexible(
+                                                  flex: 2,
+                                                  child: Container(
+                                                    child: Column(
+                                                      mainAxisAlignment: MainAxisAlignment
+                                                          .center,
+                                                      children: <Widget>[
+                                                        Text(
+                                                          'Tops',
+                                                          style: Theme
+                                                              .of(context)
                                                           .textTheme
-                                                          .body1,),
-                                                      Text(
-                                                        'No 000${items[index]}',
-                                                        style: Theme
-                                                            .of(context)
-                                                            .textTheme
-                                                            .body1,),
-                                                      Text(
-                                                        'Location ${items[index]}',
-                                                        style: Theme
-                                                            .of(context)
-                                                            .textTheme
-                                                            .body1,),
-                                                    ],
-                                                  ),)
+                                                              .body1,
+                                                        ),
+                                                        Text(
+                                                          'No 000${items[index]}',
+                                                          style: Theme
+                                                              .of(context)
+                                                              .textTheme
+                                                              .body1,
+                                                        ),
+                                                        Text(
+                                                          'Location ${items[index]}',
+                                                          style: Theme
+                                                              .of(context)
+                                                              .textTheme
+                                                              .body1,
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                )
                                               ],
-                                            )
-                                        ),
+                                            )),
                                       ),
                                     )),
                           ),
@@ -445,7 +491,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             ],
                           ),
                         ),
-                        Expanded(
+                        Flexible(
                           child: Container(
                             child: ListView.builder(
                                 scrollDirection: Axis.horizontal,
@@ -457,6 +503,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                       elevation: 1,
                                       color: Colors.white.withOpacity(0.88),
                                       child: Container(
+                                        padding: const EdgeInsets.all(5),
                                         width: 180,
                                         child: ListTile(
                                             onTap: () {
@@ -467,36 +514,51 @@ class _HomeScreenState extends State<HomeScreen> {
                                                               ' Clicked')));
                                             },
                                             title: Column(
-                                              mainAxisAlignment: MainAxisAlignment
-                                                  .spaceEvenly,
+                                              mainAxisAlignment:
+                                              MainAxisAlignment.center,
                                               children: <Widget>[
-                                                Flexible(child: Icon(
-                                                  Icons.store, color: Colors
-                                                    .redAccent, size: 100,)),
                                                 Flexible(
-                                                  child: Column(
-                                                    children: <Widget>[
-                                                      Text('Makro', style: Theme
-                                                          .of(context)
+                                                    flex: 3,
+                                                    child: Container(
+                                                        child: Image.asset(
+                                                          'images/makro-th.jpg',
+//                                                          width: 150,height: 150,
+                                                        ))
+                                                ),
+                                                Flexible(
+                                                  flex: 2,
+                                                  child: Container(
+                                                    child: Column(
+                                                      mainAxisAlignment: MainAxisAlignment
+                                                          .center,
+                                                      children: <Widget>[
+                                                        Text(
+                                                          'Makro',
+                                                          style: Theme
+                                                              .of(context)
                                                           .textTheme
-                                                          .body1,),
-                                                      Text(
-                                                        'No 000${items[index]}',
-                                                        style: Theme
-                                                            .of(context)
-                                                            .textTheme
-                                                            .body1,),
-                                                      Text(
-                                                        'Location ${items[index]}',
-                                                        style: Theme
-                                                            .of(context)
-                                                            .textTheme
-                                                            .body1,),
-                                                    ],
-                                                  ),)
+                                                              .body1,
+                                                        ),
+                                                        Text(
+                                                          'No 000${items[index]}',
+                                                          style: Theme
+                                                              .of(context)
+                                                              .textTheme
+                                                              .body1,
+                                                        ),
+                                                        Text(
+                                                          'Location ${items[index]}',
+                                                          style: Theme
+                                                              .of(context)
+                                                              .textTheme
+                                                              .body1,
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                )
                                               ],
-                                            )
-                                        ),
+                                            )),
                                       ),
                                     )),
                           ),
@@ -506,6 +568,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   flex: 2,
                 ),
+
               ],
             )),
       );

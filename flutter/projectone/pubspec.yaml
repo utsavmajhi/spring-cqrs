@@ -42,9 +42,12 @@ dev_dependencies:
 # The following section is specific to Flutter.
 flutter:
   assets:
+    - images/bigc.png
     - images/dutchmill-logo.png
-    - images/person.png
+    - images/makro-th.jpg
     - images/person.jpg
+    - images/tesco.png
+    - images/tops-logo.jpg
   fonts:
     - family: K2D
       fonts:
