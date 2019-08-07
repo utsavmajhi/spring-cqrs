@@ -1,9 +1,12 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:projectone/screen/profile_screen.dart';
 
+import 'home_screen.dart';
+
 class MainScreen extends StatefulWidget {
   final _screens = <Widget>[
-    ProfileScreen(),
+    HomeScreen(),
     ProfileScreen(),
     ProfileScreen(),
     ProfileScreen(),
@@ -74,19 +77,19 @@ class _MainScreenState extends State<MainScreen> {
         type: BottomNavigationBarType.fixed,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
+            icon: Icon(CupertinoIcons.home),
             title: Text(''),
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.add_shopping_cart),
+            icon: Icon(CupertinoIcons.shopping_cart),
             title: Text(''),
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.add),
+            icon: Icon(CupertinoIcons.add),
             title: Text(''),
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.person),
+            icon: Icon(CupertinoIcons.person),
             title: Text(''),
           ),
         ],

@@ -12,7 +12,7 @@ class _LoginScreenState extends State<LoginScreen> {
   var controllers;
 
   final _node = FocusNode();
-  final _formKey = GlobalKey<FormState>();
+  final _formState = GlobalKey<FormState>();
   final _scaffoldState = GlobalKey<ScaffoldState>();
 
   @override
@@ -67,7 +67,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   flex: 3,
                 ),
                 Form(
-                  key: _formKey,
+                  key: _formState,
                   child: Column(
                     children: <Widget>[
                       Row(

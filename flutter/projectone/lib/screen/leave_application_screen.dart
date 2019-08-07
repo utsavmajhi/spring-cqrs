@@ -13,7 +13,7 @@ class LeaveApplicationScreen extends StatefulWidget {
 
 class _LeaveApplicationScreenState extends State<LeaveApplicationScreen> {
   final _scaffoldState = GlobalKey<ScaffoldState>();
-  final _formKey = GlobalKey<FormState>();
+  final _formState = GlobalKey<FormState>();
   final _format = DateFormat("dd-MM-yyyy");
   final _node = FocusNode();
 
@@ -44,7 +44,7 @@ class _LeaveApplicationScreenState extends State<LeaveApplicationScreen> {
           body: SafeArea(
               minimum: const EdgeInsets.all(20),
               child: Form(
-                key: _formKey,
+                key: _formState,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
