@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:projectone/demo/timer/debouncer.dart';
-import 'package:projectone/screen/main_screen.dart';
+import 'package:projectone/screen/main/main_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -50,7 +50,7 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
           ),
           body: SafeArea(
-            minimum: const EdgeInsets.all(20),
+            minimum: const EdgeInsets.all(10),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
@@ -86,7 +86,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                   border: OutlineInputBorder(
 //																borderRadius: BorderRadius.circular(50)
                                   ),
-                                  icon: Icon(
+                                  prefixIcon: Icon(
                                     Icons.person_outline,
                                     color: Colors.blueAccent,
                                     size: 35,
@@ -115,7 +115,7 @@ class _LoginScreenState extends State<LoginScreen> {
 //																borderRadius: BorderRadius.circular(50)
                                   ),
 //															enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.blueAccent)),
-                                  icon: Icon(
+                                  prefixIcon: Icon(
                                     Icons.lock_open,
                                     color: Colors.blueAccent,
                                     size: 35,
@@ -186,9 +186,9 @@ class _LoginScreenState extends State<LoginScreen> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
-                      SizedBox(
-                        width: 40,
-                      ),
+//                      SizedBox(
+//                        width: 40,
+//                      ),
                       Expanded(
                         child: RaisedButton(
                           padding: const EdgeInsets.symmetric(
@@ -208,9 +208,9 @@ class _LoginScreenState extends State<LoginScreen> {
                           ),
                         ),
                       ),
-                      SizedBox(
-                        width: 40,
-                      ),
+//                      SizedBox(
+//                        width: 40,
+//                      ),
                     ],
                   ),
                   flex: 1,

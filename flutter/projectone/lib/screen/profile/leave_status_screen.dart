@@ -17,7 +17,7 @@ class LeaveStatusScreen extends StatelessWidget {
           ),
         ),
         body: SafeArea(
-          minimum: const EdgeInsets.all(20),
+          minimum: const EdgeInsets.all(10),
           child: RefreshIndicator(
             onRefresh: _refresh,
             color: Colors.blue,

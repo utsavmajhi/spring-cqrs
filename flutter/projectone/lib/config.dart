@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:projectone/screen/login_screen.dart';
-import 'package:projectone/screen/main_screen.dart';
-import 'package:projectone/screen/profile_screen.dart';
+import 'package:projectone/screen/login/login_screen.dart';
+import 'package:projectone/screen/main/main_screen.dart';
+import 'package:projectone/screen/profile/profile_screen.dart';
 
 const title = 'Dutchmill';
 
@@ -33,7 +33,8 @@ final lightTheme = ThemeData(
 	),
 	textTheme: TextTheme(
 		title: TextStyle(fontSize: 16.0, color: Colors.white, fontWeight: FontWeight.bold),
-		headline: TextStyle(fontSize: 30.0, fontWeight: FontWeight.bold),
+		headline: TextStyle(
+				fontSize: 20.0, fontWeight: FontWeight.bold, color: Colors.black87),
 		body1: TextStyle(fontSize: 15.0, fontWeight: FontWeight.w500),
 		body2: TextStyle(fontSize: 15.0, fontWeight: FontWeight.w500, color: Colors.black87),
 		button: TextStyle(fontSize: 15.0, color: Colors.white, fontWeight: FontWeight.bold),

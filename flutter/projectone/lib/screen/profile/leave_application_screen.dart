@@ -42,7 +42,7 @@ class _LeaveApplicationScreenState extends State<LeaveApplicationScreen> {
             ),
           ),
           body: SafeArea(
-              minimum: const EdgeInsets.all(20),
+              minimum: const EdgeInsets.all(10),
               child: Form(
                 key: _formState,
                 child: Column(

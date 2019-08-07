@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:projectone/constant.dart' as constant;
+import 'package:projectone/config.dart' as constant;
 
 main() => runApp(Application());
 

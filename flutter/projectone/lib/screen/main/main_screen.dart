@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:projectone/screen/profile_screen.dart';
+import 'package:projectone/screen/profile/profile_screen.dart';
 
-import 'home_screen.dart';
+import '../home/home_screen.dart';
 
 class MainScreen extends StatefulWidget {
   final _screens = <Widget>[
@@ -26,7 +26,7 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> {
   final _scaffoldState = GlobalKey<ScaffoldState>();
   final _node = FocusNode();
-  var _currentIndex = 3;
+  var _currentIndex = 0;
   var _title = '';
 
   @override
