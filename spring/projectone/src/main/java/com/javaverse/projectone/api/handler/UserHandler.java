@@ -9,11 +9,15 @@ import org.axonframework.commandhandling.gateway.CommandGateway;
 import org.axonframework.messaging.responsetypes.ResponseTypes;
 import org.axonframework.queryhandling.QueryGateway;
 import org.springframework.http.MediaType;
+import org.springframework.http.codec.multipart.FilePart;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.BodyExtractors;
+import org.springframework.web.reactive.function.BodyInserters;
 import org.springframework.web.reactive.function.server.*;
 import reactor.core.publisher.*;
 import reactor.core.scheduler.Schedulers;
+
+import java.io.File;
 
 import static org.springframework.web.reactive.function.server.ServerResponse.*;
 
@@ -68,22 +72,14 @@ public class UserHandler extends CommonHandler<UserDTO> {
     }
 
     public Mono<ServerResponse> upload(ServerRequest req) {
-        return req.body(BodyExtractors.toMultipartData()).flatMap(md -> {
-            return null;
+        return req.body(BodyExtractors.toMultipartData()).flatMap(part -> {
+            var map = part.toSingleValueMap();
+            var filePart = (FilePart)map.get("file");
+            var fileName = filePart.filename();
+            filePart.transferTo(new File("/tmp/"+fileName));
+            return ServerResponse.ok().body(BodyInserters.fromObject("OK"));
         });
     }
 
-//        return request.body(BodyExtractors.toMultipartData()).flatMap { parts ->
-//                val map: Map<String, Part> = parts.toSingleValueMap()
-//            val filePart : FilePart = map["file"]!! as FilePart
-//            // Note cast to "FilePart" above
-//
-//            // Save file to disk - in this example, in the "tmp" folder of a *nix system
-//            val fileName = filePart.filename()
-//            filePart.transferTo( File("/tmp/$fileName"))
-//
-//            ServerResponse.ok().body(BodyInserters.fromObject("OK"))
-//        }
-//    }
 
 }

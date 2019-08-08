@@ -79,7 +79,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                     Flexible(
                       child: Container(
-                        margin: EdgeInsets.symmetric(vertical: 5),
+                        margin: EdgeInsets.symmetric(vertical: 2.5),
                         color: Colors.white.withOpacity(0.88),
                         child: Column(
                           children: <Widget>[
@@ -174,14 +174,14 @@ class _HomeScreenState extends State<HomeScreen> {
                                                                   .body1,
                                                             ),
                                                             Text(
-                                                              'No 000${items[index]}',
+                                                              'branch code 000${items[index]}',
                                                               style: Theme
                                                                   .of(context)
                                                                   .textTheme
                                                                   .body1,
                                                             ),
                                                             Text(
-                                                              'Location ${items[index]}',
+                                                              'branch name xxx${items[index]}',
                                                               style: Theme
                                                                   .of(context)
                                                                   .textTheme
@@ -204,7 +204,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                     Flexible(
                       child: Container(
-                        margin: EdgeInsets.symmetric(vertical: 5),
+                        margin: EdgeInsets.symmetric(vertical: 2.5),
                         color: Colors.white.withOpacity(0.88),
                         child: Column(
                           children: <Widget>[
@@ -299,14 +299,14 @@ class _HomeScreenState extends State<HomeScreen> {
                                                                   .body1,
                                                             ),
                                                             Text(
-                                                              'No 000${items[index]}',
+                                                              'branch code 000${items[index]}',
                                                               style: Theme
                                                                   .of(context)
                                                                   .textTheme
                                                                   .body1,
                                                             ),
                                                             Text(
-                                                              'Location ${items[index]}',
+                                                              'branch name xxx${items[index]}',
                                                               style: Theme
                                                                   .of(context)
                                                                   .textTheme
@@ -329,7 +329,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                     Flexible(
                       child: Container(
-                        margin: EdgeInsets.symmetric(vertical: 5),
+                        margin: EdgeInsets.symmetric(vertical: 2.5),
                         color: Colors.white.withOpacity(0.88),
                         child: Column(
                           children: <Widget>[
@@ -424,14 +424,14 @@ class _HomeScreenState extends State<HomeScreen> {
                                                                   .body1,
                                                             ),
                                                             Text(
-                                                              'No 000${items[index]}',
+                                                              'branch code 000${items[index]}',
                                                               style: Theme
                                                                   .of(context)
                                                                   .textTheme
                                                                   .body1,
                                                             ),
                                                             Text(
-                                                              'Location ${items[index]}',
+                                                              'branch name xxx${items[index]}',
                                                               style: Theme
                                                                   .of(context)
                                                                   .textTheme
@@ -454,7 +454,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                     Flexible(
                       child: Container(
-                        margin: EdgeInsets.symmetric(vertical: 5),
+                        margin: EdgeInsets.symmetric(vertical: 2.5),
                         color: Colors.white.withOpacity(0.88),
                         child: Column(
                           children: <Widget>[
@@ -549,14 +549,14 @@ class _HomeScreenState extends State<HomeScreen> {
                                                                   .body1,
                                                             ),
                                                             Text(
-                                                              'No 000${items[index]}',
+                                                              'branch code 000${items[index]}',
                                                               style: Theme
                                                                   .of(context)
                                                                   .textTheme
                                                                   .body1,
                                                             ),
                                                             Text(
-                                                              'Location ${items[index]}',
+                                                              'branch name xxx${items[index]}',
                                                               style: Theme
                                                                   .of(context)
                                                                   .textTheme

@@ -15,10 +15,18 @@ import java.io.File;
 @RequestMapping("/files")
 public class FileController {
 
-    @GetMapping
+    @GetMapping("/ping")
     public Mono<String> ping() {
-        return Mono.just("ping pong");
+        return Mono.just("pong");
     }
+
+    @GetMapping("/webhook")
+    public Mono<String> webhook(@RequestBody String req) {
+        System.out.println("request body from jira web hook");
+        System.out.println(req);
+        return Mono.just(req);
+    }
+
 
     @ResponseBody
     @PostMapping(consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
