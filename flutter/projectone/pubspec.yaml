@@ -49,9 +49,9 @@ flutter:
     - images/tesco.png
     - images/tops-logo.jpg
   fonts:
-    - family: K2D
+    - family: RobotoMono
       fonts:
-        - asset: fonts/K2D-Regular.ttf
+        - asset: fonts/RobotoMono-Regular.ttf
           weight: 400
 
   # The following line ensures that the Material Icons font is

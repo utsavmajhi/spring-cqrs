@@ -26,6 +26,10 @@ class _HomeScreenState extends State<HomeScreen> {
                     .of(context)
                     .size
                     .height,
+                width: MediaQuery
+                    .of(context)
+                    .size
+                    .width,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: <Widget>[
@@ -96,8 +100,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                           alignment: Alignment.centerLeft,
                                           child: Text(
                                             'Tesco Lotus',
-                                            style:
-                                            Theme
+                                            style: Theme
                                                 .of(context)
                                                 .textTheme
                                                 .button,
@@ -143,12 +146,14 @@ class _HomeScreenState extends State<HomeScreen> {
                                             width: 180,
                                             child: ListTile(
                                                 onTap: () =>
-                                                    Navigator.push(context,
+                                                    Navigator.push(
+                                                        context,
                                                         MaterialPageRoute(
                                                             builder: (
                                                                 context) =>
                                                                 BranchScreen(
-                                                                  title: 'Tesco',))),
+                                                                  title: 'Tesco',
+                                                                ))),
                                                 title: Column(
                                                   mainAxisAlignment:
                                                   MainAxisAlignment.center,
@@ -158,34 +163,40 @@ class _HomeScreenState extends State<HomeScreen> {
                                                             child: Image.asset(
                                                               'images/tesco.png',
 //                                                          width: 150,height: 150,
-                                                            ))
-                                                    ),
+                                                            ))),
                                                     Flexible(
                                                       child: Container(
                                                         child: Column(
-                                                          mainAxisAlignment: MainAxisAlignment
+                                                          mainAxisAlignment:
+                                                          MainAxisAlignment
                                                               .center,
                                                           children: <Widget>[
                                                             Text(
                                                               'Tesco Lotus',
                                                               style: Theme
-                                                                  .of(context)
+                                                                  .of(
+                                                                  context)
                                                                   .textTheme
                                                                   .body1,
                                                             ),
                                                             Text(
                                                               'branch code 000${items[index]}',
                                                               style: Theme
-                                                                  .of(context)
+                                                                  .of(
+                                                                  context)
                                                                   .textTheme
                                                                   .body1,
                                                             ),
                                                             Text(
                                                               'branch name xxx${items[index]}',
                                                               style: Theme
-                                                                  .of(context)
+                                                                  .of(
+                                                                  context)
                                                                   .textTheme
                                                                   .body1,
+                                                              overflow:
+                                                              TextOverflow
+                                                                  .ellipsis,
                                                             ),
                                                           ],
                                                         ),
@@ -220,8 +231,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                           alignment: Alignment.centerLeft,
                                           child: Text(
                                             'Big C',
-                                            style:
-                                            Theme
+                                            style: Theme
                                                 .of(context)
                                                 .textTheme
                                                 .button,
@@ -267,12 +277,14 @@ class _HomeScreenState extends State<HomeScreen> {
                                             width: 180,
                                             child: ListTile(
                                                 onTap: () =>
-                                                    Navigator.push(context,
+                                                    Navigator.push(
+                                                        context,
                                                         MaterialPageRoute(
                                                             builder: (
                                                                 context) =>
                                                                 BranchScreen(
-                                                                  title: 'BigC',))),
+                                                                  title: 'BigC',
+                                                                ))),
                                                 title: Column(
                                                   mainAxisAlignment:
                                                   MainAxisAlignment.center,
@@ -282,34 +294,40 @@ class _HomeScreenState extends State<HomeScreen> {
                                                             child: Image.asset(
                                                               'images/bigc.png',
 //                                                          width: 150,height: 150,
-                                                            ))
-                                                    ),
+                                                            ))),
                                                     Flexible(
                                                       child: Container(
                                                         child: Column(
-                                                          mainAxisAlignment: MainAxisAlignment
+                                                          mainAxisAlignment:
+                                                          MainAxisAlignment
                                                               .center,
                                                           children: <Widget>[
                                                             Text(
                                                               'Big C',
                                                               style: Theme
-                                                                  .of(context)
+                                                                  .of(
+                                                                  context)
                                                                   .textTheme
                                                                   .body1,
                                                             ),
                                                             Text(
                                                               'branch code 000${items[index]}',
                                                               style: Theme
-                                                                  .of(context)
+                                                                  .of(
+                                                                  context)
                                                                   .textTheme
                                                                   .body1,
                                                             ),
                                                             Text(
                                                               'branch name xxx${items[index]}',
                                                               style: Theme
-                                                                  .of(context)
+                                                                  .of(
+                                                                  context)
                                                                   .textTheme
                                                                   .body1,
+                                                              overflow:
+                                                              TextOverflow
+                                                                  .ellipsis,
                                                             ),
                                                           ],
                                                         ),
@@ -344,8 +362,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                           alignment: Alignment.centerLeft,
                                           child: Text(
                                             'Tops',
-                                            style:
-                                            Theme
+                                            style: Theme
                                                 .of(context)
                                                 .textTheme
                                                 .button,
@@ -391,12 +408,14 @@ class _HomeScreenState extends State<HomeScreen> {
                                             width: 180,
                                             child: ListTile(
                                                 onTap: () =>
-                                                    Navigator.push(context,
+                                                    Navigator.push(
+                                                        context,
                                                         MaterialPageRoute(
                                                             builder: (
                                                                 context) =>
                                                                 BranchScreen(
-                                                                  title: 'Tops',))),
+                                                                  title: 'Tops',
+                                                                ))),
                                                 title: Column(
                                                   mainAxisAlignment:
                                                   MainAxisAlignment.center,
@@ -406,34 +425,40 @@ class _HomeScreenState extends State<HomeScreen> {
                                                             child: Image.asset(
                                                               'images/tops-logo.jpg',
 //                                                          width: 150,height: 150,
-                                                            ))
-                                                    ),
+                                                            ))),
                                                     Flexible(
                                                       child: Container(
                                                         child: Column(
-                                                          mainAxisAlignment: MainAxisAlignment
+                                                          mainAxisAlignment:
+                                                          MainAxisAlignment
                                                               .center,
                                                           children: <Widget>[
                                                             Text(
                                                               'Tops',
                                                               style: Theme
-                                                                  .of(context)
+                                                                  .of(
+                                                                  context)
                                                                   .textTheme
                                                                   .body1,
                                                             ),
                                                             Text(
                                                               'branch code 000${items[index]}',
                                                               style: Theme
-                                                                  .of(context)
+                                                                  .of(
+                                                                  context)
                                                                   .textTheme
                                                                   .body1,
                                                             ),
                                                             Text(
                                                               'branch name xxx${items[index]}',
                                                               style: Theme
-                                                                  .of(context)
+                                                                  .of(
+                                                                  context)
                                                                   .textTheme
                                                                   .body1,
+                                                              overflow:
+                                                              TextOverflow
+                                                                  .ellipsis,
                                                             ),
                                                           ],
                                                         ),
@@ -468,8 +493,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                           alignment: Alignment.centerLeft,
                                           child: Text(
                                             'Makro',
-                                            style:
-                                            Theme
+                                            style: Theme
                                                 .of(context)
                                                 .textTheme
                                                 .button,
@@ -515,12 +539,14 @@ class _HomeScreenState extends State<HomeScreen> {
                                             width: 180,
                                             child: ListTile(
                                                 onTap: () =>
-                                                    Navigator.push(context,
+                                                    Navigator.push(
+                                                        context,
                                                         MaterialPageRoute(
                                                             builder: (
                                                                 context) =>
                                                                 BranchScreen(
-                                                                  title: 'Makro',))),
+                                                                  title: 'Makro',
+                                                                ))),
                                                 title: Column(
                                                   mainAxisAlignment:
                                                   MainAxisAlignment.center,
@@ -530,34 +556,40 @@ class _HomeScreenState extends State<HomeScreen> {
                                                             child: Image.asset(
                                                               'images/makro-th.jpg',
 //                                                          width: 150,height: 150,
-                                                            ))
-                                                    ),
+                                                            ))),
                                                     Flexible(
                                                       child: Container(
                                                         child: Column(
-                                                          mainAxisAlignment: MainAxisAlignment
+                                                          mainAxisAlignment:
+                                                          MainAxisAlignment
                                                               .center,
                                                           children: <Widget>[
                                                             Text(
                                                               'Makro',
                                                               style: Theme
-                                                                  .of(context)
+                                                                  .of(
+                                                                  context)
                                                                   .textTheme
                                                                   .body1,
                                                             ),
                                                             Text(
                                                               'branch code 000${items[index]}',
                                                               style: Theme
-                                                                  .of(context)
+                                                                  .of(
+                                                                  context)
                                                                   .textTheme
                                                                   .body1,
                                                             ),
                                                             Text(
                                                               'branch name xxx${items[index]}',
                                                               style: Theme
-                                                                  .of(context)
+                                                                  .of(
+                                                                  context)
                                                                   .textTheme
                                                                   .body1,
+                                                              overflow:
+                                                              TextOverflow
+                                                                  .ellipsis,
                                                             ),
                                                           ],
                                                         ),
@@ -574,7 +606,6 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                       flex: 2,
                     ),
-
                   ],
                 ),
               ),

@@ -26,20 +26,16 @@ class BranchScreen extends StatelessWidget {
               ),
               Flexible(
                 flex: 2,
-                child: _middleFlex(context),
+                child: _middle(context),
               ),
-              Flexible(
-                flex: 2,
-                child: Container(
-                  color: Colors.white.withOpacity(0.88),
-                ),
-              ),
+              Flexible(flex: 2, child: _bottom(context)),
             ],
           ),
         ),
       );
 
-  Widget _middleFlex(BuildContext context) => Container(
+  Widget _middle(BuildContext context) =>
+      Container(
         padding: const EdgeInsets.all(2.0),
         color: Colors.white.withOpacity(0.88),
         child: Column(
@@ -47,9 +43,6 @@ class BranchScreen extends StatelessWidget {
           children: <Widget>[
             Row(
               children: <Widget>[
-                SizedBox(
-                  width: 20,
-                ),
                 Expanded(
                     child: RaisedButton(
                   onPressed: () {},
@@ -59,7 +52,7 @@ class BranchScreen extends StatelessWidget {
                   ),
                 )),
                 SizedBox(
-                  width: 20,
+                  width: 10,
                 ),
                 Expanded(
                     child: RaisedButton(
@@ -69,16 +62,10 @@ class BranchScreen extends StatelessWidget {
                     style: Theme.of(context).textTheme.button,
                   ),
                 )),
-                SizedBox(
-                  width: 20,
-                ),
               ],
             ),
             Row(
               children: <Widget>[
-                SizedBox(
-                  width: 20,
-                ),
                 Expanded(
                     child: RaisedButton(
                   onPressed: () {},
@@ -88,7 +75,7 @@ class BranchScreen extends StatelessWidget {
                   ),
                 )),
                 SizedBox(
-                  width: 20,
+                  width: 10,
                 ),
                 Expanded(
                     child: RaisedButton(
@@ -98,9 +85,57 @@ class BranchScreen extends StatelessWidget {
                     style: Theme.of(context).textTheme.button,
                   ),
                 )),
-                SizedBox(
-                  width: 20,
-                ),
+              ],
+            ),
+          ],
+        ),
+      );
+
+  Widget _bottom(BuildContext context) =>
+      Container(
+        padding: const EdgeInsets.all(2.0),
+        color: Colors.white.withOpacity(0.88),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: <Widget>[
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Container(
+                    width: MediaQuery
+                        .of(context)
+                        .size
+                        .width / 2,
+                    child: RaisedButton(
+                      onPressed: () {},
+                      child: Text(
+                        'PP',
+                        style: Theme
+                            .of(context)
+                            .textTheme
+                            .button,
+                      ),
+                    )),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Container(
+                    width: MediaQuery
+                        .of(context)
+                        .size
+                        .width / 2,
+                    child: RaisedButton(
+                      onPressed: () {},
+                      child: Text(
+                        'UHT',
+                        style: Theme
+                            .of(context)
+                            .textTheme
+                            .button,
+                      ),
+                    )),
               ],
             ),
           ],

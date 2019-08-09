@@ -25,20 +25,20 @@ final lightTheme = ThemeData(
 		elevation: 1,
 		color: Colors.blue,
 	),
-	fontFamily: 'K2D',
-	buttonColor: Colors.blue,
+		fontFamily: 'RobotoMono',
 	buttonTheme: ButtonThemeData(
-		height: 50,
-		buttonColor: Colors.blue,
-//		padding: EdgeInsets.symmetric(vertical: 100,),
+		height: 75,
 	),
 	textTheme: TextTheme(
-		title: TextStyle(fontSize: 16.0, color: Colors.white, fontWeight: FontWeight.bold),
+		title: TextStyle(
+				fontSize: 15.0, color: Colors.white, fontWeight: FontWeight.bold),
 		headline: TextStyle(
-				fontSize: 20.0, fontWeight: FontWeight.bold, color: Colors.black87),
-		body1: TextStyle(fontSize: 15.0, fontWeight: FontWeight.w500),
-		body2: TextStyle(fontSize: 15.0, fontWeight: FontWeight.w500, color: Colors.black87),
-		button: TextStyle(fontSize: 15.0, color: Colors.white, fontWeight: FontWeight.bold),
+				fontSize: 15.0, fontWeight: FontWeight.bold, color: Colors.black87),
+		body1: TextStyle(fontSize: 14.0, fontWeight: FontWeight.w500),
+		body2: TextStyle(
+				fontSize: 14.0, fontWeight: FontWeight.w500, color: Colors.black87),
+		button: TextStyle(
+				fontSize: 14.0, color: Colors.white, fontWeight: FontWeight.bold),
 	)
 );
 

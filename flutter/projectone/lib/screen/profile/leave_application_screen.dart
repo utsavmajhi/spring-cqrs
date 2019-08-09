@@ -273,7 +273,7 @@ class _LeaveApplicationScreenState extends State<LeaveApplicationScreen> {
               Expanded(
                 child: RaisedButton(
                   padding: const EdgeInsets.symmetric(
-                    vertical: 30,
+                    vertical: 50,
                   ),
                   child: Text(
                     'Save',
