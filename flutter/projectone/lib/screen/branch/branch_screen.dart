@@ -9,26 +9,137 @@ class BranchScreen extends StatelessWidget {
   Widget build(BuildContext context) => Scaffold(
         backgroundColor: Colors.white,
         appBar: AppBar(
-          title: Text(
-            title,
-            style: Theme.of(context).textTheme.title,
-          ),
-        ),
+            title: Text(title, style: Theme
+                .of(context)
+                .textTheme
+                .title)),
         body: SafeArea(
           minimum: const EdgeInsets.all(10),
           child: Column(
             children: <Widget>[
-              Flexible(
-                flex: 3,
+              Flexible(flex: 5, child: _top(context)),
+//              Flexible(flex: 1, child: Container()),
+              Flexible(flex: 3, child: _middle(context)),
+              Flexible(flex: 3, child: _bottom(context)),
+            ],
+          ),
+        ),
+  );
+
+  Widget _top(BuildContext context) =>
+      Container(
+        color: Colors.grey.shade200,
+        padding: const EdgeInsets.all(2.0),
+        child: Padding(
+          padding: const EdgeInsets.all(30.0),
+          child: Row(
+            children: <Widget>[
+              Expanded(
+                flex: 4,
                 child: Container(
-                  color: Colors.grey.shade400,
+                  child: Column(
+                    children: <Widget>[
+                      Expanded(
+                        flex: 4,
+                        child: Container(
+                          color: Colors.white,
+                        ),
+                      ),
+                      Expanded(
+                        flex: 1,
+                        child: Container(
+                          color: Colors.grey,
+                          alignment: Alignment.center,
+                          child: Text(
+                            'Branch No 00001',
+                            style: Theme
+                                .of(context)
+                                .textTheme
+                                .button,
+                          ),
+                        ),
+                      ),
+                      Expanded(
+                        flex: 1,
+                        child: Container(
+                          color: Colors.green,
+                          alignment: Alignment.center,
+                          child: Text(
+                            'Active',
+                            style: Theme
+                                .of(context)
+                                .textTheme
+                                .button,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
               Flexible(
-                flex: 2,
-                child: _middle(context),
+                flex: 1,
+                child: Container(),
               ),
-              Flexible(flex: 2, child: _bottom(context)),
+              Expanded(
+                flex: 8,
+                child: Container(
+                  padding: const EdgeInsets.only(left: 1),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: <Widget>[
+                      Align(
+                          alignment: Alignment.centerRight,
+                          child: Text('Line 1')),
+                      Row(
+                        children: <Widget>[
+                          Icon(
+                            Icons.home,
+                          ),
+                          SizedBox(
+                            width: 30,
+                          ),
+                          Text('Line 2'),
+                        ],
+                      ),
+                      Row(
+                        children: <Widget>[
+                          Icon(
+                            Icons.location_on,
+                          ),
+                          SizedBox(
+                            width: 20,
+                          ),
+                          Text('Line 3'),
+                        ],
+                      ),
+                      Row(
+                        children: <Widget>[
+                          Icon(
+                            Icons.location_on,
+                            color: Colors.transparent,
+                          ),
+                          SizedBox(
+                            width: 20,
+                          ),
+                          Text('Line 4'),
+                        ],
+                      ),
+                      Row(
+                        children: <Widget>[
+                          Icon(
+                            Icons.phone,
+                          ),
+                          SizedBox(
+                            width: 20,
+                          ),
+                          Text('Line 5'),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              ),
             ],
           ),
         ),
