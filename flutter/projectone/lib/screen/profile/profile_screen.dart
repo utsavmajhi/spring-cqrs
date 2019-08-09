@@ -197,7 +197,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                       builder: (context) =>
                                           LeaveApplicationScreen(
                                             isView: false,
-                                          ))),
+                                          )
+                                  )
+                              ),
                           child: Text(
                             'Leave Application',
                             style: Theme

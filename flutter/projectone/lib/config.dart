@@ -28,8 +28,9 @@ final lightTheme = ThemeData(
 	fontFamily: 'K2D',
 	buttonColor: Colors.blue,
 	buttonTheme: ButtonThemeData(
+		height: 50,
 		buttonColor: Colors.blue,
-		padding: EdgeInsets.symmetric(vertical: 30,),
+//		padding: EdgeInsets.symmetric(vertical: 100,),
 	),
 	textTheme: TextTheme(
 		title: TextStyle(fontSize: 16.0, color: Colors.white, fontWeight: FontWeight.bold),

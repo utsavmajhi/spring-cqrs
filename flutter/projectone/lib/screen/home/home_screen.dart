@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:projectone/screen/branch/branch_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   HomeScreen({Key key}) : super(key: key);
@@ -141,14 +142,13 @@ class _HomeScreenState extends State<HomeScreen> {
                                             padding: const EdgeInsets.all(5),
                                             width: 180,
                                             child: ListTile(
-                                                onTap: () {
-                                                  Scaffold.of(context)
-                                                      .showSnackBar(
-                                                      SnackBar(
-                                                          content: Text(
-                                                              items[index] +
-                                                                  ' Clicked')));
-                                                },
+                                                onTap: () =>
+                                                    Navigator.push(context,
+                                                        MaterialPageRoute(
+                                                            builder: (
+                                                                context) =>
+                                                                BranchScreen(
+                                                                  title: 'Tesco',))),
                                                 title: Column(
                                                   mainAxisAlignment:
                                                   MainAxisAlignment.center,
@@ -266,14 +266,13 @@ class _HomeScreenState extends State<HomeScreen> {
                                             padding: const EdgeInsets.all(5),
                                             width: 180,
                                             child: ListTile(
-                                                onTap: () {
-                                                  Scaffold.of(context)
-                                                      .showSnackBar(
-                                                      SnackBar(
-                                                          content: Text(
-                                                              items[index] +
-                                                                  ' Clicked')));
-                                                },
+                                                onTap: () =>
+                                                    Navigator.push(context,
+                                                        MaterialPageRoute(
+                                                            builder: (
+                                                                context) =>
+                                                                BranchScreen(
+                                                                  title: 'BigC',))),
                                                 title: Column(
                                                   mainAxisAlignment:
                                                   MainAxisAlignment.center,
@@ -391,14 +390,13 @@ class _HomeScreenState extends State<HomeScreen> {
                                             padding: const EdgeInsets.all(5),
                                             width: 180,
                                             child: ListTile(
-                                                onTap: () {
-                                                  Scaffold.of(context)
-                                                      .showSnackBar(
-                                                      SnackBar(
-                                                          content: Text(
-                                                              items[index] +
-                                                                  ' Clicked')));
-                                                },
+                                                onTap: () =>
+                                                    Navigator.push(context,
+                                                        MaterialPageRoute(
+                                                            builder: (
+                                                                context) =>
+                                                                BranchScreen(
+                                                                  title: 'Tops',))),
                                                 title: Column(
                                                   mainAxisAlignment:
                                                   MainAxisAlignment.center,
@@ -516,14 +514,13 @@ class _HomeScreenState extends State<HomeScreen> {
                                             padding: const EdgeInsets.all(5),
                                             width: 180,
                                             child: ListTile(
-                                                onTap: () {
-                                                  Scaffold.of(context)
-                                                      .showSnackBar(
-                                                      SnackBar(
-                                                          content: Text(
-                                                              items[index] +
-                                                                  ' Clicked')));
-                                                },
+                                                onTap: () =>
+                                                    Navigator.push(context,
+                                                        MaterialPageRoute(
+                                                            builder: (
+                                                                context) =>
+                                                                BranchScreen(
+                                                                  title: 'Makro',))),
                                                 title: Column(
                                                   mainAxisAlignment:
                                                   MainAxisAlignment.center,
