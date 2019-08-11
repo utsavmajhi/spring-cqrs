@@ -15,7 +15,6 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
-
   @override
   void initState() {
     super.initState();
@@ -197,9 +196,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                       builder: (context) =>
                                           LeaveApplicationScreen(
                                             isView: false,
-                                          )
-                                  )
-                              ),
+                                          ))),
                           child: Text(
                             'Leave Application',
                             style: Theme
