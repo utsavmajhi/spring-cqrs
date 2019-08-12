@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:http/http.dart' deferred as http;
-import 'package:projectone/screen/login/login.dart';
+import 'package:projectone/screen/login/model/login.dart';
 
 Future login(final username, final password) async {
   final url = 'http://localhost:8080/authenticate';
