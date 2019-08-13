@@ -24,7 +24,6 @@ public class CompanyAggregator {
 
     /*Create*/
     @CommandHandler
-    // use constructor only for 1st create
     public CompanyAggregator(CompanyCommand.Create cmd) {
         log.debug(() -> "CommandHandler : Create : " + cmd);
         // validation logic
@@ -33,7 +32,6 @@ public class CompanyAggregator {
 
     /*Update*/
     @CommandHandler
-    // use constructor only for 1st create
     public CompanyAggregator(CompanyCommand.Update cmd) {
         log.debug(() -> "CommandHandler : Update : " + cmd);
         // validation logic

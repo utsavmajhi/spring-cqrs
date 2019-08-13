@@ -14,7 +14,10 @@ spring:
       accept_case_insensitive_properties: true
       accept_case_insensitive_enums: true
 
+
 #spring.main.lazy-initialization: true   # coming  2.2.x+
+
+
 
 server:
   compression:

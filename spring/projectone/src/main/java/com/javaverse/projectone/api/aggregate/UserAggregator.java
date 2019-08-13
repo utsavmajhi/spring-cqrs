@@ -24,7 +24,6 @@ public class UserAggregator {
 
     /*Create*/
     @CommandHandler
-    // use constructor only for 1st create
     public UserAggregator(UserCommand.Create cmd) {
         log.debug(() -> "CommandHandler : Create : " + cmd);
         // validation logic
@@ -33,7 +32,6 @@ public class UserAggregator {
 
     /*Update*/
     @CommandHandler
-    // use constructor only for 1st create
     public UserAggregator(UserCommand.Update cmd) {
         log.debug(() -> "CommandHandler : Update : " + cmd);
         // validation logic

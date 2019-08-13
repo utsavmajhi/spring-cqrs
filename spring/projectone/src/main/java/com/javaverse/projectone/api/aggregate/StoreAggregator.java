@@ -24,7 +24,6 @@ public class StoreAggregator {
 
     /*Create*/
     @CommandHandler
-    // use constructor only for 1st create
     public StoreAggregator(StoreCommand.Create cmd) {
         log.debug(() -> "CommandHandler : Create : " + cmd);
         // validation logic
@@ -33,7 +32,6 @@ public class StoreAggregator {
 
     /*Update*/
     @CommandHandler
-    // use constructor only for 1st create
     public StoreAggregator(StoreCommand.Update cmd) {
         log.debug(() -> "CommandHandler : Update : " + cmd);
         // validation logic

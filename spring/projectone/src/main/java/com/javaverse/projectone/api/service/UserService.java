@@ -18,7 +18,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class UserService {
 
-    private final UserRepository userRepo;
+    private final UserRepository repo;
     private final AuthorityRepository authorityRepo;
     private final UserMapper mapper;
     private final PasswordEncoder encoder;
@@ -29,30 +29,28 @@ public class UserService {
         entity.setStatus(Common.Status.ACTIVE);
         entity.setPassword(encoder.encode(event.getPassword()));
         entity.getAuthorities().add(authorityRepo.getOne(2L));
-        userRepo.save(entity);
+        repo.save(entity);
     }
 
     @EventHandler
     public void on(UserEvent.Updated event) {
-        User entity = userRepo.findById(event.getId()).orElseThrow();
-        entity.setCode(event.getCode());
-        entity.setName(event.getName());
-        userRepo.save(entity);
+        repo.findById(event.getId()).orElseThrow();
+        repo.save(mapper.map(event));
     }
 
     @EventHandler
     public void on(UserEvent.Deleted event) {
-        userRepo.deleteById(event.getId());
+        repo.deleteById(event.getId());
     }
 
     @QueryHandler
     public UserDTO on(UserQuery.Single query) {
-        return mapper.map(userRepo.findById(query.getId()).orElseThrow());
+        return mapper.map(repo.findById(query.getId()).orElseThrow());
     }
 
     @QueryHandler
     public List<UserDTO> on(UserQuery.AllActive query) {
-        return mapper.map(userRepo.findAllByStatus(Common.Status.ACTIVE));
+        return mapper.map(repo.findAllByStatus(Common.Status.ACTIVE));
     }
 
 }

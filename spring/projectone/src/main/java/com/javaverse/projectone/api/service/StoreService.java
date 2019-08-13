@@ -29,10 +29,8 @@ public class StoreService {
 
     @EventHandler
     public void on(StoreEvent.Updated event) {
-        Store entity = repo.findById(event.getId()).orElseThrow();
-        entity.setCode(event.getCode());
-        entity.setName(event.getName());
-        repo.save(entity);
+        repo.findById(event.getId()).orElseThrow();
+        repo.save(mapper.map(event));
     }
 
     @EventHandler

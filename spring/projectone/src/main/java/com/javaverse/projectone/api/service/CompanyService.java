@@ -29,10 +29,8 @@ public class CompanyService {
 
     @EventHandler
     public void on(CompanyEvent.Updated event) {
-        Company entity = repo.findById(event.getId()).orElseThrow();
-        entity.setCode(event.getCode());
-        entity.setName(event.getName());
-        repo.save(entity);
+        repo.findById(event.getId()).orElseThrow();
+        repo.save(mapper.map(event));
     }
 
     @EventHandler

@@ -10,11 +10,11 @@ import lombok.*;
 public class StoreDTO extends Store {
 
     public StoreCommand.Create toCommandCreate() {
-        return new StoreCommand.Create(getId(), getCode(), getName());
+        return new StoreCommand.Create(getId(), getCode(), getName(),getCompanyId(),getAverageAmount(),getPhone(),getAddress());
     }
 
     public StoreCommand.Update toCommandUpdate() {
-        return new StoreCommand.Update(getId(), getCode(), getName());
+        return new StoreCommand.Update(getId(), getCode(), getName(),getCompanyId(),getAverageAmount(),getPhone(),getAddress());
     }
 
 }

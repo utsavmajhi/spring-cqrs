@@ -28,11 +28,9 @@ public class ProductService {
     }
 
     @EventHandler
-    public void on(ProductEvent.Updated p) {
-        Product product = repo.findById(p.getId()).orElseThrow();
-        product.setCode(p.getCode());
-        product.setName(p.getName());
-        repo.save(product);
+    public void on(ProductEvent.Updated event) {
+        repo.findById(event.getId()).orElseThrow();
+        repo.save(mapper.map(event));
     }
 
     @EventHandler
