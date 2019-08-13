@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:projectone/screen/login/login_screen.dart';
 import 'package:projectone/screen/main/main_screen.dart';
-import 'package:projectone/screen/profile/profile_screen.dart';
 
 const title = 'Dutchmill';
 
@@ -9,7 +8,6 @@ const initialRoute = '/';
 
 final routes = <String, WidgetBuilder>{
   '/': (context) => LoginScreen(),
-  '/profileScreen': (context) => ProfileScreen(),
   '/mainScreen': (context) => MainScreen(),
 //	'/leaveStatusScreen': (context) => LeaveStatusScreen(),
 //	'/leaveApplicationScreen': (context) => LeaveApplicationScreen(),

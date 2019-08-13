@@ -20,17 +20,17 @@ public class JasyptConfig {
         config.setPoolSize("2");
         config.setProviderName("SunJCE");
         config.setSaltGeneratorClassName(RandomSaltGenerator.class.getName());
-        config.setStringOutputType(CommonUtils.STRING_OUTPUT_TYPE_HEXADECIMAL);
+        config.setStringOutputType(CommonUtils.STRING_OUTPUT_TYPE_BASE64);
         encryptor.setConfig(config);
         return encryptor;
     }
 
 
-    public static void main(String[] args) {
-        JasyptConfig config  = new JasyptConfig();
-        String enc = config.commonEncryptor().encrypt("120000");
-        System.out.println(enc);
-        System.out.println(config.commonEncryptor().decrypt(enc));
-    }
+//    public static void main(String[] args) {
+//        JasyptConfig config  = new JasyptConfig();
+//        String enc = config.commonEncryptor().encrypt("120000");
+//        System.out.println(enc);
+//        System.out.println(config.commonEncryptor().decrypt(enc));
+//    }
 
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:projectone/screen/addretail/retail_screen.dart';
 import 'package:projectone/screen/profile/profile_screen.dart';
 
 import '../home/home_screen.dart';
@@ -8,14 +9,14 @@ class MainScreen extends StatefulWidget {
   final _screens = <Widget>[
     HomeScreen(),
     ProfileScreen(),
-    ProfileScreen(),
+    RetailScreen(),
     ProfileScreen(),
   ];
 
   final _titles = <String>[
     'Home Screen',
     'Cart Screen',
-    'Add Screen',
+    'Add Retail Screen',
     'Profile Screen',
   ];
 
