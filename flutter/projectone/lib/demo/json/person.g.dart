@@ -14,8 +14,7 @@ Person _$PersonFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$PersonToJson(Person instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$PersonToJson(Person instance) => <String, dynamic>{
       'code': instance.code,
       'name': instance.name,
       'email': instance.email,
