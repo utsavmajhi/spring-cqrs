@@ -180,7 +180,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                                                   .body1,
                                                             ),
                                                             Text(
-                                                              'branch code 000${items[index]}',
+                                                              'Code 000${items[index]}',
                                                               style: Theme
                                                                   .of(
                                                                   context)
@@ -188,7 +188,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                                                   .body1,
                                                             ),
                                                             Text(
-                                                              'branch name xxx${items[index]}',
+                                                              'Name xxx${items[index]}',
                                                               style: Theme
                                                                   .of(
                                                                   context)
@@ -311,7 +311,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                                                   .body1,
                                                             ),
                                                             Text(
-                                                              'branch code 000${items[index]}',
+                                                              'Code 000${items[index]}',
                                                               style: Theme
                                                                   .of(
                                                                   context)
@@ -319,7 +319,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                                                   .body1,
                                                             ),
                                                             Text(
-                                                              'branch name xxx${items[index]}',
+                                                              'Name xxx${items[index]}',
                                                               style: Theme
                                                                   .of(
                                                                   context)
@@ -442,7 +442,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                                                   .body1,
                                                             ),
                                                             Text(
-                                                              'branch code 000${items[index]}',
+                                                              'Code 000${items[index]}',
                                                               style: Theme
                                                                   .of(
                                                                   context)
@@ -450,7 +450,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                                                   .body1,
                                                             ),
                                                             Text(
-                                                              'branch name xxx${items[index]}',
+                                                              'Name xxx${items[index]}',
                                                               style: Theme
                                                                   .of(
                                                                   context)
@@ -573,7 +573,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                                                   .body1,
                                                             ),
                                                             Text(
-                                                              'branch code 000${items[index]}',
+                                                              'Code 000${items[index]}',
                                                               style: Theme
                                                                   .of(
                                                                   context)
@@ -581,7 +581,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                                                   .body1,
                                                             ),
                                                             Text(
-                                                              'branch name xxx${items[index]}',
+                                                              'Name xxx${items[index]}',
                                                               style: Theme
                                                                   .of(
                                                                   context)

@@ -29,12 +29,14 @@ final lightTheme = ThemeData(
     ),
     textTheme: TextTheme(
       title: TextStyle(
-          fontSize: 16.0, color: Colors.white, fontWeight: FontWeight.bold),
+          fontSize: 17.0, color: Colors.white, fontWeight: FontWeight.bold),
       headline: TextStyle(
-          fontSize: 16.0, fontWeight: FontWeight.bold, color: Colors.black87),
-      body1: TextStyle(fontSize: 14.0, fontWeight: FontWeight.w500),
+          fontSize: 17.0, fontWeight: FontWeight.w500, color: Colors.blue),
+      body1: TextStyle(fontSize: 15.0, fontWeight: FontWeight.w500),
       body2: TextStyle(
-          fontSize: 14.0, fontWeight: FontWeight.w500, color: Colors.black87),
+          fontSize: 15.0, fontWeight: FontWeight.w500, color: Colors.black87),
+      display1: TextStyle(
+          fontSize: 15.0, fontWeight: FontWeight.w500, color: Colors.blue),
       button: TextStyle(
-          fontSize: 15.0, color: Colors.white, fontWeight: FontWeight.bold),
+          fontSize: 17.0, color: Colors.white, fontWeight: FontWeight.bold),
     ));

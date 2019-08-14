@@ -1,17 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:projectone/screen/addretail/retail_application_screen.dart';
 
-class Retail {
+class Store {
+  final int id;
   final String name;
 
-  const Retail(this.name);
+  const Store(this.id, this.name);
 }
 
 class RetailScreen extends StatelessWidget {
-  final data = <Retail>[
-    Retail('Tesco Lotus'),
-    Retail('Big C'),
-    Retail('Makro'),
-    Retail('Tops'),
+  final data = <Store>[
+    Store(1, 'Tesco Lotus'),
+    Store(2, 'Big C'),
+    Store(3, 'Makro'),
+    Store(4, 'Tops'),
   ];
 
   @override
@@ -27,11 +29,14 @@ class RetailScreen extends StatelessWidget {
         children: List.generate(
             data.length,
             (index) => GestureDetector(
-                  onTap: () {
-                    Scaffold.of(context).showSnackBar(SnackBar(
-                      content: Text('Clicked ${data[index].name}'),
-                    ));
-                  },
+              onTap: () =>
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) =>
+                              RetailApplicationScreen(
+                                storeId: data[index].id,
+                              ))),
                   child: Container(
                     child: Card(
                       elevation: 1,
