@@ -1,0 +1,445 @@
+[INFO ] 2019-08-15 12:21:40,482  Application > Starting Application on javaverse.local with PID 77107 (/Users/nattaphonjeamjit/Documents/javaverse/projects/dutchmill/spring/projectone/out/production/classes started by nattaphonjeamjit in /Users/nattaphonjeamjit/Documents/javaverse/projects/dutchmill/spring/projectone)
+[INFO ] 2019-08-15 12:21:40,484  Application > No active profile set, falling back to default profiles: default
+[INFO ] 2019-08-15 12:21:41,330  RepositoryConfigurationDelegate > Bootstrapping Spring Data repositories in DEFAULT mode.
+[INFO ] 2019-08-15 12:21:41,430  RepositoryConfigurationDelegate > Finished Spring Data repository scanning in 93ms. Found 5 repository interfaces.
+[INFO ] 2019-08-15 12:21:41,502  ConfigurationClassPostProcessor > Cannot enhance @Configuration bean definition 'org.axonframework.springboot.autoconfig.EventProcessingAutoConfiguration' since its singleton instance has been created too early. The typical cause is a non-static @Bean method with a BeanDefinitionRegistryPostProcessor return type: Consider declaring such methods as 'static'.
+[INFO ] 2019-08-15 12:21:41,714  EnableEncryptablePropertiesBeanFactoryPostProcessor > Post-processing PropertySource instances
+[INFO ] 2019-08-15 12:21:41,787  EncryptablePropertySourceConverter > Converting PropertySource configurationProperties [org.springframework.boot.context.properties.source.ConfigurationPropertySourcesPropertySource] to AOP Proxy
+[INFO ] 2019-08-15 12:21:41,787  EncryptablePropertySourceConverter > Converting PropertySource systemProperties [org.springframework.core.env.PropertiesPropertySource] to EncryptableMapPropertySourceWrapper
+[INFO ] 2019-08-15 12:21:41,788  EncryptablePropertySourceConverter > Converting PropertySource systemEnvironment [org.springframework.boot.env.SystemEnvironmentPropertySourceEnvironmentPostProcessor$OriginAwareSystemEnvironmentPropertySource] to EncryptableMapPropertySourceWrapper
+[INFO ] 2019-08-15 12:21:41,788  EncryptablePropertySourceConverter > Converting PropertySource random [org.springframework.boot.env.RandomValuePropertySource] to EncryptablePropertySourceWrapper
+[INFO ] 2019-08-15 12:21:41,788  EncryptablePropertySourceConverter > Converting PropertySource applicationConfig: [classpath:/application.yml] [org.springframework.boot.env.OriginTrackedMapPropertySource] to EncryptableMapPropertySourceWrapper
+[INFO ] 2019-08-15 12:21:41,835  DefaultLazyPropertyFilter > Property Filter custom Bean not found with name 'encryptablePropertyFilter'. Initializing Default Property Filter
+[INFO ] 2019-08-15 12:21:41,858  PostProcessorRegistrationDelegate$BeanPostProcessorChecker > Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$5100b4b8] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[INFO ] 2019-08-15 12:21:41,868  PostProcessorRegistrationDelegate$BeanPostProcessorChecker > Bean 'org.springframework.security.config.annotation.method.configuration.ReactiveMethodSecurityConfiguration' of type [org.springframework.security.config.annotation.method.configuration.ReactiveMethodSecurityConfiguration$$EnhancerBySpringCGLIB$$54e9248e] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[INFO ] 2019-08-15 12:21:41,883  PostProcessorRegistrationDelegate$BeanPostProcessorChecker > Bean 'methodMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[INFO ] 2019-08-15 12:21:41,887  PostProcessorRegistrationDelegate$BeanPostProcessorChecker > Bean '__axon-parameter-resolver-factory' of type [org.axonframework.spring.config.ApplicationContextLookupParameterResolverFactory] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[INFO ] 2019-08-15 12:21:41,887  PostProcessorRegistrationDelegate$BeanPostProcessorChecker > Bean '__axon-parameter-resolver-factory' of type [org.axonframework.messaging.annotation.MultiParameterResolverFactory] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[INFO ] 2019-08-15 12:21:41,895  PostProcessorRegistrationDelegate$BeanPostProcessorChecker > Bean '(inner bean)#706ceca6' of type [org.axonframework.spring.config.annotation.SpringHandlerDefinitionBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[INFO ] 2019-08-15 12:21:41,896  PostProcessorRegistrationDelegate$BeanPostProcessorChecker > Bean '(inner bean)#706ceca6' of type [org.axonframework.messaging.annotation.MultiHandlerDefinition] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[INFO ] 2019-08-15 12:21:41,898  PostProcessorRegistrationDelegate$BeanPostProcessorChecker > Bean '(inner bean)#545b5ed0' of type [org.axonframework.spring.config.annotation.SpringHandlerEnhancerDefinitionBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[INFO ] 2019-08-15 12:21:41,898  PostProcessorRegistrationDelegate$BeanPostProcessorChecker > Bean '(inner bean)#545b5ed0' of type [org.axonframework.messaging.annotation.MultiHandlerEnhancerDefinition] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[INFO ] 2019-08-15 12:21:41,900  PostProcessorRegistrationDelegate$BeanPostProcessorChecker > Bean '__axon-handler-definition' of type [org.axonframework.messaging.annotation.MultiHandlerDefinition] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[INFO ] 2019-08-15 12:21:42,017  DefaultLazyPropertyResolver > Property Resolver custom Bean not found with name 'encryptablePropertyResolver'. Initializing Default Property Resolver
+[INFO ] 2019-08-15 12:21:42,018  DefaultLazyPropertyDetector > Property Detector custom Bean not found with name 'encryptablePropertyDetector'. Initializing Default Property Detector
+[INFO ] 2019-08-15 12:21:42,034  DefaultLazyEncryptor > Found Custom Encryptor Bean org.jasypt.encryption.pbe.PooledPBEStringEncryptor@5d5c41e5 with name: commonEncryptor
+[INFO ] 2019-08-15 12:21:42,225  HikariDataSource > HikariPool-1 - Starting...
+[INFO ] 2019-08-15 12:21:42,647  HikariDataSource > HikariPool-1 - Start completed.
+[INFO ] 2019-08-15 12:21:42,698  LogHelper > HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+[INFO ] 2019-08-15 12:21:42,782  Version > HHH000412: Hibernate Core {5.3.10.Final}
+[INFO ] 2019-08-15 12:21:42,784  Environment > HHH000206: hibernate.properties not found
+[INFO ] 2019-08-15 12:21:43,000  Version > HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+[INFO ] 2019-08-15 12:21:43,181  Dialect > HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+[WARN ] 2019-08-15 12:21:44,044  ExceptionHandlerLoggedImpl > GenerationTarget encountered exception accepting command : Error executing DDL "alter table user_authorities drop foreign key FKnfeejqie0sy3gxxil7dn3plsw" via JDBC Statement
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "alter table user_authorities drop foreign key FKnfeejqie0sy3gxxil7dn3plsw" via JDBC Statement
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67)[INFO ] 2019-08-15 12:21:44,824  SchemaCreatorImpl > HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@509e4902'
+[INFO ] 2019-08-15 12:21:44,828  LocalContainerEntityManagerFactoryBean > Initialized JPA EntityManagerFactory for persistence unit 'default'
+[WARN ] 2019-08-15 12:21:45,360  AnnotationConfigReactiveWebServerApplicationContext > Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'companyService' defined in file [/Users/nattaphonjeamjit/Documents/javaverse/projects/dutchmill/spring/projectone/out/production/classes/com/javaverse/projectone/api/service/CompanyService.class]: Unsatisfied dependency expressed through constructor parameter 1; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'com.javaverse.projectone.api.mapper.CompanyMapper' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
+[INFO ] 2019-08-15 12:21:45,360  LocalContainerEntityManagerFactoryBean > Closing JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] 2019-08-15 12:21:45,360  SchemaDropperImpl$DelayedDropActionImpl > HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+[INFO ] 2019-08-15 12:21:45,598  HikariDataSource > HikariPool-1 - Shutdown initiated...
+[INFO ] 2019-08-15 12:21:45,621  HikariDataSource > HikariPool-1 - Shutdown completed.
+[INFO ] 2019-08-15 12:21:45,651  ConditionEvaluationReportLoggingListener > 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+[ERROR] 2019-08-15 12:21:45,752  LoggingFailureAnalysisReporter > 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Parameter 1 of constructor in com.javaverse.projectone.api.service.CompanyService required a bean of type 'com.javaverse.projectone.api.mapper.CompanyMapper' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'com.javaverse.projectone.api.mapper.CompanyMapper' in your configuration.
+
+[INFO ] 2019-08-15 12:24:38,048  SpringBootTestContextBootstrapper > Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.javaverse.projectone.ApplicationTests], using SpringBootContextLoader
+[INFO ] 2019-08-15 12:24:38,054  AbstractContextLoader > Could not detect default resource locations for test class [com.javaverse.projectone.ApplicationTests]: no resource found for suffixes {-context.xml, Context.groovy}.
+[INFO ] 2019-08-15 12:24:38,054  AnnotationConfigContextLoaderUtils > Could not detect default configuration classes for test class [com.javaverse.projectone.ApplicationTests]: ApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+[INFO ] 2019-08-15 12:24:38,128  SpringBootTestContextBootstrapper > Found @SpringBootConfiguration com.javaverse.projectone.Application for test class com.javaverse.projectone.ApplicationTests
+[INFO ] 2019-08-15 12:24:38,186  SpringBootTestContextBootstrapper > Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.security.test.context.support.WithSecurityContextTestExecutionListener, org.springframework.security.test.context.support.ReactorContextTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+[INFO ] 2019-08-15 12:24:38,197  SpringBootTestContextBootstrapper > Using TestExecutionListeners: [org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@7a6b27cd, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@3748cb27, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@cb86bfe, org.springframework.test.context.support.DirtiesContextTestExecutionListener@5897f748, org.springframework.test.context.transaction.TransactionalTestExecutionListener@7b61e6d8, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@a011b60, org.springframework.security.test.context.support.WithSecurityContextTestExecutionListener@45a97645, org.springframework.security.test.context.support.ReactorContextTestExecutionListener@2263f40f, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@56c081bd, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@54985a1e, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@5a0d1596, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@67f34154, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@35ecf97e]
+[INFO ] 2019-08-15 12:24:38,434  ApplicationTests > Starting ApplicationTests on javaverse.local with PID 77136 (started by nattaphonjeamjit in /Users/nattaphonjeamjit/Documents/javaverse/projects/dutchmill/spring/projectone)
+[INFO ] 2019-08-15 12:24:38,435  ApplicationTests > No active profile set, falling back to default profiles: default
+[INFO ] 2019-08-15 12:24:39,162  RepositoryConfigurationDelegate > Bootstrapping Spring Data repositories in DEFAULT mode.
+[INFO ] 2019-08-15 12:24:39,324  RepositoryConfigurationDelegate > Finished Spring Data repository scanning in 155ms. Found 5 repository interfaces.
+[INFO ] 2019-08-15 12:24:39,369  ConfigurationClassPostProcessor > Cannot enhance @Configuration bean definition 'org.axonframework.springboot.autoconfig.EventProcessingAutoConfiguration' since its singleton instance has been created too early. The typical cause is a non-static @Bean method with a BeanDefinitionRegistryPostProcessor return type: Consider declaring such methods as 'static'.
+[INFO ] 2019-08-15 12:24:39,523  EnableEncryptablePropertiesBeanFactoryPostProcessor > Post-processing PropertySource instances
+[INFO ] 2019-08-15 12:24:39,585  EncryptablePropertySourceConverter > Converting PropertySource configurationProperties [org.springframework.boot.context.properties.source.ConfigurationPropertySourcesPropertySource] to AOP Proxy
+[INFO ] 2019-08-15 12:24:39,586  EncryptablePropertySourceConverter > Converting PropertySource Inlined Test Properties [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+[INFO ] 2019-08-15 12:24:39,586  EncryptablePropertySourceConverter > Converting PropertySource systemProperties [org.springframework.core.env.PropertiesPropertySource] to EncryptableMapPropertySourceWrapper
+[INFO ] 2019-08-15 12:24:39,586  EncryptablePropertySourceConverter > Converting PropertySource systemEnvironment [org.springframework.boot.env.SystemEnvironmentPropertySourceEnvironmentPostProcessor$OriginAwareSystemEnvironmentPropertySource] to EncryptableMapPropertySourceWrapper
+[INFO ] 2019-08-15 12:24:39,586  EncryptablePropertySourceConverter > Converting PropertySource random [org.springframework.boot.env.RandomValuePropertySource] to EncryptablePropertySourceWrapper
+[INFO ] 2019-08-15 12:24:39,586  EncryptablePropertySourceConverter > Converting PropertySource applicationConfig: [classpath:/application.yml] [org.springframework.boot.env.OriginTrackedMapPropertySource] to EncryptableMapPropertySourceWrapper
+[INFO ] 2019-08-15 12:24:39,636  DefaultLazyPropertyFilter > Property Filter custom Bean not found with name 'encryptablePropertyFilter'. Initializing Default Property Filter
+[INFO ] 2019-08-15 12:24:39,672  PostProcessorRegistrationDelegate$BeanPostProcessorChecker > Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$1196fd6a] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[INFO ] 2019-08-15 12:24:39,695  PostProcessorRegistrationDelegate$BeanPostProcessorChecker > Bean 'org.springframework.security.config.annotation.method.configuration.ReactiveMethodSecurityConfiguration' of type [org.springframework.security.config.annotation.method.configuration.ReactiveMethodSecurityConfiguration$$EnhancerBySpringCGLIB$$157f6d40] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[INFO ] 2019-08-15 12:24:39,704  PostProcessorRegistrationDelegate$BeanPostProcessorChecker > Bean 'methodMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[INFO ] 2019-08-15 12:24:39,714  PostProcessorRegistrationDelegate$BeanPostProcessorChecker > Bean '__axon-parameter-resolver-factory' of type [org.axonframework.spring.config.ApplicationContextLookupParameterResolverFactory] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[INFO ] 2019-08-15 12:24:39,714  PostProcessorRegistrationDelegate$BeanPostProcessorChecker > Bean '__axon-parameter-resolver-factory' of type [org.axonframework.messaging.annotation.MultiParameterResolverFactory] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[INFO ] 2019-08-15 12:24:39,722  PostProcessorRegistrationDelegate$BeanPostProcessorChecker > Bean '(inner bean)#3b17485d' of type [org.axonframework.spring.config.annotation.SpringHandlerDefinitionBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[INFO ] 2019-08-15 12:24:39,723  PostProcessorRegistrationDelegate$BeanPostProcessorChecker > Bean '(inner bean)#3b17485d' of type [org.axonframework.messaging.annotation.MultiHandlerDefinition] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[INFO ] 2019-08-15 12:24:39,728  PostProcessorRegistrationDelegate$BeanPostProcessorChecker > Bean '(inner bean)#57b8f178' of type [org.axonframework.spring.config.annotation.SpringHandlerEnhancerDefinitionBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[INFO ] 2019-08-15 12:24:39,729  PostProcessorRegistrationDelegate$BeanPostProcessorChecker > Bean '(inner bean)#57b8f178' of type [org.axonframework.messaging.annotation.MultiHandlerEnhancerDefinition] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[INFO ] 2019-08-15 12:24:39,732  PostProcessorRegistrationDelegate$BeanPostProcessorChecker > Bean '__axon-handler-definition' of type [org.axonframework.messaging.annotation.MultiHandlerDefinition] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[INFO ] 2019-08-15 12:24:39,756  DefaultLazyPropertyResolver > Property Resolver custom Bean not found with name 'encryptablePropertyResolver'. Initializing Default Property Resolver
+[INFO ] 2019-08-15 12:24:39,757  DefaultLazyPropertyDetector > Property Detector custom Bean not found with name 'encryptablePropertyDetector'. Initializing Default Property Detector
+[INFO ] 2019-08-15 12:24:39,773  DefaultLazyEncryptor > Found Custom Encryptor Bean org.jasypt.encryption.pbe.PooledPBEStringEncryptor@6678e96a with name: commonEncryptor
+[INFO ] 2019-08-15 12:24:39,918  HikariDataSource > HikariPool-1 - Starting...
+[INFO ] 2019-08-15 12:24:40,196  HikariDataSource > HikariPool-1 - Start completed.
+[INFO ] 2019-08-15 12:24:40,257  LogHelper > HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+[INFO ] 2019-08-15 12:24:40,313  Version > HHH000412: Hibernate Core {5.3.10.Final}
+[INFO ] 2019-08-15 12:24:40,314  Environment > HHH000206: hibernate.properties not found
+[INFO ] 2019-08-15 12:24:40,451  Version > HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+[INFO ] 2019-08-15 12:24:40,593  Dialect > HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+[WARN ] 2019-08-15 12:24:41,343  ExceptionHandlerLoggedImpl > GenerationTarget encountered exception accepting command : Error executing DDL "alter table user_authorities drop foreign key FKnfeejqie0sy3gxxil7dn3plsw" via JDBC Statement
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "alter table user_authorities drop foreign key FKnfeejqie0sy3gxxil7dn3plsw" via JDBC Statement
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67)[INFO ] 2019-08-15 12:24:41,903  SchemaCreatorImpl > HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@568bcb05'
+[INFO ] 2019-08-15 12:24:41,906  LocalContainerEntityManagerFactoryBean > Initialized JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] 2019-08-15 12:24:43,011  ChainingConverter > ContentTypeConverter of type [class org.axonframework.serialization.xml.XomToStringConverter] is ignored. It seems to rely on a class that is not available in the class loader: nu/xom/Document
+[INFO ] 2019-08-15 12:24:43,012  ChainingConverter > ContentTypeConverter of type [class org.axonframework.serialization.xml.InputStreamToXomConverter] is ignored. It seems to rely on a class that is not available in the class loader: nu/xom/ParsingException
+[INFO ] 2019-08-15 12:24:48,037  ChainingConverter > ContentTypeConverter of type [class org.axonframework.serialization.xml.XomToStringConverter] is ignored. It seems to rely on a class that is not available in the class loader: nu/xom/Document
+[INFO ] 2019-08-15 12:24:48,037  ChainingConverter > ContentTypeConverter of type [class org.axonframework.serialization.xml.InputStreamToXomConverter] is ignored. It seems to rely on a class that is not available in the class loader: nu/xom/ParsingException
+[INFO ] 2019-08-15 12:24:48,051  QueryTranslatorFactoryInitiator > HHH000397: Using ASTQueryTranslatorFactory
+[INFO ] 2019-08-15 12:24:48,212  ChainingConverter > ContentTypeConverter of type [class org.axonframework.serialization.xml.XomToStringConverter] is ignored. It seems to rely on a class that is not available in the class loader: nu/xom/Document
+[INFO ] 2019-08-15 12:24:48,212  ChainingConverter > ContentTypeConverter of type [class org.axonframework.serialization.xml.InputStreamToXomConverter] is ignored. It seems to rely on a class that is not available in the class loader: nu/xom/ParsingException
+[INFO ] 2019-08-15 12:24:48,214  ChainingConverter > ContentTypeConverter of type [class org.axonframework.serialization.xml.XomToStringConverter] is ignored. It seems to rely on a class that is not available in the class loader: nu/xom/Document
+[INFO ] 2019-08-15 12:24:48,215  ChainingConverter > ContentTypeConverter of type [class org.axonframework.serialization.xml.InputStreamToXomConverter] is ignored. It seems to rely on a class that is not available in the class loader: nu/xom/ParsingException
+[INFO ] 2019-08-15 12:24:48,545  ApplicationTests > Started ApplicationTests in 10.311 seconds (JVM running for 16.478)
+[INFO ] 2019-08-15 12:24:48,651  TrackingEventProcessor > Using current Thread for last segment worker: TrackingSegmentWorker{processor=com.javaverse.projectone.api.service, segment=Segment[0/0]}
+[INFO ] 2019-08-15 12:24:48,662  TrackingEventProcessor > Fetched token: null for segment: Segment[0/0]
+[INFO ] 2019-08-15 12:25:10,411  Application > Starting Application on javaverse.local with PID 77145 (/Users/nattaphonjeamjit/Documents/javaverse/projects/dutchmill/spring/projectone/out/production/classes started by nattaphonjeamjit in /Users/nattaphonjeamjit/Documents/javaverse/projects/dutchmill/spring/projectone)
+[INFO ] 2019-08-15 12:25:10,413  Application > No active profile set, falling back to default profiles: default
+[INFO ] 2019-08-15 12:25:11,017  RepositoryConfigurationDelegate > Bootstrapping Spring Data repositories in DEFAULT mode.
+[INFO ] 2019-08-15 12:25:11,091  RepositoryConfigurationDelegate > Finished Spring Data repository scanning in 70ms. Found 5 repository interfaces.
+[INFO ] 2019-08-15 12:25:11,137  ConfigurationClassPostProcessor > Cannot enhance @Configuration bean definition 'org.axonframework.springboot.autoconfig.EventProcessingAutoConfiguration' since its singleton instance has been created too early. The typical cause is a non-static @Bean method with a BeanDefinitionRegistryPostProcessor return type: Consider declaring such methods as 'static'.
+[INFO ] 2019-08-15 12:25:11,235  EnableEncryptablePropertiesBeanFactoryPostProcessor > Post-processing PropertySource instances
+[INFO ] 2019-08-15 12:25:11,272  EncryptablePropertySourceConverter > Converting PropertySource configurationProperties [org.springframework.boot.context.properties.source.ConfigurationPropertySourcesPropertySource] to AOP Proxy
+[INFO ] 2019-08-15 12:25:11,273  EncryptablePropertySourceConverter > Converting PropertySource systemProperties [org.springframework.core.env.PropertiesPropertySource] to EncryptableMapPropertySourceWrapper
+[INFO ] 2019-08-15 12:25:11,273  EncryptablePropertySourceConverter > Converting PropertySource systemEnvironment [org.springframework.boot.env.SystemEnvironmentPropertySourceEnvironmentPostProcessor$OriginAwareSystemEnvironmentPropertySource] to EncryptableMapPropertySourceWrapper
+[INFO ] 2019-08-15 12:25:11,273  EncryptablePropertySourceConverter > Converting PropertySource random [org.springframework.boot.env.RandomValuePropertySource] to EncryptablePropertySourceWrapper
+[INFO ] 2019-08-15 12:25:11,273  EncryptablePropertySourceConverter > Converting PropertySource applicationConfig: [classpath:/application.yml] [org.springframework.boot.env.OriginTrackedMapPropertySource] to EncryptableMapPropertySourceWrapper
+[INFO ] 2019-08-15 12:25:11,303  DefaultLazyPropertyFilter > Property Filter custom Bean not found with name 'encryptablePropertyFilter'. Initializing Default Property Filter
+[INFO ] 2019-08-15 12:25:11,321  PostProcessorRegistrationDelegate$BeanPostProcessorChecker > Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$d1f265f1] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[INFO ] 2019-08-15 12:25:11,328  PostProcessorRegistrationDelegate$BeanPostProcessorChecker > Bean 'org.springframework.security.config.annotation.method.configuration.ReactiveMethodSecurityConfiguration' of type [org.springframework.security.config.annotation.method.configuration.ReactiveMethodSecurityConfiguration$$EnhancerBySpringCGLIB$$d5dad5c7] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[INFO ] 2019-08-15 12:25:11,341  PostProcessorRegistrationDelegate$BeanPostProcessorChecker > Bean 'methodMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[INFO ] 2019-08-15 12:25:11,345  PostProcessorRegistrationDelegate$BeanPostProcessorChecker > Bean '__axon-parameter-resolver-factory' of type [org.axonframework.spring.config.ApplicationContextLookupParameterResolverFactory] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[INFO ] 2019-08-15 12:25:11,345  PostProcessorRegistrationDelegate$BeanPostProcessorChecker > Bean '__axon-parameter-resolver-factory' of type [org.axonframework.messaging.annotation.MultiParameterResolverFactory] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[INFO ] 2019-08-15 12:25:11,351  PostProcessorRegistrationDelegate$BeanPostProcessorChecker > Bean '(inner bean)#684e8c9d' of type [org.axonframework.spring.config.annotation.SpringHandlerDefinitionBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[INFO ] 2019-08-15 12:25:11,352  PostProcessorRegistrationDelegate$BeanPostProcessorChecker > Bean '(inner bean)#684e8c9d' of type [org.axonframework.messaging.annotation.MultiHandlerDefinition] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[INFO ] 2019-08-15 12:25:11,354  PostProcessorRegistrationDelegate$BeanPostProcessorChecker > Bean '(inner bean)#68ab6ab0' of type [org.axonframework.spring.config.annotation.SpringHandlerEnhancerDefinitionBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[INFO ] 2019-08-15 12:25:11,354  PostProcessorRegistrationDelegate$BeanPostProcessorChecker > Bean '(inner bean)#68ab6ab0' of type [org.axonframework.messaging.annotation.MultiHandlerEnhancerDefinition] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[INFO ] 2019-08-15 12:25:11,356  PostProcessorRegistrationDelegate$BeanPostProcessorChecker > Bean '__axon-handler-definition' of type [org.axonframework.messaging.annotation.MultiHandlerDefinition] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[INFO ] 2019-08-15 12:25:11,423  DefaultLazyPropertyResolver > Property Resolver custom Bean not found with name 'encryptablePropertyResolver'. Initializing Default Property Resolver
+[INFO ] 2019-08-15 12:25:11,424  DefaultLazyPropertyDetector > Property Detector custom Bean not found with name 'encryptablePropertyDetector'. Initializing Default Property Detector
+[INFO ] 2019-08-15 12:25:11,430  DefaultLazyEncryptor > Found Custom Encryptor Bean org.jasypt.encryption.pbe.PooledPBEStringEncryptor@2e7af36e with name: commonEncryptor
+[INFO ] 2019-08-15 12:25:11,534  HikariDataSource > HikariPool-1 - Starting...
+[INFO ] 2019-08-15 12:25:11,751  HikariDataSource > HikariPool-1 - Start completed.
+[INFO ] 2019-08-15 12:25:11,787  LogHelper > HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+[INFO ] 2019-08-15 12:25:11,815  Version > HHH000412: Hibernate Core {5.3.10.Final}
+[INFO ] 2019-08-15 12:25:11,816  Environment > HHH000206: hibernate.properties not found
+[INFO ] 2019-08-15 12:25:11,893  Version > HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+[INFO ] 2019-08-15 12:25:11,989  Dialect > HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+[WARN ] 2019-08-15 12:25:12,515  ExceptionHandlerLoggedImpl > GenerationTarget encountered exception accepting command : Error executing DDL "alter table user_authorities drop foreign key FKnfeejqie0sy3gxxil7dn3plsw" via JDBC Statement
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "alter table user_authorities drop foreign key FKnfeejqie0sy3gxxil7dn3plsw" via JDBC Statement
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67)[INFO ] 2019-08-15 12:25:12,973  SchemaCreatorImpl > HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@6a95c2f6'
+[INFO ] 2019-08-15 12:25:12,975  LocalContainerEntityManagerFactoryBean > Initialized JPA EntityManagerFactory for persistence unit 'default'
+[WARN ] 2019-08-15 12:25:13,401  AnnotationConfigReactiveWebServerApplicationContext > Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'companyService' defined in file [/Users/nattaphonjeamjit/Documents/javaverse/projects/dutchmill/spring/projectone/out/production/classes/com/javaverse/projectone/api/service/CompanyService.class]: Unsatisfied dependency expressed through constructor parameter 1; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'com.javaverse.projectone.api.mapper.CompanyMapper' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
+[INFO ] 2019-08-15 12:25:13,401  LocalContainerEntityManagerFactoryBean > Closing JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] 2019-08-15 12:25:13,401  SchemaDropperImpl$DelayedDropActionImpl > HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+[INFO ] 2019-08-15 12:25:13,539  HikariDataSource > HikariPool-1 - Shutdown initiated...
+[INFO ] 2019-08-15 12:25:13,547  HikariDataSource > HikariPool-1 - Shutdown completed.
+[INFO ] 2019-08-15 12:25:13,563  ConditionEvaluationReportLoggingListener > 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+[ERROR] 2019-08-15 12:25:13,636  LoggingFailureAnalysisReporter > 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Parameter 1 of constructor in com.javaverse.projectone.api.service.CompanyService required a bean of type 'com.javaverse.projectone.api.mapper.CompanyMapper' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'com.javaverse.projectone.api.mapper.CompanyMapper' in your configuration.
+
+[INFO ] 2019-08-15 12:28:29,384  Application > Starting Application on javaverse.local with PID 77170 (/Users/nattaphonjeamjit/Documents/javaverse/projects/dutchmill/spring/projectone/out/production/classes started by nattaphonjeamjit in /Users/nattaphonjeamjit/Documents/javaverse/projects/dutchmill/spring/projectone)
+[INFO ] 2019-08-15 12:28:29,386  Application > No active profile set, falling back to default profiles: default
+[INFO ] 2019-08-15 12:28:29,982  RepositoryConfigurationDelegate > Bootstrapping Spring Data repositories in DEFAULT mode.
+[INFO ] 2019-08-15 12:28:30,056  RepositoryConfigurationDelegate > Finished Spring Data repository scanning in 70ms. Found 5 repository interfaces.
+[INFO ] 2019-08-15 12:28:30,102  ConfigurationClassPostProcessor > Cannot enhance @Configuration bean definition 'org.axonframework.springboot.autoconfig.EventProcessingAutoConfiguration' since its singleton instance has been created too early. The typical cause is a non-static @Bean method with a BeanDefinitionRegistryPostProcessor return type: Consider declaring such methods as 'static'.
+[INFO ] 2019-08-15 12:28:30,201  EnableEncryptablePropertiesBeanFactoryPostProcessor > Post-processing PropertySource instances
+[INFO ] 2019-08-15 12:28:30,237  EncryptablePropertySourceConverter > Converting PropertySource configurationProperties [org.springframework.boot.context.properties.source.ConfigurationPropertySourcesPropertySource] to AOP Proxy
+[INFO ] 2019-08-15 12:28:30,237  EncryptablePropertySourceConverter > Converting PropertySource systemProperties [org.springframework.core.env.PropertiesPropertySource] to EncryptableMapPropertySourceWrapper
+[INFO ] 2019-08-15 12:28:30,237  EncryptablePropertySourceConverter > Converting PropertySource systemEnvironment [org.springframework.boot.env.SystemEnvironmentPropertySourceEnvironmentPostProcessor$OriginAwareSystemEnvironmentPropertySource] to EncryptableMapPropertySourceWrapper
+[INFO ] 2019-08-15 12:28:30,237  EncryptablePropertySourceConverter > Converting PropertySource random [org.springframework.boot.env.RandomValuePropertySource] to EncryptablePropertySourceWrapper
+[INFO ] 2019-08-15 12:28:30,237  EncryptablePropertySourceConverter > Converting PropertySource applicationConfig: [classpath:/application.yml] [org.springframework.boot.env.OriginTrackedMapPropertySource] to EncryptableMapPropertySourceWrapper
+[INFO ] 2019-08-15 12:28:30,274  DefaultLazyPropertyFilter > Property Filter custom Bean not found with name 'encryptablePropertyFilter'. Initializing Default Property Filter
+[INFO ] 2019-08-15 12:28:30,292  PostProcessorRegistrationDelegate$BeanPostProcessorChecker > Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$c20e94c9] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[INFO ] 2019-08-15 12:28:30,299  PostProcessorRegistrationDelegate$BeanPostProcessorChecker > Bean 'org.springframework.security.config.annotation.method.configuration.ReactiveMethodSecurityConfiguration' of type [org.springframework.security.config.annotation.method.configuration.ReactiveMethodSecurityConfiguration$$EnhancerBySpringCGLIB$$c5f7049f] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[INFO ] 2019-08-15 12:28:30,306  PostProcessorRegistrationDelegate$BeanPostProcessorChecker > Bean 'methodMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[INFO ] 2019-08-15 12:28:30,310  PostProcessorRegistrationDelegate$BeanPostProcessorChecker > Bean '__axon-parameter-resolver-factory' of type [org.axonframework.spring.config.ApplicationContextLookupParameterResolverFactory] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[INFO ] 2019-08-15 12:28:30,310  PostProcessorRegistrationDelegate$BeanPostProcessorChecker > Bean '__axon-parameter-resolver-factory' of type [org.axonframework.messaging.annotation.MultiParameterResolverFactory] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[INFO ] 2019-08-15 12:28:30,317  PostProcessorRegistrationDelegate$BeanPostProcessorChecker > Bean '(inner bean)#22bf9122' of type [org.axonframework.spring.config.annotation.SpringHandlerDefinitionBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[INFO ] 2019-08-15 12:28:30,317  PostProcessorRegistrationDelegate$BeanPostProcessorChecker > Bean '(inner bean)#22bf9122' of type [org.axonframework.messaging.annotation.MultiHandlerDefinition] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[INFO ] 2019-08-15 12:28:30,319  PostProcessorRegistrationDelegate$BeanPostProcessorChecker > Bean '(inner bean)#67fa5045' of type [org.axonframework.spring.config.annotation.SpringHandlerEnhancerDefinitionBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[INFO ] 2019-08-15 12:28:30,320  PostProcessorRegistrationDelegate$BeanPostProcessorChecker > Bean '(inner bean)#67fa5045' of type [org.axonframework.messaging.annotation.MultiHandlerEnhancerDefinition] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[INFO ] 2019-08-15 12:28:30,321  PostProcessorRegistrationDelegate$BeanPostProcessorChecker > Bean '__axon-handler-definition' of type [org.axonframework.messaging.annotation.MultiHandlerDefinition] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[INFO ] 2019-08-15 12:28:30,388  DefaultLazyPropertyResolver > Property Resolver custom Bean not found with name 'encryptablePropertyResolver'. Initializing Default Property Resolver
+[INFO ] 2019-08-15 12:28:30,388  DefaultLazyPropertyDetector > Property Detector custom Bean not found with name 'encryptablePropertyDetector'. Initializing Default Property Detector
+[INFO ] 2019-08-15 12:28:30,395  DefaultLazyEncryptor > Found Custom Encryptor Bean org.jasypt.encryption.pbe.PooledPBEStringEncryptor@2b80e5a9 with name: commonEncryptor
+[INFO ] 2019-08-15 12:28:30,505  HikariDataSource > HikariPool-1 - Starting...
+[INFO ] 2019-08-15 12:28:30,724  HikariDataSource > HikariPool-1 - Start completed.
+[INFO ] 2019-08-15 12:28:30,761  LogHelper > HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+[INFO ] 2019-08-15 12:28:30,790  Version > HHH000412: Hibernate Core {5.3.10.Final}
+[INFO ] 2019-08-15 12:28:30,790  Environment > HHH000206: hibernate.properties not found
+[INFO ] 2019-08-15 12:28:30,880  Version > HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+[INFO ] 2019-08-15 12:28:30,986  Dialect > HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+[WARN ] 2019-08-15 12:28:31,525  ExceptionHandlerLoggedImpl > GenerationTarget encountered exception accepting command : Error executing DDL "alter table user_authorities drop foreign key FKnfeejqie0sy3gxxil7dn3plsw" via JDBC Statement
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "alter table user_authorities drop foreign key FKnfeejqie0sy3gxxil7dn3plsw" via JDBC Statement
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67)[INFO ] 2019-08-15 12:28:32,052  SchemaCreatorImpl > HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@463a1f47'
+[INFO ] 2019-08-15 12:28:32,054  LocalContainerEntityManagerFactoryBean > Initialized JPA EntityManagerFactory for persistence unit 'default'
+[WARN ] 2019-08-15 12:28:32,514  AnnotationConfigReactiveWebServerApplicationContext > Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'productService' defined in file [/Users/nattaphonjeamjit/Documents/javaverse/projects/dutchmill/spring/projectone/out/production/classes/com/javaverse/projectone/api/service/ProductService.class]: Unsatisfied dependency expressed through constructor parameter 1; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'com.javaverse.projectone.api.mapper.ProductMapper' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
+[INFO ] 2019-08-15 12:28:32,515  LocalContainerEntityManagerFactoryBean > Closing JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] 2019-08-15 12:28:32,515  SchemaDropperImpl$DelayedDropActionImpl > HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+[INFO ] 2019-08-15 12:28:32,694  HikariDataSource > HikariPool-1 - Shutdown initiated...
+[INFO ] 2019-08-15 12:28:32,702  HikariDataSource > HikariPool-1 - Shutdown completed.
+[INFO ] 2019-08-15 12:28:32,719  ConditionEvaluationReportLoggingListener > 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+[ERROR] 2019-08-15 12:28:32,792  LoggingFailureAnalysisReporter > 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Parameter 1 of constructor in com.javaverse.projectone.api.service.ProductService required a bean of type 'com.javaverse.projectone.api.mapper.ProductMapper' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'com.javaverse.projectone.api.mapper.ProductMapper' in your configuration.
+
+[INFO ] 2019-08-15 12:30:30,783  Application > Starting Application on javaverse.local with PID 77188 (/Users/nattaphonjeamjit/Documents/javaverse/projects/dutchmill/spring/projectone/out/production/classes started by nattaphonjeamjit in /Users/nattaphonjeamjit/Documents/javaverse/projects/dutchmill/spring/projectone)
+[INFO ] 2019-08-15 12:30:30,785  Application > No active profile set, falling back to default profiles: default
+[INFO ] 2019-08-15 12:30:31,406  RepositoryConfigurationDelegate > Bootstrapping Spring Data repositories in DEFAULT mode.
+[INFO ] 2019-08-15 12:30:31,495  RepositoryConfigurationDelegate > Finished Spring Data repository scanning in 85ms. Found 5 repository interfaces.
+[INFO ] 2019-08-15 12:30:31,530  ConfigurationClassPostProcessor > Cannot enhance @Configuration bean definition 'org.axonframework.springboot.autoconfig.EventProcessingAutoConfiguration' since its singleton instance has been created too early. The typical cause is a non-static @Bean method with a BeanDefinitionRegistryPostProcessor return type: Consider declaring such methods as 'static'.
+[INFO ] 2019-08-15 12:30:31,629  EnableEncryptablePropertiesBeanFactoryPostProcessor > Post-processing PropertySource instances
+[INFO ] 2019-08-15 12:30:31,669  EncryptablePropertySourceConverter > Converting PropertySource configurationProperties [org.springframework.boot.context.properties.source.ConfigurationPropertySourcesPropertySource] to AOP Proxy
+[INFO ] 2019-08-15 12:30:31,669  EncryptablePropertySourceConverter > Converting PropertySource systemProperties [org.springframework.core.env.PropertiesPropertySource] to EncryptableMapPropertySourceWrapper
+[INFO ] 2019-08-15 12:30:31,669  EncryptablePropertySourceConverter > Converting PropertySource systemEnvironment [org.springframework.boot.env.SystemEnvironmentPropertySourceEnvironmentPostProcessor$OriginAwareSystemEnvironmentPropertySource] to EncryptableMapPropertySourceWrapper
+[INFO ] 2019-08-15 12:30:31,669  EncryptablePropertySourceConverter > Converting PropertySource random [org.springframework.boot.env.RandomValuePropertySource] to EncryptablePropertySourceWrapper
+[INFO ] 2019-08-15 12:30:31,669  EncryptablePropertySourceConverter > Converting PropertySource applicationConfig: [classpath:/application.yml] [org.springframework.boot.env.OriginTrackedMapPropertySource] to EncryptableMapPropertySourceWrapper
+[INFO ] 2019-08-15 12:30:31,699  DefaultLazyPropertyFilter > Property Filter custom Bean not found with name 'encryptablePropertyFilter'. Initializing Default Property Filter
+[INFO ] 2019-08-15 12:30:31,721  PostProcessorRegistrationDelegate$BeanPostProcessorChecker > Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$c85b197] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[INFO ] 2019-08-15 12:30:31,728  PostProcessorRegistrationDelegate$BeanPostProcessorChecker > Bean 'org.springframework.security.config.annotation.method.configuration.ReactiveMethodSecurityConfiguration' of type [org.springframework.security.config.annotation.method.configuration.ReactiveMethodSecurityConfiguration$$EnhancerBySpringCGLIB$$106e216d] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[INFO ] 2019-08-15 12:30:31,736  PostProcessorRegistrationDelegate$BeanPostProcessorChecker > Bean 'methodMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[INFO ] 2019-08-15 12:30:31,739  PostProcessorRegistrationDelegate$BeanPostProcessorChecker > Bean '__axon-parameter-resolver-factory' of type [org.axonframework.spring.config.ApplicationContextLookupParameterResolverFactory] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[INFO ] 2019-08-15 12:30:31,740  PostProcessorRegistrationDelegate$BeanPostProcessorChecker > Bean '__axon-parameter-resolver-factory' of type [org.axonframework.messaging.annotation.MultiParameterResolverFactory] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[INFO ] 2019-08-15 12:30:31,746  PostProcessorRegistrationDelegate$BeanPostProcessorChecker > Bean '(inner bean)#3d615b2e' of type [org.axonframework.spring.config.annotation.SpringHandlerDefinitionBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[INFO ] 2019-08-15 12:30:31,747  PostProcessorRegistrationDelegate$BeanPostProcessorChecker > Bean '(inner bean)#3d615b2e' of type [org.axonframework.messaging.annotation.MultiHandlerDefinition] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[INFO ] 2019-08-15 12:30:31,748  PostProcessorRegistrationDelegate$BeanPostProcessorChecker > Bean '(inner bean)#2519026b' of type [org.axonframework.spring.config.annotation.SpringHandlerEnhancerDefinitionBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[INFO ] 2019-08-15 12:30:31,749  PostProcessorRegistrationDelegate$BeanPostProcessorChecker > Bean '(inner bean)#2519026b' of type [org.axonframework.messaging.annotation.MultiHandlerEnhancerDefinition] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[INFO ] 2019-08-15 12:30:31,750  PostProcessorRegistrationDelegate$BeanPostProcessorChecker > Bean '__axon-handler-definition' of type [org.axonframework.messaging.annotation.MultiHandlerDefinition] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[INFO ] 2019-08-15 12:30:31,817  DefaultLazyPropertyResolver > Property Resolver custom Bean not found with name 'encryptablePropertyResolver'. Initializing Default Property Resolver
+[INFO ] 2019-08-15 12:30:31,818  DefaultLazyPropertyDetector > Property Detector custom Bean not found with name 'encryptablePropertyDetector'. Initializing Default Property Detector
+[INFO ] 2019-08-15 12:30:31,825  DefaultLazyEncryptor > Found Custom Encryptor Bean org.jasypt.encryption.pbe.PooledPBEStringEncryptor@28393e82 with name: commonEncryptor
+[INFO ] 2019-08-15 12:30:31,929  HikariDataSource > HikariPool-1 - Starting...
+[INFO ] 2019-08-15 12:30:32,152  HikariDataSource > HikariPool-1 - Start completed.
+[INFO ] 2019-08-15 12:30:32,193  LogHelper > HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+[INFO ] 2019-08-15 12:30:32,222  Version > HHH000412: Hibernate Core {5.3.10.Final}
+[INFO ] 2019-08-15 12:30:32,223  Environment > HHH000206: hibernate.properties not found
+[INFO ] 2019-08-15 12:30:32,314  Version > HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+[INFO ] 2019-08-15 12:30:32,417  Dialect > HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+[WARN ] 2019-08-15 12:30:32,949  ExceptionHandlerLoggedImpl > GenerationTarget encountered exception accepting command : Error executing DDL "alter table user_authorities drop foreign key FKnfeejqie0sy3gxxil7dn3plsw" via JDBC Statement
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "alter table user_authorities drop foreign key FKnfeejqie0sy3gxxil7dn3plsw" via JDBC Statement
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67)[INFO ] 2019-08-15 12:30:33,439  SchemaCreatorImpl > HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@c19bb2a'
+[INFO ] 2019-08-15 12:30:33,441  LocalContainerEntityManagerFactoryBean > Initialized JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] 2019-08-15 12:30:34,187  ChainingConverter > ContentTypeConverter of type [class org.axonframework.serialization.xml.XomToStringConverter] is ignored. It seems to rely on a class that is not available in the class loader: nu/xom/Document
+[INFO ] 2019-08-15 12:30:34,187  ChainingConverter > ContentTypeConverter of type [class org.axonframework.serialization.xml.InputStreamToXomConverter] is ignored. It seems to rely on a class that is not available in the class loader: nu/xom/Document
+[INFO ] 2019-08-15 12:30:34,194  ChainingConverter > ContentTypeConverter of type [class org.axonframework.serialization.xml.XomToStringConverter] is ignored. It seems to rely on a class that is not available in the class loader: nu/xom/Document
+[INFO ] 2019-08-15 12:30:34,194  ChainingConverter > ContentTypeConverter of type [class org.axonframework.serialization.xml.InputStreamToXomConverter] is ignored. It seems to rely on a class that is not available in the class loader: nu/xom/Document
+[INFO ] 2019-08-15 12:30:34,202  QueryTranslatorFactoryInitiator > HHH000397: Using ASTQueryTranslatorFactory
+[INFO ] 2019-08-15 12:30:34,276  ChainingConverter > ContentTypeConverter of type [class org.axonframework.serialization.xml.XomToStringConverter] is ignored. It seems to rely on a class that is not available in the class loader: nu/xom/Document
+[INFO ] 2019-08-15 12:30:34,276  ChainingConverter > ContentTypeConverter of type [class org.axonframework.serialization.xml.InputStreamToXomConverter] is ignored. It seems to rely on a class that is not available in the class loader: nu/xom/Document
+[INFO ] 2019-08-15 12:30:34,278  ChainingConverter > ContentTypeConverter of type [class org.axonframework.serialization.xml.XomToStringConverter] is ignored. It seems to rely on a class that is not available in the class loader: nu/xom/Document
+[INFO ] 2019-08-15 12:30:34,278  ChainingConverter > ContentTypeConverter of type [class org.axonframework.serialization.xml.InputStreamToXomConverter] is ignored. It seems to rely on a class that is not available in the class loader: nu/xom/Document
+[INFO ] 2019-08-15 12:30:34,552  TrackingEventProcessor > Using current Thread for last segment worker: TrackingSegmentWorker{processor=com.javaverse.projectone.api.service, segment=Segment[0/0]}
+[INFO ] 2019-08-15 12:30:34,560  TrackingEventProcessor > Fetched token: null for segment: Segment[0/0]
+[INFO ] 2019-08-15 12:30:34,611  NettyWebServer > Netty started on port(s): 8080
+[INFO ] 2019-08-15 12:30:34,614  Application > Started Application in 4.031 seconds (JVM running for 9.649)
+[ERROR] 2019-08-15 12:31:23,942  TokenProvider > Expired Token.
+[INFO ] 2019-08-15 12:31:54,190  Application > Starting Application on javaverse.local with PID 77203 (/Users/nattaphonjeamjit/Documents/javaverse/projects/dutchmill/spring/projectone/out/production/classes started by nattaphonjeamjit in /Users/nattaphonjeamjit/Documents/javaverse/projects/dutchmill/spring/projectone)
+[INFO ] 2019-08-15 12:31:54,191  Application > No active profile set, falling back to default profiles: default
+[INFO ] 2019-08-15 12:31:54,830  RepositoryConfigurationDelegate > Bootstrapping Spring Data repositories in DEFAULT mode.
+[INFO ] 2019-08-15 12:31:54,915  RepositoryConfigurationDelegate > Finished Spring Data repository scanning in 79ms. Found 5 repository interfaces.
+[INFO ] 2019-08-15 12:31:54,957  ConfigurationClassPostProcessor > Cannot enhance @Configuration bean definition 'org.axonframework.springboot.autoconfig.EventProcessingAutoConfiguration' since its singleton instance has been created too early. The typical cause is a non-static @Bean method with a BeanDefinitionRegistryPostProcessor return type: Consider declaring such methods as 'static'.
+[INFO ] 2019-08-15 12:31:55,056  EnableEncryptablePropertiesBeanFactoryPostProcessor > Post-processing PropertySource instances
+[INFO ] 2019-08-15 12:31:55,093  EncryptablePropertySourceConverter > Converting PropertySource configurationProperties [org.springframework.boot.context.properties.source.ConfigurationPropertySourcesPropertySource] to AOP Proxy
+[INFO ] 2019-08-15 12:31:55,093  EncryptablePropertySourceConverter > Converting PropertySource systemProperties [org.springframework.core.env.PropertiesPropertySource] to EncryptableMapPropertySourceWrapper
+[INFO ] 2019-08-15 12:31:55,093  EncryptablePropertySourceConverter > Converting PropertySource systemEnvironment [org.springframework.boot.env.SystemEnvironmentPropertySourceEnvironmentPostProcessor$OriginAwareSystemEnvironmentPropertySource] to EncryptableMapPropertySourceWrapper
+[INFO ] 2019-08-15 12:31:55,093  EncryptablePropertySourceConverter > Converting PropertySource random [org.springframework.boot.env.RandomValuePropertySource] to EncryptablePropertySourceWrapper
+[INFO ] 2019-08-15 12:31:55,093  EncryptablePropertySourceConverter > Converting PropertySource applicationConfig: [classpath:/application.yml] [org.springframework.boot.env.OriginTrackedMapPropertySource] to EncryptableMapPropertySourceWrapper
+[INFO ] 2019-08-15 12:31:55,123  DefaultLazyPropertyFilter > Property Filter custom Bean not found with name 'encryptablePropertyFilter'. Initializing Default Property Filter
+[INFO ] 2019-08-15 12:31:55,145  PostProcessorRegistrationDelegate$BeanPostProcessorChecker > Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$9cbd32d2] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[INFO ] 2019-08-15 12:31:55,152  PostProcessorRegistrationDelegate$BeanPostProcessorChecker > Bean 'org.springframework.security.config.annotation.method.configuration.ReactiveMethodSecurityConfiguration' of type [org.springframework.security.config.annotation.method.configuration.ReactiveMethodSecurityConfiguration$$EnhancerBySpringCGLIB$$a0a5a2a8] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[INFO ] 2019-08-15 12:31:55,159  PostProcessorRegistrationDelegate$BeanPostProcessorChecker > Bean 'methodMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[INFO ] 2019-08-15 12:31:55,162  PostProcessorRegistrationDelegate$BeanPostProcessorChecker > Bean '__axon-parameter-resolver-factory' of type [org.axonframework.spring.config.ApplicationContextLookupParameterResolverFactory] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[INFO ] 2019-08-15 12:31:55,162  PostProcessorRegistrationDelegate$BeanPostProcessorChecker > Bean '__axon-parameter-resolver-factory' of type [org.axonframework.messaging.annotation.MultiParameterResolverFactory] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[INFO ] 2019-08-15 12:31:55,169  PostProcessorRegistrationDelegate$BeanPostProcessorChecker > Bean '(inner bean)#357bc488' of type [org.axonframework.spring.config.annotation.SpringHandlerDefinitionBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[INFO ] 2019-08-15 12:31:55,170  PostProcessorRegistrationDelegate$BeanPostProcessorChecker > Bean '(inner bean)#357bc488' of type [org.axonframework.messaging.annotation.MultiHandlerDefinition] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[INFO ] 2019-08-15 12:31:55,171  PostProcessorRegistrationDelegate$BeanPostProcessorChecker > Bean '(inner bean)#19b02dfd' of type [org.axonframework.spring.config.annotation.SpringHandlerEnhancerDefinitionBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[INFO ] 2019-08-15 12:31:55,172  PostProcessorRegistrationDelegate$BeanPostProcessorChecker > Bean '(inner bean)#19b02dfd' of type [org.axonframework.messaging.annotation.MultiHandlerEnhancerDefinition] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[INFO ] 2019-08-15 12:31:55,173  PostProcessorRegistrationDelegate$BeanPostProcessorChecker > Bean '__axon-handler-definition' of type [org.axonframework.messaging.annotation.MultiHandlerDefinition] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[INFO ] 2019-08-15 12:31:55,242  DefaultLazyPropertyResolver > Property Resolver custom Bean not found with name 'encryptablePropertyResolver'. Initializing Default Property Resolver
+[INFO ] 2019-08-15 12:31:55,243  DefaultLazyPropertyDetector > Property Detector custom Bean not found with name 'encryptablePropertyDetector'. Initializing Default Property Detector
+[INFO ] 2019-08-15 12:31:55,250  DefaultLazyEncryptor > Found Custom Encryptor Bean org.jasypt.encryption.pbe.PooledPBEStringEncryptor@7418d76e with name: commonEncryptor
+[INFO ] 2019-08-15 12:31:55,377  HikariDataSource > HikariPool-1 - Starting...
+[INFO ] 2019-08-15 12:31:55,623  HikariDataSource > HikariPool-1 - Start completed.
+[INFO ] 2019-08-15 12:31:55,667  LogHelper > HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+[INFO ] 2019-08-15 12:31:55,697  Version > HHH000412: Hibernate Core {5.3.10.Final}
+[INFO ] 2019-08-15 12:31:55,698  Environment > HHH000206: hibernate.properties not found
+[INFO ] 2019-08-15 12:31:55,791  Version > HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+[INFO ] 2019-08-15 12:31:55,911  Dialect > HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+[INFO ] 2019-08-15 12:31:57,018  SchemaCreatorImpl > HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@5089a72b'
+[INFO ] 2019-08-15 12:31:57,020  LocalContainerEntityManagerFactoryBean > Initialized JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] 2019-08-15 12:31:57,741  ChainingConverter > ContentTypeConverter of type [class org.axonframework.serialization.xml.XomToStringConverter] is ignored. It seems to rely on a class that is not available in the class loader: nu/xom/Document
+[INFO ] 2019-08-15 12:31:57,742  ChainingConverter > ContentTypeConverter of type [class org.axonframework.serialization.xml.InputStreamToXomConverter] is ignored. It seems to rely on a class that is not available in the class loader: nu/xom/Document
+[INFO ] 2019-08-15 12:31:57,749  ChainingConverter > ContentTypeConverter of type [class org.axonframework.serialization.xml.XomToStringConverter] is ignored. It seems to rely on a class that is not available in the class loader: nu/xom/Document
+[INFO ] 2019-08-15 12:31:57,749  ChainingConverter > ContentTypeConverter of type [class org.axonframework.serialization.xml.InputStreamToXomConverter] is ignored. It seems to rely on a class that is not available in the class loader: nu/xom/Document
+[INFO ] 2019-08-15 12:31:57,756  QueryTranslatorFactoryInitiator > HHH000397: Using ASTQueryTranslatorFactory
+[INFO ] 2019-08-15 12:31:57,826  ChainingConverter > ContentTypeConverter of type [class org.axonframework.serialization.xml.XomToStringConverter] is ignored. It seems to rely on a class that is not available in the class loader: nu/xom/Document
+[INFO ] 2019-08-15 12:31:57,826  ChainingConverter > ContentTypeConverter of type [class org.axonframework.serialization.xml.InputStreamToXomConverter] is ignored. It seems to rely on a class that is not available in the class loader: nu/xom/Document
+[INFO ] 2019-08-15 12:31:57,827  ChainingConverter > ContentTypeConverter of type [class org.axonframework.serialization.xml.XomToStringConverter] is ignored. It seems to rely on a class that is not available in the class loader: nu/xom/Document
+[INFO ] 2019-08-15 12:31:57,827  ChainingConverter > ContentTypeConverter of type [class org.axonframework.serialization.xml.InputStreamToXomConverter] is ignored. It seems to rely on a class that is not available in the class loader: nu/xom/Document
+[INFO ] 2019-08-15 12:31:58,093  TrackingEventProcessor > Using current Thread for last segment worker: TrackingSegmentWorker{processor=com.javaverse.projectone.api.service, segment=Segment[0/0]}
+[INFO ] 2019-08-15 12:31:58,101  TrackingEventProcessor > Fetched token: null for segment: Segment[0/0]
+[INFO ] 2019-08-15 12:31:58,150  NettyWebServer > Netty started on port(s): 8080
+[INFO ] 2019-08-15 12:31:58,153  Application > Started Application in 4.154 seconds (JVM running for 9.816)
+[WARN ] 2019-08-15 12:40:17,444  HikariPool > HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=5m21s675ms).
+[INFO ] 2019-08-15 13:24:38,916  Application > Starting Application on javaverse.local with PID 80816 (/Users/nattaphonjeamjit/Documents/javaverse/projects/dutchmill/spring/projectone/out/production/classes started by nattaphonjeamjit in /Users/nattaphonjeamjit/Documents/javaverse/projects/dutchmill/spring/projectone)
+[INFO ] 2019-08-15 13:24:38,917  Application > No active profile set, falling back to default profiles: default
+[INFO ] 2019-08-15 13:24:39,804  RepositoryConfigurationDelegate > Bootstrapping Spring Data repositories in DEFAULT mode.
+[INFO ] 2019-08-15 13:24:39,910  RepositoryConfigurationDelegate > Finished Spring Data repository scanning in 97ms. Found 5 repository interfaces.
+[INFO ] 2019-08-15 13:24:39,961  ConfigurationClassPostProcessor > Cannot enhance @Configuration bean definition 'org.axonframework.springboot.autoconfig.EventProcessingAutoConfiguration' since its singleton instance has been created too early. The typical cause is a non-static @Bean method with a BeanDefinitionRegistryPostProcessor return type: Consider declaring such methods as 'static'.
+[INFO ] 2019-08-15 13:24:40,072  EnableEncryptablePropertiesBeanFactoryPostProcessor > Post-processing PropertySource instances
+[INFO ] 2019-08-15 13:24:40,120  EncryptablePropertySourceConverter > Converting PropertySource configurationProperties [org.springframework.boot.context.properties.source.ConfigurationPropertySourcesPropertySource] to AOP Proxy
+[INFO ] 2019-08-15 13:24:40,120  EncryptablePropertySourceConverter > Converting PropertySource systemProperties [org.springframework.core.env.PropertiesPropertySource] to EncryptableMapPropertySourceWrapper
+[INFO ] 2019-08-15 13:24:40,120  EncryptablePropertySourceConverter > Converting PropertySource systemEnvironment [org.springframework.boot.env.SystemEnvironmentPropertySourceEnvironmentPostProcessor$OriginAwareSystemEnvironmentPropertySource] to EncryptableMapPropertySourceWrapper
+[INFO ] 2019-08-15 13:24:40,120  EncryptablePropertySourceConverter > Converting PropertySource random [org.springframework.boot.env.RandomValuePropertySource] to EncryptablePropertySourceWrapper
+[INFO ] 2019-08-15 13:24:40,120  EncryptablePropertySourceConverter > Converting PropertySource applicationConfig: [classpath:/application.yml] [org.springframework.boot.env.OriginTrackedMapPropertySource] to EncryptableMapPropertySourceWrapper
+[INFO ] 2019-08-15 13:24:40,155  DefaultLazyPropertyFilter > Property Filter custom Bean not found with name 'encryptablePropertyFilter'. Initializing Default Property Filter
+[INFO ] 2019-08-15 13:24:40,173  PostProcessorRegistrationDelegate$BeanPostProcessorChecker > Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$fe7e9d8c] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[INFO ] 2019-08-15 13:24:40,182  PostProcessorRegistrationDelegate$BeanPostProcessorChecker > Bean 'org.springframework.security.config.annotation.method.configuration.ReactiveMethodSecurityConfiguration' of type [org.springframework.security.config.annotation.method.configuration.ReactiveMethodSecurityConfiguration$$EnhancerBySpringCGLIB$$2670d62] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[INFO ] 2019-08-15 13:24:40,190  PostProcessorRegistrationDelegate$BeanPostProcessorChecker > Bean 'methodMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[INFO ] 2019-08-15 13:24:40,194  PostProcessorRegistrationDelegate$BeanPostProcessorChecker > Bean '__axon-parameter-resolver-factory' of type [org.axonframework.spring.config.ApplicationContextLookupParameterResolverFactory] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[INFO ] 2019-08-15 13:24:40,195  PostProcessorRegistrationDelegate$BeanPostProcessorChecker > Bean '__axon-parameter-resolver-factory' of type [org.axonframework.messaging.annotation.MultiParameterResolverFactory] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[INFO ] 2019-08-15 13:24:40,203  PostProcessorRegistrationDelegate$BeanPostProcessorChecker > Bean '(inner bean)#11787b64' of type [org.axonframework.spring.config.annotation.SpringHandlerDefinitionBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[INFO ] 2019-08-15 13:24:40,204  PostProcessorRegistrationDelegate$BeanPostProcessorChecker > Bean '(inner bean)#11787b64' of type [org.axonframework.messaging.annotation.MultiHandlerDefinition] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[INFO ] 2019-08-15 13:24:40,205  PostProcessorRegistrationDelegate$BeanPostProcessorChecker > Bean '(inner bean)#2ed9f6f8' of type [org.axonframework.spring.config.annotation.SpringHandlerEnhancerDefinitionBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[INFO ] 2019-08-15 13:24:40,206  PostProcessorRegistrationDelegate$BeanPostProcessorChecker > Bean '(inner bean)#2ed9f6f8' of type [org.axonframework.messaging.annotation.MultiHandlerEnhancerDefinition] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[INFO ] 2019-08-15 13:24:40,207  PostProcessorRegistrationDelegate$BeanPostProcessorChecker > Bean '__axon-handler-definition' of type [org.axonframework.messaging.annotation.MultiHandlerDefinition] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[INFO ] 2019-08-15 13:24:40,309  DefaultLazyPropertyResolver > Property Resolver custom Bean not found with name 'encryptablePropertyResolver'. Initializing Default Property Resolver
+[INFO ] 2019-08-15 13:24:40,310  DefaultLazyPropertyDetector > Property Detector custom Bean not found with name 'encryptablePropertyDetector'. Initializing Default Property Detector
+[INFO ] 2019-08-15 13:24:40,321  DefaultLazyEncryptor > Found Custom Encryptor Bean org.jasypt.encryption.pbe.PooledPBEStringEncryptor@46a795de with name: commonEncryptor
+[INFO ] 2019-08-15 13:24:40,451  HikariDataSource > HikariPool-1 - Starting...
+[INFO ] 2019-08-15 13:24:40,688  HikariDataSource > HikariPool-1 - Start completed.
+[INFO ] 2019-08-15 13:24:40,745  LogHelper > HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+[INFO ] 2019-08-15 13:24:40,815  Version > HHH000412: Hibernate Core {5.3.10.Final}
+[INFO ] 2019-08-15 13:24:40,816  Environment > HHH000206: hibernate.properties not found
+[INFO ] 2019-08-15 13:24:40,948  Version > HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+[INFO ] 2019-08-15 13:24:41,075  Dialect > HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+[WARN ] 2019-08-15 13:24:41,790  ExceptionHandlerLoggedImpl > GenerationTarget encountered exception accepting command : Error executing DDL "alter table user_authorities drop foreign key FKnfeejqie0sy3gxxil7dn3plsw" via JDBC Statement
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "alter table user_authorities drop foreign key FKnfeejqie0sy3gxxil7dn3plsw" via JDBC Statement
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67)[INFO ] 2019-08-15 13:24:42,335  SchemaCreatorImpl > HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@113cc14d'
+[INFO ] 2019-08-15 13:24:42,338  LocalContainerEntityManagerFactoryBean > Initialized JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] 2019-08-15 13:24:43,239  ChainingConverter > ContentTypeConverter of type [class org.axonframework.serialization.xml.XomToStringConverter] is ignored. It seems to rely on a class that is not available in the class loader: nu/xom/Document
+[INFO ] 2019-08-15 13:24:43,239  ChainingConverter > ContentTypeConverter of type [class org.axonframework.serialization.xml.InputStreamToXomConverter] is ignored. It seems to rely on a class that is not available in the class loader: nu/xom/Document
+[INFO ] 2019-08-15 13:24:48,256  ChainingConverter > ContentTypeConverter of type [class org.axonframework.serialization.xml.XomToStringConverter] is ignored. It seems to rely on a class that is not available in the class loader: nu/xom/Document
+[INFO ] 2019-08-15 13:24:48,256  ChainingConverter > ContentTypeConverter of type [class org.axonframework.serialization.xml.InputStreamToXomConverter] is ignored. It seems to rely on a class that is not available in the class loader: nu/xom/Document
+[INFO ] 2019-08-15 13:24:48,275  QueryTranslatorFactoryInitiator > HHH000397: Using ASTQueryTranslatorFactory
+[INFO ] 2019-08-15 13:24:48,380  ChainingConverter > ContentTypeConverter of type [class org.axonframework.serialization.xml.XomToStringConverter] is ignored. It seems to rely on a class that is not available in the class loader: nu/xom/Document
+[INFO ] 2019-08-15 13:24:48,380  ChainingConverter > ContentTypeConverter of type [class org.axonframework.serialization.xml.InputStreamToXomConverter] is ignored. It seems to rely on a class that is not available in the class loader: nu/xom/Document
+[INFO ] 2019-08-15 13:24:48,383  ChainingConverter > ContentTypeConverter of type [class org.axonframework.serialization.xml.XomToStringConverter] is ignored. It seems to rely on a class that is not available in the class loader: nu/xom/Document
+[INFO ] 2019-08-15 13:24:48,383  ChainingConverter > ContentTypeConverter of type [class org.axonframework.serialization.xml.InputStreamToXomConverter] is ignored. It seems to rely on a class that is not available in the class loader: nu/xom/Document
+[INFO ] 2019-08-15 13:24:48,707  TrackingEventProcessor > Using current Thread for last segment worker: TrackingSegmentWorker{processor=com.javaverse.projectone.api.service, segment=Segment[0/0]}
+[INFO ] 2019-08-15 13:24:48,715  TrackingEventProcessor > Fetched token: null for segment: Segment[0/0]
+[INFO ] 2019-08-15 13:24:48,785  NettyWebServer > Netty started on port(s): 8080
+[INFO ] 2019-08-15 13:24:48,787  Application > Started Application in 10.111 seconds (JVM running for 15.93)
+[INFO ] 2019-08-15 13:46:32,100  Application > Starting Application on javaverse.local with PID 81846 (/Users/nattaphonjeamjit/Documents/javaverse/projects/dutchmill/spring/projectone/out/production/classes started by nattaphonjeamjit in /Users/nattaphonjeamjit/Documents/javaverse/projects/dutchmill/spring/projectone)
+[INFO ] 2019-08-15 13:46:32,101  Application > The following profiles are active: dev
+[INFO ] 2019-08-15 13:46:32,950  RepositoryConfigurationDelegate > Bootstrapping Spring Data repositories in DEFAULT mode.
+[INFO ] 2019-08-15 13:46:33,058  RepositoryConfigurationDelegate > Finished Spring Data repository scanning in 98ms. Found 5 repository interfaces.
+[INFO ] 2019-08-15 13:46:33,103  ConfigurationClassPostProcessor > Cannot enhance @Configuration bean definition 'org.axonframework.springboot.autoconfig.EventProcessingAutoConfiguration' since its singleton instance has been created too early. The typical cause is a non-static @Bean method with a BeanDefinitionRegistryPostProcessor return type: Consider declaring such methods as 'static'.
+[INFO ] 2019-08-15 13:46:33,216  EnableEncryptablePropertiesBeanFactoryPostProcessor > Post-processing PropertySource instances
+[INFO ] 2019-08-15 13:46:33,261  EncryptablePropertySourceConverter > Converting PropertySource configurationProperties [org.springframework.boot.context.properties.source.ConfigurationPropertySourcesPropertySource] to AOP Proxy
+[INFO ] 2019-08-15 13:46:33,261  EncryptablePropertySourceConverter > Converting PropertySource systemProperties [org.springframework.core.env.PropertiesPropertySource] to EncryptableMapPropertySourceWrapper
+[INFO ] 2019-08-15 13:46:33,261  EncryptablePropertySourceConverter > Converting PropertySource systemEnvironment [org.springframework.boot.env.SystemEnvironmentPropertySourceEnvironmentPostProcessor$OriginAwareSystemEnvironmentPropertySource] to EncryptableMapPropertySourceWrapper
+[INFO ] 2019-08-15 13:46:33,261  EncryptablePropertySourceConverter > Converting PropertySource random [org.springframework.boot.env.RandomValuePropertySource] to EncryptablePropertySourceWrapper
+[INFO ] 2019-08-15 13:46:33,261  EncryptablePropertySourceConverter > Converting PropertySource applicationConfig: [classpath:/application.yml] (document #1) [org.springframework.boot.env.OriginTrackedMapPropertySource] to EncryptableMapPropertySourceWrapper
+[INFO ] 2019-08-15 13:46:33,261  EncryptablePropertySourceConverter > Converting PropertySource applicationConfig: [classpath:/application.yml] (document #0) [org.springframework.boot.env.OriginTrackedMapPropertySource] to EncryptableMapPropertySourceWrapper
+[INFO ] 2019-08-15 13:46:33,291  DefaultLazyPropertyFilter > Property Filter custom Bean not found with name 'encryptablePropertyFilter'. Initializing Default Property Filter
+[INFO ] 2019-08-15 13:46:33,309  PostProcessorRegistrationDelegate$BeanPostProcessorChecker > Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$4b0be67] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[INFO ] 2019-08-15 13:46:33,318  PostProcessorRegistrationDelegate$BeanPostProcessorChecker > Bean 'org.springframework.security.config.annotation.method.configuration.ReactiveMethodSecurityConfiguration' of type [org.springframework.security.config.annotation.method.configuration.ReactiveMethodSecurityConfiguration$$EnhancerBySpringCGLIB$$8992e3d] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[INFO ] 2019-08-15 13:46:33,326  PostProcessorRegistrationDelegate$BeanPostProcessorChecker > Bean 'methodMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[INFO ] 2019-08-15 13:46:33,331  PostProcessorRegistrationDelegate$BeanPostProcessorChecker > Bean '__axon-parameter-resolver-factory' of type [org.axonframework.spring.config.ApplicationContextLookupParameterResolverFactory] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[INFO ] 2019-08-15 13:46:33,331  PostProcessorRegistrationDelegate$BeanPostProcessorChecker > Bean '__axon-parameter-resolver-factory' of type [org.axonframework.messaging.annotation.MultiParameterResolverFactory] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[INFO ] 2019-08-15 13:46:33,340  PostProcessorRegistrationDelegate$BeanPostProcessorChecker > Bean '(inner bean)#2519026b' of type [org.axonframework.spring.config.annotation.SpringHandlerDefinitionBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[INFO ] 2019-08-15 13:46:33,341  PostProcessorRegistrationDelegate$BeanPostProcessorChecker > Bean '(inner bean)#2519026b' of type [org.axonframework.messaging.annotation.MultiHandlerDefinition] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[INFO ] 2019-08-15 13:46:33,342  PostProcessorRegistrationDelegate$BeanPostProcessorChecker > Bean '(inner bean)#2401856' of type [org.axonframework.spring.config.annotation.SpringHandlerEnhancerDefinitionBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[INFO ] 2019-08-15 13:46:33,343  PostProcessorRegistrationDelegate$BeanPostProcessorChecker > Bean '(inner bean)#2401856' of type [org.axonframework.messaging.annotation.MultiHandlerEnhancerDefinition] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[INFO ] 2019-08-15 13:46:33,344  PostProcessorRegistrationDelegate$BeanPostProcessorChecker > Bean '__axon-handler-definition' of type [org.axonframework.messaging.annotation.MultiHandlerDefinition] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[INFO ] 2019-08-15 13:46:33,453  DefaultLazyPropertyResolver > Property Resolver custom Bean not found with name 'encryptablePropertyResolver'. Initializing Default Property Resolver
+[INFO ] 2019-08-15 13:46:33,454  DefaultLazyPropertyDetector > Property Detector custom Bean not found with name 'encryptablePropertyDetector'. Initializing Default Property Detector
+[INFO ] 2019-08-15 13:46:33,466  DefaultLazyEncryptor > Found Custom Encryptor Bean org.jasypt.encryption.pbe.PooledPBEStringEncryptor@c4d2c44 with name: commonEncryptor
+[INFO ] 2019-08-15 13:46:33,583  HikariDataSource > HikariPool-1 - Starting...
+[INFO ] 2019-08-15 13:46:33,863  HikariDataSource > HikariPool-1 - Start completed.
+[INFO ] 2019-08-15 13:46:33,926  LogHelper > HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+[INFO ] 2019-08-15 13:46:34,020  Version > HHH000412: Hibernate Core {5.3.10.Final}
+[INFO ] 2019-08-15 13:46:34,022  Environment > HHH000206: hibernate.properties not found
+[INFO ] 2019-08-15 13:46:34,182  Version > HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+[INFO ] 2019-08-15 13:46:34,349  Dialect > HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+[WARN ] 2019-08-15 13:46:35,240  ExceptionHandlerLoggedImpl > GenerationTarget encountered exception accepting command : Error executing DDL "alter table user_authorities drop foreign key FKnfeejqie0sy3gxxil7dn3plsw" via JDBC Statement
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "alter table user_authorities drop foreign key FKnfeejqie0sy3gxxil7dn3plsw" via JDBC Statement
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67)[INFO ] 2019-08-15 13:46:35,753  SchemaCreatorImpl > HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@3c65f2e1'
+[INFO ] 2019-08-15 13:46:35,756  LocalContainerEntityManagerFactoryBean > Initialized JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] 2019-08-15 13:46:36,832  ChainingConverter > ContentTypeConverter of type [class org.axonframework.serialization.xml.XomToStringConverter] is ignored. It seems to rely on a class that is not available in the class loader: nu/xom/Document
+[INFO ] 2019-08-15 13:46:36,833  ChainingConverter > ContentTypeConverter of type [class org.axonframework.serialization.xml.InputStreamToXomConverter] is ignored. It seems to rely on a class that is not available in the class loader: nu/xom/Document
+[INFO ] 2019-08-15 13:46:41,845  ChainingConverter > ContentTypeConverter of type [class org.axonframework.serialization.xml.XomToStringConverter] is ignored. It seems to rely on a class that is not available in the class loader: nu/xom/Document
+[INFO ] 2019-08-15 13:46:41,845  ChainingConverter > ContentTypeConverter of type [class org.axonframework.serialization.xml.InputStreamToXomConverter] is ignored. It seems to rely on a class that is not available in the class loader: nu/xom/Document
+[INFO ] 2019-08-15 13:46:41,864  QueryTranslatorFactoryInitiator > HHH000397: Using ASTQueryTranslatorFactory
+[INFO ] 2019-08-15 13:46:42,016  ChainingConverter > ContentTypeConverter of type [class org.axonframework.serialization.xml.XomToStringConverter] is ignored. It seems to rely on a class that is not available in the class loader: nu/xom/Document
+[INFO ] 2019-08-15 13:46:42,016  ChainingConverter > ContentTypeConverter of type [class org.axonframework.serialization.xml.InputStreamToXomConverter] is ignored. It seems to rely on a class that is not available in the class loader: nu/xom/Document
+[INFO ] 2019-08-15 13:46:42,020  ChainingConverter > ContentTypeConverter of type [class org.axonframework.serialization.xml.XomToStringConverter] is ignored. It seems to rely on a class that is not available in the class loader: nu/xom/Document
+[INFO ] 2019-08-15 13:46:42,020  ChainingConverter > ContentTypeConverter of type [class org.axonframework.serialization.xml.InputStreamToXomConverter] is ignored. It seems to rely on a class that is not available in the class loader: nu/xom/Document
+[INFO ] 2019-08-15 13:46:42,356  TrackingEventProcessor > Using current Thread for last segment worker: TrackingSegmentWorker{processor=com.javaverse.projectone.api.service, segment=Segment[0/0]}
+[INFO ] 2019-08-15 13:46:42,364  TrackingEventProcessor > Fetched token: null for segment: Segment[0/0]
+[INFO ] 2019-08-15 13:46:42,431  NettyWebServer > Netty started on port(s): 8080
+[INFO ] 2019-08-15 13:46:42,434  Application > Started Application in 10.602 seconds (JVM running for 16.433)
