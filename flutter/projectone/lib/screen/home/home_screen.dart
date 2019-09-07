@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:projectone/screen/branch/branch_screen.dart';
@@ -187,17 +188,27 @@ class _HomeScreenState extends State<HomeScreen> {
                                                                   .textTheme
                                                                   .body1,
                                                             ),
-                                                            Text(
+                                                            AutoSizeText(
                                                               'Name xxx${items[index]}',
                                                               style: Theme
                                                                   .of(
                                                                   context)
                                                                   .textTheme
                                                                   .body1,
-                                                              overflow:
-                                                              TextOverflow
-                                                                  .ellipsis,
+                                                              overflow: TextOverflow.ellipsis,
+                                                              maxLines: 2,
                                                             ),
+//                                                            Text(
+//                                                              'Name xxx${items[index]}',
+//                                                              style: Theme
+//                                                                  .of(
+//                                                                  context)
+//                                                                  .textTheme
+//                                                                  .body1,
+//                                                              overflow:
+//                                                              TextOverflow
+//                                                                  .ellipsis,
+//                                                            ),
                                                           ],
                                                         ),
                                                       ),
@@ -318,7 +329,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                                                   .textTheme
                                                                   .body1,
                                                             ),
-                                                            Text(
+                                                            AutoSizeText(
                                                               'Name xxx${items[index]}',
                                                               style: Theme
                                                                   .of(
@@ -328,6 +339,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                                               overflow:
                                                               TextOverflow
                                                                   .ellipsis,
+                                                              maxLines: 2,
                                                             ),
                                                           ],
                                                         ),
@@ -449,7 +461,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                                                   .textTheme
                                                                   .body1,
                                                             ),
-                                                            Text(
+                                                            AutoSizeText(
                                                               'Name xxx${items[index]}',
                                                               style: Theme
                                                                   .of(
@@ -459,6 +471,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                                               overflow:
                                                               TextOverflow
                                                                   .ellipsis,
+                                                              maxLines: 2,
                                                             ),
                                                           ],
                                                         ),
@@ -580,7 +593,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                                                   .textTheme
                                                                   .body1,
                                                             ),
-                                                            Text(
+                                                            AutoSizeText(
                                                               'Name xxx${items[index]}',
                                                               style: Theme
                                                                   .of(
@@ -590,6 +603,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                                               overflow:
                                                               TextOverflow
                                                                   .ellipsis,
+                                                              maxLines: 2,
                                                             ),
                                                           ],
                                                         ),
