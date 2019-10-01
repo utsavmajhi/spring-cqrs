@@ -13,6 +13,6 @@ import javax.persistence.Table;
 @Table(indexes = {@Index(name = "reason_idx_transaction_id", columnList = "transactionId")})
 public class Reason extends Common {
 
-    private String message;
-    private Long transactionId;
+  private String message;
+  private Long transactionId;
 }

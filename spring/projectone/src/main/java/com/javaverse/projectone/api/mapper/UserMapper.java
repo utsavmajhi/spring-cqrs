@@ -11,17 +11,17 @@ import java.util.stream.Stream;
 @Mapper(injectionStrategy = InjectionStrategy.CONSTRUCTOR)
 public interface UserMapper {
 
-    @Mappings(value = {@Mapping(target = "version", ignore = true)})
-    UserDTO map(User entity);
+  @Mappings(value = {@Mapping(target = "version", ignore = true)})
+  UserDTO map(User entity);
 
-    @InheritInverseConfiguration
-    User map(UserDTO dto);
+  @InheritInverseConfiguration
+  User map(UserDTO dto);
 
-    List<UserDTO> map(Stream<User> entities);
+  List<UserDTO> map(Stream<User> entities);
 
-    @Mappings(value = {@Mapping(target = "version", ignore = true)})
-    User map(UserEvent.Created event);
+  @Mappings(value = {@Mapping(target = "version", ignore = true)})
+  User map(UserEvent.Created event);
 
-    @Mappings(value = {@Mapping(target = "version", ignore = true)})
-    User map(UserEvent.Updated event);
+  @Mappings(value = {@Mapping(target = "version", ignore = true)})
+  User map(UserEvent.Updated event);
 }

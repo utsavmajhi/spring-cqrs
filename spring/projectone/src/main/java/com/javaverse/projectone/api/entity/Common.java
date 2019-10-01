@@ -15,34 +15,34 @@ import java.util.stream.Stream;
 @EntityListeners(value = Listener.class)
 public abstract class Common {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Long id;
 
-    private OffsetDateTime createdDate;
-    private OffsetDateTime updatedDate;
+  private OffsetDateTime createdDate;
+  private OffsetDateTime updatedDate;
 
-    @Version
-    @Getter(AccessLevel.PRIVATE)
-    private short version;
+  @Version
+  @Getter(AccessLevel.PRIVATE)
+  private short version;
 
-    @Column(length = 1)
-    private Status status;
+  @Column(length = 1)
+  private Status status;
 
-    @Getter
-    @RequiredArgsConstructor
-    public enum Status {
-        ACTIVE("A"),
-        INACTIVE("I");
-        private final String code;
+  @Getter
+  @RequiredArgsConstructor
+  public enum Status {
+    ACTIVE("A"),
+    INACTIVE("I");
+    private final String code;
 
-        public static Product.Status toStatus(String code) {
-            return Stream.of(Product.Status.values())
-                    .parallel()
-                    .filter(status -> status.getCode().equalsIgnoreCase(code))
-                    .findAny()
-                    .orElseThrow(
-                            () -> new IllegalArgumentException("The code : " + code + " is illegal argument."));
-        }
+    public static Product.Status toStatus(String code) {
+      return Stream.of(Product.Status.values())
+          .parallel()
+          .filter(status -> status.getCode().equalsIgnoreCase(code))
+          .findAny()
+          .orElseThrow(
+              () -> new IllegalArgumentException("The code : " + code + " is illegal argument."));
     }
+  }
 }

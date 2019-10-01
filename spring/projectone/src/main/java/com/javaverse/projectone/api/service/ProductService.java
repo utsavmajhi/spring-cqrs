@@ -18,34 +18,34 @@ import java.util.List;
 @RequiredArgsConstructor
 public class ProductService {
 
-    private final ProductRepository repo;
-    private final ProductMapper mapper;
+  private final ProductRepository repo;
+  private final ProductMapper mapper;
 
-    @EventHandler
-    public void on(ProductEvent.Created p) {
-        Product product = mapper.map(p);
-        product.setStatus(Common.Status.ACTIVE);
-        repo.save(product);
-    }
+  @EventHandler
+  public void on(ProductEvent.Created p) {
+    Product product = mapper.map(p);
+    product.setStatus(Common.Status.ACTIVE);
+    repo.save(product);
+  }
 
-    @EventHandler
-    public void on(ProductEvent.Updated event) {
-        repo.findById(event.getId()).orElseThrow();
-        repo.save(mapper.map(event));
-    }
+  @EventHandler
+  public void on(ProductEvent.Updated event) {
+    repo.findById(event.getId()).orElseThrow();
+    repo.save(mapper.map(event));
+  }
 
-    @EventHandler
-    public void on(ProductEvent.Deleted event) {
-        repo.deleteById(event.getId());
-    }
+  @EventHandler
+  public void on(ProductEvent.Deleted event) {
+    repo.deleteById(event.getId());
+  }
 
-    @QueryHandler
-    public ProductDTO on(ProductQuery.Single query) {
-        return mapper.map(repo.findById(query.getId()).orElseThrow());
-    }
+  @QueryHandler
+  public ProductDTO on(ProductQuery.Single query) {
+    return mapper.map(repo.findById(query.getId()).orElseThrow());
+  }
 
-    @QueryHandler
-    public List<ProductDTO> on(ProductQuery.AllActive query) {
-        return mapper.map(repo.findAllByStatus(Common.Status.ACTIVE));
-    }
+  @QueryHandler
+  public List<ProductDTO> on(ProductQuery.AllActive query) {
+    return mapper.map(repo.findAllByStatus(Common.Status.ACTIVE));
+  }
 }

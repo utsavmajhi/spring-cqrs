@@ -11,17 +11,17 @@ import java.util.stream.Stream;
 @Mapper(injectionStrategy = InjectionStrategy.CONSTRUCTOR)
 public interface CompanyMapper {
 
-    @Mappings(value = {@Mapping(target = "version", ignore = true)})
-    CompanyDTO map(Company entity);
+  @Mappings(value = {@Mapping(target = "version", ignore = true)})
+  CompanyDTO map(Company entity);
 
-    @InheritInverseConfiguration
-    Company map(CompanyDTO dto);
+  @InheritInverseConfiguration
+  Company map(CompanyDTO dto);
 
-    List<CompanyDTO> map(Stream<Company> entities);
+  List<CompanyDTO> map(Stream<Company> entities);
 
-    @Mappings(value = {@Mapping(target = "version", ignore = true)})
-    Company map(CompanyEvent.Created event);
+  @Mappings(value = {@Mapping(target = "version", ignore = true)})
+  Company map(CompanyEvent.Created event);
 
-    @Mappings(value = {@Mapping(target = "version", ignore = true)})
-    Company map(CompanyEvent.Updated event);
+  @Mappings(value = {@Mapping(target = "version", ignore = true)})
+  Company map(CompanyEvent.Updated event);
 }

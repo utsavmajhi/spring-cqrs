@@ -20,48 +20,47 @@ import static org.axonframework.modelling.command.AggregateLifecycle.apply;
 @NoArgsConstructor
 public class ProductAggregator {
 
-    @AggregateIdentifier
-    private OffsetDateTime offsetDateTime;
+  @AggregateIdentifier private OffsetDateTime offsetDateTime;
 
-    /*Create*/
-    @CommandHandler
-    public ProductAggregator(ProductCommand.Create cmd) {
-        log.debug(() -> "CommandHandler : Create : " + cmd);
-        // validation logic
-        apply(cmd.toEvent());
-    }
+  /*Create*/
+  @CommandHandler
+  public ProductAggregator(ProductCommand.Create cmd) {
+    log.debug(() -> "CommandHandler : Create : " + cmd);
+    // validation logic
+    apply(cmd.toEvent());
+  }
 
-    /*Update*/
-    @CommandHandler
-    public ProductAggregator(ProductCommand.Update cmd) {
-        log.debug(() -> "CommandHandler : Update : " + cmd);
-        // validation logic
-        apply(cmd.toEvent());
-    }
+  /*Update*/
+  @CommandHandler
+  public ProductAggregator(ProductCommand.Update cmd) {
+    log.debug(() -> "CommandHandler : Update : " + cmd);
+    // validation logic
+    apply(cmd.toEvent());
+  }
 
-    /*Delete*/
-    @CommandHandler
-    public ProductAggregator(ProductCommand.Delete cmd) {
-        log.debug(() -> "CommandHandler : Delete : " + cmd);
-        // validation logic
-        apply(cmd.toEvent());
-    }
+  /*Delete*/
+  @CommandHandler
+  public ProductAggregator(ProductCommand.Delete cmd) {
+    log.debug(() -> "CommandHandler : Delete : " + cmd);
+    // validation logic
+    apply(cmd.toEvent());
+  }
 
-    @EventSourcingHandler
-    private void on(ProductEvent.Created event) {
-        log.debug(() -> "EventSourcingHandler : Created : " + event);
-        setOffsetDateTime(OffsetDateTime.now());
-    }
+  @EventSourcingHandler
+  private void on(ProductEvent.Created event) {
+    log.debug(() -> "EventSourcingHandler : Created : " + event);
+    setOffsetDateTime(OffsetDateTime.now());
+  }
 
-    @EventSourcingHandler
-    private void on(ProductEvent.Updated event) {
-        log.debug(() -> "EventSourcingHandler : Updated : " + event);
-        setOffsetDateTime(OffsetDateTime.now());
-    }
+  @EventSourcingHandler
+  private void on(ProductEvent.Updated event) {
+    log.debug(() -> "EventSourcingHandler : Updated : " + event);
+    setOffsetDateTime(OffsetDateTime.now());
+  }
 
-    @EventSourcingHandler
-    private void on(ProductEvent.Deleted event) {
-        log.debug(() -> "EventSourcingHandler : Deleted : " + event);
-        setOffsetDateTime(OffsetDateTime.now());
-    }
+  @EventSourcingHandler
+  private void on(ProductEvent.Deleted event) {
+    log.debug(() -> "EventSourcingHandler : Deleted : " + event);
+    setOffsetDateTime(OffsetDateTime.now());
+  }
 }

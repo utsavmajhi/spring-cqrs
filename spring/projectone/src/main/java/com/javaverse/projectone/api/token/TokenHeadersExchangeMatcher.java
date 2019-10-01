@@ -9,13 +9,13 @@ import reactor.core.publisher.Mono;
 
 @Log4j2
 public class TokenHeadersExchangeMatcher implements ServerWebExchangeMatcher {
-    @Override
-    public Mono<MatchResult> matches(final ServerWebExchange exchange) {
-        return Mono.just(exchange)
-                .map(ServerWebExchange::getRequest)
-                .map(ServerHttpRequest::getHeaders)
-                .filter(headers -> headers.containsKey(HttpHeaders.AUTHORIZATION))
-                .flatMap(headers -> MatchResult.match())
-                .switchIfEmpty(MatchResult.notMatch());
-    }
+  @Override
+  public Mono<MatchResult> matches(final ServerWebExchange exchange) {
+    return Mono.just(exchange)
+        .map(ServerWebExchange::getRequest)
+        .map(ServerHttpRequest::getHeaders)
+        .filter(headers -> headers.containsKey(HttpHeaders.AUTHORIZATION))
+        .flatMap(headers -> MatchResult.match())
+        .switchIfEmpty(MatchResult.notMatch());
+  }
 }

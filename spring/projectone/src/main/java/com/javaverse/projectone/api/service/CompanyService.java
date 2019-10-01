@@ -18,34 +18,34 @@ import java.util.List;
 @RequiredArgsConstructor
 public class CompanyService {
 
-    private final CompanyRepository repo;
-    private final CompanyMapper mapper;
+  private final CompanyRepository repo;
+  private final CompanyMapper mapper;
 
-    @EventHandler
-    public void on(CompanyEvent.Created event) {
-        Company entity = mapper.map(event);
-        entity.setStatus(Common.Status.ACTIVE);
-        repo.save(entity);
-    }
+  @EventHandler
+  public void on(CompanyEvent.Created event) {
+    Company entity = mapper.map(event);
+    entity.setStatus(Common.Status.ACTIVE);
+    repo.save(entity);
+  }
 
-    @EventHandler
-    public void on(CompanyEvent.Updated event) {
-        repo.findById(event.getId()).orElseThrow();
-        repo.save(mapper.map(event));
-    }
+  @EventHandler
+  public void on(CompanyEvent.Updated event) {
+    repo.findById(event.getId()).orElseThrow();
+    repo.save(mapper.map(event));
+  }
 
-    @EventHandler
-    public void on(CompanyEvent.Deleted event) {
-        repo.deleteById(event.getId());
-    }
+  @EventHandler
+  public void on(CompanyEvent.Deleted event) {
+    repo.deleteById(event.getId());
+  }
 
-    @QueryHandler
-    public CompanyDTO on(CompanyQuery.Single query) {
-        return mapper.map(repo.findById(query.getId()).orElseThrow());
-    }
+  @QueryHandler
+  public CompanyDTO on(CompanyQuery.Single query) {
+    return mapper.map(repo.findById(query.getId()).orElseThrow());
+  }
 
-    @QueryHandler
-    public List<CompanyDTO> on(CompanyQuery.AllActive query) {
-        return mapper.map(repo.findAllByStatus(Common.Status.ACTIVE));
-    }
+  @QueryHandler
+  public List<CompanyDTO> on(CompanyQuery.AllActive query) {
+    return mapper.map(repo.findAllByStatus(Common.Status.ACTIVE));
+  }
 }

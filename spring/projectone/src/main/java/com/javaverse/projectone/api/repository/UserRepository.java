@@ -9,7 +9,7 @@ import java.util.stream.Stream;
 
 @Repository
 public interface UserRepository extends CommonRepository<User, Long> {
-    Optional<User> findByUsername(String username);
+  Optional<User> findByUsername(String username);
 
-    Stream<User> findAllByStatus(Common.Status status);
+  Stream<User> findAllByStatus(Common.Status status);
 }

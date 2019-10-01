@@ -4,15 +4,13 @@ import lombok.Value;
 
 public class StoreQuery {
 
-    private StoreQuery() {
-    }
+  private StoreQuery() {}
 
-    @Value
-    public static class Single {
-        private Long id;
-    }
+  @Value
+  public static class Single {
+    private Long id;
+  }
 
-    @Value
-    public static class AllActive {
-    }
+  @Value
+  public static class AllActive {}
 }

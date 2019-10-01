@@ -23,24 +23,24 @@ import javax.validation.Validator;
 @RequestMapping("/authenticate")
 public class AuthenticationController {
 
-    private final Validator validator;
-    private final TokenProvider provider;
-    private final TokenManager manager;
+  private final Validator validator;
+  private final TokenProvider provider;
+  private final TokenManager manager;
 
-    @PostMapping
-    public Mono<Authentication.Response> authorize(@Valid @RequestBody Authentication.Request req) {
-        if (!validator.validate(req).isEmpty()) {
-            return Mono.error(new BadCredentialsException("Bad Credentials Exception"));
-        }
-        var authenticationToken =
-                new UsernamePasswordAuthenticationToken(req.getUsername(), req.getPassword());
-        ReactiveSecurityContextHolder.withAuthentication(authenticationToken);
-        return manager
-                .authenticate(authenticationToken)
-                .doOnError(e -> new BadCredentialsException("Bad Credentials Exception"))
-                .map(
-                        authenticate ->
-                                new Authentication.Response(
-                                        provider.token(authenticate), provider.refreshToken(authenticate)));
+  @PostMapping
+  public Mono<Authentication.Response> authorize(@Valid @RequestBody Authentication.Request req) {
+    if (!validator.validate(req).isEmpty()) {
+      return Mono.error(new BadCredentialsException("Bad Credentials Exception"));
     }
+    var authenticationToken =
+        new UsernamePasswordAuthenticationToken(req.getUsername(), req.getPassword());
+    ReactiveSecurityContextHolder.withAuthentication(authenticationToken);
+    return manager
+        .authenticate(authenticationToken)
+        .doOnError(e -> new BadCredentialsException("Bad Credentials Exception"))
+        .map(
+            authenticate ->
+                new Authentication.Response(
+                    provider.token(authenticate), provider.refreshToken(authenticate)));
+  }
 }

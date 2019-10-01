@@ -14,9 +14,9 @@ import javax.persistence.Table;
 @Table(indexes = {@Index(name = "companies_idx_status", columnList = "status")})
 public class Company extends Common {
 
-    @Column(length = 13, unique = true)
-    private String code;
+  @Column(length = 13, unique = true)
+  private String code;
 
-    @Column(length = 30)
-    private String name;
+  @Column(length = 30)
+  private String name;
 }

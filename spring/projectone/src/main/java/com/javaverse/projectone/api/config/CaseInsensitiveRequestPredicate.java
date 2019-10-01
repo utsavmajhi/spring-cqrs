@@ -9,42 +9,42 @@ import java.net.URI;
 
 public class CaseInsensitiveRequestPredicate implements RequestPredicate {
 
-    private final RequestPredicate target;
+  private final RequestPredicate target;
 
-    public CaseInsensitiveRequestPredicate(RequestPredicate target) {
-        this.target = target;
+  public CaseInsensitiveRequestPredicate(RequestPredicate target) {
+    this.target = target;
+  }
+
+  @Override
+  public boolean test(ServerRequest request) {
+    boolean test = this.target.test(new LowerCaseUriServerRequestWrapper(request));
+    return test;
+  }
+
+  @Override
+  public String toString() {
+    return this.target.toString();
+  }
+
+  class LowerCaseUriServerRequestWrapper extends ServerRequestWrapper {
+
+    LowerCaseUriServerRequestWrapper(ServerRequest request) {
+      super(request);
     }
 
     @Override
-    public boolean test(ServerRequest request) {
-        boolean test = this.target.test(new LowerCaseUriServerRequestWrapper(request));
-        return test;
+    public URI uri() {
+      return URI.create(super.uri().toString().toLowerCase());
     }
 
     @Override
-    public String toString() {
-        return this.target.toString();
+    public String path() {
+      return uri().getRawPath();
     }
 
-    class LowerCaseUriServerRequestWrapper extends ServerRequestWrapper {
-
-        LowerCaseUriServerRequestWrapper(ServerRequest request) {
-            super(request);
-        }
-
-        @Override
-        public URI uri() {
-            return URI.create(super.uri().toString().toLowerCase());
-        }
-
-        @Override
-        public String path() {
-            return uri().getRawPath();
-        }
-
-        @Override
-        public PathContainer pathContainer() {
-            return PathContainer.parsePath(path());
-        }
+    @Override
+    public PathContainer pathContainer() {
+      return PathContainer.parsePath(path());
     }
+  }
 }

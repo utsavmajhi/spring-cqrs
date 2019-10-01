@@ -20,32 +20,32 @@ import reactor.core.publisher.Mono;
 @RequiredArgsConstructor
 public class WebFluxConfig implements WebFluxConfigurer, WebFilter {
 
-    private final ObjectMapper objectMapper;
+  private final ObjectMapper objectMapper;
 
-    @Override
-    public Mono<Void> filter(ServerWebExchange exchange, WebFilterChain chain) {
-        return chain.filter(exchange);
-    }
+  @Override
+  public Mono<Void> filter(ServerWebExchange exchange, WebFilterChain chain) {
+    return chain.filter(exchange);
+  }
 
-    @Override
-    public void addCorsMappings(CorsRegistry corsRegistry) {
-        corsRegistry
-                .addMapping("/**")
-                .allowedOrigins("*")
-                .allowedMethods(
-                        HttpMethod.GET.name(),
-                        HttpMethod.POST.name(),
-                        HttpMethod.PUT.name(),
-                        HttpMethod.PATCH.name(),
-                        HttpMethod.DELETE.name())
-                //                .allowedHeaders("")
-                //                .exposedHeaders("")
-                .maxAge(3600);
-    }
+  @Override
+  public void addCorsMappings(CorsRegistry corsRegistry) {
+    corsRegistry
+        .addMapping("/**")
+        .allowedOrigins("*")
+        .allowedMethods(
+            HttpMethod.GET.name(),
+            HttpMethod.POST.name(),
+            HttpMethod.PUT.name(),
+            HttpMethod.PATCH.name(),
+            HttpMethod.DELETE.name())
+        //                .allowedHeaders("")
+        //                .exposedHeaders("")
+        .maxAge(3600);
+  }
 
-    @Override
-    public void configureHttpMessageCodecs(ServerCodecConfigurer configurer) {
-        configurer.defaultCodecs().jackson2JsonEncoder(new Jackson2JsonEncoder(objectMapper));
-        configurer.defaultCodecs().jackson2JsonDecoder(new Jackson2JsonDecoder(objectMapper));
-    }
+  @Override
+  public void configureHttpMessageCodecs(ServerCodecConfigurer configurer) {
+    configurer.defaultCodecs().jackson2JsonEncoder(new Jackson2JsonEncoder(objectMapper));
+    configurer.defaultCodecs().jackson2JsonDecoder(new Jackson2JsonDecoder(objectMapper));
+  }
 }

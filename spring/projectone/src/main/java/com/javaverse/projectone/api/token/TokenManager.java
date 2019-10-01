@@ -17,42 +17,42 @@ import reactor.core.scheduler.Schedulers;
 @RequiredArgsConstructor
 public class TokenManager implements ReactiveAuthenticationManager {
 
-    private final ReactiveUserDetailsService service;
-    private final PasswordEncoder encoder;
+  private final ReactiveUserDetailsService service;
+  private final PasswordEncoder encoder;
 
-    @Override
-    public Mono<Authentication> authenticate(final Authentication authentication) {
-        if (authentication.isAuthenticated()) {
-            return Mono.just(authentication);
-        }
-        return Mono.just(authentication)
-                .switchIfEmpty(Mono.defer(this::raiseBadCredentials))
-                .cast(UsernamePasswordAuthenticationToken.class)
-                .flatMap(this::authenticateToken)
-                .publishOn(Schedulers.parallel())
-                .onErrorResume(e -> raiseBadCredentials())
-                .filter(u -> encoder.matches((String) authentication.getCredentials(), u.getPassword()))
-                .switchIfEmpty(Mono.defer(this::raiseBadCredentials))
-                .map(
-                        u ->
-                                new UsernamePasswordAuthenticationToken(
-                                        authentication.getPrincipal(),
-                                        authentication.getCredentials(),
-                                        u.getAuthorities()));
+  @Override
+  public Mono<Authentication> authenticate(final Authentication authentication) {
+    if (authentication.isAuthenticated()) {
+      return Mono.just(authentication);
     }
+    return Mono.just(authentication)
+        .switchIfEmpty(Mono.defer(this::raiseBadCredentials))
+        .cast(UsernamePasswordAuthenticationToken.class)
+        .flatMap(this::authenticateToken)
+        .publishOn(Schedulers.parallel())
+        .onErrorResume(e -> raiseBadCredentials())
+        .filter(u -> encoder.matches((String) authentication.getCredentials(), u.getPassword()))
+        .switchIfEmpty(Mono.defer(this::raiseBadCredentials))
+        .map(
+            u ->
+                new UsernamePasswordAuthenticationToken(
+                    authentication.getPrincipal(),
+                    authentication.getCredentials(),
+                    u.getAuthorities()));
+  }
 
-    private <T> Mono<T> raiseBadCredentials() {
-        return Mono.error(new BadCredentialsException("Invalid Credentials"));
-    }
+  private <T> Mono<T> raiseBadCredentials() {
+    return Mono.error(new BadCredentialsException("Invalid Credentials"));
+  }
 
-    private Mono<UserDetails> authenticateToken(
-            final UsernamePasswordAuthenticationToken authenticationToken) {
-        var username = authenticationToken.getName();
-        log.debug("checking perform for user " + username);
-        if (username != null && SecurityContextHolder.getContext().getAuthentication() == null) {
-            log.debug("authenticated user " + username + ", setting security context");
-            return service.findByUsername(username);
-        }
-        return null;
+  private Mono<UserDetails> authenticateToken(
+      final UsernamePasswordAuthenticationToken authenticationToken) {
+    var username = authenticationToken.getName();
+    log.debug("checking perform for user " + username);
+    if (username != null && SecurityContextHolder.getContext().getAuthentication() == null) {
+      log.debug("authenticated user " + username + ", setting security context");
+      return service.findByUsername(username);
     }
+    return null;
+  }
 }

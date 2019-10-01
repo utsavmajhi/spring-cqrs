@@ -27,38 +27,38 @@ import static org.springframework.web.reactive.function.server.ServerResponse.st
 @Component
 public class ErrorWebExceptionHandlerConfig extends AbstractErrorWebExceptionHandler {
 
-    public ErrorWebExceptionHandlerConfig(
-            final ErrorAttributes errorAttributes,
-            final ApplicationContext applicationContext,
-            final ServerCodecConfigurer configurer) {
-        super(errorAttributes, new ResourceProperties(), applicationContext);
-        super.setMessageWriters(configurer.getWriters());
-        super.setMessageReaders(configurer.getReaders());
-    }
+  public ErrorWebExceptionHandlerConfig(
+      final ErrorAttributes errorAttributes,
+      final ApplicationContext applicationContext,
+      final ServerCodecConfigurer configurer) {
+    super(errorAttributes, new ResourceProperties(), applicationContext);
+    super.setMessageWriters(configurer.getWriters());
+    super.setMessageReaders(configurer.getReaders());
+  }
 
-    @Override
-    protected RouterFunction<ServerResponse> getRoutingFunction(
-            final ErrorAttributes errorAttributes) {
-        return route(RequestPredicates.all(), this::renderErrorResponse);
-    }
+  @Override
+  protected RouterFunction<ServerResponse> getRoutingFunction(
+      final ErrorAttributes errorAttributes) {
+    return route(RequestPredicates.all(), this::renderErrorResponse);
+  }
 
-    private Mono<ServerResponse> renderErrorResponse(final ServerRequest request) {
-        final var error = getError(request);
-        final var errorAttributes = super.getErrorAttributes(request, false);
-        if (error instanceof Exception) {
-            //            log.error("Caught an instance of: {}, err: {}", Exception.class, error);
-            //            final var errorStatus = ((DomainException) error).getStatus();
-        }
-        var map =
-                Map.of(
-                        "timestamp",
-                        OffsetDateTime.now(),
-                        "exception",
-                        error.getClass().getSimpleName(),
-                        "message",
-                        errorAttributes.get("message"));
-        return status(BAD_REQUEST)
-                //                .contentType(APPLICATION_JSON)
-                .body(BodyInserters.fromObject(map));
+  private Mono<ServerResponse> renderErrorResponse(final ServerRequest request) {
+    final var error = getError(request);
+    final var errorAttributes = super.getErrorAttributes(request, false);
+    if (error instanceof Exception) {
+      //            log.error("Caught an instance of: {}, err: {}", Exception.class, error);
+      //            final var errorStatus = ((DomainException) error).getStatus();
     }
+    var map =
+        Map.of(
+            "timestamp",
+            OffsetDateTime.now(),
+            "exception",
+            error.getClass().getSimpleName(),
+            "message",
+            errorAttributes.get("message"));
+    return status(BAD_REQUEST)
+        //                .contentType(APPLICATION_JSON)
+        .body(BodyInserters.fromObject(map));
+  }
 }

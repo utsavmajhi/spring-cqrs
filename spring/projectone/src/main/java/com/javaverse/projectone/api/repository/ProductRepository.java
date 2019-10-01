@@ -9,5 +9,5 @@ import java.util.stream.Stream;
 @Repository
 public interface ProductRepository extends CommonRepository<Product, Long> {
 
-    Stream<Product> findAllByStatus(Common.Status status);
+  Stream<Product> findAllByStatus(Common.Status status);
 }

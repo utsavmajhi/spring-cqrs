@@ -20,38 +20,38 @@ import java.util.List;
 @RequiredArgsConstructor
 public class UserService {
 
-    private final UserRepository repo;
-    private final AuthorityRepository authorityRepo;
-    private final UserMapper mapper;
-    private final PasswordEncoder encoder;
+  private final UserRepository repo;
+  private final AuthorityRepository authorityRepo;
+  private final UserMapper mapper;
+  private final PasswordEncoder encoder;
 
-    @EventHandler
-    public void on(UserEvent.Created event) {
-        User entity = mapper.map(event);
-        entity.setStatus(Common.Status.ACTIVE);
-        entity.setPassword(encoder.encode(event.getPassword()));
-        entity.getAuthorities().add(authorityRepo.getOne(2L));
-        repo.save(entity);
-    }
+  @EventHandler
+  public void on(UserEvent.Created event) {
+    User entity = mapper.map(event);
+    entity.setStatus(Common.Status.ACTIVE);
+    entity.setPassword(encoder.encode(event.getPassword()));
+    entity.getAuthorities().add(authorityRepo.getOne(2L));
+    repo.save(entity);
+  }
 
-    @EventHandler
-    public void on(UserEvent.Updated event) {
-        repo.findById(event.getId()).orElseThrow();
-        repo.save(mapper.map(event));
-    }
+  @EventHandler
+  public void on(UserEvent.Updated event) {
+    repo.findById(event.getId()).orElseThrow();
+    repo.save(mapper.map(event));
+  }
 
-    @EventHandler
-    public void on(UserEvent.Deleted event) {
-        repo.deleteById(event.getId());
-    }
+  @EventHandler
+  public void on(UserEvent.Deleted event) {
+    repo.deleteById(event.getId());
+  }
 
-    @QueryHandler
-    public UserDTO on(UserQuery.Single query) {
-        return mapper.map(repo.findById(query.getId()).orElseThrow());
-    }
+  @QueryHandler
+  public UserDTO on(UserQuery.Single query) {
+    return mapper.map(repo.findById(query.getId()).orElseThrow());
+  }
 
-    @QueryHandler
-    public List<UserDTO> on(UserQuery.AllActive query) {
-        return mapper.map(repo.findAllByStatus(Common.Status.ACTIVE));
-    }
+  @QueryHandler
+  public List<UserDTO> on(UserQuery.AllActive query) {
+    return mapper.map(repo.findAllByStatus(Common.Status.ACTIVE));
+  }
 }

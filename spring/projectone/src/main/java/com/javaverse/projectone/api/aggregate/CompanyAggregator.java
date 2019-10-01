@@ -20,8 +20,7 @@ import static org.axonframework.modelling.command.AggregateLifecycle.apply;
 @NoArgsConstructor
 public class CompanyAggregator {
 
-  @AggregateIdentifier
-  private OffsetDateTime offsetDateTime;
+  @AggregateIdentifier private OffsetDateTime offsetDateTime;
 
   /*Create*/
   @CommandHandler

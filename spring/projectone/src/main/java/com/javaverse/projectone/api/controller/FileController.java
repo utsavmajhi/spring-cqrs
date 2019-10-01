@@ -15,30 +15,30 @@ import java.io.File;
 @RequestMapping("/files")
 public class FileController {
 
-    @GetMapping("/ping")
-    public Mono<String> ping() {
-        return Mono.just("pong");
-    }
+  @GetMapping("/ping")
+  public Mono<String> ping() {
+    return Mono.just("pong");
+  }
 
-    @GetMapping("/webhook")
-    public Mono<String> webhook(@RequestBody String req) {
-        System.out.println("request body from jira web hook");
-        System.out.println(req);
-        return Mono.just(req);
-    }
+  @GetMapping("/webhook")
+  public Mono<String> webhook(@RequestBody String req) {
+    System.out.println("request body from jira web hook");
+    System.out.println(req);
+    return Mono.just(req);
+  }
 
-    @ResponseBody
-    @PostMapping(consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-    public Mono file(@RequestPart("image") FilePart image, @RequestPart("name") String name) {
+  @ResponseBody
+  @PostMapping(consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+  public Mono file(@RequestPart("image") FilePart image, @RequestPart("name") String name) {
 
-        System.out.println("name : " + name);
-        System.out.println("file name : " + image.filename());
-        File file = new File(image.filename());
-        file.delete();
-        System.out.println("before transfer " + file.length());
-        image.transferTo(file);
-        System.out.println("after transfer " + file.length());
+    System.out.println("name : " + name);
+    System.out.println("file name : " + image.filename());
+    File file = new File(image.filename());
+    file.delete();
+    System.out.println("before transfer " + file.length());
+    image.transferTo(file);
+    System.out.println("after transfer " + file.length());
 
-        return Mono.empty();
-    }
+    return Mono.empty();
+  }
 }

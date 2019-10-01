@@ -29,10 +29,10 @@ public class User extends Common implements UserDetails {
 
   @ManyToMany(fetch = FetchType.EAGER)
   @JoinTable(
-          foreignKey = @ForeignKey(name = "none"),
-          name = "user_authorities",
-          joinColumns = @JoinColumn(name = "users_id", referencedColumnName = "id"),
-          inverseJoinColumns = @JoinColumn(name = "authorities_id", referencedColumnName = "id"))
+      foreignKey = @ForeignKey(name = "none"),
+      name = "user_authorities",
+      joinColumns = @JoinColumn(name = "users_id", referencedColumnName = "id"),
+      inverseJoinColumns = @JoinColumn(name = "authorities_id", referencedColumnName = "id"))
   private Collection<Authority> authorities = new HashSet<>();
 
   @Column(length = 13, unique = true)
@@ -43,8 +43,8 @@ public class User extends Common implements UserDetails {
 
   public List<GrantedAuthority> getGrantedAuthorities() {
     return getAuthorities().stream()
-            .map(role -> new SimpleGrantedAuthority(role.getName()))
-            .collect(Collectors.toList());
+        .map(role -> new SimpleGrantedAuthority(role.getName()))
+        .collect(Collectors.toList());
   }
 
   @Override

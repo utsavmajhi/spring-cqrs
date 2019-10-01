@@ -11,11 +11,11 @@ import lombok.ToString;
 @EqualsAndHashCode
 public class ProductDTO extends Product {
 
-    public ProductCommand.Create toCommandCreate() {
-        return new ProductCommand.Create(getId(), getCode(), getName());
-    }
+  public ProductCommand.Create toCommandCreate() {
+    return new ProductCommand.Create(getId(), getCode(), getName());
+  }
 
-    public ProductCommand.Update toCommandUpdate() {
-        return new ProductCommand.Update(getId(), getCode(), getName());
-    }
+  public ProductCommand.Update toCommandUpdate() {
+    return new ProductCommand.Update(getId(), getCode(), getName());
+  }
 }

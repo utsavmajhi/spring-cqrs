@@ -41,21 +41,21 @@ public class TokenProvider {
 
   public String token(Authentication authentication) {
     var authorities =
-            authentication.getAuthorities().stream()
-                    .map(GrantedAuthority::getAuthority)
-                    .collect(Collectors.joining(","));
+        authentication.getAuthorities().stream()
+            .map(GrantedAuthority::getAuthority)
+            .collect(Collectors.joining(","));
 
     var issuedAt = new Date();
     var expiration = new Date(issuedAt.getTime() + this.tokenValidityInMilliseconds);
     var compact =
-            Jwts.builder()
-                    .setSubject(authentication.getName())
-                    .setIssuedAt(issuedAt)
-                    .claim(AUTHORITIES_KEY, authorities)
-                    .setExpiration(expiration)
-                    .compressWith(CompressionCodecs.DEFLATE)
-                    .signWith(SignatureAlgorithm.HS512, secretKey)
-                    .compact();
+        Jwts.builder()
+            .setSubject(authentication.getName())
+            .setIssuedAt(issuedAt)
+            .claim(AUTHORITIES_KEY, authorities)
+            .setExpiration(expiration)
+            .compressWith(CompressionCodecs.DEFLATE)
+            .signWith(SignatureAlgorithm.HS512, secretKey)
+            .compact();
     log.debug("compact token" + compact);
     return compact;
   }
@@ -64,14 +64,14 @@ public class TokenProvider {
     // no expire for this version
     var issuedAt = new Date();
     var compact =
-            Jwts.builder()
-                    .setId(UUID.randomUUID().toString())
-                    .setSubject(authentication.getName())
-                    .setIssuedAt(issuedAt)
-                    .claim(AUTHORITIES_KEY, AuthoritiesConstants.REFRESH_TOKEN)
-                    .compressWith(CompressionCodecs.DEFLATE)
-                    .signWith(SignatureAlgorithm.HS512, secretKey)
-                    .compact();
+        Jwts.builder()
+            .setId(UUID.randomUUID().toString())
+            .setSubject(authentication.getName())
+            .setIssuedAt(issuedAt)
+            .claim(AUTHORITIES_KEY, AuthoritiesConstants.REFRESH_TOKEN)
+            .compressWith(CompressionCodecs.DEFLATE)
+            .signWith(SignatureAlgorithm.HS512, secretKey)
+            .compact();
     log.debug("compact refresh token" + compact);
     return compact;
   }
@@ -83,11 +83,11 @@ public class TokenProvider {
     var claims = Jwts.parser().setSigningKey(secretKey).parseClaimsJws(token).getBody();
 
     var authorities =
-            Arrays.stream(claims.get(AUTHORITIES_KEY).toString().split(","))
-                    .map(SimpleGrantedAuthority::new)
-                    .collect(Collectors.toList());
+        Arrays.stream(claims.get(AUTHORITIES_KEY).toString().split(","))
+            .map(SimpleGrantedAuthority::new)
+            .collect(Collectors.toList());
     return new UsernamePasswordAuthenticationToken(
-            new User(claims.getSubject(), Strings.EMPTY, authorities), token, authorities);
+        new User(claims.getSubject(), Strings.EMPTY, authorities), token, authorities);
   }
 
   public void validateToken(String token) {

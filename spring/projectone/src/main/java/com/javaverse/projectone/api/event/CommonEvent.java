@@ -7,5 +7,5 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public abstract class CommonEvent<T> {
 
-    public final T id;
+  public final T id;
 }

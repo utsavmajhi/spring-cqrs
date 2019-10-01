@@ -13,11 +13,11 @@ import lombok.ToString;
 @JsonIgnoreProperties(value = {"authorities"})
 public class UserDTO extends User {
 
-    public UserCommand.Create toCommandCreate() {
-        return new UserCommand.Create(getId(), getCode(), getName(), getUsername(), getPassword());
-    }
+  public UserCommand.Create toCommandCreate() {
+    return new UserCommand.Create(getId(), getCode(), getName(), getUsername(), getPassword());
+  }
 
-    public UserCommand.Update toCommandUpdate() {
-        return new UserCommand.Update(getId(), getCode(), getName(), getUsername(), getPassword());
-    }
+  public UserCommand.Update toCommandUpdate() {
+    return new UserCommand.Update(getId(), getCode(), getName(), getUsername(), getPassword());
+  }
 }

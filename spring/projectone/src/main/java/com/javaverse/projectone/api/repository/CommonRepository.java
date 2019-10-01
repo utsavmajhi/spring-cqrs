@@ -8,5 +8,4 @@ import java.io.Serializable;
 
 @NoRepositoryBean
 public interface CommonRepository<T, K extends Serializable>
-        extends JpaRepository<T, K>, JpaSpecificationExecutor<T> {
-}
+    extends JpaRepository<T, K>, JpaSpecificationExecutor<T> {}

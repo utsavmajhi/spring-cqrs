@@ -24,57 +24,57 @@ import static org.springframework.web.reactive.function.server.ServerResponse.ok
 @RequiredArgsConstructor
 public class StoreHandler extends CommonHandler<StoreDTO> {
 
-    private final QueryGateway queryGateway;
-    private final CommandGateway commandGateway;
-    private Class<StoreDTO> aClass = StoreDTO.class;
+  private final QueryGateway queryGateway;
+  private final CommandGateway commandGateway;
+  private Class<StoreDTO> aClass = StoreDTO.class;
 
-    public Mono<ServerResponse> find(ServerRequest req) {
-        var mono =
-                Mono.defer(
-                        () ->
-                                Mono.fromFuture(
-                                        queryGateway.query(
-                                                new StoreQuery.Single(id(req)), ResponseTypes.instanceOf(aClass))))
-                        .subscribeOn(Schedulers.parallel());
-        return ok().contentType(MediaType.APPLICATION_JSON)
-                .body(mono, aClass)
-                .switchIfEmpty(notFound().build());
-    }
+  public Mono<ServerResponse> find(ServerRequest req) {
+    var mono =
+        Mono.defer(
+                () ->
+                    Mono.fromFuture(
+                        queryGateway.query(
+                            new StoreQuery.Single(id(req)), ResponseTypes.instanceOf(aClass))))
+            .subscribeOn(Schedulers.parallel());
+    return ok().contentType(MediaType.APPLICATION_JSON)
+        .body(mono, aClass)
+        .switchIfEmpty(notFound().build());
+  }
 
-    public Mono<ServerResponse> findAll(ServerRequest req) {
-        var flux =
-                Flux.defer(
-                        () ->
-                                Flux.fromIterable(
-                                        queryGateway
-                                                .query(
-                                                        new StoreQuery.AllActive(),
-                                                        ResponseTypes.multipleInstancesOf(aClass))
-                                                .join()))
-                        .subscribeOn(Schedulers.parallel());
-        return ok().contentType(MediaType.APPLICATION_JSON)
-                .body(flux, aClass)
-                .switchIfEmpty(notFound().build());
-    }
+  public Mono<ServerResponse> findAll(ServerRequest req) {
+    var flux =
+        Flux.defer(
+                () ->
+                    Flux.fromIterable(
+                        queryGateway
+                            .query(
+                                new StoreQuery.AllActive(),
+                                ResponseTypes.multipleInstancesOf(aClass))
+                            .join()))
+            .subscribeOn(Schedulers.parallel());
+    return ok().contentType(MediaType.APPLICATION_JSON)
+        .body(flux, aClass)
+        .switchIfEmpty(notFound().build());
+  }
 
-    public Mono<ServerResponse> save(ServerRequest req) {
-        return Mono.defer(() -> body(req))
-                .doOnNext(obj -> commandGateway.send(obj.toCommandCreate()))
-                .subscribeOn(Schedulers.parallel())
-                .flatMap(obj -> ok().build());
-    }
+  public Mono<ServerResponse> save(ServerRequest req) {
+    return Mono.defer(() -> body(req))
+        .doOnNext(obj -> commandGateway.send(obj.toCommandCreate()))
+        .subscribeOn(Schedulers.parallel())
+        .flatMap(obj -> ok().build());
+  }
 
-    public Mono<ServerResponse> update(ServerRequest req) {
-        return Mono.defer(() -> body(req))
-                .doOnNext(obj -> commandGateway.send(obj.toCommandUpdate()))
-                .subscribeOn(Schedulers.parallel())
-                .flatMap(obj -> ok().build());
-    }
+  public Mono<ServerResponse> update(ServerRequest req) {
+    return Mono.defer(() -> body(req))
+        .doOnNext(obj -> commandGateway.send(obj.toCommandUpdate()))
+        .subscribeOn(Schedulers.parallel())
+        .flatMap(obj -> ok().build());
+  }
 
-    public Mono<ServerResponse> delete(ServerRequest req) {
-        return Mono.defer(() -> Mono.justOrEmpty(id(req)))
-                .doOnNext(id -> commandGateway.send(new StoreCommand.Delete(id)))
-                .subscribeOn(Schedulers.parallel())
-                .flatMap(obj -> ok().build());
-    }
+  public Mono<ServerResponse> delete(ServerRequest req) {
+    return Mono.defer(() -> Mono.justOrEmpty(id(req)))
+        .doOnNext(id -> commandGateway.send(new StoreCommand.Delete(id)))
+        .subscribeOn(Schedulers.parallel())
+        .flatMap(obj -> ok().build());
+  }
 }

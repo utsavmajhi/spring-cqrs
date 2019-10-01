@@ -11,11 +11,11 @@ import lombok.ToString;
 @EqualsAndHashCode
 public class CompanyDTO extends Company {
 
-    public CompanyCommand.Create toCommandCreate() {
-        return new CompanyCommand.Create(getId(), getCode(), getName());
-    }
+  public CompanyCommand.Create toCommandCreate() {
+    return new CompanyCommand.Create(getId(), getCode(), getName());
+  }
 
-    public CompanyCommand.Update toCommandUpdate() {
-        return new CompanyCommand.Update(getId(), getCode(), getName());
-    }
+  public CompanyCommand.Update toCommandUpdate() {
+    return new CompanyCommand.Update(getId(), getCode(), getName());
+  }
 }

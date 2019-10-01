@@ -6,6 +6,5 @@ import org.axonframework.modelling.command.TargetAggregateIdentifier;
 @RequiredArgsConstructor
 public abstract class CommonCommand<T> {
 
-    @TargetAggregateIdentifier
-    public final T id;
+  @TargetAggregateIdentifier public final T id;
 }

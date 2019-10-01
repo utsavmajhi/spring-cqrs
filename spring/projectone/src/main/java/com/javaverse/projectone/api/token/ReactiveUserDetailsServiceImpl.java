@@ -16,26 +16,26 @@ import java.util.Objects;
 @RequiredArgsConstructor
 public class ReactiveUserDetailsServiceImpl implements ReactiveUserDetailsService {
 
-    private final UserRepository repository;
+  private final UserRepository repository;
 
-    @Override
-    public Mono<UserDetails> findByUsername(String username) {
-        var optional = repository.findByUsername(username);
-        return Mono.justOrEmpty(optional)
-                .filter(Objects::nonNull)
-                .switchIfEmpty(errorBadCredentialsException(username))
-                .map(this::createSpringSecurityUser);
-    }
+  @Override
+  public Mono<UserDetails> findByUsername(String username) {
+    var optional = repository.findByUsername(username);
+    return Mono.justOrEmpty(optional)
+        .filter(Objects::nonNull)
+        .switchIfEmpty(errorBadCredentialsException(username))
+        .map(this::createSpringSecurityUser);
+  }
 
-    private Mono<com.javaverse.projectone.api.entity.User> errorBadCredentialsException(
-            String login) {
-        return Mono.error(
-                new BadCredentialsException(String.format("User %s not found in database", login)));
-    }
+  private Mono<com.javaverse.projectone.api.entity.User> errorBadCredentialsException(
+      String login) {
+    return Mono.error(
+        new BadCredentialsException(String.format("User %s not found in database", login)));
+  }
 
-    private org.springframework.security.core.userdetails.User createSpringSecurityUser(
-            com.javaverse.projectone.api.entity.User user) {
-        return new org.springframework.security.core.userdetails.User(
-                user.getUsername(), user.getPassword(), user.getGrantedAuthorities());
-    }
+  private org.springframework.security.core.userdetails.User createSpringSecurityUser(
+      com.javaverse.projectone.api.entity.User user) {
+    return new org.springframework.security.core.userdetails.User(
+        user.getUsername(), user.getPassword(), user.getGrantedAuthorities());
+  }
 }

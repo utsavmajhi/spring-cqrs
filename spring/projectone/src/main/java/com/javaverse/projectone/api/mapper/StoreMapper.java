@@ -11,17 +11,17 @@ import java.util.stream.Stream;
 @Mapper(injectionStrategy = InjectionStrategy.CONSTRUCTOR)
 public interface StoreMapper {
 
-    @Mappings(value = {@Mapping(target = "version", ignore = true)})
-    StoreDTO map(Store entity);
+  @Mappings(value = {@Mapping(target = "version", ignore = true)})
+  StoreDTO map(Store entity);
 
-    @InheritInverseConfiguration
-    Store map(StoreDTO dto);
+  @InheritInverseConfiguration
+  Store map(StoreDTO dto);
 
-    List<StoreDTO> map(Stream<Store> entities);
+  List<StoreDTO> map(Stream<Store> entities);
 
-    @Mappings(value = {@Mapping(target = "version", ignore = true)})
-    Store map(StoreEvent.Created event);
+  @Mappings(value = {@Mapping(target = "version", ignore = true)})
+  Store map(StoreEvent.Created event);
 
-    @Mappings(value = {@Mapping(target = "version", ignore = true)})
-    Store map(StoreEvent.Updated event);
+  @Mappings(value = {@Mapping(target = "version", ignore = true)})
+  Store map(StoreEvent.Updated event);
 }

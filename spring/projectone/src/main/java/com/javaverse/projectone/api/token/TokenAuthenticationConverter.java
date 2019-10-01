@@ -10,30 +10,30 @@ import reactor.core.publisher.Mono;
 
 @RequiredArgsConstructor
 public class TokenAuthenticationConverter
-        implements Function<ServerWebExchange, Mono<Authentication>> {
+    implements Function<ServerWebExchange, Mono<Authentication>> {
 
-    private static final String BEARER = "Bearer ";
-    private static final Predicate<String> matchBearerLength =
-            authValue -> authValue.length() > BEARER.length();
-    private static final UnaryOperator<String> isolateBearerValue =
-            authValue -> authValue.substring(BEARER.length());
-    private final TokenProvider provider;
+  private static final String BEARER = "Bearer ";
+  private static final Predicate<String> matchBearerLength =
+      authValue -> authValue.length() > BEARER.length();
+  private static final UnaryOperator<String> isolateBearerValue =
+      authValue -> authValue.substring(BEARER.length());
+  private final TokenProvider provider;
 
-    @Override
-    public Mono<Authentication> apply(ServerWebExchange exchange) {
-        return Mono.justOrEmpty(exchange)
-                .map(this::getAuthorization)
-                .filter(Objects::nonNull)
-                .filter(matchBearerLength)
-                .map(isolateBearerValue)
-                .filter(token -> !StringUtils.isEmpty(token))
-                .map(provider::perform)
-                .filter(Objects::nonNull);
-    }
+  @Override
+  public Mono<Authentication> apply(ServerWebExchange exchange) {
+    return Mono.justOrEmpty(exchange)
+        .map(this::getAuthorization)
+        .filter(Objects::nonNull)
+        .filter(matchBearerLength)
+        .map(isolateBearerValue)
+        .filter(token -> !StringUtils.isEmpty(token))
+        .map(provider::perform)
+        .filter(Objects::nonNull);
+  }
 
-    private String getAuthorization(ServerWebExchange exchange) {
-        return Optional.ofNullable(
-                exchange.getRequest().getHeaders().getFirst(HttpHeaders.AUTHORIZATION))
-                .orElse(Strings.EMPTY);
-    }
+  private String getAuthorization(ServerWebExchange exchange) {
+    return Optional.ofNullable(
+            exchange.getRequest().getHeaders().getFirst(HttpHeaders.AUTHORIZATION))
+        .orElse(Strings.EMPTY);
+  }
 }

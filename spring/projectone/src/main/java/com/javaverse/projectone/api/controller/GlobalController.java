@@ -22,80 +22,80 @@ import static org.springframework.web.reactive.function.server.RouterFunctions.r
 @RequiredArgsConstructor
 public class GlobalController {
 
-    private final PerformLogging performLogging;
-    private final HeaderValidator validator;
+  private final PerformLogging performLogging;
+  private final HeaderValidator validator;
 
-    // todo implement caseInsensitive uri
+  // todo implement caseInsensitive uri
 
-    private static RequestPredicate caseInsensitive(RequestPredicate predicate) {
-        return new CaseInsensitiveRequestPredicate(predicate);
-    }
+  private static RequestPredicate caseInsensitive(RequestPredicate predicate) {
+    return new CaseInsensitiveRequestPredicate(predicate);
+  }
 
-    @Bean
-    public RouterFunction<ServerResponse> productFunction(ProductHandler handler) {
-        return route()
-                .path(
-                        "/api/v1/products",
-                        method ->
-                                method
-                                        .GET("/{id}", handler::find)
-                                        .GET("", handler::findAll)
-                                        .POST("", handler::save)
-                                        .PUT("", handler::update)
-                                        .DELETE("/{id}", handler::delete))
-                .filter(performLogging)
-                .filter(validator)
-                .build();
-    }
+  @Bean
+  public RouterFunction<ServerResponse> productFunction(ProductHandler handler) {
+    return route()
+        .path(
+            "/api/v1/products",
+            method ->
+                method
+                    .GET("/{id}", handler::find)
+                    .GET("", handler::findAll)
+                    .POST("", handler::save)
+                    .PUT("", handler::update)
+                    .DELETE("/{id}", handler::delete))
+        .filter(performLogging)
+        .filter(validator)
+        .build();
+  }
 
-    @Bean
-    public RouterFunction<ServerResponse> companyFunction(CompanyHandler handler) {
-        return route()
-                .path(
-                        "/api/v1/companies",
-                        method ->
-                                method
-                                        .GET("/{id}", handler::find)
-                                        .GET("", handler::findAll)
-                                        .POST("", handler::save)
-                                        .PUT("", handler::update)
-                                        .DELETE("/{id}", handler::delete))
-                .filter(performLogging)
-                .filter(validator)
-                .build();
-    }
+  @Bean
+  public RouterFunction<ServerResponse> companyFunction(CompanyHandler handler) {
+    return route()
+        .path(
+            "/api/v1/companies",
+            method ->
+                method
+                    .GET("/{id}", handler::find)
+                    .GET("", handler::findAll)
+                    .POST("", handler::save)
+                    .PUT("", handler::update)
+                    .DELETE("/{id}", handler::delete))
+        .filter(performLogging)
+        .filter(validator)
+        .build();
+  }
 
-    @Bean
-    public RouterFunction<ServerResponse> storeFunction(StoreHandler handler) {
-        return route()
-                .path(
-                        "/api/v1/stores",
-                        method ->
-                                method
-                                        .GET("/{id}", handler::find)
-                                        .GET("", handler::findAll)
-                                        .POST("", handler::save)
-                                        .PUT("", handler::update)
-                                        .DELETE("/{id}", handler::delete))
-                .filter(performLogging)
-                .filter(validator)
-                .build();
-    }
+  @Bean
+  public RouterFunction<ServerResponse> storeFunction(StoreHandler handler) {
+    return route()
+        .path(
+            "/api/v1/stores",
+            method ->
+                method
+                    .GET("/{id}", handler::find)
+                    .GET("", handler::findAll)
+                    .POST("", handler::save)
+                    .PUT("", handler::update)
+                    .DELETE("/{id}", handler::delete))
+        .filter(performLogging)
+        .filter(validator)
+        .build();
+  }
 
-    @Bean
-    public RouterFunction<ServerResponse> userFunction(UserHandler handler) {
-        return route()
-                .path(
-                        "/api/v1/users",
-                        method ->
-                                method
-                                        .GET("/{id}", handler::find)
-                                        .GET("", handler::findAll)
-                                        .POST("", handler::save)
-                                        .PUT("", handler::update)
-                                        .DELETE("/{id}", handler::delete))
-                .filter(performLogging)
-                .filter(validator)
-                .build();
-    }
+  @Bean
+  public RouterFunction<ServerResponse> userFunction(UserHandler handler) {
+    return route()
+        .path(
+            "/api/v1/users",
+            method ->
+                method
+                    .GET("/{id}", handler::find)
+                    .GET("", handler::findAll)
+                    .POST("", handler::save)
+                    .PUT("", handler::update)
+                    .DELETE("/{id}", handler::delete))
+        .filter(performLogging)
+        .filter(validator)
+        .build();
+  }
 }
