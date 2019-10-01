@@ -34,8 +34,10 @@ public class User extends Common implements UserDetails {
           joinColumns = @JoinColumn(name = "users_id", referencedColumnName = "id"),
           inverseJoinColumns = @JoinColumn(name = "authorities_id", referencedColumnName = "id"))
   private Collection<Authority> authorities = new HashSet<>();
+
   @Column(length = 13, unique = true)
   private String code;
+
   @Column(length = 30)
   private String name;
 
