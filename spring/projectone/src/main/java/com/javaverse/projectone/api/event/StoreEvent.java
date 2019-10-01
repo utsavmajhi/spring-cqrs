@@ -1,9 +1,12 @@
 package com.javaverse.projectone.api.event;
 
-import lombok.*;
+import lombok.EqualsAndHashCode;
+import lombok.RequiredArgsConstructor;
+import lombok.Value;
 
 public class StoreEvent {
-    private StoreEvent() {}
+    private StoreEvent() {
+    }
 
     @Value
     @RequiredArgsConstructor
@@ -26,7 +29,14 @@ public class StoreEvent {
         private final String phone;
         private final String address;
 
-        public Updated(Long id, String code, String name, Long companyId, Double averageAmount, String phone, String address) {
+        public Updated(
+                Long id,
+                String code,
+                String name,
+                Long companyId,
+                Double averageAmount,
+                String phone,
+                String address) {
             super(id);
             this.code = code;
             this.name = name;
@@ -44,5 +54,4 @@ public class StoreEvent {
             super(id);
         }
     }
-
 }

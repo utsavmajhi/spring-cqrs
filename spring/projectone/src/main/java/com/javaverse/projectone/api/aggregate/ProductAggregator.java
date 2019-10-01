@@ -2,7 +2,8 @@ package com.javaverse.projectone.api.aggregate;
 
 import com.javaverse.projectone.api.command.ProductCommand;
 import com.javaverse.projectone.api.event.ProductEvent;
-import lombok.*;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.axonframework.commandhandling.CommandHandler;
 import org.axonframework.eventsourcing.EventSourcingHandler;
@@ -63,5 +64,4 @@ public class ProductAggregator {
         log.debug(() -> "EventSourcingHandler : Deleted : " + event);
         setOffsetDateTime(OffsetDateTime.now());
     }
-
 }

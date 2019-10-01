@@ -1,7 +1,8 @@
 package com.javaverse.projectone.api.service;
 
 import com.javaverse.projectone.api.dto.StoreDTO;
-import com.javaverse.projectone.api.entity.*;
+import com.javaverse.projectone.api.entity.Common;
+import com.javaverse.projectone.api.entity.Store;
 import com.javaverse.projectone.api.event.StoreEvent;
 import com.javaverse.projectone.api.mapper.StoreMapper;
 import com.javaverse.projectone.api.query.StoreQuery;
@@ -47,5 +48,4 @@ public class StoreService {
     public List<StoreDTO> on(StoreQuery.AllActive query) {
         return mapper.map(repo.findAllByStatus(Common.Status.ACTIVE));
     }
-
 }

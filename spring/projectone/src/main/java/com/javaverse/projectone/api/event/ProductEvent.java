@@ -1,10 +1,13 @@
 package com.javaverse.projectone.api.event;
 
-import lombok.*;
+import lombok.EqualsAndHashCode;
+import lombok.RequiredArgsConstructor;
+import lombok.Value;
 
 public class ProductEvent {
 
-    private ProductEvent() { }
+    private ProductEvent() {
+    }
 
     @Value
     @RequiredArgsConstructor
@@ -33,5 +36,4 @@ public class ProductEvent {
             super(id);
         }
     }
-
 }

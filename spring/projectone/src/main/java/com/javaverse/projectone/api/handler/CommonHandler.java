@@ -11,7 +11,7 @@ public abstract class CommonHandler<T> {
     }
 
     Mono<T> body(ServerRequest req) {
-        return (Mono<T>) req.bodyToMono(GenericTypeResolver.resolveTypeArgument(getClass(), CommonHandler.class));
+        return (Mono<T>)
+                req.bodyToMono(GenericTypeResolver.resolveTypeArgument(getClass(), CommonHandler.class));
     }
-
 }

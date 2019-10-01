@@ -3,7 +3,9 @@ package com.javaverse.projectone.api.dto;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.javaverse.projectone.api.command.UserCommand;
 import com.javaverse.projectone.api.entity.User;
-import lombok.*;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
 @Data
 @ToString
@@ -18,5 +20,4 @@ public class UserDTO extends User {
     public UserCommand.Update toCommandUpdate() {
         return new UserCommand.Update(getId(), getCode(), getName(), getUsername(), getPassword());
     }
-
 }

@@ -1,15 +1,21 @@
 package com.javaverse.projectone.api.controller;
 
 import com.javaverse.projectone.api.dto.Authentication;
-import com.javaverse.projectone.api.token.*;
+import com.javaverse.projectone.api.token.TokenManager;
+import com.javaverse.projectone.api.token.TokenProvider;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
-import org.springframework.security.authentication.*;
+import org.springframework.security.authentication.BadCredentialsException;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.ReactiveSecurityContextHolder;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Mono;
 
-import javax.validation.*;
+import javax.validation.Valid;
+import javax.validation.Validator;
 
 @Log4j2
 @RestController
@@ -26,11 +32,15 @@ public class AuthenticationController {
         if (!validator.validate(req).isEmpty()) {
             return Mono.error(new BadCredentialsException("Bad Credentials Exception"));
         }
-        var authenticationToken = new UsernamePasswordAuthenticationToken(req.getUsername(), req.getPassword());
+        var authenticationToken =
+                new UsernamePasswordAuthenticationToken(req.getUsername(), req.getPassword());
         ReactiveSecurityContextHolder.withAuthentication(authenticationToken);
-        return manager.authenticate(authenticationToken)
+        return manager
+                .authenticate(authenticationToken)
                 .doOnError(e -> new BadCredentialsException("Bad Credentials Exception"))
-                .map(authenticate -> new Authentication.Response(provider.token(authenticate), provider.refreshToken(authenticate)));
+                .map(
+                        authenticate ->
+                                new Authentication.Response(
+                                        provider.token(authenticate), provider.refreshToken(authenticate)));
     }
-
 }

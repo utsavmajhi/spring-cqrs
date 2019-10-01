@@ -1,6 +1,5 @@
 package com.javaverse.projectone.api.token;
 
-import com.javaverse.projectone.api.token.TokenProvider;
 import lombok.RequiredArgsConstructor;
 import org.apache.logging.log4j.util.Strings;
 import org.springframework.http.HttpHeaders;
@@ -9,15 +8,15 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Mono;
 
-import java.util.*;
-import java.util.function.*;
-
 @RequiredArgsConstructor
-public class TokenAuthenticationConverter implements Function<ServerWebExchange, Mono<Authentication>> {
+public class TokenAuthenticationConverter
+        implements Function<ServerWebExchange, Mono<Authentication>> {
 
     private static final String BEARER = "Bearer ";
-    private static final Predicate<String> matchBearerLength = authValue -> authValue.length() > BEARER.length();
-    private static final UnaryOperator<String> isolateBearerValue = authValue -> authValue.substring(BEARER.length());
+    private static final Predicate<String> matchBearerLength =
+            authValue -> authValue.length() > BEARER.length();
+    private static final UnaryOperator<String> isolateBearerValue =
+            authValue -> authValue.substring(BEARER.length());
     private final TokenProvider provider;
 
     @Override
@@ -33,11 +32,8 @@ public class TokenAuthenticationConverter implements Function<ServerWebExchange,
     }
 
     private String getAuthorization(ServerWebExchange exchange) {
-        return Optional.ofNullable(exchange
-                .getRequest()
-                .getHeaders()
-                .getFirst(HttpHeaders.AUTHORIZATION))
+        return Optional.ofNullable(
+                exchange.getRequest().getHeaders().getFirst(HttpHeaders.AUTHORIZATION))
                 .orElse(Strings.EMPTY);
     }
-
 }

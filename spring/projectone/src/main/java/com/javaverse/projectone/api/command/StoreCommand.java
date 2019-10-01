@@ -19,7 +19,14 @@ public class StoreCommand {
         private final String phone;
         private final String address;
 
-        public Create(Long id, String code, String name, Long companyId, Double averageAmount, String phone, String address) {
+        public Create(
+                Long id,
+                String code,
+                String name,
+                Long companyId,
+                Double averageAmount,
+                String phone,
+                String address) {
             super(id);
             this.code = code;
             this.name = name;
@@ -30,7 +37,7 @@ public class StoreCommand {
         }
 
         public StoreEvent.Created toEvent() {
-            return new StoreEvent.Created(code,name,companyId,averageAmount,phone,address);
+            return new StoreEvent.Created(code, name, companyId, averageAmount, phone, address);
         }
     }
 
@@ -44,8 +51,14 @@ public class StoreCommand {
         private final String phone;
         private final String address;
 
-
-        public Update(Long id, String code, String name, Long companyId, Double averageAmount, String phone, String address) {
+        public Update(
+                Long id,
+                String code,
+                String name,
+                Long companyId,
+                Double averageAmount,
+                String phone,
+                String address) {
             super(id);
             this.code = code;
             this.name = name;
@@ -56,7 +69,7 @@ public class StoreCommand {
         }
 
         public StoreEvent.Updated toEvent() {
-            return new StoreEvent.Updated(id,code,name,companyId,averageAmount,phone,address);
+            return new StoreEvent.Updated(id, code, name, companyId, averageAmount, phone, address);
         }
     }
 
@@ -71,5 +84,4 @@ public class StoreCommand {
             return new StoreEvent.Deleted(id);
         }
     }
-
 }

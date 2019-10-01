@@ -11,9 +11,7 @@ import java.util.stream.Stream;
 @Mapper(injectionStrategy = InjectionStrategy.CONSTRUCTOR)
 public interface ProductMapper {
 
-    @Mappings(value = {
-            @Mapping(target = "version", ignore = true)
-    })
+    @Mappings(value = {@Mapping(target = "version", ignore = true)})
     ProductDTO map(Product entity);
 
     @InheritInverseConfiguration
@@ -21,14 +19,9 @@ public interface ProductMapper {
 
     List<ProductDTO> map(Stream<Product> entities);
 
-    @Mappings(value = {
-            @Mapping(target = "version", ignore = true)
-    })
+    @Mappings(value = {@Mapping(target = "version", ignore = true)})
     Product map(ProductEvent.Created event);
 
-    @Mappings(value = {
-            @Mapping(target = "version", ignore = true)
-    })
+    @Mappings(value = {@Mapping(target = "version", ignore = true)})
     Product map(ProductEvent.Updated event);
-
 }

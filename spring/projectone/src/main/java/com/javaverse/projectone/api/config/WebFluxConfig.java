@@ -5,9 +5,14 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.codec.ServerCodecConfigurer;
-import org.springframework.http.codec.json.*;
-import org.springframework.web.reactive.config.*;
-import org.springframework.web.server.*;
+import org.springframework.http.codec.json.Jackson2JsonDecoder;
+import org.springframework.http.codec.json.Jackson2JsonEncoder;
+import org.springframework.web.reactive.config.CorsRegistry;
+import org.springframework.web.reactive.config.EnableWebFlux;
+import org.springframework.web.reactive.config.WebFluxConfigurer;
+import org.springframework.web.server.ServerWebExchange;
+import org.springframework.web.server.WebFilter;
+import org.springframework.web.server.WebFilterChain;
 import reactor.core.publisher.Mono;
 
 @Configuration
@@ -24,11 +29,17 @@ public class WebFluxConfig implements WebFluxConfigurer, WebFilter {
 
     @Override
     public void addCorsMappings(CorsRegistry corsRegistry) {
-        corsRegistry.addMapping("/**")
+        corsRegistry
+                .addMapping("/**")
                 .allowedOrigins("*")
-                .allowedMethods(HttpMethod.GET.name(), HttpMethod.POST.name(), HttpMethod.PUT.name(), HttpMethod.PATCH.name(), HttpMethod.DELETE.name())
-//                .allowedHeaders("")
-//                .exposedHeaders("")
+                .allowedMethods(
+                        HttpMethod.GET.name(),
+                        HttpMethod.POST.name(),
+                        HttpMethod.PUT.name(),
+                        HttpMethod.PATCH.name(),
+                        HttpMethod.DELETE.name())
+                //                .allowedHeaders("")
+                //                .exposedHeaders("")
                 .maxAge(3600);
     }
 
@@ -37,5 +48,4 @@ public class WebFluxConfig implements WebFluxConfigurer, WebFilter {
         configurer.defaultCodecs().jackson2JsonEncoder(new Jackson2JsonEncoder(objectMapper));
         configurer.defaultCodecs().jackson2JsonDecoder(new Jackson2JsonDecoder(objectMapper));
     }
-
 }

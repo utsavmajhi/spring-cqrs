@@ -17,8 +17,8 @@ apply plugin: 'io.spring.dependency-management'
 
 group = 'com.javaverse'
 version = '0.0.1'
-sourceCompatibility = '12'
-targetCompatibility = '12'
+sourceCompatibility = '13'
+targetCompatibility = '13'
 
 configurations {
     developmentOnly
@@ -33,7 +33,6 @@ configurations {
         exclude group: 'org.axonframework', module: 'axon-server-connector'
     }
 }
-
 
 
 repositories {
@@ -54,7 +53,7 @@ dependencies {
     compileOnly 'org.projectlombok:lombok'
 
     compile 'org.axonframework:axon-spring-boot-starter:4.1.1'
-    
+
     implementation 'org.javassist:javassist:3.22.0-GA'
     implementation 'io.jsonwebtoken:jjwt:0.9.1'
     implementation 'javax.xml.bind:jaxb-api'

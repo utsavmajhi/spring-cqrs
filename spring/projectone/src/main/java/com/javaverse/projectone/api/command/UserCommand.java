@@ -1,11 +1,13 @@
 package com.javaverse.projectone.api.command;
 
-import com.javaverse.projectone.api.event.*;
-import lombok.*;
+import com.javaverse.projectone.api.event.UserEvent;
+import lombok.EqualsAndHashCode;
+import lombok.Value;
 
 public class UserCommand {
 
-    private UserCommand() { }
+    private UserCommand() {
+    }
 
     @Value
     @EqualsAndHashCode
@@ -24,7 +26,7 @@ public class UserCommand {
         }
 
         public UserEvent.Created toEvent() {
-            return new UserEvent.Created(code, name,username,password);
+            return new UserEvent.Created(code, name, username, password);
         }
     }
 
@@ -46,7 +48,7 @@ public class UserCommand {
         }
 
         public UserEvent.Updated toEvent() {
-            return new UserEvent.Updated(id, code, name,username,password);
+            return new UserEvent.Updated(id, code, name, username, password);
         }
     }
 
@@ -61,5 +63,4 @@ public class UserCommand {
             return new UserEvent.Deleted(id);
         }
     }
-
 }

@@ -4,7 +4,8 @@ import lombok.Value;
 
 public class UserQuery {
 
-    private UserQuery() { }
+    private UserQuery() {
+    }
 
     @Value
     public static class Single {
@@ -13,7 +14,5 @@ public class UserQuery {
 
     @Value
     public static class AllActive {
-
     }
-
 }

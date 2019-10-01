@@ -13,13 +13,16 @@ import org.springframework.http.codec.multipart.FilePart;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.BodyExtractors;
 import org.springframework.web.reactive.function.BodyInserters;
-import org.springframework.web.reactive.function.server.*;
-import reactor.core.publisher.*;
+import org.springframework.web.reactive.function.server.ServerRequest;
+import org.springframework.web.reactive.function.server.ServerResponse;
+import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 import reactor.core.scheduler.Schedulers;
 
 import java.io.File;
 
-import static org.springframework.web.reactive.function.server.ServerResponse.*;
+import static org.springframework.web.reactive.function.server.ServerResponse.notFound;
+import static org.springframework.web.reactive.function.server.ServerResponse.ok;
 
 @Log4j2
 @Component
@@ -31,21 +34,30 @@ public class UserHandler extends CommonHandler<UserDTO> {
     private Class<UserDTO> aClass = UserDTO.class;
 
     public Mono<ServerResponse> find(ServerRequest req) {
-        var mono = Mono.defer(() -> Mono.fromFuture(
-                queryGateway.query(new UserQuery.Single(id(req)), ResponseTypes.instanceOf(aClass)))
-        ).subscribeOn(Schedulers.parallel());
-        return ok()
-                .contentType(MediaType.APPLICATION_JSON)
+        var mono =
+                Mono.defer(
+                        () ->
+                                Mono.fromFuture(
+                                        queryGateway.query(
+                                                new UserQuery.Single(id(req)), ResponseTypes.instanceOf(aClass))))
+                        .subscribeOn(Schedulers.parallel());
+        return ok().contentType(MediaType.APPLICATION_JSON)
                 .body(mono, aClass)
                 .switchIfEmpty(notFound().build());
     }
 
     public Mono<ServerResponse> findAll(ServerRequest req) {
-        var flux = Flux.defer(() -> Flux.fromIterable(
-                queryGateway.query(new UserQuery.AllActive(), ResponseTypes.multipleInstancesOf(aClass)).join()
-        )).subscribeOn(Schedulers.parallel());
-        return ok()
-                .contentType(MediaType.APPLICATION_JSON)
+        var flux =
+                Flux.defer(
+                        () ->
+                                Flux.fromIterable(
+                                        queryGateway
+                                                .query(
+                                                        new UserQuery.AllActive(),
+                                                        ResponseTypes.multipleInstancesOf(aClass))
+                                                .join()))
+                        .subscribeOn(Schedulers.parallel());
+        return ok().contentType(MediaType.APPLICATION_JSON)
                 .body(flux, aClass)
                 .switchIfEmpty(notFound().build());
     }
@@ -72,14 +84,14 @@ public class UserHandler extends CommonHandler<UserDTO> {
     }
 
     public Mono<ServerResponse> upload(ServerRequest req) {
-        return req.body(BodyExtractors.toMultipartData()).flatMap(part -> {
-            var map = part.toSingleValueMap();
-            var filePart = (FilePart)map.get("file");
-            var fileName = filePart.filename();
-            filePart.transferTo(new File("/tmp/"+fileName));
-            return ServerResponse.ok().body(BodyInserters.fromObject("OK"));
-        });
+        return req.body(BodyExtractors.toMultipartData())
+                .flatMap(
+                        part -> {
+                            var map = part.toSingleValueMap();
+                            var filePart = (FilePart) map.get("file");
+                            var fileName = filePart.filename();
+                            filePart.transferTo(new File("/tmp/" + fileName));
+                            return ServerResponse.ok().body(BodyInserters.fromObject("OK"));
+                        });
     }
-
-
 }

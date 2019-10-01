@@ -4,7 +4,8 @@ import lombok.Value;
 
 public class CompanyQuery {
 
-    private CompanyQuery() { }
+    private CompanyQuery() {
+    }
 
     @Value
     public static class Single {
@@ -13,7 +14,5 @@ public class CompanyQuery {
 
     @Value
     public static class AllActive {
-
     }
-
 }

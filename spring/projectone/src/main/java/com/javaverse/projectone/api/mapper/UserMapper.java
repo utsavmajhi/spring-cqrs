@@ -11,9 +11,7 @@ import java.util.stream.Stream;
 @Mapper(injectionStrategy = InjectionStrategy.CONSTRUCTOR)
 public interface UserMapper {
 
-    @Mappings(value = {
-            @Mapping(target = "version", ignore = true)
-    })
+    @Mappings(value = {@Mapping(target = "version", ignore = true)})
     UserDTO map(User entity);
 
     @InheritInverseConfiguration
@@ -21,14 +19,9 @@ public interface UserMapper {
 
     List<UserDTO> map(Stream<User> entities);
 
-    @Mappings(value = {
-            @Mapping(target = "version", ignore = true)
-    })
+    @Mappings(value = {@Mapping(target = "version", ignore = true)})
     User map(UserEvent.Created event);
 
-    @Mappings(value = {
-            @Mapping(target = "version", ignore = true)
-    })
+    @Mappings(value = {@Mapping(target = "version", ignore = true)})
     User map(UserEvent.Updated event);
-
 }

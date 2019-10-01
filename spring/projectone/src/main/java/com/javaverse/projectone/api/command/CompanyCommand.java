@@ -1,11 +1,13 @@
 package com.javaverse.projectone.api.command;
 
 import com.javaverse.projectone.api.event.CompanyEvent;
-import lombok.*;
+import lombok.EqualsAndHashCode;
+import lombok.Value;
 
 public class CompanyCommand {
 
-    private CompanyCommand() { }
+    private CompanyCommand() {
+    }
 
     @Value
     @EqualsAndHashCode
@@ -52,5 +54,4 @@ public class CompanyCommand {
             return new CompanyEvent.Deleted(id);
         }
     }
-
 }

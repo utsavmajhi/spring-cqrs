@@ -27,12 +27,11 @@ public class FileController {
         return Mono.just(req);
     }
 
-
     @ResponseBody
     @PostMapping(consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-    public Mono file(@RequestPart("image") FilePart image,@RequestPart("name") String name) {
+    public Mono file(@RequestPart("image") FilePart image, @RequestPart("name") String name) {
 
-        System.out.println("name : "+name);
+        System.out.println("name : " + name);
         System.out.println("file name : " + image.filename());
         File file = new File(image.filename());
         file.delete();
@@ -42,5 +41,4 @@ public class FileController {
 
         return Mono.empty();
     }
-
 }

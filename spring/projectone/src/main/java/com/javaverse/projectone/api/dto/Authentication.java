@@ -1,16 +1,18 @@
 package com.javaverse.projectone.api.dto;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.validation.constraints.NotEmpty;
 
 /**
  * View Model object for storing a user's credentials.
  */
-
 public final class Authentication {
 
-    private Authentication() {}
+    private Authentication() {
+    }
 
     @Data
     @NoArgsConstructor
@@ -31,6 +33,5 @@ public final class Authentication {
         private String token;
         @NotEmpty
         private String refreshToken;
-    }
-
+  }
 }

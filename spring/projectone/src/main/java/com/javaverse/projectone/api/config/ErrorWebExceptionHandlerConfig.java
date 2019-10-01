@@ -9,7 +9,10 @@ import org.springframework.core.annotation.Order;
 import org.springframework.http.codec.ServerCodecConfigurer;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.BodyInserters;
-import org.springframework.web.reactive.function.server.*;
+import org.springframework.web.reactive.function.server.RequestPredicates;
+import org.springframework.web.reactive.function.server.RouterFunction;
+import org.springframework.web.reactive.function.server.ServerRequest;
+import org.springframework.web.reactive.function.server.ServerResponse;
 import reactor.core.publisher.Mono;
 
 import java.time.OffsetDateTime;
@@ -24,14 +27,18 @@ import static org.springframework.web.reactive.function.server.ServerResponse.st
 @Component
 public class ErrorWebExceptionHandlerConfig extends AbstractErrorWebExceptionHandler {
 
-    public ErrorWebExceptionHandlerConfig(final ErrorAttributes errorAttributes, final ApplicationContext applicationContext, final ServerCodecConfigurer configurer) {
+    public ErrorWebExceptionHandlerConfig(
+            final ErrorAttributes errorAttributes,
+            final ApplicationContext applicationContext,
+            final ServerCodecConfigurer configurer) {
         super(errorAttributes, new ResourceProperties(), applicationContext);
         super.setMessageWriters(configurer.getWriters());
         super.setMessageReaders(configurer.getReaders());
     }
 
     @Override
-    protected RouterFunction<ServerResponse> getRoutingFunction(final ErrorAttributes errorAttributes) {
+    protected RouterFunction<ServerResponse> getRoutingFunction(
+            final ErrorAttributes errorAttributes) {
         return route(RequestPredicates.all(), this::renderErrorResponse);
     }
 
@@ -39,16 +46,19 @@ public class ErrorWebExceptionHandlerConfig extends AbstractErrorWebExceptionHan
         final var error = getError(request);
         final var errorAttributes = super.getErrorAttributes(request, false);
         if (error instanceof Exception) {
-//            log.error("Caught an instance of: {}, err: {}", Exception.class, error);
-//            final var errorStatus = ((DomainException) error).getStatus();
+            //            log.error("Caught an instance of: {}, err: {}", Exception.class, error);
+            //            final var errorStatus = ((DomainException) error).getStatus();
         }
-        var map = Map.of(
-                "timestamp", OffsetDateTime.now()
-                , "exception", error.getClass().getSimpleName()
-                , "message", errorAttributes.get("message"));
+        var map =
+                Map.of(
+                        "timestamp",
+                        OffsetDateTime.now(),
+                        "exception",
+                        error.getClass().getSimpleName(),
+                        "message",
+                        errorAttributes.get("message"));
         return status(BAD_REQUEST)
-//                .contentType(APPLICATION_JSON)
+                //                .contentType(APPLICATION_JSON)
                 .body(BodyInserters.fromObject(map));
     }
-
 }

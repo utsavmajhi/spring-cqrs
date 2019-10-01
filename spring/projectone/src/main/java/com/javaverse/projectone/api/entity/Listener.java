@@ -1,6 +1,7 @@
 package com.javaverse.projectone.api.entity;
 
-import javax.persistence.*;
+import javax.persistence.PrePersist;
+import javax.persistence.PreUpdate;
 import java.time.OffsetDateTime;
 
 class Listener<T extends Common> {
@@ -14,5 +15,4 @@ class Listener<T extends Common> {
     private void preUpdate(T e) {
         e.setUpdatedDate(OffsetDateTime.now());
     }
-
 }

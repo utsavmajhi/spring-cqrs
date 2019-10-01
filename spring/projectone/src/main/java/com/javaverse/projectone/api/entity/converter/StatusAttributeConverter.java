@@ -1,8 +1,10 @@
 package com.javaverse.projectone.api.entity.converter;
 
-import com.javaverse.projectone.api.entity.*;
+import com.javaverse.projectone.api.entity.Common;
+import com.javaverse.projectone.api.entity.Product;
 
-import javax.persistence.*;
+import javax.persistence.AttributeConverter;
+import javax.persistence.Converter;
 import java.util.Objects;
 
 @Converter(autoApply = true)
@@ -17,5 +19,4 @@ public class StatusAttributeConverter implements AttributeConverter<Common.Statu
     public Product.Status convertToEntityAttribute(String code) {
         return Objects.isNull(code) ? null : Common.Status.toStatus(code);
     }
-
 }

@@ -2,7 +2,9 @@ package com.javaverse.projectone.api.dto;
 
 import com.javaverse.projectone.api.command.ProductCommand;
 import com.javaverse.projectone.api.entity.Product;
-import lombok.*;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
 @Data
 @ToString
@@ -16,5 +18,4 @@ public class ProductDTO extends Product {
     public ProductCommand.Update toCommandUpdate() {
         return new ProductCommand.Update(getId(), getCode(), getName());
     }
-
 }

@@ -8,5 +8,4 @@ public abstract class CommonCommand<T> {
 
     @TargetAggregateIdentifier
     public final T id;
-
 }

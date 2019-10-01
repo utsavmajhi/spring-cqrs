@@ -1,7 +1,8 @@
 package com.javaverse.projectone.api.service;
 
 import com.javaverse.projectone.api.dto.CompanyDTO;
-import com.javaverse.projectone.api.entity.*;
+import com.javaverse.projectone.api.entity.Common;
+import com.javaverse.projectone.api.entity.Company;
 import com.javaverse.projectone.api.event.CompanyEvent;
 import com.javaverse.projectone.api.mapper.CompanyMapper;
 import com.javaverse.projectone.api.query.CompanyQuery;
@@ -47,5 +48,4 @@ public class CompanyService {
     public List<CompanyDTO> on(CompanyQuery.AllActive query) {
         return mapper.map(repo.findAllByStatus(Common.Status.ACTIVE));
     }
-
 }

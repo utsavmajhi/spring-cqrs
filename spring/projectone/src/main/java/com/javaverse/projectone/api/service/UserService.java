@@ -1,11 +1,13 @@
 package com.javaverse.projectone.api.service;
 
 import com.javaverse.projectone.api.dto.UserDTO;
-import com.javaverse.projectone.api.entity.*;
+import com.javaverse.projectone.api.entity.Common;
+import com.javaverse.projectone.api.entity.User;
 import com.javaverse.projectone.api.event.UserEvent;
 import com.javaverse.projectone.api.mapper.UserMapper;
 import com.javaverse.projectone.api.query.UserQuery;
-import com.javaverse.projectone.api.repository.*;
+import com.javaverse.projectone.api.repository.AuthorityRepository;
+import com.javaverse.projectone.api.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.axonframework.eventhandling.EventHandler;
 import org.axonframework.queryhandling.QueryHandler;
@@ -52,5 +54,4 @@ public class UserService {
     public List<UserDTO> on(UserQuery.AllActive query) {
         return mapper.map(repo.findAllByStatus(Common.Status.ACTIVE));
     }
-
 }

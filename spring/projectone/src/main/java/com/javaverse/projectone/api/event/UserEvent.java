@@ -1,9 +1,12 @@
 package com.javaverse.projectone.api.event;
 
-import lombok.*;
+import lombok.EqualsAndHashCode;
+import lombok.RequiredArgsConstructor;
+import lombok.Value;
 
 public class UserEvent {
-    private UserEvent() {}
+    private UserEvent() {
+    }
 
     @Value
     @RequiredArgsConstructor
@@ -38,5 +41,4 @@ public class UserEvent {
             super(id);
         }
     }
-
 }

@@ -1,6 +1,7 @@
 package com.javaverse.projectone.api.repository;
 
-import com.javaverse.projectone.api.entity.*;
+import com.javaverse.projectone.api.entity.Common;
+import com.javaverse.projectone.api.entity.User;
 import org.springframework.stereotype.Repository;
 
 import java.util.Optional;

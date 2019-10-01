@@ -5,7 +5,8 @@ import org.jasypt.encryption.StringEncryptor;
 import org.jasypt.encryption.pbe.PooledPBEStringEncryptor;
 import org.jasypt.encryption.pbe.config.SimpleStringPBEConfig;
 import org.jasypt.salt.RandomSaltGenerator;
-import org.springframework.context.annotation.*;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class JasyptConfig {
@@ -25,12 +26,11 @@ public class JasyptConfig {
         return encryptor;
     }
 
-
-//    public static void main(String[] args) {
-//        JasyptConfig config  = new JasyptConfig();
-//        String enc = config.commonEncryptor().encrypt("120000");
-//        System.out.println(enc);
-//        System.out.println(config.commonEncryptor().decrypt(enc));
-//    }
+    //    public static void main(String[] args) {
+    //        JasyptConfig config  = new JasyptConfig();
+    //        String enc = config.commonEncryptor().encrypt("120000");
+    //        System.out.println(enc);
+    //        System.out.println(config.commonEncryptor().decrypt(enc));
+    //    }
 
 }
